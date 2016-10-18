@@ -1,0 +1,32 @@
+<ui:UiBinder
+  xmlns:ui='urn:ui:com.google.gwt.uibinder'
+  xmlns:g='urn:import:com.google.gwt.user.client.ui'
+  xmlns:main='urn:import:com.lfs.ss.gae.client.main'  
+  >
+  <ui:style>
+  .shortcuts {
+    border: 1px solid #666;
+  }
+  </ui:style>
+  <g:StackLayoutPanel unit='EM' styleName='{style.shortcuts}'  >
+    <g:stack>
+      <g:header size='3' >
+        <nav class="sidebar">
+          <ul><li class="active"><a href="#"><i class="icon-home"></i>2014年资讯</a></li></ul>
+        </nav>
+      </g:header>
+      <main:Shortcuts ui:field='tree_2014' />
+    </g:stack>
+    <g:stack>
+      <g:header size='3'>
+        <nav class="sidebar">
+          <ul><li class="stick"><a href="#"><i class="icon-home"></i>2013年资讯</a></li></ul>
+        </nav>
+      </g:header>
+      <main:Shortcuts ui:field='tree_2013' />
+    </g:stack>
+  </g:StackLayoutPanel>
+  
+
+  
+</ui:UiBinder>

@@ -1,9 +1,11 @@
 var express = require('express');
 var app = express();
-app.get('/',function(req,res){
-    res.send('hello world!1');
-})
 
+app.use(express.static('root'));
+
+app.get('/xxx',function(req,res){
+	res.send('root');
+})
 var server = app.listen(3001,function(){
     var host = server.address().address;
     var port = server.address().port;

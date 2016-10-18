@@ -1,0 +1,29 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+  xmlns:g='urn:import:com.google.gwt.user.client.ui'
+  xmlns:mail='urn:import:com.lfs.ss.gae.client'>
+
+  <ui:style>
+  .detail {
+    border: 1px solid #666;
+    background-color: white;
+  }
+  </ui:style>
+
+  <g:DockLayoutPanel unit='EM' styleName='{style.detail}'>
+    <g:north size='6'>
+      <g:HTMLPanel>
+        <button class="command-button"  style="width:100%;height:100%;border-bottom: 1px solid #666;">
+            <i class="icon-share-3 on-left"></i><b ui:field='title'></b>
+            <small><span ui:field='author' /><span ui:field='tags'/></small>
+        </button>
+      </g:HTMLPanel>
+    </g:north>
+
+    <g:center>
+      <g:ScrollPanel>
+      <g:HTML ui:field='content' wordWrap='true' />
+      </g:ScrollPanel>
+    </g:center>
+  </g:DockLayoutPanel>
+
+</ui:UiBinder>
