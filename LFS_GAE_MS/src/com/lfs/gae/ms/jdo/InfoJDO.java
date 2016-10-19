@@ -95,4 +95,16 @@ public class InfoJDO  {
 			PersistenceManager pm = PMF.get();
 			pm.newQuery(Info.class).deletePersistentAll();
 		}
+		public void delete(Info info){
+			PersistenceManager pm = PMF.get();
+			pm.deletePersistent(info);
+		}
+		@SuppressWarnings("unchecked")
+		public List<Info> get20()  {
+			PersistenceManager pm = PMF.get();
+			javax.jdo.Query q = pm.newQuery(Info.class);
+			q.setOrdering("create_date asc");
+			q.setRange(0, 19);
+			return (List<Info>)q.execute();
+		}	
 }
