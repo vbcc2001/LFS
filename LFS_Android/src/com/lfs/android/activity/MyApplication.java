@@ -3,6 +3,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lfs.android.object.BTFile;
 import com.lfs.android.object.Info;
 import com.lfs.android.object.User;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
@@ -17,10 +18,11 @@ public class MyApplication extends Application {
 	
 	public static MyApplication instance ;
 	public static Context context;
-	public List<Info> infoList = new ArrayList<Info>(); //信息list
-	public Info currentInfo = new Info() ;//当前打开的信息
-	public User user = new User();//用户登录信息
-	public String titleName="";//标题名
+	public List<Info> info_list = new ArrayList<Info>(); 
+	public List<BTFile> bt_file_list = new ArrayList<BTFile>(); 
+	public Info currentInfo = new Info() ;
+	public User user = new User();
+	public String titleName="";
 	@Override
 	public void onCreate() {
 		super.onCreate();
@@ -28,7 +30,6 @@ public class MyApplication extends Application {
 		context = this.getApplicationContext();
 		initImageLoader(context);
 	}
-    /**初始化图片加载类配置信息**/
     public static void initImageLoader(Context context) {
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)
             .threadPriority(Thread.NORM_PRIORITY - 2)//加载图片的线程数

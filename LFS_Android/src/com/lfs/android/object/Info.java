@@ -1,6 +1,7 @@
 package com.lfs.android.object;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Info   {
@@ -13,6 +14,7 @@ public class Info   {
 	private List<String> size = new ArrayList<String>();
 	private List<String> download_url = new ArrayList<String>();
 	private List<String> tag = new ArrayList<String>();
+	private Date  create_date = new Date();
 	public Key getKey() {
 		return key;
 	}
@@ -66,5 +68,11 @@ public class Info   {
 	}
 	public void setSource(String source) {
 		this.source = source;
+	}
+	public Date getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(Date create_date) {
+		this.create_date = create_date;
 	}	
 }

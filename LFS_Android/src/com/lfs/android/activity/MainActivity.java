@@ -1,67 +1,38 @@
 package com.lfs.android.activity;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
-import android.view.MenuItem;
+import android.view.MenuInflater;
 
 import com.lfs.android.R;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 	
-//	DisplayImageOptions options; //配置图片加载及显示选项
-//	String[] imageUrls;
-	
+    private NavigationDrawerFragment navigation_drawer_fragment;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		if (savedInstanceState == null) {
-			getFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment()).commit();
-		}
-//		this.
-//		imageUrls =Constants.IMAGES;
-//
-//		listView = (ListView) findViewById(android.R.id.list);
-//		//绑定适配器
-//		listView.setAdapter(new ItemAdapter());
-//		listView.setOnItemClickListener(new OnItemClickListener() {
-//			@Override
-//			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//				//startImagePagerActivity(position);
-//			}
-//		});
+		navigation_drawer_fragment = (NavigationDrawerFragment) this.getFragmentManager().findFragmentById(R.id.navigation_drawer);
+		navigation_drawer_fragment.setUp( (DrawerLayout) findViewById(R.id.drawer_layout));
 	}
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+	public void onNavigationDrawerItemSelected(int position) {
+        FragmentManager fragmentManager = this.getFragmentManager();
+        if(position==2){
+        	 fragmentManager.beginTransaction().replace(R.id.container, BTFileFragment.newInstance(position)).commit();
+        }else{
+        	 fragmentManager.beginTransaction().replace(R.id.container, PlaceholderFragment.newInstance(position + 1)).commit();
+        }
+       
 	}
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-	@Override
-	public void onBackPressed() {
-		//AnimateFirstDisplayListener.displayedImages.clear();
-		super.onBackPressed();
-	}
-
-//	private void startImagePagerActivity(int position) {
-//		Intent intent = new Intent(this, ImagePagerActivity.class);
-//		intent.putExtra(Extra.IMAGES, imageUrls);
-//		intent.putExtra(Extra.IMAGE_POSITION, position);
-//		startActivity(intent);
-//	}
-
-
+    @Override  
+    public boolean onCreateOptionsMenu(Menu menu)  {  
+        MenuInflater inflater = getMenuInflater();  
+        inflater.inflate(R.menu.main, menu);  
+        return true;  
+    }  
 }
-
-
-
-
-

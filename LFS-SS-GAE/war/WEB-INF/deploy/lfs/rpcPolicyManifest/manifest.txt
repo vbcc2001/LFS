@@ -1,2 +1,0 @@
-# Module lfs
-# RPC service class, partial path of RPC policy file

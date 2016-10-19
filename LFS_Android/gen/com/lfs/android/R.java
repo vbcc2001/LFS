@@ -9,40 +9,206 @@ package com.lfs.android;
 
 public final class R {
     public static final class attr {
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int dividerWidth=0x7f010000;
     }
     public static final class dimen {
-        /**  Default screen margins, per the Android Design guidelines. 
+        /** 
+         Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
+    
          */
         public static final int activity_horizontal_margin=0x7f040000;
         public static final int activity_vertical_margin=0x7f040001;
+        public static final int drop_down_list_footer_button_height=0x7f040009;
+        public static final int drop_down_list_footer_button_margin_left=0x7f040008;
+        public static final int drop_down_list_footer_progress_bar_height=0x7f040007;
+        public static final int drop_down_list_header_padding_bottom=0x7f040004;
+        public static final int drop_down_list_header_padding_top=0x7f040003;
+        public static final int drop_down_list_header_progress_bar_height=0x7f040006;
+        public static final int drop_down_list_header_release_min_distance=0x7f040005;
+        public static final int navigation_drawer_width=0x7f040002;
     }
     public static final class drawable {
-        public static final int ic_empty=0x7f020000;
-        public static final int ic_error=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
+        public static final int drawer_shadow=0x7f020000;
+        public static final int drop_down_list_arrow=0x7f020001;
+        public static final int ic_drawer=0x7f020002;
+        public static final int ic_empty=0x7f020003;
+        public static final int ic_error=0x7f020004;
+        public static final int ic_launcher=0x7f020005;
+        public static final int ic_pulltorefresh_arrow=0x7f020006;
+        public static final int ic_stub=0x7f020007;
+        public static final int pull_to_refresh_header_background=0x7f020008;
     }
     public static final class id {
-        public static final int action_settings=0x7f080003;
-        public static final int container=0x7f080000;
-        public static final int image=0x7f080001;
-        public static final int text=0x7f080002;
+        public static final int bt_list=0x7f080003;
+        public static final int container=0x7f080001;
+        public static final int content=0x7f080016;
+        public static final int content_state=0x7f080017;
+        public static final int download_button=0x7f080018;
+        public static final int download_precent=0x7f080006;
+        public static final int download_progress=0x7f080008;
+        public static final int download_size=0x7f080007;
+        public static final int drawer_layout=0x7f080000;
+        public static final int drop_down_list_footer_button=0x7f08000b;
+        public static final int drop_down_list_footer_progress_bar=0x7f08000a;
+        public static final int drop_down_list_header_default_text=0x7f08000f;
+        public static final int drop_down_list_header_default_text_layout=0x7f08000d;
+        public static final int drop_down_list_header_image=0x7f08000e;
+        public static final int drop_down_list_header_progress_bar=0x7f08000c;
+        public static final int drop_down_list_header_second_text=0x7f080010;
+        public static final int file_delete1=0x7f080004;
+        public static final int file_title=0x7f080005;
+        public static final int image=0x7f080014;
+        public static final int image_pager=0x7f080013;
+        public static final int info_date=0x7f08001c;
+        public static final int info_image_layout=0x7f080019;
+        public static final int info_image_list=0x7f08001a;
+        public static final int info_list=0x7f080011;
+        public static final int info_year=0x7f08001b;
+        public static final int loading=0x7f080015;
+        public static final int loading_main=0x7f080012;
+        public static final int menu_search=0x7f080024;
+        public static final int menu_settings=0x7f080026;
+        public static final int menu_tags=0x7f080025;
+        public static final int navigation_drawer=0x7f080002;
+        public static final int pull_to_refresh_header=0x7f08001f;
+        public static final int pull_to_refresh_image=0x7f080021;
+        public static final int pull_to_refresh_progress=0x7f080020;
+        public static final int pull_to_refresh_text=0x7f080022;
+        public static final int pull_to_refresh_updated_at=0x7f080023;
+        public static final int save_path=0x7f080009;
+        public static final int tag=0x7f08001e;
+        public static final int title=0x7f08001d;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int fragment_main=0x7f030001;
-        public static final int item_list_image=0x7f030002;
+        public static final int bt_file_fragment=0x7f030001;
+        public static final int bt_file_list_item=0x7f030002;
+        public static final int drop_down_list_footer=0x7f030003;
+        public static final int drop_down_list_header=0x7f030004;
+        public static final int fragment_main=0x7f030005;
+        public static final int fragment_navigation_drawer=0x7f030006;
+        public static final int image_pager=0x7f030007;
+        public static final int image_pager_item=0x7f030008;
+        public static final int info_list_item=0x7f030009;
+        public static final int info_list_item_content=0x7f03000a;
+        public static final int info_list_item_foot=0x7f03000b;
+        public static final int info_list_item_image_list=0x7f03000c;
+        public static final int info_list_item_image_list_item=0x7f03000d;
+        public static final int info_list_item_title=0x7f03000e;
+        public static final int pull_to_refresh_header=0x7f03000f;
     }
     public static final class menu {
         public static final int main=0x7f070000;
     }
     public static final class string {
-        public static final int action_settings=0x7f050001;
-        public static final int app_name=0x7f050000;
+        public static final int app_name=0x7f050006;
+        public static final int descr_image=0x7f050016;
+        public static final int drop_down_list_footer_default_text=0x7f050013;
+        public static final int drop_down_list_footer_loading_text=0x7f050014;
+        public static final int drop_down_list_footer_no_more_text=0x7f050015;
+        public static final int drop_down_list_header_default_text=0x7f05000f;
+        public static final int drop_down_list_header_loading_text=0x7f050012;
+        public static final int drop_down_list_header_pull_text=0x7f050010;
+        public static final int drop_down_list_header_release_text=0x7f050011;
+        public static final int loading=0x7f05000a;
+        public static final int menu_search=0x7f050009;
+        public static final int menu_settings=0x7f050008;
+        public static final int menu_tags=0x7f050007;
+        public static final int more=0x7f050017;
+        public static final int navigation_drawer_close=0x7f050005;
+        public static final int navigation_drawer_open=0x7f050004;
+        public static final int no_content=0x7f050018;
+        public static final int pull_to_refresh_pull_label=0x7f05000b;
+        public static final int pull_to_refresh_refreshing_label=0x7f05000d;
+        public static final int pull_to_refresh_release_label=0x7f05000c;
+        public static final int pull_to_refresh_tap_label=0x7f05000e;
+        public static final int test=0x7f050000;
+        public static final int title_section1=0x7f050001;
+        public static final int title_section2=0x7f050002;
+        public static final int title_section3=0x7f050003;
     }
     public static final class style {
+        /** 
+        Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml on API 14+ devices.
+    
+ API 14 theme customizations can go here. 
+         */
         public static final int AppBaseTheme=0x7f060000;
         /**  Application theme. 
          */
         public static final int AppTheme=0x7f060001;
+        public static final int drop_down_list_footer_font_style=0x7f060006;
+        public static final int drop_down_list_footer_progress_bar_style=0x7f060003;
+        public static final int drop_down_list_header_font_style=0x7f060004;
+        public static final int drop_down_list_header_progress_bar_style=0x7f060002;
+        public static final int drop_down_list_header_second_font_style=0x7f060005;
     }
+    public static final class styleable {
+        /**  Defines the custom XML attributes supported for a HorizontalListView 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #HorizontalListView_android_divider android:divider}</code></td><td></td></tr>
+           <tr><td><code>{@link #HorizontalListView_android_fadingEdgeLength android:fadingEdgeLength}</code></td><td></td></tr>
+           <tr><td><code>{@link #HorizontalListView_android_requiresFadingEdge android:requiresFadingEdge}</code></td><td></td></tr>
+           <tr><td><code>{@link #HorizontalListView_dividerWidth com.lfs.android:dividerWidth}</code></td><td></td></tr>
+           </table>
+           @see #HorizontalListView_android_divider
+           @see #HorizontalListView_android_fadingEdgeLength
+           @see #HorizontalListView_android_requiresFadingEdge
+           @see #HorizontalListView_dividerWidth
+         */
+        public static final int[] HorizontalListView = {
+            0x010100e0, 0x01010129, 0x010103a5, 0x7f010000
+        };
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#divider}
+          attribute's value can be found in the {@link #HorizontalListView} array.
+          @attr name android:divider
+        */
+        public static final int HorizontalListView_android_divider = 1;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#fadingEdgeLength}
+          attribute's value can be found in the {@link #HorizontalListView} array.
+          @attr name android:fadingEdgeLength
+        */
+        public static final int HorizontalListView_android_fadingEdgeLength = 0;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#requiresFadingEdge}
+          attribute's value can be found in the {@link #HorizontalListView} array.
+          @attr name android:requiresFadingEdge
+        */
+        public static final int HorizontalListView_android_requiresFadingEdge = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.lfs.android.R.attr#dividerWidth}
+          attribute's value can be found in the {@link #HorizontalListView} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.lfs.android:dividerWidth
+        */
+        public static final int HorizontalListView_dividerWidth = 3;
+    };
 }

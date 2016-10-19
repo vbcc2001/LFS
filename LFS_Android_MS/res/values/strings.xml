@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="test">test</string>
+    <string name="title_section_1">获得url</string>
+    <string name="title_section_2">BT-亚洲-有码</string>
+    <string name="title_section_3">BT-欧美-无码</string> 
+    <string name="title_section_10">删除所有</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="app_name">LFS</string>
+    <string name="menu_tags">Tags</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_search">Search</string>
+    <string name="loading">Loading&#8230;</string>      
+    
+    <string name="descr_image">Image</string>
+    <string name="more">More&#8230;</string>
+		<string name="no_content">No content&#8230;</string>
+</resources>

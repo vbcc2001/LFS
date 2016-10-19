@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lfs.android" android:versionCode="1" android:versionName="1.0" >
-    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="19" />
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19" />
      <!-- 互联网权限 -->
     <uses-permission android:name="android.permission.INTERNET" />;     
      <!-- 访问网络状态权限-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>                         
     <!-- SD卡写权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    
     <application  android:allowBackup="true"  
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" 
@@ -21,6 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.lfs.android.activity.ImagePagerActivity" 
+            android:label="@string/descr_image" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>        
     </application>
-
 </manifest>

@@ -23,6 +23,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.lfs.android.object.RequestData;
 import com.lfs.android.object.ResponseData;
 
@@ -50,8 +51,8 @@ public class HttpUitl<E> {
 				client.getConnectionManager().getSchemeRegistry().register(new Scheme("https", socketFactory, 443));	
 				//要发送的参数列表,每个参数对用NameValuePair表示
 				LinkedList<NameValuePair> pairs=new LinkedList<NameValuePair>();
-				System.out.println(new Gson().toJson(requestData));
 				BasicNameValuePair pair=new BasicNameValuePair("jsonContent", new Gson().toJson(requestData));
+				System.out.println(new Gson().toJson(requestData));
 				//把所有参数以NameValuePair对象放到参数列表中
 				pairs.add(pair);
 				//将参数编码
@@ -66,7 +67,8 @@ public class HttpUitl<E> {
 					if (response.getStatusLine().getStatusCode()==200) {
 						HttpEntity resultEntity=response.getEntity();
 						String content=EntityUtils.toString(resultEntity,"UTF-8");
-						responseData = new Gson().fromJson(content, response_type);
+						Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss.S").create();  
+						responseData = gson.fromJson(content, response_type);
 						break;
 					}else{
 						responseData.getError().setNum(response.getStatusLine().getStatusCode()+"");
