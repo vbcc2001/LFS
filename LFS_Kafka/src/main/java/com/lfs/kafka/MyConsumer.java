@@ -16,7 +16,7 @@ public class MyConsumer {
 	public void get() {
 		Properties props = new Properties();
 		props.put("bootstrap.servers", "localhost:9092");
-		props.put("bootstrap.servers", "h.menss.me:9092");		
+		//props.put("bootstrap.servers", "h.menss.me:9092");		
 		props.put("group.id", "test-consumer-group");
 		props.put("enable.auto.commit", "true");
 		//props.put("auto.offset.reset", "earliest");
@@ -24,7 +24,7 @@ public class MyConsumer {
 		props.put("session.timeout.ms", "30000");
 		props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 		props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-		KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
+		KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(props);
 		consumer.subscribe(Arrays.asList("foo", "bar"));
 		while(true){
 			//System.out.print(1);

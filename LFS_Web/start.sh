@@ -1,2 +1,2 @@
 cd /srv/LFS/LFS_WEB
-node htts.js & 
+node http.js & 

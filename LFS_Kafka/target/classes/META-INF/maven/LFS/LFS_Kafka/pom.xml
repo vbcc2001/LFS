@@ -16,27 +16,10 @@
 			<artifactId>kafka_2.11</artifactId>
 			<version>0.10.0.1</version>
 		</dependency>
-
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 		    <groupId>com.google.code.gson</groupId>
 		    <artifactId>gson</artifactId>
 		    <version>2.3.1</version>
-		</dependency>
-		<dependency>
-		    <groupId>com.caucho</groupId>
-		    <artifactId>resin</artifactId>
-		    <version>3.0.9</version>
 		</dependency>
 	</dependencies>
 </project>

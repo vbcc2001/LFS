@@ -9,7 +9,6 @@ public class F000001<E> implements Function<E> {
 	protected ResponseData<E> responseData = new ResponseData<E>();
 	public void execute() throws Exception{
     }
-	@Override
 	public void execute(RequestData requestData, ResponseData<E> responseData) throws Exception {
 		responseData.getError().setNum("0");
 		responseData.getError().setMsg("success");
@@ -17,8 +16,6 @@ public class F000001<E> implements Function<E> {
 		this.responseData = responseData;
 		this.execute();
 	}
-	@Override
 	public void before(RequestData requestData, ResponseData<E> responseData) throws Exception {}
-	@Override
 	public void after(RequestData requestData, ResponseData<E> responseData)throws Exception { }
 }

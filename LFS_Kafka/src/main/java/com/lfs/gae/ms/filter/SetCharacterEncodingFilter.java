@@ -12,7 +12,6 @@ import javax.servlet.ServletResponse;
  */
 public class SetCharacterEncodingFilter implements Filter{
 	protected String encoding = "UTF-8";
-	@Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain){
         try{
         	request.setCharacterEncoding(encoding);
@@ -23,10 +22,8 @@ public class SetCharacterEncodingFilter implements Filter{
             ex.printStackTrace();
         }
     }
-	@Override
 	public void destroy() {
 	}
-	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 	}	
 }

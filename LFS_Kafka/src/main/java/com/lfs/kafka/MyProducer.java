@@ -15,7 +15,7 @@ public class MyProducer {
 	public void send() {
 		 Properties props= new Properties();
 		 props.put("bootstrap.servers", "localhost:9092");
-		 props.put("bootstrap.servers","h.menss.me:9092");
+		 //props.put("bootstrap.servers","h.menss.me:9092");
 		 
 		 props.put("acks", "all");
 		 props.put("retries", 0);
@@ -24,7 +24,7 @@ public class MyProducer {
 		 props.put("buffer.memory", 33554432);
 		 props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 		 props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-		 Producer<String, String> producer = new KafkaProducer<>(props);
+		 Producer<String, String> producer = new KafkaProducer<String, String>(props);
 		 for(int i = 0; i < 100; i++){
 			 producer.send(new ProducerRecord<String, String>("fool", Integer.toString(i), "foo1="+Integer.toString(i) ));
 			 System.out.println(i);
