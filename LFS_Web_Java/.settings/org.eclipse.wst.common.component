@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="LFS_Web_Java">
+        <wb-resource deploy-path="/" source-path="/WebRoot" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="LFS_Web_Java"/>
+        <property name="java-output-path" value="/LFS_Web_Java/WebRoot/WEB-INFO/classes"/>
+    </wb-module>
+</project-modules>
