@@ -13,7 +13,6 @@ import com.xxx.web.function.ResponseParameter;
  */
 public abstract class BaseFunction implements Function {
 	
-	private Logger logger = Logger.getLogger(this.getClass());
-	ResponseParameter response = new ResponseParameter();
-
+	Logger logger = Logger.getLogger(this.getClass());
+	ResponseParameter response = new ResponseParameter();	
 }

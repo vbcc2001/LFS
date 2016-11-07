@@ -3,8 +3,6 @@ package com.xxx.lfs.action;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
-import java.util.Map;
-
 import org.apache.log4j.Logger;
 
 import com.google.gson.ExclusionStrategy;
@@ -54,23 +52,15 @@ public class FunctionAction extends BaseAction {
 					}
 				}
 				logger.info("httpRequest请求的json参数为："+jsonContent);
-				String clientIP = this.getIpAddress();
+				String request_ip = this.getIpAddress();
 				String path = this.getRequest().getContextPath();
-				String basePath = this.getRequest().getScheme()+"://"+getRequest().getServerName()+":"+getRequest().getServerPort()+path;
+				String request_path = this.getRequest().getScheme()+"://"+getRequest().getServerName()+":"+getRequest().getServerPort()+path;
 				Gson gson = new GsonBuilder().serializeNulls().create();
-				@SuppressWarnings("unchecked")
-				Map<String, Map<String,String>> params = (Map<String,Map<String,String> >) gson.fromJson(jsonContent, new TypeToken<Map<String, Map<String,String>>>() {}.getType());    
-				Map<String,String> head = params.get("head");
-				Map<String,String> content = params.get("content");
-				RequestParameter requestParameter = new RequestParameter();
-				requestParameter.setClientIP(clientIP);
-				requestParameter.setBasePath(basePath);
-				requestParameter.setSessionID(head.get("sessionID"));
-				requestParameter.setFuncNo(head.get("funcNO"));
-				requestParameter.setUserID(head.get("userID"));
-				requestParameter.setParams(content);
+				RequestParameter requestParameter = (RequestParameter) gson.fromJson(jsonContent, new TypeToken<RequestParameter>() {}.getType());    
+				requestParameter.setRequest_ip(request_ip);
+				requestParameter.setRequest_path(request_path);
 				responseParameter = this.execute(requestParameter);
-				sendHttpResponse(responseParameter);			
+				this.sendHttpResponse(responseParameter);			
 			} catch (Exception e) {
 				e.printStackTrace();
 				responseParameter.setErrorNo("-1");
@@ -139,9 +129,9 @@ public class FunctionAction extends BaseAction {
         try{	
             //判断是否已经登录或不需要登陆
             if(isLogin(requestParameter)){
-    			logger.info("进入具体功能号："+requestParameter.getFuncNo());		
+    			logger.info("进入具体功能号："+requestParameter.getFunction());		
     			String path = Configure.getConfig("function-path");
-	            String className = path+"." + requestParameter.getFuncNo();
+	            String className = path+"." + requestParameter.getFunction();
 	            Function functionObj = (Function) (Class.forName(className).newInstance());
 	            responseParameter = functionObj.execute(requestParameter);
             }else {
@@ -165,7 +155,7 @@ public class FunctionAction extends BaseAction {
     	String functions =  ""; //不需要登陆的功能号
     	boolean flag = false;
     	//不需要登录判断
-    	if(functions!=null && functions.indexOf(requestParameter.getFuncNo())>=0 ){
+    	if(functions!=null && functions.indexOf(requestParameter.getFunction())>=0 ){
     		flag = true;
 	    }else{
 	    	//目前不用登陆验证

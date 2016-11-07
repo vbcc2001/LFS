@@ -6,6 +6,6 @@ package com.xxx.web.function;
  * @version 1.0
  * @since
  */
-public interface Function{
+public interface Function {
     public ResponseParameter execute(RequestParameter requestParameter )throws Exception;
 }

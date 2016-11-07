@@ -96,19 +96,14 @@
     <section class="content">
     	<form action="/action/lfs/action/FunctionAction" method="post">
   		<div>URL地址:<input type="text" name="jsonContent" size="200" 
-  		value='{"head":{"userID":"","sessionID":"","funcNO":"F100001"},"content":{"url":"http://we.99btgc.info","title":"av12","id":"1"}}'/></div>
+  		value='{"function":"F100001","user":{"id":"1","session":"123"},"content":{"topic":"lfs_post","object":"{\"url\":\"http://we.99btgc.info\",\"title\":\"av12\",\"id\":\"1\"}"}}'/></div>
   		<br><input type="submit" value="新增">
   	</form> 
   	
   	<form action="/action/lfs/action/FunctionAction" method="post">
   		<div>URL地址:<input type="text" name="jsonContent" size="200" 
-  		value='{"head":{"userID":"","sessionID":"","funcNO":"F100002"},"content":{"url":"http://we.99btgc.info","title":"av12","id":"1"}}'/></div>
+  		value='{"function":"F100002","user":{"id":"1","session":"123"},"content":{"topic":"lfs_post"}}'/></div>
   		<br><input type="submit" value="查看">
-  	</form>
-  	<form action="/action/lfs/action/FunctionAction" method="post">
-  		<div>URL地址:<input type="text" name="jsonContent" size="200" 
-  		value='{"content":{"title":"a123"},"function":"F100003","user":{"session":"","user_id":""}}'/></div>
-  		<br><input type="submit" value="刪除所有">
   	</form>
     </section>
     <!-- /.content -->

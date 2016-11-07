@@ -10,6 +10,10 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.TopicPartition;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import com.xxx.lfs.object.Lfs_post;
 import com.xxx.web.function.RequestParameter;
 import com.xxx.web.function.ResponseParameter;
 import com.xxx.web.jdbc.DataRow;
@@ -20,8 +24,8 @@ public class F100002 extends BaseFunction {
 
 	@Override
 	public ResponseParameter execute(RequestParameter requestParameter) throws Exception {
-	
-		String title = requestParameter.getParams().get("title");
+
+		String topic = requestParameter.getContent().get("topic");
 		Properties props = new Properties();
 		props.put("bootstrap.servers", "localhost:9092");
 		//props.put("bootstrap.servers", "h.menss.me:9092");		
@@ -33,19 +37,21 @@ public class F100002 extends BaseFunction {
 		props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 		props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 		KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(props);
-		consumer.subscribe(Arrays.asList(title));
+		consumer.subscribe(Arrays.asList(topic));
 		List<DataRow> list = new ArrayList<DataRow>();
 		long size = -1;
 		while (true) {
 			ConsumerRecords<String, String> records = consumer.poll(100);
 			if(list.isEmpty()){
-				consumer.seekToBeginning(Arrays.asList(new TopicPartition(title, 0)));
+				consumer.seekToBeginning(Arrays.asList(new TopicPartition(topic, 0)));
 			}
 		    for (ConsumerRecord<String, String> record : records){
 		    	DataRow dataRow = new DataRow();
 		    	dataRow.put("offset",record.offset());
 		    	dataRow.put("key",record.key());
-		    	dataRow.put("value",record.value());
+				Gson gson = new GsonBuilder().serializeNulls().create();
+				Lfs_post post = (Lfs_post) gson.fromJson(record.value(), new TypeToken<Lfs_post>() {}.getType());  
+		    	dataRow.put("value",post);
 		    	list.add(dataRow);
 		    }
 		    if(list.size()==size & list.size()>0)break;

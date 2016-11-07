@@ -25,7 +25,7 @@ public class User {
 	private String activation_key="";
 	//用户状态
 	private String status="";
-	//登錄狀態
+	//登录状态
 	private String session="";
 	//元数据
 	private Map<String,String> meta = new HashMap<String,String>();
