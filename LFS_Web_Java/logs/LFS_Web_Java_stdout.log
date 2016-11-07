@@ -1,0 +1,1580 @@
+[2016.11.05 15:07:56.069][app] 2016-11-05 15:07:56 [INFO ] (Listener:26) 系统配置信息初始化开始...
+[2016.11.05 15:07:56.142][app] 2016-11-05 15:07:56 [INFO ] (Listener:28) 系统配置信息初始化结束...
+[2016.11.05 15:07:56.142][app] 2016-11-05 15:07:56 [INFO ] (Listener:29) 系统初始化数据源开始...
+[2016.11.05 15:07:56.163][app] 2016-11-05 15:07:56 [INFO ] (MLog:80) MLog clients using log4j logging.
+[2016.11.05 15:07:56.221][app] 2016-11-05 15:07:56 [WARN ] (BeansUtils:225) Property inaccessible for overwriting: password
+[2016.11.05 15:07:56.225][app] 2016-11-05 15:07:56 [INFO ] (C3P0Registry:204) Initializing c3p0-0.9.2-pre8 [built 19-December-2012 15:00:02 +0000; debug? true; trace: 10]
+[2016.11.05 15:07:56.249][app] 2016-11-05 15:07:56 [INFO ] (Listener:31) 系统初始化数据源结束...
+[2016.11.05 15:07:56.257][2016/11/05 15:07:56.257] {main} WebApp[http://localhost:3001] active
+[2016.11.05 15:07:56.258][2016/11/05 15:07:56.258] {main} Host[] active
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:08:12.187][2016/11/05 15:08:12.186] {http-LFS_Web_Java-3001-3$774561142} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:162)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:08:25.380][2016/11/05 15:08:25.380] {http-LFS_Web_Java-3001-3$774561142} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:08:25.534][2016/11/05 15:08:25.533] {http-LFS_Web_Java-3001-3$774561142} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:09:41.103][2016/11/05 15:09:41.103] {http-LFS_Web_Java-3001-3$835515890} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:09:42.724][2016/11/05 15:09:42.724] {http-LFS_Web_Java-3001-12$1776045217} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:09:43.438][2016/11/05 15:09:43.438] {http-LFS_Web_Java-3001-12$1776045217} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:09:43.946][app] 2016-11-05 15:09:43 [INFO ] (Servlet:41) 进入servlet: com.xxx.web.http.servlet.Servlet...
+[2016.11.05 15:09:43.947][app] 2016-11-05 15:09:43 [INFO ] (Servlet:55) 通过反射实例化对应的Action，className为:com.xxx.lfs.FunctionAction
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.xxx.web.http.servlet.Servlet.service(Servlet.java:68)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:91)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:162)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:09:43.949][2016/11/05 15:09:43.949] {http-LFS_Web_Java-3001-12$1776045217} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:09:44.095][2016/11/05 15:09:44.095] {http-LFS_Web_Java-3001-12$1776045217} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:11:10.585][2016/11/05 15:11:10.585] {http-LFS_Web_Java-3001-7$898185249} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:11:11.491][2016/11/05 15:11:11.491] {http-LFS_Web_Java-3001-1$896058019} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:11:12.440][app] 2016-11-05 15:11:12 [INFO ] (Servlet:41) 进入servlet: com.xxx.web.http.servlet.Servlet...
+[2016.11.05 15:11:12.440][app] 2016-11-05 15:11:12 [INFO ] (Servlet:55) 通过反射实例化对应的Action，className为:com.xxx.lfs.action.FunctionAction
+[2016.11.05 15:11:12.444][app] 2016-11-05 15:11:12 [INFO ] (Servlet:58) 实例化成功，执行默认方法...
+[2016.11.05 15:11:12.444][app] 2016-11-05 15:11:12 [INFO ] (FunctionAction:52) 进入function方法前执行before方法...
+[2016.11.05 15:11:12.444][app] 2016-11-05 15:11:12 [INFO ] (FunctionAction:54) 进入function方法...
+[2016.11.05 15:11:12.464][app] 2016-11-05 15:11:12 [INFO ] (FunctionAction:55) httpRequest请求的json参数为：{"content":{"url":"http://we.99btgc.info","title":"av12","id":"1"},"function":"F100001","user":{"session":"","user_id":""}}
+[2016.11.05 15:11:12.553][app] 2016-11-05 15:11:12 [INFO ] (FunctionAction:93) httpRequest请求处理后返回的信息为：errorNo=-1 ;errorInfo=参数解析错误  ;list<DataRow>=
+[2016.11.05 15:11:12.564][app] 2016-11-05 15:11:12 [INFO ] (FunctionAction:57) 进入function方法后执行after方法...
+[2016.11.05 15:11:12.564][app] 2016-11-05 15:11:12 [INFO ] (Servlet:60) 完成默认方法...
+[2016.11.05 15:11:12.565][app] 2016-11-05 15:11:12 [INFO ] (Servlet:61) 完成Action:com.xxx.lfs.action.FunctionAction处理...
+[2016.11.05 15:11:12.565][app] 2016-11-05 15:11:12 [INFO ] (Servlet:65) 完成servlet:com.xxx.web.http.servlet.Servlet跳转并返回...
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:11:12.693][2016/11/05 15:11:12.693] {http-LFS_Web_Java-3001-1$896058019} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:12:10.887][2016/11/05 15:12:10.887] {http-LFS_Web_Java-3001-1$1584951113} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:14:33.172][2016/11/05 15:14:33.171] {http-LFS_Web_Java-3001-2$736384713} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:14:33.905][app] 2016-11-05 15:14:33 [INFO ] (Servlet:41) 进入servlet: com.xxx.web.http.servlet.Servlet...
+[2016.11.05 15:14:33.905][app] 2016-11-05 15:14:33 [INFO ] (Servlet:55) 通过反射实例化对应的Action，className为:com.xxx.lfs.action.FunctionAction
+[2016.11.05 15:14:33.905][app] 2016-11-05 15:14:33 [INFO ] (Servlet:58) 实例化成功，执行默认方法...
+[2016.11.05 15:14:33.906][app] 2016-11-05 15:14:33 [INFO ] (FunctionAction:52) 进入function方法前执行before方法...
+[2016.11.05 15:14:33.906][app] 2016-11-05 15:14:33 [INFO ] (FunctionAction:54) 进入function方法...
+[2016.11.05 15:14:33.907][app] 2016-11-05 15:14:33 [INFO ] (FunctionAction:55) httpRequest请求的json参数为：{"head":{"userID":"","sessionID":"","funcNO":"F100001"},"content":{"url":"http://we.99btgc.info","title":"av12","id":"1"}}
+[2016.11.05 15:14:33.908][app] 2016-11-05 15:14:33 [INFO ] (FunctionAction:141) 进入具体功能号：F100001
+[2016.11.05 15:14:33.911][app] 2016-11-05 15:14:33 [INFO ] (FunctionAction:93) httpRequest请求处理后返回的信息为：errorNo=500 ;errorInfo=系统内部错误！  ;list<DataRow>=
+[2016.11.05 15:14:33.913][app] 2016-11-05 15:14:33 [INFO ] (FunctionAction:57) 进入function方法后执行after方法...
+[2016.11.05 15:14:33.913][app] 2016-11-05 15:14:33 [INFO ] (Servlet:60) 完成默认方法...
+[2016.11.05 15:14:33.913][app] 2016-11-05 15:14:33 [INFO ] (Servlet:61) 完成Action:com.xxx.lfs.action.FunctionAction处理...
+[2016.11.05 15:14:33.914][app] 2016-11-05 15:14:33 [INFO ] (Servlet:65) 完成servlet:com.xxx.web.http.servlet.Servlet跳转并返回...
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:14:34.070][2016/11/05 15:14:34.069] {http-LFS_Web_Java-3001-2$736384713} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:18:03.419][2016/11/05 15:18:03.419] {resin-destroy} Host[] stopping
+[2016.11.05 15:18:03.419][2016/11/05 15:18:03.419] {resin-destroy} WebApp[http://localhost:3001] stopping
+[2016.11.05 15:18:04.160][app] 2016-11-05 15:18:04 [INFO ] (Listener:26) 系统配置信息初始化开始...
+[2016.11.05 15:18:04.213][app] 2016-11-05 15:18:04 [INFO ] (Listener:28) 系统配置信息初始化结束...
+[2016.11.05 15:18:04.213][app] 2016-11-05 15:18:04 [INFO ] (Listener:29) 系统初始化数据源开始...
+[2016.11.05 15:18:04.230][app] 2016-11-05 15:18:04 [INFO ] (MLog:80) MLog clients using log4j logging.
+[2016.11.05 15:18:04.276][app] 2016-11-05 15:18:04 [WARN ] (BeansUtils:225) Property inaccessible for overwriting: password
+[2016.11.05 15:18:04.279][app] 2016-11-05 15:18:04 [INFO ] (C3P0Registry:204) Initializing c3p0-0.9.2-pre8 [built 19-December-2012 15:00:02 +0000; debug? true; trace: 10]
+[2016.11.05 15:18:04.300][app] 2016-11-05 15:18:04 [INFO ] (Listener:31) 系统初始化数据源结束...
+[2016.11.05 15:18:04.308][2016/11/05 15:18:04.308] {main} WebApp[http://localhost:3001] active
+[2016.11.05 15:18:04.308][2016/11/05 15:18:04.308] {main} Host[] active
+[2016.11.05 15:18:07.973][2016/11/05 15:18:07.973] {resin-destroy} Host[] stopping
+[2016.11.05 15:18:07.973][2016/11/05 15:18:07.973] {resin-destroy} WebApp[http://localhost:3001] stopping
+[2016.11.05 15:18:10.149][app] 2016-11-05 15:18:10 [INFO ] (Listener:26) 系统配置信息初始化开始...
+[2016.11.05 15:18:10.203][app] 2016-11-05 15:18:10 [INFO ] (Listener:28) 系统配置信息初始化结束...
+[2016.11.05 15:18:10.204][app] 2016-11-05 15:18:10 [INFO ] (Listener:29) 系统初始化数据源开始...
+[2016.11.05 15:18:10.221][app] 2016-11-05 15:18:10 [INFO ] (MLog:80) MLog clients using log4j logging.
+[2016.11.05 15:18:10.270][app] 2016-11-05 15:18:10 [WARN ] (BeansUtils:225) Property inaccessible for overwriting: password
+[2016.11.05 15:18:10.273][app] 2016-11-05 15:18:10 [INFO ] (C3P0Registry:204) Initializing c3p0-0.9.2-pre8 [built 19-December-2012 15:00:02 +0000; debug? true; trace: 10]
+[2016.11.05 15:18:10.295][app] 2016-11-05 15:18:10 [INFO ] (Listener:31) 系统初始化数据源结束...
+[2016.11.05 15:18:10.301][2016/11/05 15:18:10.301] {main} WebApp[http://localhost:3001] active
+[2016.11.05 15:18:10.302][2016/11/05 15:18:10.302] {main} Host[] active
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:18:13.701][2016/11/05 15:18:13.700] {http-LFS_Web_Java-3001-2$168733784} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:18:15.575][2016/11/05 15:18:15.575] {http-LFS_Web_Java-3001-4$521971641} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:18:16.513][app] 2016-11-05 15:18:16 [INFO ] (Servlet:41) 进入servlet: com.xxx.web.http.servlet.Servlet...
+[2016.11.05 15:18:16.514][app] 2016-11-05 15:18:16 [INFO ] (Servlet:55) 通过反射实例化对应的Action，className为:com.xxx.lfs.action.FunctionAction
+[2016.11.05 15:18:16.517][app] 2016-11-05 15:18:16 [INFO ] (Servlet:58) 实例化成功，执行默认方法...
+[2016.11.05 15:18:16.517][app] 2016-11-05 15:18:16 [INFO ] (FunctionAction:52) 进入function方法前执行before方法...
+[2016.11.05 15:18:16.517][app] 2016-11-05 15:18:16 [INFO ] (FunctionAction:54) 进入function方法...
+[2016.11.05 15:18:16.536][app] 2016-11-05 15:18:16 [INFO ] (FunctionAction:56) httpRequest请求的json参数为：{"head":{"userID":"","sessionID":"","funcNO":"F100001"},"content":{"url":"http://we.99btgc.info","title":"av12","id":"1"}}
+[2016.11.05 15:18:16.606][app] 2016-11-05 15:18:16 [INFO ] (FunctionAction:142) 进入具体功能号：F100001
+[2016.11.05 15:18:16.608]av12
+[2016.11.05 15:18:16.608]1
+[2016.11.05 15:18:16.608]http://we.99btgc.info
+[2016.11.05 15:18:16.641][app] 2016-11-05 15:18:16 [INFO ] (ProducerConfig:178) ProducerConfig values: 
+[2016.11.05 15:18:16.641]	metric.reporters = []
+[2016.11.05 15:18:16.641]	metadata.max.age.ms = 300000
+[2016.11.05 15:18:16.641]	reconnect.backoff.ms = 50
+[2016.11.05 15:18:16.641]	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2016.11.05 15:18:16.641]	bootstrap.servers = [localhost:9092]
+[2016.11.05 15:18:16.641]	ssl.keystore.type = JKS
+[2016.11.05 15:18:16.641]	sasl.mechanism = GSSAPI
+[2016.11.05 15:18:16.641]	max.block.ms = 60000
+[2016.11.05 15:18:16.641]	interceptor.classes = null
+[2016.11.05 15:18:16.641]	ssl.truststore.password = null
+[2016.11.05 15:18:16.641]	client.id = 
+[2016.11.05 15:18:16.641]	ssl.endpoint.identification.algorithm = null
+[2016.11.05 15:18:16.641]	request.timeout.ms = 30000
+[2016.11.05 15:18:16.641]	acks = all
+[2016.11.05 15:18:16.641]	receive.buffer.bytes = 32768
+[2016.11.05 15:18:16.641]	ssl.truststore.type = JKS
+[2016.11.05 15:18:16.641]	retries = 0
+[2016.11.05 15:18:16.641]	ssl.truststore.location = null
+[2016.11.05 15:18:16.641]	ssl.keystore.password = null
+[2016.11.05 15:18:16.641]	send.buffer.bytes = 131072
+[2016.11.05 15:18:16.641]	compression.type = none
+[2016.11.05 15:18:16.641]	metadata.fetch.timeout.ms = 60000
+[2016.11.05 15:18:16.641]	retry.backoff.ms = 100
+[2016.11.05 15:18:16.641]	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2016.11.05 15:18:16.641]	buffer.memory = 33554432
+[2016.11.05 15:18:16.641]	timeout.ms = 30000
+[2016.11.05 15:18:16.641]	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:18:16.641]	sasl.kerberos.service.name = null
+[2016.11.05 15:18:16.641]	sasl.kerberos.ticket.renew.jitter = 0.05
+[2016.11.05 15:18:16.641]	ssl.trustmanager.algorithm = PKIX
+[2016.11.05 15:18:16.641]	block.on.buffer.full = false
+[2016.11.05 15:18:16.641]	ssl.key.password = null
+[2016.11.05 15:18:16.641]	sasl.kerberos.min.time.before.relogin = 60000
+[2016.11.05 15:18:16.641]	connections.max.idle.ms = 540000
+[2016.11.05 15:18:16.641]	max.in.flight.requests.per.connection = 5
+[2016.11.05 15:18:16.641]	metrics.num.samples = 2
+[2016.11.05 15:18:16.641]	ssl.protocol = TLS
+[2016.11.05 15:18:16.641]	ssl.provider = null
+[2016.11.05 15:18:16.641]	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+[2016.11.05 15:18:16.641]	batch.size = 16384
+[2016.11.05 15:18:16.641]	ssl.keystore.location = null
+[2016.11.05 15:18:16.641]	ssl.cipher.suites = null
+[2016.11.05 15:18:16.641]	security.protocol = PLAINTEXT
+[2016.11.05 15:18:16.641]	max.request.size = 1048576
+[2016.11.05 15:18:16.641]	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:18:16.641]	ssl.keymanager.algorithm = SunX509
+[2016.11.05 15:18:16.641]	metrics.sample.window.ms = 30000
+[2016.11.05 15:18:16.641]	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+[2016.11.05 15:18:16.641]	linger.ms = 1
+[2016.11.05 15:18:16.641]
+[2016.11.05 15:18:16.736][app] 2016-11-05 15:18:16 [INFO ] (ProducerConfig:178) ProducerConfig values: 
+[2016.11.05 15:18:16.736]	metric.reporters = []
+[2016.11.05 15:18:16.736]	metadata.max.age.ms = 300000
+[2016.11.05 15:18:16.736]	reconnect.backoff.ms = 50
+[2016.11.05 15:18:16.736]	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2016.11.05 15:18:16.736]	bootstrap.servers = [localhost:9092]
+[2016.11.05 15:18:16.736]	ssl.keystore.type = JKS
+[2016.11.05 15:18:16.736]	sasl.mechanism = GSSAPI
+[2016.11.05 15:18:16.736]	max.block.ms = 60000
+[2016.11.05 15:18:16.736]	interceptor.classes = null
+[2016.11.05 15:18:16.736]	ssl.truststore.password = null
+[2016.11.05 15:18:16.736]	client.id = producer-1
+[2016.11.05 15:18:16.736]	ssl.endpoint.identification.algorithm = null
+[2016.11.05 15:18:16.736]	request.timeout.ms = 30000
+[2016.11.05 15:18:16.736]	acks = all
+[2016.11.05 15:18:16.736]	receive.buffer.bytes = 32768
+[2016.11.05 15:18:16.736]	ssl.truststore.type = JKS
+[2016.11.05 15:18:16.736]	retries = 0
+[2016.11.05 15:18:16.736]	ssl.truststore.location = null
+[2016.11.05 15:18:16.736]	ssl.keystore.password = null
+[2016.11.05 15:18:16.736]	send.buffer.bytes = 131072
+[2016.11.05 15:18:16.736]	compression.type = none
+[2016.11.05 15:18:16.736]	metadata.fetch.timeout.ms = 60000
+[2016.11.05 15:18:16.736]	retry.backoff.ms = 100
+[2016.11.05 15:18:16.736]	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2016.11.05 15:18:16.736]	buffer.memory = 33554432
+[2016.11.05 15:18:16.736]	timeout.ms = 30000
+[2016.11.05 15:18:16.736]	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:18:16.736]	sasl.kerberos.service.name = null
+[2016.11.05 15:18:16.736]	sasl.kerberos.ticket.renew.jitter = 0.05
+[2016.11.05 15:18:16.736]	ssl.trustmanager.algorithm = PKIX
+[2016.11.05 15:18:16.736]	block.on.buffer.full = false
+[2016.11.05 15:18:16.736]	ssl.key.password = null
+[2016.11.05 15:18:16.736]	sasl.kerberos.min.time.before.relogin = 60000
+[2016.11.05 15:18:16.736]	connections.max.idle.ms = 540000
+[2016.11.05 15:18:16.736]	max.in.flight.requests.per.connection = 5
+[2016.11.05 15:18:16.736]	metrics.num.samples = 2
+[2016.11.05 15:18:16.736]	ssl.protocol = TLS
+[2016.11.05 15:18:16.736]	ssl.provider = null
+[2016.11.05 15:18:16.736]	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+[2016.11.05 15:18:16.736]	batch.size = 16384
+[2016.11.05 15:18:16.736]	ssl.keystore.location = null
+[2016.11.05 15:18:16.736]	ssl.cipher.suites = null
+[2016.11.05 15:18:16.736]	security.protocol = PLAINTEXT
+[2016.11.05 15:18:16.736]	max.request.size = 1048576
+[2016.11.05 15:18:16.736]	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:18:16.736]	ssl.keymanager.algorithm = SunX509
+[2016.11.05 15:18:16.736]	metrics.sample.window.ms = 30000
+[2016.11.05 15:18:16.736]	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+[2016.11.05 15:18:16.736]	linger.ms = 1
+[2016.11.05 15:18:16.736]
+[2016.11.05 15:18:16.739][app] 2016-11-05 15:18:16 [INFO ] (AppInfoParser:83) Kafka version : 0.10.0.1
+[2016.11.05 15:18:16.739][app] 2016-11-05 15:18:16 [INFO ] (AppInfoParser:84) Kafka commitId : a7a17cdec9eaa6c5
+[2016.11.05 15:18:46.382][app] 2016-11-05 15:18:46 [WARN ] (NetworkClient:600) Error while fetching metadata with correlation id 0 : {av12=UNKNOWN}
+[2016.11.05 15:18:46.519][app] 2016-11-05 15:18:46 [WARN ] (NetworkClient:600) Error while fetching metadata with correlation id 1 : {av12=LEADER_NOT_AVAILABLE}
+[2016.11.05 15:18:46.640][app] 2016-11-05 15:18:46 [WARN ] (NetworkClient:600) Error while fetching metadata with correlation id 2 : {av12=LEADER_NOT_AVAILABLE}
+[2016.11.05 15:18:46.750][app] 2016-11-05 15:18:46 [WARN ] (NetworkClient:600) Error while fetching metadata with correlation id 3 : {av12=LEADER_NOT_AVAILABLE}
+[2016.11.05 15:18:46.855][app] 2016-11-05 15:18:46 [WARN ] (NetworkClient:600) Error while fetching metadata with correlation id 4 : {av12=LEADER_NOT_AVAILABLE}
+[2016.11.05 15:18:46.980][app] 2016-11-05 15:18:46 [INFO ] (KafkaProducer:658) Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+[2016.11.05 15:18:47.015][app] 2016-11-05 15:18:47 [INFO ] (FunctionAction:94) httpRequest请求处理后返回的信息为：errorNo= ;errorInfo=  ;list<DataRow>=
+[2016.11.05 15:18:47.029][app] 2016-11-05 15:18:47 [INFO ] (FunctionAction:57) 进入function方法后执行after方法...
+[2016.11.05 15:18:47.031][app] 2016-11-05 15:18:47 [INFO ] (Servlet:60) 完成默认方法...
+[2016.11.05 15:18:47.031][app] 2016-11-05 15:18:47 [INFO ] (Servlet:61) 完成Action:com.xxx.lfs.action.FunctionAction处理...
+[2016.11.05 15:18:47.031][app] 2016-11-05 15:18:47 [INFO ] (Servlet:65) 完成servlet:com.xxx.web.http.servlet.Servlet跳转并返回...
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:18:47.273][2016/11/05 15:18:47.273] {http-LFS_Web_Java-3001-4$521971641} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:18:50.638][app] 2016-11-05 15:18:50 [INFO ] (Servlet:41) 进入servlet: com.xxx.web.http.servlet.Servlet...
+[2016.11.05 15:18:50.638][app] 2016-11-05 15:18:50 [INFO ] (Servlet:55) 通过反射实例化对应的Action，className为:com.xxx.lfs.action.FunctionAction
+[2016.11.05 15:18:50.638][app] 2016-11-05 15:18:50 [INFO ] (Servlet:58) 实例化成功，执行默认方法...
+[2016.11.05 15:18:50.639][app] 2016-11-05 15:18:50 [INFO ] (FunctionAction:52) 进入function方法前执行before方法...
+[2016.11.05 15:18:50.639][app] 2016-11-05 15:18:50 [INFO ] (FunctionAction:54) 进入function方法...
+[2016.11.05 15:18:50.639][app] 2016-11-05 15:18:50 [INFO ] (FunctionAction:56) httpRequest请求的json参数为：{"head":{"userID":"","sessionID":"","funcNO":"F100001"},"content":{"url":"http://we.99btgc.info","title":"av12","id":"1"}}
+[2016.11.05 15:18:50.640][app] 2016-11-05 15:18:50 [INFO ] (FunctionAction:142) 进入具体功能号：F100001
+[2016.11.05 15:18:50.640]av12
+[2016.11.05 15:18:50.640]1
+[2016.11.05 15:18:50.640]http://we.99btgc.info
+[2016.11.05 15:18:50.640][app] 2016-11-05 15:18:50 [INFO ] (ProducerConfig:178) ProducerConfig values: 
+[2016.11.05 15:18:50.640]	metric.reporters = []
+[2016.11.05 15:18:50.640]	metadata.max.age.ms = 300000
+[2016.11.05 15:18:50.640]	reconnect.backoff.ms = 50
+[2016.11.05 15:18:50.640]	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2016.11.05 15:18:50.640]	bootstrap.servers = [localhost:9092]
+[2016.11.05 15:18:50.640]	ssl.keystore.type = JKS
+[2016.11.05 15:18:50.640]	sasl.mechanism = GSSAPI
+[2016.11.05 15:18:50.640]	max.block.ms = 60000
+[2016.11.05 15:18:50.640]	interceptor.classes = null
+[2016.11.05 15:18:50.640]	ssl.truststore.password = null
+[2016.11.05 15:18:50.640]	client.id = 
+[2016.11.05 15:18:50.640]	ssl.endpoint.identification.algorithm = null
+[2016.11.05 15:18:50.640]	request.timeout.ms = 30000
+[2016.11.05 15:18:50.640]	acks = all
+[2016.11.05 15:18:50.640]	receive.buffer.bytes = 32768
+[2016.11.05 15:18:50.640]	ssl.truststore.type = JKS
+[2016.11.05 15:18:50.640]	retries = 0
+[2016.11.05 15:18:50.640]	ssl.truststore.location = null
+[2016.11.05 15:18:50.640]	ssl.keystore.password = null
+[2016.11.05 15:18:50.640]	send.buffer.bytes = 131072
+[2016.11.05 15:18:50.640]	compression.type = none
+[2016.11.05 15:18:50.640]	metadata.fetch.timeout.ms = 60000
+[2016.11.05 15:18:50.640]	retry.backoff.ms = 100
+[2016.11.05 15:18:50.640]	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2016.11.05 15:18:50.640]	buffer.memory = 33554432
+[2016.11.05 15:18:50.640]	timeout.ms = 30000
+[2016.11.05 15:18:50.640]	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:18:50.640]	sasl.kerberos.service.name = null
+[2016.11.05 15:18:50.640]	sasl.kerberos.ticket.renew.jitter = 0.05
+[2016.11.05 15:18:50.640]	ssl.trustmanager.algorithm = PKIX
+[2016.11.05 15:18:50.640]	block.on.buffer.full = false
+[2016.11.05 15:18:50.640]	ssl.key.password = null
+[2016.11.05 15:18:50.640]	sasl.kerberos.min.time.before.relogin = 60000
+[2016.11.05 15:18:50.640]	connections.max.idle.ms = 540000
+[2016.11.05 15:18:50.640]	max.in.flight.requests.per.connection = 5
+[2016.11.05 15:18:50.640]	metrics.num.samples = 2
+[2016.11.05 15:18:50.640]	ssl.protocol = TLS
+[2016.11.05 15:18:50.640]	ssl.provider = null
+[2016.11.05 15:18:50.640]	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+[2016.11.05 15:18:50.640]	batch.size = 16384
+[2016.11.05 15:18:50.640]	ssl.keystore.location = null
+[2016.11.05 15:18:50.640]	ssl.cipher.suites = null
+[2016.11.05 15:18:50.640]	security.protocol = PLAINTEXT
+[2016.11.05 15:18:50.640]	max.request.size = 1048576
+[2016.11.05 15:18:50.640]	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:18:50.640]	ssl.keymanager.algorithm = SunX509
+[2016.11.05 15:18:50.640]	metrics.sample.window.ms = 30000
+[2016.11.05 15:18:50.640]	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+[2016.11.05 15:18:50.640]	linger.ms = 1
+[2016.11.05 15:18:50.640]
+[2016.11.05 15:18:50.645][app] 2016-11-05 15:18:50 [INFO ] (ProducerConfig:178) ProducerConfig values: 
+[2016.11.05 15:18:50.645]	metric.reporters = []
+[2016.11.05 15:18:50.645]	metadata.max.age.ms = 300000
+[2016.11.05 15:18:50.645]	reconnect.backoff.ms = 50
+[2016.11.05 15:18:50.645]	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2016.11.05 15:18:50.645]	bootstrap.servers = [localhost:9092]
+[2016.11.05 15:18:50.645]	ssl.keystore.type = JKS
+[2016.11.05 15:18:50.645]	sasl.mechanism = GSSAPI
+[2016.11.05 15:18:50.645]	max.block.ms = 60000
+[2016.11.05 15:18:50.645]	interceptor.classes = null
+[2016.11.05 15:18:50.645]	ssl.truststore.password = null
+[2016.11.05 15:18:50.645]	client.id = producer-2
+[2016.11.05 15:18:50.645]	ssl.endpoint.identification.algorithm = null
+[2016.11.05 15:18:50.645]	request.timeout.ms = 30000
+[2016.11.05 15:18:50.645]	acks = all
+[2016.11.05 15:18:50.645]	receive.buffer.bytes = 32768
+[2016.11.05 15:18:50.645]	ssl.truststore.type = JKS
+[2016.11.05 15:18:50.645]	retries = 0
+[2016.11.05 15:18:50.645]	ssl.truststore.location = null
+[2016.11.05 15:18:50.645]	ssl.keystore.password = null
+[2016.11.05 15:18:50.645]	send.buffer.bytes = 131072
+[2016.11.05 15:18:50.645]	compression.type = none
+[2016.11.05 15:18:50.645]	metadata.fetch.timeout.ms = 60000
+[2016.11.05 15:18:50.645]	retry.backoff.ms = 100
+[2016.11.05 15:18:50.645]	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2016.11.05 15:18:50.645]	buffer.memory = 33554432
+[2016.11.05 15:18:50.645]	timeout.ms = 30000
+[2016.11.05 15:18:50.645]	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:18:50.645]	sasl.kerberos.service.name = null
+[2016.11.05 15:18:50.645]	sasl.kerberos.ticket.renew.jitter = 0.05
+[2016.11.05 15:18:50.645]	ssl.trustmanager.algorithm = PKIX
+[2016.11.05 15:18:50.645]	block.on.buffer.full = false
+[2016.11.05 15:18:50.645]	ssl.key.password = null
+[2016.11.05 15:18:50.645]	sasl.kerberos.min.time.before.relogin = 60000
+[2016.11.05 15:18:50.645]	connections.max.idle.ms = 540000
+[2016.11.05 15:18:50.645]	max.in.flight.requests.per.connection = 5
+[2016.11.05 15:18:50.645]	metrics.num.samples = 2
+[2016.11.05 15:18:50.645]	ssl.protocol = TLS
+[2016.11.05 15:18:50.645]	ssl.provider = null
+[2016.11.05 15:18:50.645]	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+[2016.11.05 15:18:50.645]	batch.size = 16384
+[2016.11.05 15:18:50.645]	ssl.keystore.location = null
+[2016.11.05 15:18:50.645]	ssl.cipher.suites = null
+[2016.11.05 15:18:50.645]	security.protocol = PLAINTEXT
+[2016.11.05 15:18:50.645]	max.request.size = 1048576
+[2016.11.05 15:18:50.645]	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:18:50.645]	ssl.keymanager.algorithm = SunX509
+[2016.11.05 15:18:50.645]	metrics.sample.window.ms = 30000
+[2016.11.05 15:18:50.645]	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+[2016.11.05 15:18:50.645]	linger.ms = 1
+[2016.11.05 15:18:50.645]
+[2016.11.05 15:18:50.646][app] 2016-11-05 15:18:50 [INFO ] (AppInfoParser:83) Kafka version : 0.10.0.1
+[2016.11.05 15:18:50.646][app] 2016-11-05 15:18:50 [INFO ] (AppInfoParser:84) Kafka commitId : a7a17cdec9eaa6c5
+[2016.11.05 15:18:50.745][app] 2016-11-05 15:18:50 [INFO ] (KafkaProducer:658) Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+[2016.11.05 15:18:50.752][app] 2016-11-05 15:18:50 [INFO ] (FunctionAction:94) httpRequest请求处理后返回的信息为：errorNo= ;errorInfo=  ;list<DataRow>=
+[2016.11.05 15:18:50.753][app] 2016-11-05 15:18:50 [INFO ] (FunctionAction:57) 进入function方法后执行after方法...
+[2016.11.05 15:18:50.753][app] 2016-11-05 15:18:50 [INFO ] (Servlet:60) 完成默认方法...
+[2016.11.05 15:18:50.753][app] 2016-11-05 15:18:50 [INFO ] (Servlet:61) 完成Action:com.xxx.lfs.action.FunctionAction处理...
+[2016.11.05 15:18:50.754][app] 2016-11-05 15:18:50 [INFO ] (Servlet:65) 完成servlet:com.xxx.web.http.servlet.Servlet跳转并返回...
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:18:50.873][2016/11/05 15:18:50.873] {http-LFS_Web_Java-3001-4$521971641} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:18:54.002][app] 2016-11-05 15:18:54 [INFO ] (Servlet:41) 进入servlet: com.xxx.web.http.servlet.Servlet...
+[2016.11.05 15:18:54.003][app] 2016-11-05 15:18:54 [INFO ] (Servlet:55) 通过反射实例化对应的Action，className为:com.xxx.lfs.action.FunctionAction
+[2016.11.05 15:18:54.003][app] 2016-11-05 15:18:54 [INFO ] (Servlet:58) 实例化成功，执行默认方法...
+[2016.11.05 15:18:54.003][app] 2016-11-05 15:18:54 [INFO ] (FunctionAction:52) 进入function方法前执行before方法...
+[2016.11.05 15:18:54.003][app] 2016-11-05 15:18:54 [INFO ] (FunctionAction:54) 进入function方法...
+[2016.11.05 15:18:54.004][app] 2016-11-05 15:18:54 [INFO ] (FunctionAction:94) httpRequest请求处理后返回的信息为：errorNo=-1 ;errorInfo=暂不提供get方式的请求  ;list<DataRow>=
+[2016.11.05 15:18:54.005][app] 2016-11-05 15:18:54 [INFO ] (FunctionAction:57) 进入function方法后执行after方法...
+[2016.11.05 15:18:54.005][app] 2016-11-05 15:18:54 [INFO ] (Servlet:60) 完成默认方法...
+[2016.11.05 15:18:54.005][app] 2016-11-05 15:18:54 [INFO ] (Servlet:61) 完成Action:com.xxx.lfs.action.FunctionAction处理...
+[2016.11.05 15:18:54.005][app] 2016-11-05 15:18:54 [INFO ] (Servlet:65) 完成servlet:com.xxx.web.http.servlet.Servlet跳转并返回...
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:18:54.129][2016/11/05 15:18:54.129] {http-LFS_Web_Java-3001-4$521971641} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:18:55.942][2016/11/05 15:18:55.942] {http-LFS_Web_Java-3001-4$521971641} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:18:57.066][app] 2016-11-05 15:18:57 [INFO ] (Servlet:41) 进入servlet: com.xxx.web.http.servlet.Servlet...
+[2016.11.05 15:18:57.067][app] 2016-11-05 15:18:57 [INFO ] (Servlet:55) 通过反射实例化对应的Action，className为:com.xxx.lfs.action.FunctionAction
+[2016.11.05 15:18:57.067][app] 2016-11-05 15:18:57 [INFO ] (Servlet:58) 实例化成功，执行默认方法...
+[2016.11.05 15:18:57.067][app] 2016-11-05 15:18:57 [INFO ] (FunctionAction:52) 进入function方法前执行before方法...
+[2016.11.05 15:18:57.067][app] 2016-11-05 15:18:57 [INFO ] (FunctionAction:54) 进入function方法...
+[2016.11.05 15:18:57.068][app] 2016-11-05 15:18:57 [INFO ] (FunctionAction:56) httpRequest请求的json参数为：{"head":{"userID":"","sessionID":"","funcNO":"F100001"},"content":{"url":"http://we.99btgc.info","title":"av12","id":"1"}}
+[2016.11.05 15:18:57.068][app] 2016-11-05 15:18:57 [INFO ] (FunctionAction:142) 进入具体功能号：F100001
+[2016.11.05 15:18:57.069]av12
+[2016.11.05 15:18:57.069]1
+[2016.11.05 15:18:57.069]http://we.99btgc.info
+[2016.11.05 15:18:57.069][app] 2016-11-05 15:18:57 [INFO ] (ProducerConfig:178) ProducerConfig values: 
+[2016.11.05 15:18:57.069]	metric.reporters = []
+[2016.11.05 15:18:57.069]	metadata.max.age.ms = 300000
+[2016.11.05 15:18:57.069]	reconnect.backoff.ms = 50
+[2016.11.05 15:18:57.069]	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2016.11.05 15:18:57.069]	bootstrap.servers = [localhost:9092]
+[2016.11.05 15:18:57.069]	ssl.keystore.type = JKS
+[2016.11.05 15:18:57.069]	sasl.mechanism = GSSAPI
+[2016.11.05 15:18:57.069]	max.block.ms = 60000
+[2016.11.05 15:18:57.069]	interceptor.classes = null
+[2016.11.05 15:18:57.069]	ssl.truststore.password = null
+[2016.11.05 15:18:57.069]	client.id = 
+[2016.11.05 15:18:57.069]	ssl.endpoint.identification.algorithm = null
+[2016.11.05 15:18:57.069]	request.timeout.ms = 30000
+[2016.11.05 15:18:57.069]	acks = all
+[2016.11.05 15:18:57.069]	receive.buffer.bytes = 32768
+[2016.11.05 15:18:57.069]	ssl.truststore.type = JKS
+[2016.11.05 15:18:57.069]	retries = 0
+[2016.11.05 15:18:57.069]	ssl.truststore.location = null
+[2016.11.05 15:18:57.069]	ssl.keystore.password = null
+[2016.11.05 15:18:57.069]	send.buffer.bytes = 131072
+[2016.11.05 15:18:57.069]	compression.type = none
+[2016.11.05 15:18:57.069]	metadata.fetch.timeout.ms = 60000
+[2016.11.05 15:18:57.069]	retry.backoff.ms = 100
+[2016.11.05 15:18:57.069]	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2016.11.05 15:18:57.069]	buffer.memory = 33554432
+[2016.11.05 15:18:57.069]	timeout.ms = 30000
+[2016.11.05 15:18:57.069]	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:18:57.069]	sasl.kerberos.service.name = null
+[2016.11.05 15:18:57.069]	sasl.kerberos.ticket.renew.jitter = 0.05
+[2016.11.05 15:18:57.069]	ssl.trustmanager.algorithm = PKIX
+[2016.11.05 15:18:57.069]	block.on.buffer.full = false
+[2016.11.05 15:18:57.069]	ssl.key.password = null
+[2016.11.05 15:18:57.069]	sasl.kerberos.min.time.before.relogin = 60000
+[2016.11.05 15:18:57.069]	connections.max.idle.ms = 540000
+[2016.11.05 15:18:57.069]	max.in.flight.requests.per.connection = 5
+[2016.11.05 15:18:57.069]	metrics.num.samples = 2
+[2016.11.05 15:18:57.069]	ssl.protocol = TLS
+[2016.11.05 15:18:57.069]	ssl.provider = null
+[2016.11.05 15:18:57.069]	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+[2016.11.05 15:18:57.069]	batch.size = 16384
+[2016.11.05 15:18:57.069]	ssl.keystore.location = null
+[2016.11.05 15:18:57.069]	ssl.cipher.suites = null
+[2016.11.05 15:18:57.069]	security.protocol = PLAINTEXT
+[2016.11.05 15:18:57.069]	max.request.size = 1048576
+[2016.11.05 15:18:57.069]	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:18:57.069]	ssl.keymanager.algorithm = SunX509
+[2016.11.05 15:18:57.069]	metrics.sample.window.ms = 30000
+[2016.11.05 15:18:57.069]	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+[2016.11.05 15:18:57.069]	linger.ms = 1
+[2016.11.05 15:18:57.069]
+[2016.11.05 15:18:57.075][app] 2016-11-05 15:18:57 [INFO ] (ProducerConfig:178) ProducerConfig values: 
+[2016.11.05 15:18:57.075]	metric.reporters = []
+[2016.11.05 15:18:57.075]	metadata.max.age.ms = 300000
+[2016.11.05 15:18:57.075]	reconnect.backoff.ms = 50
+[2016.11.05 15:18:57.075]	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2016.11.05 15:18:57.075]	bootstrap.servers = [localhost:9092]
+[2016.11.05 15:18:57.075]	ssl.keystore.type = JKS
+[2016.11.05 15:18:57.075]	sasl.mechanism = GSSAPI
+[2016.11.05 15:18:57.075]	max.block.ms = 60000
+[2016.11.05 15:18:57.075]	interceptor.classes = null
+[2016.11.05 15:18:57.075]	ssl.truststore.password = null
+[2016.11.05 15:18:57.075]	client.id = producer-3
+[2016.11.05 15:18:57.075]	ssl.endpoint.identification.algorithm = null
+[2016.11.05 15:18:57.075]	request.timeout.ms = 30000
+[2016.11.05 15:18:57.075]	acks = all
+[2016.11.05 15:18:57.075]	receive.buffer.bytes = 32768
+[2016.11.05 15:18:57.075]	ssl.truststore.type = JKS
+[2016.11.05 15:18:57.075]	retries = 0
+[2016.11.05 15:18:57.075]	ssl.truststore.location = null
+[2016.11.05 15:18:57.075]	ssl.keystore.password = null
+[2016.11.05 15:18:57.075]	send.buffer.bytes = 131072
+[2016.11.05 15:18:57.075]	compression.type = none
+[2016.11.05 15:18:57.075]	metadata.fetch.timeout.ms = 60000
+[2016.11.05 15:18:57.075]	retry.backoff.ms = 100
+[2016.11.05 15:18:57.075]	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2016.11.05 15:18:57.075]	buffer.memory = 33554432
+[2016.11.05 15:18:57.075]	timeout.ms = 30000
+[2016.11.05 15:18:57.075]	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:18:57.075]	sasl.kerberos.service.name = null
+[2016.11.05 15:18:57.075]	sasl.kerberos.ticket.renew.jitter = 0.05
+[2016.11.05 15:18:57.075]	ssl.trustmanager.algorithm = PKIX
+[2016.11.05 15:18:57.075]	block.on.buffer.full = false
+[2016.11.05 15:18:57.075]	ssl.key.password = null
+[2016.11.05 15:18:57.075]	sasl.kerberos.min.time.before.relogin = 60000
+[2016.11.05 15:18:57.075]	connections.max.idle.ms = 540000
+[2016.11.05 15:18:57.075]	max.in.flight.requests.per.connection = 5
+[2016.11.05 15:18:57.075]	metrics.num.samples = 2
+[2016.11.05 15:18:57.075]	ssl.protocol = TLS
+[2016.11.05 15:18:57.075]	ssl.provider = null
+[2016.11.05 15:18:57.075]	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+[2016.11.05 15:18:57.075]	batch.size = 16384
+[2016.11.05 15:18:57.075]	ssl.keystore.location = null
+[2016.11.05 15:18:57.075]	ssl.cipher.suites = null
+[2016.11.05 15:18:57.075]	security.protocol = PLAINTEXT
+[2016.11.05 15:18:57.075]	max.request.size = 1048576
+[2016.11.05 15:18:57.075]	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:18:57.075]	ssl.keymanager.algorithm = SunX509
+[2016.11.05 15:18:57.075]	metrics.sample.window.ms = 30000
+[2016.11.05 15:18:57.075]	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+[2016.11.05 15:18:57.075]	linger.ms = 1
+[2016.11.05 15:18:57.075]
+[2016.11.05 15:18:57.075][app] 2016-11-05 15:18:57 [INFO ] (AppInfoParser:83) Kafka version : 0.10.0.1
+[2016.11.05 15:18:57.075][app] 2016-11-05 15:18:57 [INFO ] (AppInfoParser:84) Kafka commitId : a7a17cdec9eaa6c5
+[2016.11.05 15:18:57.173][app] 2016-11-05 15:18:57 [INFO ] (KafkaProducer:658) Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+[2016.11.05 15:18:57.179][app] 2016-11-05 15:18:57 [INFO ] (FunctionAction:94) httpRequest请求处理后返回的信息为：errorNo= ;errorInfo=  ;list<DataRow>=
+[2016.11.05 15:18:57.180][app] 2016-11-05 15:18:57 [INFO ] (FunctionAction:57) 进入function方法后执行after方法...
+[2016.11.05 15:18:57.180][app] 2016-11-05 15:18:57 [INFO ] (Servlet:60) 完成默认方法...
+[2016.11.05 15:18:57.180][app] 2016-11-05 15:18:57 [INFO ] (Servlet:61) 完成Action:com.xxx.lfs.action.FunctionAction处理...
+[2016.11.05 15:18:57.180][app] 2016-11-05 15:18:57 [INFO ] (Servlet:65) 完成servlet:com.xxx.web.http.servlet.Servlet跳转并返回...
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:18:57.294][2016/11/05 15:18:57.294] {http-LFS_Web_Java-3001-4$521971641} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:19:06.063][2016/11/05 15:19:06.063] {http-LFS_Web_Java-3001-4$521971641} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:19:07.408][app] 2016-11-05 15:19:07 [INFO ] (Servlet:41) 进入servlet: com.xxx.web.http.servlet.Servlet...
+[2016.11.05 15:19:07.408][app] 2016-11-05 15:19:07 [INFO ] (Servlet:55) 通过反射实例化对应的Action，className为:com.xxx.lfs.action.FunctionAction
+[2016.11.05 15:19:07.409][app] 2016-11-05 15:19:07 [INFO ] (Servlet:58) 实例化成功，执行默认方法...
+[2016.11.05 15:19:07.409][app] 2016-11-05 15:19:07 [INFO ] (FunctionAction:52) 进入function方法前执行before方法...
+[2016.11.05 15:19:07.409][app] 2016-11-05 15:19:07 [INFO ] (FunctionAction:54) 进入function方法...
+[2016.11.05 15:19:07.409][app] 2016-11-05 15:19:07 [INFO ] (FunctionAction:56) httpRequest请求的json参数为：{"head":{"userID":"","sessionID":"","funcNO":"100002"},"content":{"url":"http://we.99btgc.info","title":"av12","id":"1"}}
+[2016.11.05 15:19:07.410][app] 2016-11-05 15:19:07 [INFO ] (FunctionAction:142) 进入具体功能号：100002
+[2016.11.05 15:19:07.411][app] 2016-11-05 15:19:07 [INFO ] (FunctionAction:94) httpRequest请求处理后返回的信息为：errorNo=500 ;errorInfo=系统内部错误！  ;list<DataRow>=
+[2016.11.05 15:19:07.412][app] 2016-11-05 15:19:07 [INFO ] (FunctionAction:57) 进入function方法后执行after方法...
+[2016.11.05 15:19:07.413][app] 2016-11-05 15:19:07 [INFO ] (Servlet:60) 完成默认方法...
+[2016.11.05 15:19:07.413][app] 2016-11-05 15:19:07 [INFO ] (Servlet:61) 完成Action:com.xxx.lfs.action.FunctionAction处理...
+[2016.11.05 15:19:07.413][app] 2016-11-05 15:19:07 [INFO ] (Servlet:65) 完成servlet:com.xxx.web.http.servlet.Servlet跳转并返回...
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:19:07.521][2016/11/05 15:19:07.521] {http-LFS_Web_Java-3001-4$521971641} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:19:09.454][2016/11/05 15:19:09.454] {http-LFS_Web_Java-3001-4$521971641} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:19:30.726][2016/11/05 15:19:30.726] {http-LFS_Web_Java-3001-3$531434419} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:19:32.117][app] 2016-11-05 15:19:32 [INFO ] (Servlet:41) 进入servlet: com.xxx.web.http.servlet.Servlet...
+[2016.11.05 15:19:32.118][app] 2016-11-05 15:19:32 [INFO ] (Servlet:55) 通过反射实例化对应的Action，className为:com.xxx.lfs.action.FunctionAction
+[2016.11.05 15:19:32.118][app] 2016-11-05 15:19:32 [INFO ] (Servlet:58) 实例化成功，执行默认方法...
+[2016.11.05 15:19:32.118][app] 2016-11-05 15:19:32 [INFO ] (FunctionAction:52) 进入function方法前执行before方法...
+[2016.11.05 15:19:32.118][app] 2016-11-05 15:19:32 [INFO ] (FunctionAction:54) 进入function方法...
+[2016.11.05 15:19:32.119][app] 2016-11-05 15:19:32 [INFO ] (FunctionAction:56) httpRequest请求的json参数为：{"head":{"userID":"","sessionID":"","funcNO":"F100002"},"content":{"url":"http://we.99btgc.info","title":"av12","id":"1"}}
+[2016.11.05 15:19:32.120][app] 2016-11-05 15:19:32 [INFO ] (FunctionAction:142) 进入具体功能号：F100002
+[2016.11.05 15:19:32.127][app] 2016-11-05 15:19:32 [INFO ] (ConsumerConfig:178) ConsumerConfig values: 
+[2016.11.05 15:19:32.127]	metric.reporters = []
+[2016.11.05 15:19:32.127]	metadata.max.age.ms = 300000
+[2016.11.05 15:19:32.127]	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]
+[2016.11.05 15:19:32.127]	reconnect.backoff.ms = 50
+[2016.11.05 15:19:32.127]	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2016.11.05 15:19:32.127]	max.partition.fetch.bytes = 1048576
+[2016.11.05 15:19:32.127]	bootstrap.servers = [localhost:9092]
+[2016.11.05 15:19:32.127]	ssl.keystore.type = JKS
+[2016.11.05 15:19:32.127]	enable.auto.commit = true
+[2016.11.05 15:19:32.127]	sasl.mechanism = GSSAPI
+[2016.11.05 15:19:32.127]	interceptor.classes = null
+[2016.11.05 15:19:32.127]	exclude.internal.topics = true
+[2016.11.05 15:19:32.127]	ssl.truststore.password = null
+[2016.11.05 15:19:32.127]	client.id = 
+[2016.11.05 15:19:32.127]	ssl.endpoint.identification.algorithm = null
+[2016.11.05 15:19:32.127]	max.poll.records = 2147483647
+[2016.11.05 15:19:32.127]	check.crcs = true
+[2016.11.05 15:19:32.127]	request.timeout.ms = 40000
+[2016.11.05 15:19:32.127]	heartbeat.interval.ms = 3000
+[2016.11.05 15:19:32.127]	auto.commit.interval.ms = 1000
+[2016.11.05 15:19:32.127]	receive.buffer.bytes = 65536
+[2016.11.05 15:19:32.127]	ssl.truststore.type = JKS
+[2016.11.05 15:19:32.127]	ssl.truststore.location = null
+[2016.11.05 15:19:32.127]	ssl.keystore.password = null
+[2016.11.05 15:19:32.127]	fetch.min.bytes = 1
+[2016.11.05 15:19:32.127]	send.buffer.bytes = 131072
+[2016.11.05 15:19:32.127]	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+[2016.11.05 15:19:32.127]	group.id = test-consumer-group
+[2016.11.05 15:19:32.127]	retry.backoff.ms = 100
+[2016.11.05 15:19:32.127]	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2016.11.05 15:19:32.127]	sasl.kerberos.service.name = null
+[2016.11.05 15:19:32.127]	sasl.kerberos.ticket.renew.jitter = 0.05
+[2016.11.05 15:19:32.127]	ssl.trustmanager.algorithm = PKIX
+[2016.11.05 15:19:32.127]	ssl.key.password = null
+[2016.11.05 15:19:32.127]	fetch.max.wait.ms = 500
+[2016.11.05 15:19:32.127]	sasl.kerberos.min.time.before.relogin = 60000
+[2016.11.05 15:19:32.127]	connections.max.idle.ms = 540000
+[2016.11.05 15:19:32.127]	session.timeout.ms = 30000
+[2016.11.05 15:19:32.127]	metrics.num.samples = 2
+[2016.11.05 15:19:32.127]	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+[2016.11.05 15:19:32.127]	ssl.protocol = TLS
+[2016.11.05 15:19:32.127]	ssl.provider = null
+[2016.11.05 15:19:32.127]	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+[2016.11.05 15:19:32.127]	ssl.keystore.location = null
+[2016.11.05 15:19:32.127]	ssl.cipher.suites = null
+[2016.11.05 15:19:32.127]	security.protocol = PLAINTEXT
+[2016.11.05 15:19:32.127]	ssl.keymanager.algorithm = SunX509
+[2016.11.05 15:19:32.127]	metrics.sample.window.ms = 30000
+[2016.11.05 15:19:32.127]	auto.offset.reset = earliest
+[2016.11.05 15:19:32.127]
+[2016.11.05 15:19:32.203][app] 2016-11-05 15:19:32 [INFO ] (ConsumerConfig:178) ConsumerConfig values: 
+[2016.11.05 15:19:32.203]	metric.reporters = []
+[2016.11.05 15:19:32.203]	metadata.max.age.ms = 300000
+[2016.11.05 15:19:32.203]	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]
+[2016.11.05 15:19:32.203]	reconnect.backoff.ms = 50
+[2016.11.05 15:19:32.203]	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2016.11.05 15:19:32.203]	max.partition.fetch.bytes = 1048576
+[2016.11.05 15:19:32.203]	bootstrap.servers = [localhost:9092]
+[2016.11.05 15:19:32.203]	ssl.keystore.type = JKS
+[2016.11.05 15:19:32.203]	enable.auto.commit = true
+[2016.11.05 15:19:32.203]	sasl.mechanism = GSSAPI
+[2016.11.05 15:19:32.203]	interceptor.classes = null
+[2016.11.05 15:19:32.203]	exclude.internal.topics = true
+[2016.11.05 15:19:32.203]	ssl.truststore.password = null
+[2016.11.05 15:19:32.203]	client.id = consumer-1
+[2016.11.05 15:19:32.203]	ssl.endpoint.identification.algorithm = null
+[2016.11.05 15:19:32.203]	max.poll.records = 2147483647
+[2016.11.05 15:19:32.203]	check.crcs = true
+[2016.11.05 15:19:32.203]	request.timeout.ms = 40000
+[2016.11.05 15:19:32.203]	heartbeat.interval.ms = 3000
+[2016.11.05 15:19:32.203]	auto.commit.interval.ms = 1000
+[2016.11.05 15:19:32.203]	receive.buffer.bytes = 65536
+[2016.11.05 15:19:32.203]	ssl.truststore.type = JKS
+[2016.11.05 15:19:32.203]	ssl.truststore.location = null
+[2016.11.05 15:19:32.203]	ssl.keystore.password = null
+[2016.11.05 15:19:32.203]	fetch.min.bytes = 1
+[2016.11.05 15:19:32.203]	send.buffer.bytes = 131072
+[2016.11.05 15:19:32.203]	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+[2016.11.05 15:19:32.203]	group.id = test-consumer-group
+[2016.11.05 15:19:32.203]	retry.backoff.ms = 100
+[2016.11.05 15:19:32.203]	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2016.11.05 15:19:32.203]	sasl.kerberos.service.name = null
+[2016.11.05 15:19:32.203]	sasl.kerberos.ticket.renew.jitter = 0.05
+[2016.11.05 15:19:32.203]	ssl.trustmanager.algorithm = PKIX
+[2016.11.05 15:19:32.203]	ssl.key.password = null
+[2016.11.05 15:19:32.203]	fetch.max.wait.ms = 500
+[2016.11.05 15:19:32.203]	sasl.kerberos.min.time.before.relogin = 60000
+[2016.11.05 15:19:32.203]	connections.max.idle.ms = 540000
+[2016.11.05 15:19:32.203]	session.timeout.ms = 30000
+[2016.11.05 15:19:32.203]	metrics.num.samples = 2
+[2016.11.05 15:19:32.203]	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+[2016.11.05 15:19:32.203]	ssl.protocol = TLS
+[2016.11.05 15:19:32.203]	ssl.provider = null
+[2016.11.05 15:19:32.203]	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+[2016.11.05 15:19:32.203]	ssl.keystore.location = null
+[2016.11.05 15:19:32.203]	ssl.cipher.suites = null
+[2016.11.05 15:19:32.203]	security.protocol = PLAINTEXT
+[2016.11.05 15:19:32.203]	ssl.keymanager.algorithm = SunX509
+[2016.11.05 15:19:32.203]	metrics.sample.window.ms = 30000
+[2016.11.05 15:19:32.203]	auto.offset.reset = earliest
+[2016.11.05 15:19:32.203]
+[2016.11.05 15:19:32.218][app] 2016-11-05 15:19:32 [INFO ] (AppInfoParser:83) Kafka version : 0.10.0.1
+[2016.11.05 15:19:32.218][app] 2016-11-05 15:19:32 [INFO ] (AppInfoParser:84) Kafka commitId : a7a17cdec9eaa6c5
+[2016.11.05 15:19:32.331][app] 2016-11-05 15:19:32 [INFO ] (AbstractCoordinator:505) Discovered coordinator 24.1.222.221:9092 (id: 2147483647 rack: null) for group test-consumer-group.
+[2016.11.05 15:19:32.334][app] 2016-11-05 15:19:32 [INFO ] (ConsumerCoordinator:292) Revoking previously assigned partitions [] for group test-consumer-group
+[2016.11.05 15:19:32.335][app] 2016-11-05 15:19:32 [INFO ] (AbstractCoordinator:326) (Re-)joining group test-consumer-group
+[2016.11.05 15:19:32.400][app] 2016-11-05 15:19:32 [INFO ] (AbstractCoordinator:434) Successfully joined group test-consumer-group with generation 1
+[2016.11.05 15:19:32.402][app] 2016-11-05 15:19:32 [INFO ] (ConsumerCoordinator:231) Setting newly assigned partitions [av12-0] for group test-consumer-group
+[2016.11.05 15:19:32.960]offset=0,key=1,value=http://we.99btgc.info
+[2016.11.05 15:19:32.961]
+[2016.11.05 15:19:32.999][app] 2016-11-05 15:19:32 [INFO ] (FunctionAction:94) httpRequest请求处理后返回的信息为：errorNo= ;errorInfo=  ;list<DataRow>=
+[2016.11.05 15:19:33.003][app] 2016-11-05 15:19:33 [INFO ] (FunctionAction:57) 进入function方法后执行after方法...
+[2016.11.05 15:19:33.003][app] 2016-11-05 15:19:33 [INFO ] (Servlet:60) 完成默认方法...
+[2016.11.05 15:19:33.004][app] 2016-11-05 15:19:33 [INFO ] (Servlet:61) 完成Action:com.xxx.lfs.action.FunctionAction处理...
+[2016.11.05 15:19:33.004][app] 2016-11-05 15:19:33 [INFO ] (Servlet:65) 完成servlet:com.xxx.web.http.servlet.Servlet跳转并返回...
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:19:33.162][2016/11/05 15:19:33.162] {http-LFS_Web_Java-3001-3$531434419} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:19:36.329][2016/11/05 15:19:36.329] {http-LFS_Web_Java-3001-3$531434419} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:19:38.615][app] 2016-11-05 15:19:38 [INFO ] (Servlet:41) 进入servlet: com.xxx.web.http.servlet.Servlet...
+[2016.11.05 15:19:38.616][app] 2016-11-05 15:19:38 [INFO ] (Servlet:55) 通过反射实例化对应的Action，className为:com.xxx.lfs.action.FunctionAction
+[2016.11.05 15:19:38.616][app] 2016-11-05 15:19:38 [INFO ] (Servlet:58) 实例化成功，执行默认方法...
+[2016.11.05 15:19:38.616][app] 2016-11-05 15:19:38 [INFO ] (FunctionAction:52) 进入function方法前执行before方法...
+[2016.11.05 15:19:38.616][app] 2016-11-05 15:19:38 [INFO ] (FunctionAction:54) 进入function方法...
+[2016.11.05 15:19:38.617][app] 2016-11-05 15:19:38 [INFO ] (FunctionAction:56) httpRequest请求的json参数为：{"head":{"userID":"","sessionID":"","funcNO":"F100001"},"content":{"url":"http://we.99btgc.info","title":"av12","id":"1"}}
+[2016.11.05 15:19:38.617][app] 2016-11-05 15:19:38 [INFO ] (FunctionAction:142) 进入具体功能号：F100001
+[2016.11.05 15:19:38.617]av12
+[2016.11.05 15:19:38.617]1
+[2016.11.05 15:19:38.617]http://we.99btgc.info
+[2016.11.05 15:19:38.618][app] 2016-11-05 15:19:38 [INFO ] (ProducerConfig:178) ProducerConfig values: 
+[2016.11.05 15:19:38.618]	metric.reporters = []
+[2016.11.05 15:19:38.618]	metadata.max.age.ms = 300000
+[2016.11.05 15:19:38.618]	reconnect.backoff.ms = 50
+[2016.11.05 15:19:38.618]	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2016.11.05 15:19:38.618]	bootstrap.servers = [localhost:9092]
+[2016.11.05 15:19:38.618]	ssl.keystore.type = JKS
+[2016.11.05 15:19:38.618]	sasl.mechanism = GSSAPI
+[2016.11.05 15:19:38.618]	max.block.ms = 60000
+[2016.11.05 15:19:38.618]	interceptor.classes = null
+[2016.11.05 15:19:38.618]	ssl.truststore.password = null
+[2016.11.05 15:19:38.618]	client.id = 
+[2016.11.05 15:19:38.618]	ssl.endpoint.identification.algorithm = null
+[2016.11.05 15:19:38.618]	request.timeout.ms = 30000
+[2016.11.05 15:19:38.618]	acks = all
+[2016.11.05 15:19:38.618]	receive.buffer.bytes = 32768
+[2016.11.05 15:19:38.618]	ssl.truststore.type = JKS
+[2016.11.05 15:19:38.618]	retries = 0
+[2016.11.05 15:19:38.618]	ssl.truststore.location = null
+[2016.11.05 15:19:38.618]	ssl.keystore.password = null
+[2016.11.05 15:19:38.618]	send.buffer.bytes = 131072
+[2016.11.05 15:19:38.618]	compression.type = none
+[2016.11.05 15:19:38.618]	metadata.fetch.timeout.ms = 60000
+[2016.11.05 15:19:38.618]	retry.backoff.ms = 100
+[2016.11.05 15:19:38.618]	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2016.11.05 15:19:38.618]	buffer.memory = 33554432
+[2016.11.05 15:19:38.618]	timeout.ms = 30000
+[2016.11.05 15:19:38.618]	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:19:38.618]	sasl.kerberos.service.name = null
+[2016.11.05 15:19:38.618]	sasl.kerberos.ticket.renew.jitter = 0.05
+[2016.11.05 15:19:38.618]	ssl.trustmanager.algorithm = PKIX
+[2016.11.05 15:19:38.618]	block.on.buffer.full = false
+[2016.11.05 15:19:38.618]	ssl.key.password = null
+[2016.11.05 15:19:38.618]	sasl.kerberos.min.time.before.relogin = 60000
+[2016.11.05 15:19:38.618]	connections.max.idle.ms = 540000
+[2016.11.05 15:19:38.618]	max.in.flight.requests.per.connection = 5
+[2016.11.05 15:19:38.618]	metrics.num.samples = 2
+[2016.11.05 15:19:38.618]	ssl.protocol = TLS
+[2016.11.05 15:19:38.618]	ssl.provider = null
+[2016.11.05 15:19:38.618]	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+[2016.11.05 15:19:38.618]	batch.size = 16384
+[2016.11.05 15:19:38.618]	ssl.keystore.location = null
+[2016.11.05 15:19:38.618]	ssl.cipher.suites = null
+[2016.11.05 15:19:38.618]	security.protocol = PLAINTEXT
+[2016.11.05 15:19:38.618]	max.request.size = 1048576
+[2016.11.05 15:19:38.618]	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:19:38.618]	ssl.keymanager.algorithm = SunX509
+[2016.11.05 15:19:38.618]	metrics.sample.window.ms = 30000
+[2016.11.05 15:19:38.618]	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+[2016.11.05 15:19:38.618]	linger.ms = 1
+[2016.11.05 15:19:38.618]
+[2016.11.05 15:19:38.623][app] 2016-11-05 15:19:38 [INFO ] (ProducerConfig:178) ProducerConfig values: 
+[2016.11.05 15:19:38.623]	metric.reporters = []
+[2016.11.05 15:19:38.623]	metadata.max.age.ms = 300000
+[2016.11.05 15:19:38.623]	reconnect.backoff.ms = 50
+[2016.11.05 15:19:38.623]	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2016.11.05 15:19:38.623]	bootstrap.servers = [localhost:9092]
+[2016.11.05 15:19:38.623]	ssl.keystore.type = JKS
+[2016.11.05 15:19:38.623]	sasl.mechanism = GSSAPI
+[2016.11.05 15:19:38.623]	max.block.ms = 60000
+[2016.11.05 15:19:38.623]	interceptor.classes = null
+[2016.11.05 15:19:38.623]	ssl.truststore.password = null
+[2016.11.05 15:19:38.623]	client.id = producer-4
+[2016.11.05 15:19:38.623]	ssl.endpoint.identification.algorithm = null
+[2016.11.05 15:19:38.623]	request.timeout.ms = 30000
+[2016.11.05 15:19:38.623]	acks = all
+[2016.11.05 15:19:38.623]	receive.buffer.bytes = 32768
+[2016.11.05 15:19:38.623]	ssl.truststore.type = JKS
+[2016.11.05 15:19:38.623]	retries = 0
+[2016.11.05 15:19:38.623]	ssl.truststore.location = null
+[2016.11.05 15:19:38.623]	ssl.keystore.password = null
+[2016.11.05 15:19:38.623]	send.buffer.bytes = 131072
+[2016.11.05 15:19:38.623]	compression.type = none
+[2016.11.05 15:19:38.623]	metadata.fetch.timeout.ms = 60000
+[2016.11.05 15:19:38.623]	retry.backoff.ms = 100
+[2016.11.05 15:19:38.623]	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2016.11.05 15:19:38.623]	buffer.memory = 33554432
+[2016.11.05 15:19:38.623]	timeout.ms = 30000
+[2016.11.05 15:19:38.623]	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:19:38.623]	sasl.kerberos.service.name = null
+[2016.11.05 15:19:38.623]	sasl.kerberos.ticket.renew.jitter = 0.05
+[2016.11.05 15:19:38.623]	ssl.trustmanager.algorithm = PKIX
+[2016.11.05 15:19:38.623]	block.on.buffer.full = false
+[2016.11.05 15:19:38.623]	ssl.key.password = null
+[2016.11.05 15:19:38.623]	sasl.kerberos.min.time.before.relogin = 60000
+[2016.11.05 15:19:38.623]	connections.max.idle.ms = 540000
+[2016.11.05 15:19:38.623]	max.in.flight.requests.per.connection = 5
+[2016.11.05 15:19:38.623]	metrics.num.samples = 2
+[2016.11.05 15:19:38.623]	ssl.protocol = TLS
+[2016.11.05 15:19:38.623]	ssl.provider = null
+[2016.11.05 15:19:38.623]	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+[2016.11.05 15:19:38.623]	batch.size = 16384
+[2016.11.05 15:19:38.623]	ssl.keystore.location = null
+[2016.11.05 15:19:38.623]	ssl.cipher.suites = null
+[2016.11.05 15:19:38.623]	security.protocol = PLAINTEXT
+[2016.11.05 15:19:38.623]	max.request.size = 1048576
+[2016.11.05 15:19:38.623]	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+[2016.11.05 15:19:38.623]	ssl.keymanager.algorithm = SunX509
+[2016.11.05 15:19:38.623]	metrics.sample.window.ms = 30000
+[2016.11.05 15:19:38.623]	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+[2016.11.05 15:19:38.623]	linger.ms = 1
+[2016.11.05 15:19:38.623]
+[2016.11.05 15:19:38.624][app] 2016-11-05 15:19:38 [INFO ] (AppInfoParser:83) Kafka version : 0.10.0.1
+[2016.11.05 15:19:38.624][app] 2016-11-05 15:19:38 [INFO ] (AppInfoParser:84) Kafka commitId : a7a17cdec9eaa6c5
+[2016.11.05 15:19:38.729][app] 2016-11-05 15:19:38 [INFO ] (KafkaProducer:658) Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+[2016.11.05 15:19:38.745][app] 2016-11-05 15:19:38 [INFO ] (FunctionAction:94) httpRequest请求处理后返回的信息为：errorNo= ;errorInfo=  ;list<DataRow>=
+[2016.11.05 15:19:38.749][app] 2016-11-05 15:19:38 [INFO ] (FunctionAction:57) 进入function方法后执行after方法...
+[2016.11.05 15:19:38.749][app] 2016-11-05 15:19:38 [INFO ] (Servlet:60) 完成默认方法...
+[2016.11.05 15:19:38.750][app] 2016-11-05 15:19:38 [INFO ] (Servlet:61) 完成Action:com.xxx.lfs.action.FunctionAction处理...
+[2016.11.05 15:19:38.751][app] 2016-11-05 15:19:38 [INFO ] (Servlet:65) 完成servlet:com.xxx.web.http.servlet.Servlet跳转并返回...
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:19:38.882][2016/11/05 15:19:38.882] {http-LFS_Web_Java-3001-3$531434419} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:19:43.931][2016/11/05 15:19:43.931] {http-LFS_Web_Java-3001-3$531434419} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:34:09.708][2016/11/05 15:34:09.708] {resin-destroy} Host[] stopping
+[2016.11.05 15:34:09.708][2016/11/05 15:34:09.708] {resin-destroy} WebApp[http://localhost:3001] stopping
+[2016.11.05 15:34:13.049][app] 2016-11-05 15:34:13 [INFO ] (Listener:26) 系统配置信息初始化开始...
+[2016.11.05 15:34:13.104][app] 2016-11-05 15:34:13 [INFO ] (Listener:28) 系统配置信息初始化结束...
+[2016.11.05 15:34:13.104][app] 2016-11-05 15:34:13 [INFO ] (Listener:29) 系统初始化数据源开始...
+[2016.11.05 15:34:13.124][app] 2016-11-05 15:34:13 [INFO ] (MLog:80) MLog clients using log4j logging.
+[2016.11.05 15:34:13.175][app] 2016-11-05 15:34:13 [WARN ] (BeansUtils:225) Property inaccessible for overwriting: password
+[2016.11.05 15:34:13.179][app] 2016-11-05 15:34:13 [INFO ] (C3P0Registry:204) Initializing c3p0-0.9.2-pre8 [built 19-December-2012 15:00:02 +0000; debug? true; trace: 10]
+[2016.11.05 15:34:13.201][app] 2016-11-05 15:34:13 [INFO ] (Listener:31) 系统初始化数据源结束...
+[2016.11.05 15:34:13.210][2016/11/05 15:34:13.210] {main} WebApp[http://localhost:3001] active
+[2016.11.05 15:34:13.210][2016/11/05 15:34:13.210] {main} Host[] active
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:34:18.028][2016/11/05 15:34:18.028] {http-LFS_Web_Java-3001-0$1423481603} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:34:19.061][app] 2016-11-05 15:34:19 [INFO ] (Servlet:41) 进入servlet: com.xxx.web.http.servlet.Servlet...
+[2016.11.05 15:34:19.062][app] 2016-11-05 15:34:19 [INFO ] (Servlet:55) 通过反射实例化对应的Action，className为:com.xxx.lfs.action.FunctionAction
+[2016.11.05 15:34:19.066][app] 2016-11-05 15:34:19 [INFO ] (Servlet:58) 实例化成功，执行默认方法...
+[2016.11.05 15:34:19.066][app] 2016-11-05 15:34:19 [INFO ] (FunctionAction:52) 进入function方法前执行before方法...
+[2016.11.05 15:34:19.066][app] 2016-11-05 15:34:19 [INFO ] (FunctionAction:54) 进入function方法...
+[2016.11.05 15:34:19.083][app] 2016-11-05 15:34:19 [INFO ] (FunctionAction:56) httpRequest请求的json参数为：{"head":{"userID":"","sessionID":"","funcNO":"F100002"},"content":{"url":"http://we.99btgc.info","title":"av12","id":"1"}}
+[2016.11.05 15:34:19.138][app] 2016-11-05 15:34:19 [INFO ] (FunctionAction:142) 进入具体功能号：F100002
+[2016.11.05 15:34:19.183][app] 2016-11-05 15:34:19 [INFO ] (ConsumerConfig:178) ConsumerConfig values: 
+[2016.11.05 15:34:19.183]	metric.reporters = []
+[2016.11.05 15:34:19.183]	metadata.max.age.ms = 300000
+[2016.11.05 15:34:19.183]	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]
+[2016.11.05 15:34:19.183]	reconnect.backoff.ms = 50
+[2016.11.05 15:34:19.183]	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2016.11.05 15:34:19.183]	max.partition.fetch.bytes = 1048576
+[2016.11.05 15:34:19.183]	bootstrap.servers = [localhost:9092]
+[2016.11.05 15:34:19.183]	ssl.keystore.type = JKS
+[2016.11.05 15:34:19.183]	enable.auto.commit = true
+[2016.11.05 15:34:19.183]	sasl.mechanism = GSSAPI
+[2016.11.05 15:34:19.183]	interceptor.classes = null
+[2016.11.05 15:34:19.183]	exclude.internal.topics = true
+[2016.11.05 15:34:19.183]	ssl.truststore.password = null
+[2016.11.05 15:34:19.183]	client.id = 
+[2016.11.05 15:34:19.183]	ssl.endpoint.identification.algorithm = null
+[2016.11.05 15:34:19.183]	max.poll.records = 2147483647
+[2016.11.05 15:34:19.183]	check.crcs = true
+[2016.11.05 15:34:19.183]	request.timeout.ms = 40000
+[2016.11.05 15:34:19.183]	heartbeat.interval.ms = 3000
+[2016.11.05 15:34:19.183]	auto.commit.interval.ms = 1000
+[2016.11.05 15:34:19.183]	receive.buffer.bytes = 65536
+[2016.11.05 15:34:19.183]	ssl.truststore.type = JKS
+[2016.11.05 15:34:19.183]	ssl.truststore.location = null
+[2016.11.05 15:34:19.183]	ssl.keystore.password = null
+[2016.11.05 15:34:19.183]	fetch.min.bytes = 1
+[2016.11.05 15:34:19.183]	send.buffer.bytes = 131072
+[2016.11.05 15:34:19.183]	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+[2016.11.05 15:34:19.183]	group.id = test-consumer-group
+[2016.11.05 15:34:19.183]	retry.backoff.ms = 100
+[2016.11.05 15:34:19.183]	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2016.11.05 15:34:19.183]	sasl.kerberos.service.name = null
+[2016.11.05 15:34:19.183]	sasl.kerberos.ticket.renew.jitter = 0.05
+[2016.11.05 15:34:19.183]	ssl.trustmanager.algorithm = PKIX
+[2016.11.05 15:34:19.183]	ssl.key.password = null
+[2016.11.05 15:34:19.183]	fetch.max.wait.ms = 500
+[2016.11.05 15:34:19.183]	sasl.kerberos.min.time.before.relogin = 60000
+[2016.11.05 15:34:19.183]	connections.max.idle.ms = 540000
+[2016.11.05 15:34:19.183]	session.timeout.ms = 30000
+[2016.11.05 15:34:19.183]	metrics.num.samples = 2
+[2016.11.05 15:34:19.183]	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+[2016.11.05 15:34:19.183]	ssl.protocol = TLS
+[2016.11.05 15:34:19.183]	ssl.provider = null
+[2016.11.05 15:34:19.183]	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+[2016.11.05 15:34:19.183]	ssl.keystore.location = null
+[2016.11.05 15:34:19.183]	ssl.cipher.suites = null
+[2016.11.05 15:34:19.183]	security.protocol = PLAINTEXT
+[2016.11.05 15:34:19.183]	ssl.keymanager.algorithm = SunX509
+[2016.11.05 15:34:19.183]	metrics.sample.window.ms = 30000
+[2016.11.05 15:34:19.183]	auto.offset.reset = earliest
+[2016.11.05 15:34:19.183]
+[2016.11.05 15:34:19.261][app] 2016-11-05 15:34:19 [INFO ] (ConsumerConfig:178) ConsumerConfig values: 
+[2016.11.05 15:34:19.261]	metric.reporters = []
+[2016.11.05 15:34:19.261]	metadata.max.age.ms = 300000
+[2016.11.05 15:34:19.261]	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]
+[2016.11.05 15:34:19.261]	reconnect.backoff.ms = 50
+[2016.11.05 15:34:19.261]	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2016.11.05 15:34:19.261]	max.partition.fetch.bytes = 1048576
+[2016.11.05 15:34:19.261]	bootstrap.servers = [localhost:9092]
+[2016.11.05 15:34:19.261]	ssl.keystore.type = JKS
+[2016.11.05 15:34:19.261]	enable.auto.commit = true
+[2016.11.05 15:34:19.261]	sasl.mechanism = GSSAPI
+[2016.11.05 15:34:19.261]	interceptor.classes = null
+[2016.11.05 15:34:19.261]	exclude.internal.topics = true
+[2016.11.05 15:34:19.261]	ssl.truststore.password = null
+[2016.11.05 15:34:19.261]	client.id = consumer-1
+[2016.11.05 15:34:19.261]	ssl.endpoint.identification.algorithm = null
+[2016.11.05 15:34:19.261]	max.poll.records = 2147483647
+[2016.11.05 15:34:19.261]	check.crcs = true
+[2016.11.05 15:34:19.261]	request.timeout.ms = 40000
+[2016.11.05 15:34:19.261]	heartbeat.interval.ms = 3000
+[2016.11.05 15:34:19.261]	auto.commit.interval.ms = 1000
+[2016.11.05 15:34:19.261]	receive.buffer.bytes = 65536
+[2016.11.05 15:34:19.261]	ssl.truststore.type = JKS
+[2016.11.05 15:34:19.261]	ssl.truststore.location = null
+[2016.11.05 15:34:19.261]	ssl.keystore.password = null
+[2016.11.05 15:34:19.261]	fetch.min.bytes = 1
+[2016.11.05 15:34:19.261]	send.buffer.bytes = 131072
+[2016.11.05 15:34:19.261]	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+[2016.11.05 15:34:19.261]	group.id = test-consumer-group
+[2016.11.05 15:34:19.261]	retry.backoff.ms = 100
+[2016.11.05 15:34:19.261]	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2016.11.05 15:34:19.261]	sasl.kerberos.service.name = null
+[2016.11.05 15:34:19.261]	sasl.kerberos.ticket.renew.jitter = 0.05
+[2016.11.05 15:34:19.261]	ssl.trustmanager.algorithm = PKIX
+[2016.11.05 15:34:19.261]	ssl.key.password = null
+[2016.11.05 15:34:19.261]	fetch.max.wait.ms = 500
+[2016.11.05 15:34:19.261]	sasl.kerberos.min.time.before.relogin = 60000
+[2016.11.05 15:34:19.261]	connections.max.idle.ms = 540000
+[2016.11.05 15:34:19.261]	session.timeout.ms = 30000
+[2016.11.05 15:34:19.261]	metrics.num.samples = 2
+[2016.11.05 15:34:19.261]	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+[2016.11.05 15:34:19.261]	ssl.protocol = TLS
+[2016.11.05 15:34:19.261]	ssl.provider = null
+[2016.11.05 15:34:19.261]	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+[2016.11.05 15:34:19.261]	ssl.keystore.location = null
+[2016.11.05 15:34:19.261]	ssl.cipher.suites = null
+[2016.11.05 15:34:19.261]	security.protocol = PLAINTEXT
+[2016.11.05 15:34:19.261]	ssl.keymanager.algorithm = SunX509
+[2016.11.05 15:34:19.261]	metrics.sample.window.ms = 30000
+[2016.11.05 15:34:19.261]	auto.offset.reset = earliest
+[2016.11.05 15:34:19.261]
+[2016.11.05 15:34:19.282][app] 2016-11-05 15:34:19 [INFO ] (AppInfoParser:83) Kafka version : 0.10.0.1
+[2016.11.05 15:34:19.282][app] 2016-11-05 15:34:19 [INFO ] (AppInfoParser:84) Kafka commitId : a7a17cdec9eaa6c5
+[2016.11.05 15:34:19.430][app] 2016-11-05 15:34:19 [INFO ] (AbstractCoordinator:505) Discovered coordinator 24.1.222.221:9092 (id: 2147483647 rack: null) for group test-consumer-group.
+[2016.11.05 15:34:19.433][app] 2016-11-05 15:34:19 [INFO ] (ConsumerCoordinator:292) Revoking previously assigned partitions [] for group test-consumer-group
+[2016.11.05 15:34:19.433][app] 2016-11-05 15:34:19 [INFO ] (AbstractCoordinator:326) (Re-)joining group test-consumer-group
+[2016.11.05 15:34:19.444][app] 2016-11-05 15:34:19 [INFO ] (AbstractCoordinator:434) Successfully joined group test-consumer-group with generation 1
+[2016.11.05 15:34:19.445][app] 2016-11-05 15:34:19 [INFO ] (ConsumerCoordinator:231) Setting newly assigned partitions [av12-0] for group test-consumer-group
+[2016.11.05 15:34:19.973]{offset=0, value=0, key=0}
+[2016.11.05 15:34:19.999][app] 2016-11-05 15:34:19 [INFO ] (FunctionAction:94) httpRequest请求处理后返回的信息为：errorNo= ;errorInfo=  ;list<DataRow>={offset=0, value=0, key=0}{offset=1, value=1, key=1}{offset=2, value=2, key=2}{offset=3, value=3, key=3}
+[2016.11.05 15:34:20.016][app] 2016-11-05 15:34:20 [INFO ] (FunctionAction:57) 进入function方法后执行after方法...
+[2016.11.05 15:34:20.016][app] 2016-11-05 15:34:20 [INFO ] (Servlet:60) 完成默认方法...
+[2016.11.05 15:34:20.017][app] 2016-11-05 15:34:20 [INFO ] (Servlet:61) 完成Action:com.xxx.lfs.action.FunctionAction处理...
+[2016.11.05 15:34:20.018][app] 2016-11-05 15:34:20 [INFO ] (Servlet:65) 完成servlet:com.xxx.web.http.servlet.Servlet跳转并返回...
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:34:20.150][2016/11/05 15:34:20.150] {http-LFS_Web_Java-3001-0$1423481603} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:34:43.736][2016/11/05 15:34:43.735] {http-LFS_Web_Java-3001-0$736384713} 	at java.lang.Thread.run(Thread.java:745)
+[2016.11.05 15:35:43.886][2016/11/05 15:35:43.886] {resin-destroy} Host[] stopping
+[2016.11.05 15:35:43.887][2016/11/05 15:35:43.887] {resin-destroy} WebApp[http://localhost:3001] stopping
+[2016.11.05 15:35:47.570][app] 2016-11-05 15:35:47 [INFO ] (Listener:26) 系统配置信息初始化开始...
+[2016.11.05 15:35:47.623][app] 2016-11-05 15:35:47 [INFO ] (Listener:28) 系统配置信息初始化结束...
+[2016.11.05 15:35:47.623][app] 2016-11-05 15:35:47 [INFO ] (Listener:29) 系统初始化数据源开始...
+[2016.11.05 15:35:47.641][app] 2016-11-05 15:35:47 [INFO ] (MLog:80) MLog clients using log4j logging.
+[2016.11.05 15:35:47.694][app] 2016-11-05 15:35:47 [WARN ] (BeansUtils:225) Property inaccessible for overwriting: password
+[2016.11.05 15:35:47.697][app] 2016-11-05 15:35:47 [INFO ] (C3P0Registry:204) Initializing c3p0-0.9.2-pre8 [built 19-December-2012 15:00:02 +0000; debug? true; trace: 10]
+[2016.11.05 15:35:47.720][app] 2016-11-05 15:35:47 [INFO ] (Listener:31) 系统初始化数据源结束...
+[2016.11.05 15:35:47.727][2016/11/05 15:35:47.727] {main} WebApp[http://localhost:3001] active
+[2016.11.05 15:35:47.727][2016/11/05 15:35:47.727] {main} Host[] active
+[2016.11.05 15:35:52.363][app] 2016-11-05 15:35:52 [INFO ] (Servlet:41) 进入servlet: com.xxx.web.http.servlet.Servlet...
+[2016.11.05 15:35:52.364][app] 2016-11-05 15:35:52 [INFO ] (Servlet:55) 通过反射实例化对应的Action，className为:com.xxx.lfs.action.FunctionAction
+[2016.11.05 15:35:52.366][app] 2016-11-05 15:35:52 [INFO ] (Servlet:58) 实例化成功，执行默认方法...
+[2016.11.05 15:35:52.367][app] 2016-11-05 15:35:52 [INFO ] (FunctionAction:52) 进入function方法前执行before方法...
+[2016.11.05 15:35:52.367][app] 2016-11-05 15:35:52 [INFO ] (FunctionAction:54) 进入function方法...
+[2016.11.05 15:35:52.383][app] 2016-11-05 15:35:52 [INFO ] (FunctionAction:56) httpRequest请求的json参数为：{"head":{"userID":"","sessionID":"","funcNO":"F100002"},"content":{"url":"http://we.99btgc.info","title":"av12","id":"1"}}
+[2016.11.05 15:35:52.432][app] 2016-11-05 15:35:52 [INFO ] (FunctionAction:142) 进入具体功能号：F100002
+[2016.11.05 15:35:52.455][app] 2016-11-05 15:35:52 [INFO ] (ConsumerConfig:178) ConsumerConfig values: 
+[2016.11.05 15:35:52.455]	metric.reporters = []
+[2016.11.05 15:35:52.455]	metadata.max.age.ms = 300000
+[2016.11.05 15:35:52.455]	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]
+[2016.11.05 15:35:52.455]	reconnect.backoff.ms = 50
+[2016.11.05 15:35:52.455]	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2016.11.05 15:35:52.455]	max.partition.fetch.bytes = 1048576
+[2016.11.05 15:35:52.455]	bootstrap.servers = [localhost:9092]
+[2016.11.05 15:35:52.455]	ssl.keystore.type = JKS
+[2016.11.05 15:35:52.455]	enable.auto.commit = true
+[2016.11.05 15:35:52.455]	sasl.mechanism = GSSAPI
+[2016.11.05 15:35:52.455]	interceptor.classes = null
+[2016.11.05 15:35:52.455]	exclude.internal.topics = true
+[2016.11.05 15:35:52.455]	ssl.truststore.password = null
+[2016.11.05 15:35:52.455]	client.id = 
+[2016.11.05 15:35:52.455]	ssl.endpoint.identification.algorithm = null
+[2016.11.05 15:35:52.455]	max.poll.records = 2147483647
+[2016.11.05 15:35:52.455]	check.crcs = true
+[2016.11.05 15:35:52.455]	request.timeout.ms = 40000
+[2016.11.05 15:35:52.455]	heartbeat.interval.ms = 3000
+[2016.11.05 15:35:52.455]	auto.commit.interval.ms = 1000
+[2016.11.05 15:35:52.455]	receive.buffer.bytes = 65536
+[2016.11.05 15:35:52.455]	ssl.truststore.type = JKS
+[2016.11.05 15:35:52.455]	ssl.truststore.location = null
+[2016.11.05 15:35:52.455]	ssl.keystore.password = null
+[2016.11.05 15:35:52.455]	fetch.min.bytes = 1
+[2016.11.05 15:35:52.455]	send.buffer.bytes = 131072
+[2016.11.05 15:35:52.455]	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+[2016.11.05 15:35:52.455]	group.id = test-consumer-group
+[2016.11.05 15:35:52.455]	retry.backoff.ms = 100
+[2016.11.05 15:35:52.455]	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2016.11.05 15:35:52.455]	sasl.kerberos.service.name = null
+[2016.11.05 15:35:52.455]	sasl.kerberos.ticket.renew.jitter = 0.05
+[2016.11.05 15:35:52.455]	ssl.trustmanager.algorithm = PKIX
+[2016.11.05 15:35:52.455]	ssl.key.password = null
+[2016.11.05 15:35:52.455]	fetch.max.wait.ms = 500
+[2016.11.05 15:35:52.455]	sasl.kerberos.min.time.before.relogin = 60000
+[2016.11.05 15:35:52.455]	connections.max.idle.ms = 540000
+[2016.11.05 15:35:52.455]	session.timeout.ms = 30000
+[2016.11.05 15:35:52.455]	metrics.num.samples = 2
+[2016.11.05 15:35:52.455]	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+[2016.11.05 15:35:52.455]	ssl.protocol = TLS
+[2016.11.05 15:35:52.455]	ssl.provider = null
+[2016.11.05 15:35:52.455]	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+[2016.11.05 15:35:52.455]	ssl.keystore.location = null
+[2016.11.05 15:35:52.455]	ssl.cipher.suites = null
+[2016.11.05 15:35:52.455]	security.protocol = PLAINTEXT
+[2016.11.05 15:35:52.455]	ssl.keymanager.algorithm = SunX509
+[2016.11.05 15:35:52.455]	metrics.sample.window.ms = 30000
+[2016.11.05 15:35:52.455]	auto.offset.reset = earliest
+[2016.11.05 15:35:52.455]
+[2016.11.05 15:35:52.532][app] 2016-11-05 15:35:52 [INFO ] (ConsumerConfig:178) ConsumerConfig values: 
+[2016.11.05 15:35:52.532]	metric.reporters = []
+[2016.11.05 15:35:52.532]	metadata.max.age.ms = 300000
+[2016.11.05 15:35:52.532]	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]
+[2016.11.05 15:35:52.532]	reconnect.backoff.ms = 50
+[2016.11.05 15:35:52.532]	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2016.11.05 15:35:52.532]	max.partition.fetch.bytes = 1048576
+[2016.11.05 15:35:52.532]	bootstrap.servers = [localhost:9092]
+[2016.11.05 15:35:52.532]	ssl.keystore.type = JKS
+[2016.11.05 15:35:52.532]	enable.auto.commit = true
+[2016.11.05 15:35:52.532]	sasl.mechanism = GSSAPI
+[2016.11.05 15:35:52.532]	interceptor.classes = null
+[2016.11.05 15:35:52.532]	exclude.internal.topics = true
+[2016.11.05 15:35:52.532]	ssl.truststore.password = null
+[2016.11.05 15:35:52.532]	client.id = consumer-1
+[2016.11.05 15:35:52.532]	ssl.endpoint.identification.algorithm = null
+[2016.11.05 15:35:52.532]	max.poll.records = 2147483647
+[2016.11.05 15:35:52.532]	check.crcs = true
+[2016.11.05 15:35:52.532]	request.timeout.ms = 40000
+[2016.11.05 15:35:52.532]	heartbeat.interval.ms = 3000
+[2016.11.05 15:35:52.532]	auto.commit.interval.ms = 1000
+[2016.11.05 15:35:52.532]	receive.buffer.bytes = 65536
+[2016.11.05 15:35:52.532]	ssl.truststore.type = JKS
+[2016.11.05 15:35:52.532]	ssl.truststore.location = null
+[2016.11.05 15:35:52.532]	ssl.keystore.password = null
+[2016.11.05 15:35:52.532]	fetch.min.bytes = 1
+[2016.11.05 15:35:52.532]	send.buffer.bytes = 131072
+[2016.11.05 15:35:52.532]	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+[2016.11.05 15:35:52.532]	group.id = test-consumer-group
+[2016.11.05 15:35:52.532]	retry.backoff.ms = 100
+[2016.11.05 15:35:52.532]	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2016.11.05 15:35:52.532]	sasl.kerberos.service.name = null
+[2016.11.05 15:35:52.532]	sasl.kerberos.ticket.renew.jitter = 0.05
+[2016.11.05 15:35:52.532]	ssl.trustmanager.algorithm = PKIX
+[2016.11.05 15:35:52.532]	ssl.key.password = null
+[2016.11.05 15:35:52.532]	fetch.max.wait.ms = 500
+[2016.11.05 15:35:52.532]	sasl.kerberos.min.time.before.relogin = 60000
+[2016.11.05 15:35:52.532]	connections.max.idle.ms = 540000
+[2016.11.05 15:35:52.532]	session.timeout.ms = 30000
+[2016.11.05 15:35:52.532]	metrics.num.samples = 2
+[2016.11.05 15:35:52.532]	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+[2016.11.05 15:35:52.532]	ssl.protocol = TLS
+[2016.11.05 15:35:52.532]	ssl.provider = null
+[2016.11.05 15:35:52.532]	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+[2016.11.05 15:35:52.532]	ssl.keystore.location = null
+[2016.11.05 15:35:52.532]	ssl.cipher.suites = null
+[2016.11.05 15:35:52.532]	security.protocol = PLAINTEXT
+[2016.11.05 15:35:52.532]	ssl.keymanager.algorithm = SunX509
+[2016.11.05 15:35:52.532]	metrics.sample.window.ms = 30000
+[2016.11.05 15:35:52.532]	auto.offset.reset = earliest
+[2016.11.05 15:35:52.532]
+[2016.11.05 15:35:52.554][app] 2016-11-05 15:35:52 [INFO ] (AppInfoParser:83) Kafka version : 0.10.0.1
+[2016.11.05 15:35:52.554][app] 2016-11-05 15:35:52 [INFO ] (AppInfoParser:84) Kafka commitId : a7a17cdec9eaa6c5
+[2016.11.05 15:35:52.735][app] 2016-11-05 15:35:52 [INFO ] (AbstractCoordinator:505) Discovered coordinator 24.1.222.221:9092 (id: 2147483647 rack: null) for group test-consumer-group.
+[2016.11.05 15:35:52.737][app] 2016-11-05 15:35:52 [INFO ] (ConsumerCoordinator:292) Revoking previously assigned partitions [] for group test-consumer-group
+[2016.11.05 15:35:52.738][app] 2016-11-05 15:35:52 [INFO ] (AbstractCoordinator:326) (Re-)joining group test-consumer-group
+[2016.11.05 15:35:52.749][app] 2016-11-05 15:35:52 [INFO ] (AbstractCoordinator:434) Successfully joined group test-consumer-group with generation 1
+[2016.11.05 15:35:52.750][app] 2016-11-05 15:35:52 [INFO ] (ConsumerCoordinator:231) Setting newly assigned partitions [av12-0] for group test-consumer-group
+[2016.11.05 15:35:53.278]{offset=0, value=http://we.99btgc.info, key=1}
+[2016.11.05 15:35:53.305][app] 2016-11-05 15:35:53 [INFO ] (FunctionAction:94) httpRequest请求处理后返回的信息为：errorNo= ;errorInfo=  ;list<DataRow>={offset=0, value=http://we.99btgc.info, key=1}{offset=1, value=http://we.99btgc.info, key=1}{offset=2, value=http://we.99btgc.info, key=1}{offset=3, value=http://we.99btgc.info, key=1}
+[2016.11.05 15:35:53.322][app] 2016-11-05 15:35:53 [INFO ] (FunctionAction:57) 进入function方法后执行after方法...
+[2016.11.05 15:35:53.322][app] 2016-11-05 15:35:53 [INFO ] (Servlet:60) 完成默认方法...
+[2016.11.05 15:35:53.323][app] 2016-11-05 15:35:53 [INFO ] (Servlet:61) 完成Action:com.xxx.lfs.action.FunctionAction处理...
+[2016.11.05 15:35:53.324][app] 2016-11-05 15:35:53 [INFO ] (Servlet:65) 完成servlet:com.xxx.web.http.servlet.Servlet跳转并返回...
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} java.lang.IllegalArgumentException: request dispatcher url '500.html' must be absolute
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.server.webapp.WebApp.getRequestDispatcher(WebApp.java:2256)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.server.webapp.ErrorPageManager.sendServletError(ErrorPageManager.java:362)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.server.webapp.ErrorPageManager.handleErrorStatus(ErrorPageManager.java:618)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.server.webapp.ErrorPageManager.sendError(ErrorPageManager.java:495)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:523)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.server.connection.AbstractHttpResponse.sendError(AbstractHttpResponse.java:477)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.servlets.FileServlet.service(FileServlet.java:254)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.server.dispatch.ServletFilterChain.doFilter(ServletFilterChain.java:103)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.xxx.web.http.filter.Encoding.doFilter(Encoding.java:24)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.server.dispatch.FilterFilterChain.doFilter(FilterFilterChain.java:87)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.server.cache.CacheFilterChain.doFilter(CacheFilterChain.java:192)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.server.webapp.WebAppFilterChain.doFilter(WebAppFilterChain.java:187)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.server.dispatch.ServletInvocation.service(ServletInvocation.java:265)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.server.http.HttpRequest.handleRequest(HttpRequest.java:273)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.server.port.TcpConnection.run(TcpConnection.java:682)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.util.ThreadPool$Item.runTasks(ThreadPool.java:743)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at com.caucho.util.ThreadPool$Item.run(ThreadPool.java:662)
+[2016.11.05 15:35:53.505][2016/11/05 15:35:53.505] {http-LFS_Web_Java-3001-1$187435882} 	at java.lang.Thread.run(Thread.java:745)
