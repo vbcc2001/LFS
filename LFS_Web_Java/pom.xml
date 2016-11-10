@@ -5,7 +5,7 @@
 	<artifactId>LFS_Web_Java</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>lafeisi-web-java</name>
+	<name>LFS_Web_Java</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

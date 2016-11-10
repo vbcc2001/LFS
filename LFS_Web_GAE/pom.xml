@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>LFS</groupId>
+	<artifactId>LFS_Web_GAE</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>LFS_Web_GAE</name>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source> 
+		<maven.compiler.target>1.8</maven.compiler.target> 
+
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+		<appengine.maven.plugin>1.0.0</appengine.maven.plugin>
+		<jetty.maven.plugin>9.3.7.v20160115</jetty.maven.plugin>
+	</properties>
+	
+	<dependencies>
+		<dependency>                        
+			<groupId>javax.servlet</groupId> 
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka_2.11</artifactId>
+			<version>0.10.0.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.3.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>dom4j</groupId>
+		    <artifactId>dom4j</artifactId>
+		    <version>1.6.1</version>
+		</dependency> 
+		<dependency>
+		    <groupId>commons-beanutils</groupId>
+		    <artifactId>commons-beanutils</artifactId>
+		    <version>1.9.3</version>
+		</dependency>
+		<dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>log4j</artifactId>
+		    <version>1.2.17</version>
+		</dependency>	
+	</dependencies>
+	<build>
+		<finalName>LFS_Web_GAE</finalName>
+		<!--  <outputDirectory>${project.build.directory}/src/com/xxx/lfs/webapp/WEB-INF/classes</outputDirectory> -->
+		<plugins> 
+			<plugin>                          <!-- Used for local debugging -->
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jetty.maven.plugin}</version>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>${appengine.maven.plugin}</version>
+				<configuration></configuration>
+			</plugin>	
+			<plugin> 
+				<artifactId>maven-dependency-plugin</artifactId> 
+				<configuration> 
+					<outputDirectory>WebRoot/WEB-INF/lib</outputDirectory> 
+					<excludeTransitive>false</excludeTransitive> 
+					<stripVersion>true</stripVersion> 
+				</configuration> 
+			</plugin> 	
+		</plugins> 	
+	</build>
+</project>
