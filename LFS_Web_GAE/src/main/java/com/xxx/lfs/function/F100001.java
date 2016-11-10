@@ -26,6 +26,7 @@ public class F100001 extends BaseFunction   {
 		Lfs_post post = (Lfs_post) gson.fromJson(object, new TypeToken<Lfs_post>() {}.getType());    
 		Properties props= new Properties();
 		props.put("bootstrap.servers", "localhost:9092");
+		props.put("bootstrap.servers", "h.menss.me:9092");
 		props.put("acks", "all");
 		props.put("retries", 0);
 		props.put("batch.size", 16384);
@@ -39,7 +40,8 @@ public class F100001 extends BaseFunction   {
 		return response;
 	}
 	public static void main(String arg[] ) throws Exception{
-		Configure c = new Configure()  ;
-		c.loadConfig();
+		Configure c1 = new Configure()  ;
+		c1.loadConfig();
+		System.out.println(1234);
 	}
 }

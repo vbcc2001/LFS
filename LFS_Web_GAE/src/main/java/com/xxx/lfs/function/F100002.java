@@ -28,7 +28,7 @@ public class F100002 extends BaseFunction {
 		String topic = requestParameter.getContent().get("topic");
 		Properties props = new Properties();
 		props.put("bootstrap.servers", "localhost:9092");
-		//props.put("bootstrap.servers", "h.menss.me:9092");		
+		props.put("bootstrap.servers", "h.menss.me:9092");		
 		props.put("group.id", "test-consumer-group");
 		props.put("enable.auto.commit", "true");
 		props.put("auto.offset.reset", "earliest");
