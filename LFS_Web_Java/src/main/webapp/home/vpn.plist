@@ -1,0 +1,132 @@
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Set the name to whatever you like, it is used in the profile list on the device -->
+    <key>PayloadDisplayName</key>
+    <string>vpn.m2ss.top</string>
+    <!-- This is a reverse-DNS style unique identifier used to detect duplicate profiles -->
+    <key>PayloadIdentifier</key>
+    <string>vpn.m2ss.top</string>
+    <!-- A globally unique identifier, use uuidgen on Linux/Mac OS X to generate it -->
+    <key>PayloadUUID</key>
+    <string>9f93912b-5fd2-4455-99fd-13b9a47b4581</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+    <key>PayloadContent</key>
+    <array>
+        <!-- It is possible to add multiple VPN payloads with different identifiers/UUIDs and names -->
+        <dict>
+            <!-- This is an extension of the identifier given above -->
+            <key>PayloadIdentifier</key>
+            <string>drizzt_ios@vpn.m2ss.top</string>
+            <!-- A globally unique identifier for this payload -->
+            <key>PayloadUUID</key>
+            <string>29e4456d-3f03-4f15-b46f-4225d89465b7</string>
+            <key>PayloadType</key>
+            <string>com.apple.vpn.managed</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <!-- This is the name of the VPN connection as seen in the VPN application later -->
+            <key>UserDefinedName</key>
+            <string>vpn.m2ss.top</string>
+            <key>VPNType</key>
+            <string>IKEv2</string>
+            <key>IKEv2</key>
+            <dict>
+                <!-- Hostname or IP address of the VPN server -->
+                <key>RemoteAddress</key>
+                <string>vpn.m2ss.top</string>
+                <!-- Remote identity, can be a FQDN, a userFQDN, an IP or (theoretically) a certificate's subject DN. Can't be empty.
+                     IMPORTANT: DNs are currently not handled correctly, they are always sent as identities of type FQDN -->
+                <key>RemoteIdentifier</key>
+                <string>vpn.m2ss.top</string>
+                <!-- Local IKE identity, same restrictions as above. If it is empty the client's IP address will be used -->
+                <key>LocalIdentifier</key>
+                <string>drizzt_ios@vpn.m2ss.top</string>
+                <!-- Optional, if it matches the CN of the root CA certificate (not the full subject DN) a certificate request will be sent
+                     NOTE: If this is not configured make sure to configure leftsendcert=always on the server, otherwise it won't send its certificate -->
+                <key>ServerCertificateIssuerCommonName</key>
+                <string>strongSwan Root CA</string>
+                <!-- Optional, the CN or one of the subjectAltNames of the server certificate to verify it, if not set RemoteIdentifier will be used -->
+                <key>ServerCertificateCommonName</key>
+                <string>vpn.m2ss.top</string>
+                <!-- The server is authenticated using a certificate -->
+                <key>AuthenticationMethod</key>
+                <string>Certificate</string>
+                <!-- The client uses EAP to authenticate -->
+                <key>ExtendedAuthEnabled</key>
+                <integer>1</integer>
+                <!-- User name for EAP authentication. Since iOS 9 this is optional, the user is prompted when the profile is installed -->
+                <key>AuthName</key>
+                <string>User</string>
+                <!-- Optional password for EAP authentication, if it is not set the user is prompted when the profile is installed
+                <key>AuthPassword</key>
+                <string>...</string>
+                -->
+                <!-- The next two dictionaries are optional (as are the keys in them), but it is recommended to specify them as the default is to use 3DES.
+                     IMPORTANT: Because only one proposal is sent (even if nothing is configured here) it must match the server configuration -->
+                <key>IKESecurityAssociationParameters</key>
+                <dict>
+                    <key>EncryptionAlgorithm</key>
+                    <string>AES-128</string>
+                    <key>IntegrityAlgorithm</key>
+                    <string>SHA1-96</string>
+                    <key>DiffieHellmanGroup</key>
+                    <integer>14</integer>
+                </dict>
+                <key>ChildSecurityAssociationParameters</key>
+                <dict>
+                    <key>EncryptionAlgorithm</key>
+                    <string>AES-128</string>
+                    <key>IntegrityAlgorithm</key>
+                    <string>SHA1-96</string>
+                    <key>DiffieHellmanGroup</key>
+                    <integer>14</integer>
+                </dict>
+            </dict>
+        </dict>
+        <!-- This payload is optional but it provides an easy way to install the CA certificate together with the configuration -->
+        <dict>
+            <key>PayloadIdentifier</key>
+            <string>org.example.ca</string>
+            <key>PayloadUUID</key>
+            <string>64988b2c-33e0-4adf-a432-6fbcae543408</string>
+            <key>PayloadType</key>
+            <string>com.apple.security.root</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <!-- This is the Base64 (PEM) encoded CA certificate -->
+            <key>PayloadContent</key>
+            <data>
+            MIIEgjCCAmqgAwIBAgIIGNNgSRM9zcwwDQYJKoZIhvcNAQEMBQAwQTELMAkGA1UE
+			BhMCQ04xFTATBgNVBAoTDHZwbi5tMnNzLnRvcDEbMBkGA1UEAxMSc3Ryb25nU3dh
+			biBSb290IENBMB4XDTE2MTAyODAxMzQyMFoXDTE4MTAyODAxMzQyMFowRjELMAkG
+			A1UEBhMCQ04xFTATBgNVBAoTDHZwbi5tMnNzLnRvcDEgMB4GA1UEAwwXZHJpenp0
+			X2lvc0B2cG4ubTJzcy50b3AwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+			AQCmGlRnYlqaH1SITiP5eAcU8O92q8KriXad0/b/WNMZXxQzgAl80i6S7bsmhUIx
+			usHXW3vp/2rh1cddG+dtJB0yyM/yqNGP6XtBR3+NN4xYOJ1tDWaC4paloGjdrQgE
+			rjIjQR06JxBHe6prHBR3OctVGO3zglM8la9+DLSiAoxQF07Kjlx5bigaMqaivwKo
+			BqNoZeyYpxzIvvy8wsg3NgINb4a/6DQB5TwbzD30eKdI4EQP/4H/gKoZLvtN+ECi
+			odSaSC5K6uBH1D8FFA9Zt6YA+Xiqh7yscAM5R/6s7lYR57K1e2kUNMg/XakD6o8A
+			yu8G1jwk1pu+m2or6is8ZhUFAgMBAAGjeTB3MB8GA1UdIwQYMBaAFOA4x72C09Tm
+			vVxoY0gD5qKpm1T1MFQGA1UdEQRNMEuBF2RyaXp6dF9pb3NAdnBuLm0yc3MudG9w
+			gRdkcml6enRfaW9zQHZwbi5tZW5zcy5tZYEXZHJpenp0X2lvc0A2Ni4yMjguMzgu
+			MzIwDQYJKoZIhvcNAQEMBQADggIBADgvxxeTE5zhg9kdDbVxF7EoqlIdrh4MQS8y
+			qOqun0dhfkVMxz9EP3mPh/CPJlZsFIVsWrq4nAxJ9AFzLQEHJBLpAc2CcYWj8BrG
+			LmJdy+qzZxCPBlfRJrtDQ5C74y6wXIusS25vJDhRkgGSqpBumQRpywU90ng+zae7
+			rWrl1MGvJciijR3wXDx5ajEefmRyd/ShDaodKeuHKw6SOabcWsTMOfMVIU2K1Opi
+			h2hveB/9sRf7C7N1LCuAcj4cyFa39lqgeNYuNlLThci8lmRwtaO5T+diNw3eKym0
+			qg7aX/VWj7x1uK82nAXcPs1dN06E7WwcdwAezabOMwQZUqDk85YERYGul/dLJPYe
+			l3+YW226I0ar13s32kxGqmB3czPl8ILAJaCH6QbPwvRjO/ZkvLvK6nWWOfo4MAOC
+			yXSW9h2krLMSZ0lBNf+K3bTE2f/+v4LNcqFjOfwlCkq07FvW0tPMpn67fNikvfTd
+			puRHhtSXAFyegET/GkIjLiP125SmG/Mtqgg/TbWfR+y0/MefhVavDAlPsZMxgXo1
+			VCRrr3IFI9GNLNbUbsBffTQXTMJoqBTFuchWv8w5jXHJpMHiDP531NsQ/BFgEstv
+			ZpIuUpWW8GjlHXft4f0SuC4o6uq79ggZY0Gb1jJzIAZKnKYmJQ/uBfrlp9llUtjU
+			8puR1cFN
+            </data>
+        </dict>
+    </array>
+</dict>
+</plist>
