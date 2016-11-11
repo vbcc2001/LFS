@@ -82,11 +82,12 @@
 		<!-- 默认的虚拟主机配置 -->
 		<host>
 			<!-- 配置默认的应用 webapp's ROOT -->
-			<web-app id="/" root-directory="${app.home}/WebRoot" >
+			<web-app id="/" root-directory="${app.home}/target/${app.name}" >
 				<jsp>
 					<ignore-el-exception>true</ignore-el-exception>
 				</jsp>
 			</web-app>
+			<!-- web-app-deploy expand-directory="${app.home}/WebRoot/" archive-directory="${app.home}/target/" versioning="true" /-->
 			<access-log path="${app.home}/logs/${app.name}_access.log" archive-format="${app.name}_access.log.%Y-%m-%d" 
 				rollover-size="10mb" rollover-period="1D" format='%h %l %u %t "%r" %s %b "%{Referer}i" "%{User-Agent}i"' />
 			<stdout-log path="${app.home}/logs/${app.name}_stdout.log" archive-format="${app.name}_stdout.log.%Y-%m-%d" 

@@ -46,7 +46,7 @@
 		</dependency>
 </dependencies>
 	<build>
-    <finalName>LFS_Web_Java</finalName>
+		<finalName>LFS_Web_Java</finalName>
 		<outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
 		<plugins></plugins> 	
 	</build>   
