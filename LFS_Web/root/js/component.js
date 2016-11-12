@@ -32,7 +32,8 @@ var component = {
 
 	,'sidebar':'<section class="sidebar">\
 				      <ul class="sidebar-menu">\
-						<li class="active treeview">\
+						<li class="active"><a href="index.html"><i class="fa fa-book"></i> <span>热门网站</span></a></li>\
+						<li class="treeview">\
 						  <a href="#">\
 						    <i class="fa fa-dashboard"></i> <span>菜单1</span>\
 						    <span class="pull-right-container">\
@@ -40,11 +41,10 @@ var component = {
 						    </span>\
 						  </a>\
 						  <ul class="treeview-menu">\
-						    <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>功能1</a></li>\
+						    <li><a href="index.html"><i class="fa fa-circle-o"></i>功能1</a></li>\
 						    <li><a href="index.html"><i class="fa fa-circle-o"></i>功能2</a></li>\
 						  </ul>\
 						</li>\
-						<li><a href="index.html"><i class="fa fa-book"></i> <span>功能3</span></a></li>\
 						<li class="header">其他</li>\
 						<li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>重要</span></a></li>\
 						<li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>警告</span></a></li>\

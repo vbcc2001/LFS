@@ -13,12 +13,9 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper" id="wrapper">
-  <header class="main-header"><main-logo></main-logo><main-header><main-header/></header>
+  <header class="main-header"><main-logo></main-logo><main-header></main-header></header>
   <aside class="main-sidebar"><main-sidebar></main-sidebar></aside>
-  <div class="content-wrapper">
-	<section class="content-header"><h1>标题1<small>说明1</small></h1></section>
-    <section class="content">内容123</section>
-  </div>
+  <div class="content-wrapper"><main-content></main-content></div>
   <footer class="main-footer"><main-footer></main-footer><main-footer1></main-footer1></footer>
 </div>
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
@@ -26,6 +23,7 @@
 <script src="plugins/AdminLTE-2.3.3/js/app.min.js"></script>
 <script src="plugins/vue-2.0.5/vue.min.js"></script>
 <script src="js/component.js"></script>
+<script src="content.js" type="text/x-template" id="grid-template"></script>
 <script>
 Vue.component('main-header', {
   template: component.header
@@ -42,6 +40,10 @@ Vue.component('main-footer1', {
 Vue.component('main-sidebar', {
 	  template: component.sidebar
 });
+Vue.component('main-content', {
+	  template: '#grid-template'
+});
+alert($('#grid-template'))
 new Vue({
   el: '#wrapper'
 });
