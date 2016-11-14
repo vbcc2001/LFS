@@ -1,2 +1,7 @@
 eclipse.preferences.version=1
+encoding//app/content/content.html=UTF-8
+encoding//app/footer/footer.html=UTF-8
+encoding//app/logo/logo.html=UTF-8
+encoding//app/sidebar/sidebar.html=UTF-8
 encoding/<project>=UTF-8
+separateDerivedEncodings=true

@@ -6,10 +6,10 @@
   <title>LFS</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="/root/plugins/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/root/plugins/font-awesome-4.6.3/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/root/plugins/AdminLTE-2.3.3/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="/root/plugins/AdminLTE-2.3.3/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/plugins/font-awesome-4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/plugins/AdminLTE-2.3.3/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/plugins/AdminLTE-2.3.3/css/skins/_all-skins.min.css">
   <!-- 1. Load libraries -->
   <!-- Polyfill for older browsers -->
   <script src="node_modules/core-js/client/shim.min.js"></script>
@@ -17,21 +17,20 @@
   <script src="node_modules/reflect-metadata/Reflect.js"></script>
   <script src="node_modules/systemjs/dist/system.src.js"></script>
   <!-- 2. Configure SystemJS -->
-  <script src="/root/js/systemjs.config.js"></script>
+  <script src="/app/systemjs.config.js"></script>
   <script>
 	System.import('app').catch(function(err){ console.error(err); });
   </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper" id="wrapper">
-  <header class="main-header"><main-logo></main-logo><main-header></main-header></header>
-  <aside class="main-sidebar"><main-sidebar></main-sidebar></aside>
+  <header class="main-header"><my-logo></my-logo><my-header></my-header></header>
+  <aside class="main-sidebar"><my-sidebar></my-sidebar></aside>
   <div class="content-wrapper"><my-app>Loading...</my-app></div>
-  <footer class="main-footer"><main-footer></main-footer><main-footer1></main-footer1></footer>
+  <footer class="main-footer"><my-footer></my-footer></footer>
 </div>
-<script src="/root/plugins/jQuery/jquery-2.2.3.min.js"></script>
-<script src="/root/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="/root/plugins/AdminLTE-2.3.3/js/app.min.js"></script>
-<script src="/root/js/component.js"></script>
+<script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/plugins/AdminLTE-2.3.3/js/app.js"></script>
 </body>
 </html>
