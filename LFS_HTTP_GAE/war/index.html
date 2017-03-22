@@ -1,27 +1,14 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
-<!-- above set at the top of the file will set     -->
-<!-- the browser's rendering engine into           -->
-<!-- "Quirks Mode". Replacing this declaration     -->
-<!-- with a "Standards Mode" doctype is supported, -->
-<!-- but may lead to some differences in layout.   -->
-
+<!doctype html>
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Hello App Engine</title>
+    <title>info</title>
   </head>
-
   <body>
-    <h1>Hello App Engine!</h1>
-	
-    <table>
-      <tr>
-        <td colspan="2" style="font-weight:bold;">Available Servlets:</td>        
-      </tr>
-      <tr>
-        <td><a href="lfs_http_gae">LFS_HTTP_GAE</a></td>
-      </tr>
-    </table>
+	<form action="/lfs/FunctionServlet" method="post">
+  		<div>URL地址:<input type="text" name="jsonContent" size="200" 
+  		value='{"content":{"email":"test123@163.com","password":"test123"},"function":"F020001","user":{"session":"","user_id":""}}'/></div>
+  		<br><input type="submit" value="提交">
+  	</form> 
   </body>
 </html>
