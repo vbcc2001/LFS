@@ -92,55 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1281">
               <caret line="782" column="5" lean-forward="false" selection-start-line="782" selection-start-column="5" selection-end-line="782" selection-end-column="5" />
-              <folding>
-                <marker date="1494926090421" expanded="true" signature="42415:42430" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="42465:44636" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="42478:44621" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="42532:42827" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="42551:42812" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="42614:42792" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="42654:42758" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="42675:42736" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="42877:43204" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="42896:43189" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="42991:43169" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="43031:43135" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="43052:43113" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="43255:43520" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="43274:43505" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="43307:43485" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="43347:43451" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="43368:43429" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="43563:43869" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="43582:43854" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="43656:43834" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="43696:43800" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="43717:43778" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="43920:44242" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="43939:44227" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="44022:44207" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="44062:44173" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="44083:44151" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="44294:44607" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="44313:44592" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="44387:44572" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="44427:44538" ph="..." />
-                <marker date="1494926090421" expanded="true" signature="44448:44516" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resin.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/target/resin.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="84" column="62" lean-forward="false" selection-start-line="84" selection-start-column="62" selection-end-line="84" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -450,7 +406,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="71" y="-8" width="1857" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -465,7 +420,7 @@
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2504074" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2504074" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -532,41 +487,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12236">
           <caret line="644" column="5" lean-forward="false" selection-start-line="644" selection-start-column="5" selection-end-line="644" selection-end-column="5" />
-          <folding>
-            <marker date="1494926090421" expanded="true" signature="42415:42430" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42465:44636" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42478:44621" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42532:42827" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42551:42812" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42614:42792" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42654:42758" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42675:42736" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42877:43204" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42896:43189" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42991:43169" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43031:43135" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43052:43113" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43255:43520" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43274:43505" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43307:43485" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43347:43451" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43368:43429" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43563:43869" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43582:43854" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43656:43834" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43696:43800" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43717:43778" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43920:44242" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43939:44227" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44022:44207" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44062:44173" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44083:44151" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44294:44607" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44313:44592" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44387:44572" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44427:44538" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44448:44516" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -630,48 +551,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1281">
-          <caret line="782" column="5" lean-forward="false" selection-start-line="782" selection-start-column="5" selection-end-line="782" selection-end-column="5" />
-          <folding>
-            <marker date="1494926090421" expanded="true" signature="42415:42430" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42465:44636" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42478:44621" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42532:42827" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42551:42812" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42614:42792" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42654:42758" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42675:42736" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42877:43204" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42896:43189" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="42991:43169" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43031:43135" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43052:43113" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43255:43520" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43274:43505" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43307:43485" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43347:43451" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43368:43429" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43563:43869" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43582:43854" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43656:43834" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43696:43800" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43717:43778" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43920:44242" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="43939:44227" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44022:44207" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44062:44173" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44083:44151" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44294:44607" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44313:44592" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44387:44572" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44427:44538" ph="..." />
-            <marker date="1494926090421" expanded="true" signature="44448:44516" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/target/jdk1.8.0_121/db/bin/ij">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -699,7 +578,15 @@
     <entry file="file://$PROJECT_DIR$/target/resin.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="84" column="62" lean-forward="false" selection-start-line="84" selection-start-column="62" selection-end-line="84" selection-end-column="62" />
+          <caret line="84" column="65" lean-forward="true" selection-start-line="84" selection-start-column="65" selection-end-line="84" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1281">
+          <caret line="782" column="5" lean-forward="false" selection-start-line="782" selection-start-column="5" selection-end-line="782" selection-end-column="5" />
           <folding />
         </state>
       </provider>
