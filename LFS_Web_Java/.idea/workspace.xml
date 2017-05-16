@@ -96,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1281">
-              <caret line="782" column="5" lean-forward="false" selection-start-line="782" selection-start-column="5" selection-end-line="782" selection-end-column="5" />
+              <caret line="669" column="5" lean-forward="false" selection-start-line="669" selection-start-column="5" selection-end-line="669" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -112,12 +112,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/.idea/libraries/lib.xml" />
         <option value="$PROJECT_DIR$/.idea/LFS_Web_Java.iml" />
         <option value="$PROJECT_DIR$/target/resinctl.sh" />
         <option value="$PROJECT_DIR$/target/resinctl.bat" />
         <option value="$PROJECT_DIR$/target/resin.xml" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
       </list>
     </option>
   </component>
@@ -586,7 +586,7 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1281">
-          <caret line="782" column="5" lean-forward="false" selection-start-line="782" selection-start-column="5" selection-end-line="782" selection-end-column="5" />
+          <caret line="669" column="5" lean-forward="false" selection-start-line="669" selection-start-column="5" selection-end-line="669" selection-end-column="5" />
           <folding />
         </state>
       </provider>
