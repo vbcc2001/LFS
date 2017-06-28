@@ -7,20 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var header_component_1 = require("./header.component");
-var login_component_1 = require("../login/login.component");
-var HeaderModule = (function () {
-    function HeaderModule() {
+var LoginComponent = (function () {
+    function LoginComponent() {
     }
-    return HeaderModule;
+    return LoginComponent;
 }());
-HeaderModule = __decorate([
-    core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [header_component_1.Headercomponent, login_component_1.LoginComponent],
-        bootstrap: [header_component_1.Headercomponent, login_component_1.LoginComponent]
+LoginComponent = __decorate([
+    core_1.Component({
+        selector: 'my-login',
+        templateUrl: './app/login/login.html'
     })
-], HeaderModule);
-exports.HeaderModule = HeaderModule;
-//# sourceMappingURL=header.module.js.map
+], LoginComponent);
+exports.LoginComponent = LoginComponent;
+//# sourceMappingURL=login.component.js.map
