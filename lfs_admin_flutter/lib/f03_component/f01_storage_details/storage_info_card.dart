@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:lfs_admin_flutter/f01_config/f01_config.dart';
+import 'package:lfs_admin_flutter/f01_config/f01_constant.dart';
 
 
 class StorageInfoCard extends StatelessWidget {

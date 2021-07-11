@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:lfs_admin_flutter/f01_config/f01_config.dart';
-import 'package:lfs_admin_flutter/f01_config/f03_responsive.dart';
-import 'package:lfs_admin_flutter/models/MyFiles.dart';
-import 'file_info_card.dart';
+import '../../f01_config/f01_constant.dart';
+import '../../f02_utils/f01_responsive.dart';
+import 'f04_file_info_card.dart';
+
 
 class MyFiles extends StatelessWidget {
   const MyFiles({
@@ -78,3 +78,4 @@ class FileInfoCardGridView extends StatelessWidget {
     );
   }
 }
+

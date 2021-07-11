@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lfs_admin_flutter/f01_config/f01_config.dart';
+import 'package:lfs_admin_flutter/f01_config/f01_constant.dart';
 
 import 'chart.dart';
 import 'storage_info_card.dart';

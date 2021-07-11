@@ -1,11 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:lfs_admin_flutter/f01_config/f01_config.dart';
-import 'package:lfs_admin_flutter/f01_config/f02_menu.dart';
-import 'package:lfs_admin_flutter/f01_config/f03_responsive.dart';
 import 'package:provider/provider.dart';
 
+import '../f01_config/f01_constant.dart';
+import '../f02_utils/f02_menu.dart';
+import '../f02_utils/f01_responsive.dart';
 
 
 class Header extends StatelessWidget {

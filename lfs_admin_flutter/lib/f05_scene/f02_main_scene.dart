@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:lfs_admin_flutter/f01_config/f02_menu.dart';
-import 'package:lfs_admin_flutter/f01_config/f03_responsive.dart';
-import 'package:lfs_admin_flutter/f03_component/f01_side_menu.dart';
 import 'package:provider/provider.dart';
+import '../f04_view/f02_dashboard_scene.dart';
+import '../f02_utils/f02_menu.dart';
+import '../f02_utils/f01_responsive.dart';
+import '../f03_component/f01_side_menu.dart';
 
-import 'f02_dashboard_scene.dart';
-
-class MainScreen extends StatelessWidget {
+class MainScene extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

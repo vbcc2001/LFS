@@ -10,8 +10,8 @@ class AppColors {
   static const Color background = Color(0xFF212332);
 }
 class AppImages {
-  // static String avatarImg = "assets/img/f01_user.png";
-  // static String logoImg = "assets/img/f03_logo.png";
+  static String logoImg = "assets/images/f01_logo.png";
+
 }
 class AppStyles {
   static const defaultPadding = 16.0;
