@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import '../../f01_config/f01_constant.dart';
-import '../../f02_utils/f01_responsive.dart';
+import '../../f01_config/f04_responsive.dart';
 import 'f04_file_info_card.dart';
 
 

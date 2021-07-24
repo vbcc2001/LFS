@@ -27,9 +27,24 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <!-- This script installs service_worker.js to provide PWA functionality to
-       application. For more information, see:
-       https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyB2YbnvXp-s2kYvuNvFl65jYgK0WMF8-BI",
+      authDomain: "call-statistics-001.firebaseapp.com",
+      databaseURL: "https://call-statistics-001-default-rtdb.firebaseio.com",
+      projectId: "call-statistics-001",
+      storageBucket: "call-statistics-001.appspot.com",
+      messagingSenderId: "103638934835",
+      appId: "1:103638934835:web:54afac5180c63248810a46",
+      measurementId: "G-XER449YVKM"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
   <script>
     var serviceWorkerVersion = null;
     var scriptLoaded = false;
