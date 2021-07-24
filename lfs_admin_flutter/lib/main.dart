@@ -6,7 +6,7 @@ import 'package:lfs_admin_flutter/f01_config/f03_core_package.dart';
 
 import 'f02_utils/f01_logger.dart';
 import 'f04_view/f01_register_view.dart';
-import 'f04_view/f02_login_view.dart';
+import 'f04_view/f02_login_controller.dart';
 import 'f06_middleware/f01_auth_controller.dart';
 import 'f06_middleware/f04_theme_controller.dart';
 void main() async {

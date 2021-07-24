@@ -1,10 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:lfs_admin_flutter/f02_utils/f03_gravatar.dart';
 import 'package:lfs_admin_flutter/f03_component/f06_logo_graphic_header.dart';
 import 'package:lfs_admin_flutter/f03_component/f07_form_input_field_with_icon.dart';
+import 'package:lfs_admin_flutter/f07_models/f01_user.dart';
 
 import 'f02_login_view.dart';
 
@@ -28,7 +31,7 @@ class RegisterView extends GetView<RegisterController> {
                   FormInputFieldWithIcon(
                     controller: controller.nameController,
                     iconPrefix: Icons.person,
-                    labelText: 'auth.nameFormField'.tr,
+                    labelText: '用户名'.tr,
                     validator: controller.nameValidator,
                     onChanged: (value) => null,
                     onSaved: (value) => controller.nameController.text = value!,
@@ -37,7 +40,7 @@ class RegisterView extends GetView<RegisterController> {
                   FormInputFieldWithIcon(
                     controller: controller.emailController,
                     iconPrefix: Icons.email,
-                    labelText: 'auth.emailFormField'.tr,
+                    labelText: '邮箱'.tr,
                     validator: controller.mailValidator,
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (value) => null,
@@ -47,7 +50,7 @@ class RegisterView extends GetView<RegisterController> {
                   FormInputFieldWithIcon(
                     controller: controller.passwordController,
                     iconPrefix: Icons.lock,
-                    labelText: 'auth.passwordFormField'.tr,
+                    labelText: '密码'.tr,
                     validator: controller.passwordValidator,
                     obscureText: true,
                     onChanged: (value) => null,
@@ -87,6 +90,7 @@ class RegisterController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   @override
   void onReady() async {
@@ -96,9 +100,41 @@ class RegisterController extends GetxController {
 
 
   void submit(BuildContext context) async {
-
+    try {
+      await _auth
+          .createUserWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text)
+          .then((result) async {
+        print('uID: ' + result.user!.uid.toString());
+        print('email: ' + result.user!.email.toString());
+        //get photo url from gravatar if user has one
+        Gravatar gravatar = Gravatar(emailController.text);
+        String gravatarUrl = gravatar.imageUrl(
+          size: 200,
+          defaultImage: GravatarImage.retro,
+          rating: GravatarRating.pg,
+          fileExtension: true,
+        );
+        //create the new user object
+        UserModel _newUser = UserModel(
+            uid: result.user!.uid,
+            email: result.user!.email!,
+            name: nameController.text,
+            photoUrl: gravatarUrl);
+        //create the user in firestore
+        _db.doc('/users/${result.user!.uid}').set(_newUser.toJson());
+        update();
+        emailController.clear();
+        passwordController.clear();
+      });
+    } on FirebaseAuthException catch (error) {
+      Get.snackbar('auth.signUpErrorTitle'.tr, error.message!,
+          snackPosition: SnackPosition.BOTTOM,
+          duration: Duration(seconds: 10),
+          backgroundColor: Get.theme.snackBarTheme.backgroundColor,
+          colorText: Get.theme.snackBarTheme.actionTextColor);
+    }
   }
-
   String? nameValidator(String? value) {
     String pattern = r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
     RegExp regex = RegExp(pattern);
