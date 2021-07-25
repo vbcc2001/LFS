@@ -5,16 +5,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lfs_admin_flutter/f01_config/f03_core_package.dart';
 
 import 'f02_utils/f01_logger.dart';
-import 'f04_view/f01_register_view.dart';
-import 'f04_view/f02_login_controller.dart';
+import 'f05_scene/f01_login/f01_view/f01_register_view.dart';
+import 'f05_scene/f01_login/f01_view/f02_login_controller.dart';
 import 'f06_middleware/f01_auth_controller.dart';
 import 'f06_middleware/f04_theme_controller.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await GetStorage.init();
-  Get.put<AuthController>(AuthController());
-  Get.put<LoginController>(LoginController());
+  Get.put(AuthController());
   Get.put<RegisterController>(RegisterController());
   Get.put<ThemeController>(ThemeController());
   //Get.put<LanguageController>(LanguageController());

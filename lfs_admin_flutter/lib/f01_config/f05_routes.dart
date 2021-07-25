@@ -1,8 +1,15 @@
 import 'package:get/get.dart';
 import 'package:lfs_admin_flutter/f01_config/f03_core_package.dart';
-import 'package:lfs_admin_flutter/f05_scene/f01_splash_scene.dart';
-import 'package:lfs_admin_flutter/f05_scene/f02_main_scene.dart';
-import 'package:lfs_admin_flutter/f05_scene/f03_login_scene.dart';
+import 'package:lfs_admin_flutter/f05_scene/f01_login/f01_login_scene.dart';
+import 'package:lfs_admin_flutter/f05_scene/f00_splash/f01_splash_scene.dart';
+import 'package:lfs_admin_flutter/f05_scene/f02_main/f02_main_scene.dart';
+
+
+abstract class Routes {
+  static const Login = '/home';
+  static const COUNTRY = '/country';
+  static const DETAILS = '/details';
+}
 
 class AppRoutes {
   AppRoutes._(); //this is to prevent anyone from instantiating this object
@@ -18,3 +25,6 @@ class AppRoutes {
     // GetPage(name: '/update-profile', page: () => UpdateProfileUI()),
   ];
 }
+
+
+

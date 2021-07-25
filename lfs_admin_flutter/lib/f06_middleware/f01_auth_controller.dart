@@ -3,8 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'dart:async';
 import 'package:get/get.dart';
-import 'package:lfs_admin_flutter/f05_scene/f02_main_scene.dart';
-import 'package:lfs_admin_flutter/f05_scene/f03_login_scene.dart';
+import 'package:lfs_admin_flutter/f05_scene/f01_login/f01_login_scene.dart';
+import 'package:lfs_admin_flutter/f05_scene/f02_main/f02_main_scene.dart';
 import 'package:lfs_admin_flutter/f07_models/f01_user.dart';
 
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../f04_view/f02_dashboard_scene.dart';
-import '../f02_utils/f02_menu.dart';
-import '../f01_config/f04_responsive.dart';
-import '../f03_component/f01_side_menu.dart';
+import '../../f04_view/f02_dashboard_scene.dart';
+import '../../f02_utils/f02_menu.dart';
+import '../../f01_config/f04_responsive.dart';
+import '../../f03_component/f01_side_menu.dart';
 
 class MainScene extends StatelessWidget {
   @override

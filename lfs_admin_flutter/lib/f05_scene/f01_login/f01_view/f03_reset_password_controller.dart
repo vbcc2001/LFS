@@ -8,7 +8,7 @@ import 'package:lfs_admin_flutter/f02_utils/f03_gravatar.dart';
 import 'package:lfs_admin_flutter/f07_models/f01_user.dart';
 
 
-class RegisterController extends GetxController {
+class ResetPasswordController extends GetxController {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _db = FirebaseFirestore.instance;

@@ -4,14 +4,17 @@ import 'dart:core';
 import 'package:get/get.dart';
 import 'package:lfs_admin_flutter/f03_component/f06_logo_graphic_header.dart';
 import 'package:lfs_admin_flutter/f03_component/f07_form_input_field_with_icon.dart';
-import 'package:lfs_admin_flutter/f04_view/f01_register_view.dart';
-import 'package:lfs_admin_flutter/f05_scene/f02_main_scene.dart';
+import 'package:lfs_admin_flutter/f05_scene/f01_login/f01_login_controller.dart';
+import 'package:lfs_admin_flutter/f05_scene/f01_login/f01_view/f01_register_view.dart';
+import 'package:lfs_admin_flutter/f05_scene/f02_main/f02_main_scene.dart';
 
+import '../f01_login_controller.dart';
 import 'f02_login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
+  final LoginController controller = Get.put(LoginController());
+  final LoginSceneController loginSceneController = Get.find();
   Widget build(BuildContext context) {
     return Scaffold(
       body: Form(
@@ -31,7 +34,6 @@ class LoginView extends GetView<LoginController> {
                     iconPrefix: Icons.email,
                     labelText: '邮箱'.tr,
                     validator: RegisterController().mailValidator,
-
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (value) => null,
                     onSaved: (value) => controller.emailController.text = value!,
@@ -65,7 +67,7 @@ class LoginView extends GetView<LoginController> {
                   ),
                   TextButton(
                     child: Text('账号注册'.tr),
-                    onPressed: () => Get.to(RegisterView()),
+                    onPressed: () => loginSceneController.sceneType(LoginSceneType.Register),
                   ),
                 ],
               ),
