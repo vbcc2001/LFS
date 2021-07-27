@@ -9,11 +9,12 @@ import 'package:lfs_admin_flutter/f03_component/f06_logo_graphic_header.dart';
 import 'package:lfs_admin_flutter/f03_component/f07_form_input_field_with_icon.dart';
 import 'package:lfs_admin_flutter/f07_models/f01_user.dart';
 
+import '../f01_login_controller.dart';
 import 'f02_login_view.dart';
 
 class RegisterView extends GetView<RegisterController> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
+  final RegisterController controller = Get.put(RegisterController());
   Widget build(BuildContext context) {
     return Scaffold(
       body: Form(
@@ -73,7 +74,7 @@ class RegisterView extends GetView<RegisterController> {
                   SizedBox(height: 24),
                   TextButton(
                     child: Text('账号登录'.tr),
-                    onPressed: () => Get.to(LoginView()),
+                    onPressed: () => Get.find<LoginSceneController>().centerView.value = LoginView(),
                   ),
                 ],
               ),

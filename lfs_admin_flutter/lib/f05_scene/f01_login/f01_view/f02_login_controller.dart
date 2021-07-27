@@ -3,11 +3,13 @@ import 'dart:core';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
+import 'package:lfs_admin_flutter/f03_component/f09_snackbar.dart';
+import 'package:lfs_admin_flutter/f03_component/f10_loading.dart';
 
 class LoginController extends GetxController {
-  static LoginController to = Get.find();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  var submitLock = Rx<bool>(false);
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   bool enableDebugLogin = kDebugMode; // && false;
@@ -27,27 +29,18 @@ class LoginController extends GetxController {
     super.onClose();
   }
 
-
   void submit(BuildContext context) async {
-    String email =  emailController.text.trim();
-    String password =  passwordController.text.trim();
+    submitLock.value = true;
     try {
-      Get.snackbar(''.tr, ''.tr,
-          snackPosition: SnackPosition.TOP,
-          showProgressIndicator:true,
-          backgroundColor: Get.theme.snackBarTheme.backgroundColor,
-          colorText: Get.theme.snackBarTheme.actionTextColor);
+      await _auth.signInWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
       emailController.clear();
       passwordController.clear();
-      //hideLoadingIndicator();
     } catch (error) {
-      //hideLoadingIndicator();
-      // Get.snackbar('auth.signInErrorTitle'.tr, 'auth.signInError'.tr,
-      //     snackPosition: SnackPosition.TOP,
-      //     showProgressIndicator:true,
-      //     duration: Duration(seconds: 7),
-      //     backgroundColor: Get.theme.snackBarTheme.backgroundColor,
-      //     colorText: Get.theme.snackBarTheme.actionTextColor);
+      AppSnackbar.show("登录错误",error.toString());
+    } finally{
+      submitLock.value = false;
     }
   }
 

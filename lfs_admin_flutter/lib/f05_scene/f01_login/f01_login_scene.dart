@@ -8,10 +8,11 @@ class LoginScene  extends GetView<LoginSceneController> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Get.theme.backgroundColor,
       child: Center(
         child: ConstrainedBox(
           constraints: BoxConstraints(maxWidth: 500, maxHeight: 500),
-          child:controller.getView(),
+          child:Obx(()=>controller.centerView.value)
         ),
       ),
     );

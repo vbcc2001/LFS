@@ -5,18 +5,18 @@ import 'package:lfs_admin_flutter/f05_scene/f00_splash/f01_splash_scene.dart';
 import 'package:lfs_admin_flutter/f05_scene/f02_main/f02_main_scene.dart';
 
 
-abstract class Routes {
-  static const Login = '/home';
-  static const COUNTRY = '/country';
-  static const DETAILS = '/details';
+abstract class AppRoutes {
+  static const Root = '/';
+  static const Login = '/login';
+  static const Main = '/main';
 }
 
-class AppRoutes {
-  AppRoutes._(); //this is to prevent anyone from instantiating this object
+class AppPages {
+  AppPages._(); //this is to prevent anyone from instantiating this object
   static final routes = [
-    GetPage(name: '/', page: () => SplashScene()),
-    GetPage(name: '/login', page: () => LoginScene()),
-    GetPage(name: '/main', page: () => MainScene()),
+    GetPage(name: AppRoutes.Root, page: () => SplashScene()),
+    GetPage(name: AppRoutes.Login, page: () => LoginScene()),
+    GetPage(name: AppRoutes.Main, page: () => MainScene()),
     // GetPage(name: '/signin', page: () => SignInUI()),
     // GetPage(name: '/signup', page: () => SignUpUI()),
     // GetPage(name: '/home', page: () => HomeUI()),

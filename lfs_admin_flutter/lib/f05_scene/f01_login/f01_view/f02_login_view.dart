@@ -6,15 +6,14 @@ import 'package:lfs_admin_flutter/f03_component/f06_logo_graphic_header.dart';
 import 'package:lfs_admin_flutter/f03_component/f07_form_input_field_with_icon.dart';
 import 'package:lfs_admin_flutter/f05_scene/f01_login/f01_login_controller.dart';
 import 'package:lfs_admin_flutter/f05_scene/f01_login/f01_view/f01_register_view.dart';
-import 'package:lfs_admin_flutter/f05_scene/f02_main/f02_main_scene.dart';
+import 'package:lfs_admin_flutter/f05_scene/f01_login/f01_view/f03_reset_password_view.dart';
 
-import '../f01_login_controller.dart';
 import 'f02_login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final LoginController controller = Get.put(LoginController());
-  final LoginSceneController loginSceneController = Get.find();
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Form(
@@ -52,22 +51,28 @@ class LoginView extends GetView<LoginController> {
                   SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: () async {
-                      if (_formKey.currentState!.validate()) {
+                      if (_formKey.currentState!.validate() && !controller.submitLock.value) {
                         controller.submit(context);
                       }
                     },
-                    child: Text('登录',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                    child: Obx((){
+                      if(controller.submitLock.value){
+                        return CircularProgressIndicator();
+                      }else{
+                        return Text('登录',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        );
+                      }
+                    }),
                   ),
                   SizedBox(height: 24),
                   TextButton(
                     child: Text('忘记密码'.tr),
-                    onPressed: () => Get.to(MainScene()),
+                    onPressed: () =>  Get.find<LoginSceneController>().centerView.value = ResetPasswordView(),
                   ),
                   TextButton(
                     child: Text('账号注册'.tr),
-                    onPressed: () => loginSceneController.sceneType(LoginSceneType.Register),
+                    onPressed: () => Get.find<LoginSceneController>().centerView.value = RegisterView(),
                   ),
                 ],
               ),
