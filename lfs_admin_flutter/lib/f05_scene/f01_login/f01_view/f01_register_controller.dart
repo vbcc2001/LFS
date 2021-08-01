@@ -5,27 +5,22 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lfs_admin_flutter/f02_utils/f03_gravatar.dart';
+import 'package:lfs_admin_flutter/f03_component/f09_snackbar.dart';
+import 'package:lfs_admin_flutter/f05_scene/f02_main/f02_main_scene.dart';
+import 'package:lfs_admin_flutter/f06_middleware/f01_auth_controller.dart';
 import 'package:lfs_admin_flutter/f07_models/f01_user.dart';
 
 
 class RegisterController extends GetxController {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController nameController = TextEditingController(text:kDebugMode ? "lfs" : "");
+  TextEditingController emailController = TextEditingController(text:kDebugMode ? "lfs@lfs.com" : "");
+  TextEditingController passwordController = TextEditingController(text:kDebugMode ? "lfs@lfs.com" : "");
+  var submitLock = Rx<bool>(false);
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
-
-  bool enableDebugLogin = kDebugMode; // && false;
-  String get _defaultName => enableDebugLogin ? "lfs" : "";
-  String get _defaultEmail => enableDebugLogin ? "lfs@lfs.com" : "";
-  String get _defaultPass => enableDebugLogin ? "lfs@lfs.com" : "";
-
   @override
-  void onReady() async {
-    nameController = TextEditingController(text: _defaultName);
-    emailController = TextEditingController(text: _defaultEmail);
-    passwordController = TextEditingController(text: _defaultPass);
+  void onReady()  {
     super.onReady();
   }
   @override
@@ -35,40 +30,44 @@ class RegisterController extends GetxController {
     passwordController.dispose();
     super.onClose();
   }
+
+  void createUserInFirestore(User user) async {
+    Gravatar gravatar = Gravatar(emailController.text);
+    String gravatarUrl = gravatar.imageUrl(
+      size: 200,
+      defaultImage: GravatarImage.retro,
+      rating: GravatarRating.pg,
+      fileExtension: true,
+    );
+    //create the new user object
+    UserModel _newUser = UserModel(
+        uid: user.uid,
+        email: user.email!,
+        name: nameController.text,
+        photoUrl: gravatarUrl);
+    _db.doc('/users/${user.uid}').set(_newUser.toJson());
+    update();
+  }
+
   void submit(BuildContext context) async {
     try {
-      await _auth
+      print('email: ' + emailController.text);
+      submitLock.value = true;
+      UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text)
-          .then((result) async {
-        print('uID: ' + result.user!.uid.toString());
-        print('email: ' + result.user!.email.toString());
-        //get photo url from gravatar if user has one
-        Gravatar gravatar = Gravatar(emailController.text);
-        String gravatarUrl = gravatar.imageUrl(
-          size: 200,
-          defaultImage: GravatarImage.retro,
-          rating: GravatarRating.pg,
-          fileExtension: true,
-        );
-        //create the new user object
-        UserModel _newUser = UserModel(
-            uid: result.user!.uid,
-            email: result.user!.email!,
-            name: nameController.text,
-            photoUrl: gravatarUrl);
-        //create the user in firestore
-        _db.doc('/users/${result.user!.uid}').set(_newUser.toJson());
-        update();
-        emailController.clear();
-        passwordController.clear();
-      });
+          email: emailController.text, password: passwordController.text);
+      print('uID: ' + userCredential.user!.uid.toString());
+      print('email: ' + userCredential.user!.email.toString());
+      Get.find<AuthController>().firebaseUser.value=userCredential.user;
+      createUserInFirestore(userCredential.user!);
+      Get.offAll(()=>MainScene());
+      nameController.clear();
+      emailController.clear();
+      passwordController.clear();
     } on FirebaseAuthException catch (error) {
-      Get.snackbar('auth.signUpErrorTitle'.tr, error.message!,
-          snackPosition: SnackPosition.BOTTOM,
-          duration: Duration(seconds: 10),
-          backgroundColor: Get.theme.snackBarTheme.backgroundColor,
-          colorText: Get.theme.snackBarTheme.actionTextColor);
+      AppSnackbar.show("",error.message!);
+    } finally {
+      submitLock.value = false;
     }
   }
   String? nameValidator(String? value) {

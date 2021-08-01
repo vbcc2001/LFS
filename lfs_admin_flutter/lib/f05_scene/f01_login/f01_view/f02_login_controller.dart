@@ -4,22 +4,18 @@ import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:lfs_admin_flutter/f03_component/f09_snackbar.dart';
-import 'package:lfs_admin_flutter/f03_component/f10_loading.dart';
+import 'package:lfs_admin_flutter/f05_scene/f02_main/f02_main_scene.dart';
+import 'package:lfs_admin_flutter/f06_middleware/f01_auth_controller.dart';
 
 class LoginController extends GetxController {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+
+  TextEditingController emailController = TextEditingController(text:kDebugMode ? "lfs@lfs.com" : "");
+  TextEditingController passwordController = TextEditingController(text:kDebugMode ? "lfs@lfs.com" : "");
   var submitLock = Rx<bool>(false);
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  bool enableDebugLogin = kDebugMode; // && false;
-  String get _defaultEmail => enableDebugLogin ? "lfs@lfs.com" : "";
-  String get _defaultPass => enableDebugLogin ? "lfs@lfs.com" : "";
-
   @override
-  void onReady() async {
-    emailController = TextEditingController(text: _defaultEmail);
-    passwordController = TextEditingController(text: _defaultPass);
+  void onReady() {
     super.onReady();
   }
   @override
@@ -30,16 +26,16 @@ class LoginController extends GetxController {
   }
 
   void submit(BuildContext context) async {
-    submitLock.value = true;
     try {
-      await _auth.signInWithEmailAndPassword(
-          email: emailController.text.trim(),
-          password: passwordController.text.trim());
-      emailController.clear();
-      passwordController.clear();
-    } catch (error) {
-      AppSnackbar.show("登录错误",error.toString());
-    } finally{
+      submitLock.value = true;
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+            email: emailController.text.trim(),
+            password: passwordController.text.trim());
+      Get.find<AuthController>().firebaseUser.value=userCredential.user;
+      Get.offAll(()=>MainScene());
+    } on FirebaseAuthException catch (error) {
+      AppSnackbar.show("",error.message!);
+    } finally {
       submitLock.value = false;
     }
   }

@@ -28,6 +28,7 @@ dependencies:
   email_validator: ^2.0.1
   context_menus: ^0.1.0+5
   flextras: ^0.0.1
+  csv: ^5.0.0
 
   firebase_core: ^1.4.0
   firebase_analytics: ^8.2.0

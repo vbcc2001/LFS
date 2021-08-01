@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class AppString {
   static const String title = "LFS Admin";
 }
+
 class AppColors {
   static const Color primary = Color(0xFF2697FF);
   static const Color secondary = Color(0xFF2A2D3E);

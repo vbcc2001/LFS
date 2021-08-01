@@ -8,6 +8,7 @@ import 'package:lfs_admin_flutter/f05_scene/f01_login/f01_login_controller.dart'
 import 'package:lfs_admin_flutter/f05_scene/f01_login/f01_view/f01_register_view.dart';
 import 'package:lfs_admin_flutter/f05_scene/f01_login/f01_view/f03_reset_password_view.dart';
 
+import 'f01_register_controller.dart';
 import 'f02_login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -57,9 +58,13 @@ class LoginView extends GetView<LoginController> {
                     },
                     child: Obx((){
                       if(controller.submitLock.value){
-                        return CircularProgressIndicator();
+                        return SizedBox(
+                          child: CircularProgressIndicator(),
+                          height: 16.0,
+                          width: 16.0,
+                        );
                       }else{
-                        return Text('登录',
+                        return Text('auth.signInButton'.tr,
                           style: TextStyle(fontWeight: FontWeight.bold),
                         );
                       }
