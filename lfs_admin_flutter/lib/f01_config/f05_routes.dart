@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:lfs_admin_flutter/f01_config/f03_core_package.dart';
-import 'package:lfs_admin_flutter/f05_scene/f01_login/f01_login_scene.dart';
-import 'package:lfs_admin_flutter/f05_scene/f00_splash/f01_splash_scene.dart';
-import 'package:lfs_admin_flutter/f05_scene/f02_main/f02_main_scene.dart';
+import 'package:lfs_admin_flutter/f05_scene/f00_splash/view.dart';
+import 'package:lfs_admin_flutter/f05_scene/f01_auth/view.dart';
+import 'package:lfs_admin_flutter/f05_scene/f02_main/f01_home/view.dart';
+
 
 
 abstract class AppRoutes {
@@ -14,9 +14,9 @@ abstract class AppRoutes {
 class AppPages {
   AppPages._(); //this is to prevent anyone from instantiating this object
   static final routes = [
-    GetPage(name: AppRoutes.Root, page: () => SplashScene()),
-    GetPage(name: AppRoutes.Login, page: () => LoginScene()),
-    GetPage(name: AppRoutes.Main, page: () => MainScene()),
+    GetPage(name: AppRoutes.Root, page: () => SplashPage()),
+    GetPage(name: AppRoutes.Login, page: () => AuthPage()),
+    GetPage(name: AppRoutes.Main, page: () => HomePage()),
     // GetPage(name: '/signin', page: () => SignInUI()),
     // GetPage(name: '/signup', page: () => SignUpUI()),
     // GetPage(name: '/home', page: () => HomeUI()),

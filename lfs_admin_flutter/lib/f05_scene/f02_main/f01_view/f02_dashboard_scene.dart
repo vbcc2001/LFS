@@ -1,11 +1,11 @@
 
 import 'package:flutter/material.dart';
-import '../f01_config/f01_constant.dart';
-import '../f01_config/f04_responsive.dart';
-import '../f03_component/f02_my_files/f03_my_files.dart';
-import '../f03_component/f05_recent_files.dart';
-import '../f03_component/f02_header.dart';
-import '../f03_component/f01_storage_details/storage_details.dart';
+import '../../../f01_config/f01_constant.dart';
+import '../../../f01_config/f04_responsive.dart';
+import '../../../f03_component/f02_my_files/f03_my_files.dart';
+import '../../../f03_component/f05_recent_files.dart';
+import '../../../f03_component/f02_header.dart';
+import '../../../f03_component/f01_storage_details/storage_details.dart';
 
 class DashboardScreen extends StatelessWidget {
   @override

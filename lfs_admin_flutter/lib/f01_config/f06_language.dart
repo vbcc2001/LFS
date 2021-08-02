@@ -10,7 +10,7 @@ class MenuOptionsModel {
 
 class AppLanguage {
 
-  static final String defaultLanguage = 'en';
+  static final String defaultLanguage = 'zh';
 
   static final List<MenuOptionsModel> languageOptions = [
     MenuOptionsModel(key: "zh", value: "中文"), //Chinese

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../f01_config/f01_constant.dart';
+import '../../../f01_config/f01_constant.dart';
 
 class SideMenu extends StatelessWidget {
-  const SideMenu({
-    Key? key,
-  }) : super(key: key);
+
+  const SideMenu({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class SideMenu extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
-            child: Image.asset(AppImages.logoImg),
+            child: Image.asset(AppImages.twitterHeaderPhoto2),
           ),
           DrawerListTile(
             title: "Dashbord",

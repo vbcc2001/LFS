@@ -11,8 +11,9 @@ class AppColors {
   static const Color background = Color(0xFF212332);
 }
 class AppImages {
-  static String logoImg = "assets/images/f01_logo.png";
-
+  static String logo = "images/logo/logo.png";
+  static String logoTransparent = "images/logo/logo_transparent.png";
+  static String twitterHeaderPhoto2 = "images/logo/twitter_header_photo_2.png";
 }
 class AppStyles {
   static const defaultPadding = 16.0;
