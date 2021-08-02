@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:lfs_admin_flutter/f01_config/f03_core_package.dart';
-import 'package:lfs_admin_flutter/f05_scene/f01_auth/logic.dart';
+import 'package:lfs_admin_flutter/f05_pages/f01_auth/logic.dart';
 
 import 'f01_config/f02_theme_01.dart';
 import 'f01_config/f07_localization.g.dart';

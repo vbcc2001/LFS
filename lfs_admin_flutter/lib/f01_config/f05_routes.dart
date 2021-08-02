@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:lfs_admin_flutter/f05_scene/f00_splash/view.dart';
-import 'package:lfs_admin_flutter/f05_scene/f01_auth/view.dart';
-import '../f05_scene/f02_home/view.dart';
+import 'package:lfs_admin_flutter/f05_pages/f00_splash/view.dart';
+import 'package:lfs_admin_flutter/f05_pages/f01_auth/view.dart';
+import '../f05_pages/f02_home/view.dart';
 
 
 

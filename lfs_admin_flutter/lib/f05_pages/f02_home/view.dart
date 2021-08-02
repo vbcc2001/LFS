@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lfs_admin_flutter/f01_config/f04_responsive.dart';
-import 'package:lfs_admin_flutter/f05_scene/f02_home/f01_view/f02_dashboard_scene.dart';
-import 'package:lfs_admin_flutter/f05_scene/f02_home/f02_side_menu/view.dart';
-import 'package:lfs_admin_flutter/f05_scene/f02_home/state.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f01_view/f02_dashboard_scene.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f02_side_menu/view.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/state.dart';
 
 import 'logic.dart';
 
