@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeController.to.getThemeModeFromStore();
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
+      // debugShowCheckedModeBanner: false,
       //标题
       title: AppString.title,
       theme: AppThemes.lightTheme,

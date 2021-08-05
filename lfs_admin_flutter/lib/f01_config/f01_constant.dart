@@ -22,7 +22,7 @@ class AppStyles {
 }
 
 class AppIcons {
-  // static Icon stat = Icon(Icons.equalizer); //统计
+  static Icon stat = Icon(Icons.equalizer); //统计
 }
 
 /// Used for all animations in the  app
