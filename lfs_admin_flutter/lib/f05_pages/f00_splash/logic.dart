@@ -7,15 +7,4 @@ import 'state.dart';
 
 class SplashLogic extends GetxController {
   final state = SplashState();
-  @override
-  void onReady() async {
-    var firebaseUser = Get.find<AuthLogic>().firebaseUser;
-    if (firebaseUser.value != null) {
-      Get.offAll(()=>HomePage());
-    } else {
-      Get.offAll(()=>AuthPage());
-   }
-    super.onReady();
-  }
-
 }

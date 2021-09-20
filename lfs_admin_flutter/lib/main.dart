@@ -9,11 +9,12 @@ import 'f01_config/f07_localization.g.dart';
 import 'f02_utils/f01_logger.dart';
 import 'f06_middleware/f02_language_controller.dart';
 import 'f06_middleware/f04_theme_controller.dart';
+import 'logic.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await GetStorage.init();
-  Get.put<AuthLogic>(AuthLogic());
+  Get.put<AppLogic>(AppLogic());
   Get.put<ThemeController>(ThemeController());
   Get.put<LanguageController>(LanguageController());
   runApp(MyApp());

@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:lfs_admin_flutter/f03_component/f09_snackbar.dart';
-import 'package:lfs_admin_flutter/f05_pages/f01_auth/logic.dart';
-import '../../f02_home/view.dart';
+import '../../../logic.dart';
 
 import 'state.dart';
 
@@ -32,8 +31,7 @@ class LoginLogic extends GetxController {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
           email: emailController.text.trim(),
           password: passwordController.text.trim());
-      Get.find<AuthLogic>().firebaseUser.value=userCredential.user;
-      Get.offAll(()=>HomePage());
+      Get.find<AppLogic>().state.user.value=userCredential.user;
     } on FirebaseAuthException catch (error) {
       AppSnackbar.show("",error.message!);
     } finally {

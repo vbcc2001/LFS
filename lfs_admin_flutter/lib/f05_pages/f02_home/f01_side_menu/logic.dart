@@ -4,4 +4,5 @@ import 'state.dart';
 
 class SideMenuLogic extends GetxController {
   final state = SideMenuState();
+
 }

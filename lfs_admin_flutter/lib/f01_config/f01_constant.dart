@@ -23,6 +23,10 @@ class AppStyles {
 
 class AppIcons {
   static Icon stat = Icon(Icons.equalizer); //统计
+  static Icon search = Icon(Icons.search);
+  static Icon person = Icon(Icons.person_rounded);
+  static Icon arrow_down = Icon(Icons.keyboard_arrow_down);
+  static Icon movies = Icon(Icons.movie); //统计
 }
 
 /// Used for all animations in the  app

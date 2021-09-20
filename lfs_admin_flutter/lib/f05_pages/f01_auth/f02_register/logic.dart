@@ -5,9 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:lfs_admin_flutter/f02_utils/f03_gravatar.dart';
 import 'package:lfs_admin_flutter/f03_component/f09_snackbar.dart';
-import 'package:lfs_admin_flutter/f05_pages/f01_auth/logic.dart';
-import '../../f02_home/view.dart';
-import 'package:lfs_admin_flutter/f07_models/f01_user.dart';
+import 'package:lfs_admin_flutter/logic.dart';
+
 
 import 'state.dart';
 
@@ -40,14 +39,15 @@ class RegisterLogic extends GetxController {
       rating: GravatarRating.pg,
       fileExtension: true,
     );
+    user.updatePhotoURL(gravatarUrl);
     //create the new user object
-    UserModel _newUser = UserModel(
-        uid: user.uid,
-        email: user.email!,
-        name: nameController.text,
-        photoUrl: gravatarUrl);
-    _db.doc('/users/${user.uid}').set(_newUser.toJson());
-    update();
+    // UserModel _newUser = UserModel(
+    //     uid: user.uid,
+    //     email: user.email!,
+    //     name: nameController.text,
+    //     photoUrl: gravatarUrl);
+    // _db.doc('/users/${user.uid}').set(_newUser.toJson());
+    // update();
   }
 
   void submit(BuildContext context) async {
@@ -59,9 +59,8 @@ class RegisterLogic extends GetxController {
           email: emailController.text, password: passwordController.text);
       print('uID: ' + userCredential.user!.uid.toString());
       print('email: ' + userCredential.user!.email.toString());
-      Get.find<AuthLogic>().firebaseUser.value=userCredential.user;
+      Get.find<AppLogic>().state.user.value=userCredential.user;
       createUserInFirestore(userCredential.user!);
-      Get.offAll(()=>HomePage());
       nameController.clear();
       emailController.clear();
       passwordController.clear();
