@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:lfs_admin_flutter/f01_config/f01_constant.dart';
 import 'package:lfs_admin_flutter/f01_config/f03_core_package.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f02_header/logic.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/view.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f99_main/view.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f03_movies/view.dart';
 
@@ -36,6 +37,14 @@ class SideMenuPage extends StatelessWidget {
             press: () {
               Get.find<HeaderLogic>().title='电影';
               Get.find<HomeLogic>().mainPage = MoviesPage();
+            },
+          ),
+          DrawerListTile(
+            title: "游戏",
+            icon: AppIcons.game,
+            press: () {
+              Get.find<HeaderLogic>().title='游戏';
+              Get.find<HomeLogic>().mainPage = GamePage();
             },
           ),
         ],

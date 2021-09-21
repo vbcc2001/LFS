@@ -13,7 +13,7 @@ class AppColors {
 class AppImages {
   static String logo = "images/logo/logo.png";
   static String logoTransparent = "images/logo/logo_transparent.png";
-  static String twitterHeaderPhoto2 = "images/logo/twitter_header_photo_2.png";
+  static String twitterHeaderPhoto2 = "images/logo/twitter_header_photo_21.png";
 }
 class AppStyles {
   static const defaultPadding = 16.0;
@@ -26,7 +26,8 @@ class AppIcons {
   static Icon search = Icon(Icons.search);
   static Icon person = Icon(Icons.person_rounded);
   static Icon arrow_down = Icon(Icons.keyboard_arrow_down);
-  static Icon movies = Icon(Icons.movie); //统计
+  static Icon movies = Icon(Icons.movie);
+  static Icon game = Icon(Icons.gamepad_outlined);
 }
 
 /// Used for all animations in the  app
