@@ -13,7 +13,7 @@ class AppColors {
 class AppImages {
   static String logo = "images/logo/logo.png";
   static String logoTransparent = "images/logo/logo_transparent.png";
-  static String twitterHeaderPhoto2 = "images/logo/twitter_header_photo_21.png";
+  static String twitterHeaderPhoto2 = "images/logo/twitter_header_photo_2.png";
 }
 class AppStyles {
   static const defaultPadding = 16.0;

@@ -1,22 +1,31 @@
 import 'dart:html';
+import 'dart:ui';
 
+import 'package:flame/assets.dart';
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
+import 'package:flame/sprite.dart';
+class Minotaur extends SpriteAnimationComponent {
 
-class Minotaur extends SpriteComponent {
+  final spriteSize = Vector2(96, 96);
+  late var state = MinotaurState.Idle;
+  late final spriteSheet;
+  late final animationIdle;
+  late final animationMove;
+  late final animationBackMove;
 
-
-  Minotaur() : super(size: Vector2.all(96));
-
-
-
+  Minotaur(Vector2 position) :super(position:position);
 
   Future<void> onLoad() async {
-    sprite = await Sprite.load('crate.png');
-    anchor = Anchor.center;
-
-
-
+    spriteSheet = SpriteSheet(
+      image: await Images(prefix:"").load('images/game/minotaur.png'),
+      srcSize: Vector2(96.0, 96.0),
+    );
+    animationIdle = spriteSheet.createAnimation(row: 0, stepTime: 0.1, to: 5);
+    animationMove = spriteSheet.createAnimation(row: 1, stepTime: 0.1, to: 8);
+    animationBackMove = spriteSheet.createAnimation(row: 11, stepTime: 0.1, to: 8);
+    this.animation = animationIdle;
+    this.size = spriteSize;
   }
 
   @override
@@ -26,86 +35,46 @@ class Minotaur extends SpriteComponent {
     position = gameSize / 2;
   }
 
-
-
-
-//   final MyGame game;
-//   State state;
-//   Offset position;
-//   final Animation  animationIdle = Animation.sequenced('minotaur.png', 5,
-//       textureX:0, textureY:0 , textureWidth: 96, textureHeight: 96);
-//   final Animation  animationMove = Animation.sequenced('minotaur.png', 8,
-//       textureX:0, textureY:96 , textureWidth: 96, textureHeight: 96);
-//   final Animation  animationBackMove = Animation.sequenced('minotaur.png', 8,
-//       textureX:0, textureY:1056 , textureWidth: 96, textureHeight: 96);
-//   AnimationComponent animationComponent ;
-//   AnimationComponent reversedAnimationComponent;
-//   Rect rect;
-//   int x,y;
-//   Minotaur(this.game,this.position){
-//     state = State.Idle;
-//     animationComponent = AnimationComponent(96, 96, animationIdle);
-//     print(position);
-//     animationComponent.x = position.dx;
-//     animationComponent.y = position.dy;
-//
-// //    reversedAnimationComponent =
-// //    AnimationComponent(100, 100, animation.reversed());
-// //    reversedAnimationComponent.x = game.screenSize.width / 2-100;
-// //    reversedAnimationComponent.y = 100;
-// //    rect = Rect.fromLTWH(left, top, 96, 96);
-//   }
-//   void onTapDown() {
-//
-//   }
-//
-//   void render(Canvas c) {
-//     //animationComponent.setByRect(rect);
-//
-//     animationComponent.render(c);
-// //    reversedAnimationComponent.render(c);
-//   }
-//
-//   void update(double t) {
-//     switch(state){
-//       case State.Idle:
-//         animationComponent.animation =  animationIdle;
-//         break;
-//       case State.Move:
-//         animationComponent.animation =  animationMove;
-//         break;
-//       case State.Taunt:
-//         // TODO: Handle this case.
-//         break;
-//       case State.Attack1:
-//         // TODO: Handle this case.
-//         break;
-//       case State.Attack2:
-//         // TODO: Handle this case.
-//         break;
-//       case State.Attack3:
-//         // TODO: Handle this case.
-//         break;
-//       case State.Attack4:
-//         // TODO: Handle this case.
-//         break;
-//       case State.Damage1:
-//         // TODO: Handle this case.
-//         break;
-//       case State.Damage2:
-//         // TODO: Handle this case.
-//         break;
-//       case State.Death:
-//         // TODO: Handle this case.
-//         break;
-//       case State.BackMove:
-//         animationComponent.animation =  animationBackMove;
-//         break;
-//     }
-//     animationComponent.update(t);
-//   }
+  void update(double t) {
+    super.update(t);
+    switch(state){
+      case MinotaurState.Idle:
+        this.animation =  animationIdle;
+        break;
+      case MinotaurState.Move:
+        this.animation =  animationMove;
+        break;
+      case MinotaurState.Taunt:
+        // TODO: Handle this case.
+        break;
+      case MinotaurState.Attack1:
+        // TODO: Handle this case.
+        break;
+      case MinotaurState.Attack2:
+        // TODO: Handle this case.
+        break;
+      case MinotaurState.Attack3:
+        // TODO: Handle this case.
+        break;
+      case MinotaurState.Attack4:
+        // TODO: Handle this case.
+        break;
+      case MinotaurState.Damage1:
+        // TODO: Handle this case.
+        break;
+      case MinotaurState.Damage2:
+        // TODO: Handle this case.
+        break;
+      case MinotaurState.Death:
+        // TODO: Handle this case.
+        break;
+      case MinotaurState.BackMove:
+        this.animation =  animationBackMove;
+        break;
+    }
+  }
 }
-enum State {
+enum MinotaurState {
   Idle,
   Move,
   Taunt,
