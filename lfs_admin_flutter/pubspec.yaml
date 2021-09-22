@@ -37,7 +37,9 @@ dependencies:
 
   #game
   flame: ^1.0.0-releasecandidate.14
-
+  flame_tiled:
+    git:
+      url: https://github.com/flame-engine/flame_tiled.git
 
 dev_dependencies:
   flutter_test:

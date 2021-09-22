@@ -8,6 +8,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.10.24"
+  archive:
+    dependency: transitive
+    description:
+      name: archive
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.1.2"
   async:
     dependency: transitive
     description:
@@ -225,6 +232,15 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.0-releasecandidate.14"
+  flame_tiled:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: d2d8475423c30f02a6a8194ae7c8863419a8fd5d
+      url: "https://github.com/flame-engine/flame_tiled.git"
+    source: git
+    version: "0.2.0-rc1"
   flextras:
     dependency: "direct main"
     description:
@@ -492,6 +508,15 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.4.2"
+  tiled:
+    dependency: transitive
+    description:
+      path: "."
+      ref: tileByGid-fix
+      resolved-ref: e538ac594df57221a45d3c9219ce5fb2b439deb6
+      url: "https://github.com/supagu/tiled.dart.git"
+    source: git
+    version: "0.7.1"
   typed_data:
     dependency: transitive
     description:

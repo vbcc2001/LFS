@@ -1,14 +1,17 @@
 
+import 'package:flame/effects.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
+import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f03_tile_level_1.dart';
 
 import 'f02_components/f01_minotaur.dart';
 
 
 
-class MyGame extends FlameGame with KeyboardEvents,FPSCounter {
+class MyGame extends FlameGame with KeyboardEvents,FPSCounter,TapDetector  {
 
 
   static final fpsTextPaint = TextPaint(
@@ -17,14 +20,24 @@ class MyGame extends FlameGame with KeyboardEvents,FPSCounter {
   static const int speed = 200;
   final Vector2 velocity = Vector2(0, 0);
   final minotaur = Minotaur(Vector2(0, 0));
-
+  final tileLevel1 = TileLevel1();
   @override
   bool debugMode = true;
 
   @override
   Future<void> onLoad() async {
     await super.onLoad();
+    // minotaur.add(
+    //   OpacityEffect(
+    //     opacity: 0,
+    //     duration: 0.5,
+    //     isInfinite: true,
+    //     isAlternating: true,
+    //   ),
+    // );
+    add(tileLevel1);
     add(minotaur);
+
   }
   @override
   void render(Canvas canvas) {
@@ -40,7 +53,15 @@ class MyGame extends FlameGame with KeyboardEvents,FPSCounter {
     minotaur.x = minotaur.x + displacement.x;
     minotaur.y = minotaur.y +  displacement.y;
   }
-
+  @override
+  void onTap() {
+    final opacity = minotaur.paint.color.opacity;
+    if (opacity == 1) {
+      minotaur.add(OpacityEffect.fadeOut());
+    } else if (opacity == 0) {
+      minotaur.add(OpacityEffect.fadeIn());
+    }
+  }
   @override
   KeyEventResult onKeyEvent(RawKeyEvent event, Set<LogicalKeyboardKey> keysPressed,) {
     final isKeyDown = event is RawKeyDownEvent;

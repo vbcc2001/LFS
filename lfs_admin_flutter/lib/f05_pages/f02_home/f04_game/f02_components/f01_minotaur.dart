@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flame/assets.dart';
 import 'package:flame/components.dart';
+import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flame/sprite.dart';
 class Minotaur extends SpriteAnimationComponent {
@@ -18,7 +19,7 @@ class Minotaur extends SpriteAnimationComponent {
 
   Future<void> onLoad() async {
     spriteSheet = SpriteSheet(
-      image: await Images(prefix:"").load('images/game/minotaur.png'),
+      image: await Flame.images.load('minotaur.png'),
       srcSize: Vector2(96.0, 96.0),
     );
     animationIdle = spriteSheet.createAnimation(row: 0, stepTime: 0.1, to: 5);
