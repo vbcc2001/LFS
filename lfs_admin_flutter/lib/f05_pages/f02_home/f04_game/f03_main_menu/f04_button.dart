@@ -7,7 +7,8 @@ import 'package:flame/input.dart';
 import 'package:flame/palette.dart';
 
 enum ButtonState { normal, selected, pressed }
-class ButtonComponent extends SpriteGroupComponent<ButtonState> with Tappable {
+class ButtonComponent extends SpriteGroupComponent<ButtonState> with Tappable,Hoverable {
+
   @override
   Future<void> onLoad() async {
     await super.onLoad();
@@ -26,9 +27,20 @@ class ButtonComponent extends SpriteGroupComponent<ButtonState> with Tappable {
     current = ButtonState.normal;
     final text = TextComponent('开始游戏',
         textRenderer: TextPaint(config: TextPaintConfig(color: BasicPalette.white.color).withFontSize(22.0)),
-        // size:Vector2(116, 54),
     );
     add(text..anchor = Anchor.center..position.setFrom(size/2));
+  }
+  @override
+  void render(Canvas canvas) {
+    super.render(canvas);
+    // mouseCursor.value = isHovered? SystemMouseCursors.grab :SystemMouseCursors.basic;
+    if (current != ButtonState.pressed) {
+      if (isHovered) {
+        current = ButtonState.selected;
+      } else {
+        current = ButtonState.normal;
+      }
+    }
   }
 
   @override
