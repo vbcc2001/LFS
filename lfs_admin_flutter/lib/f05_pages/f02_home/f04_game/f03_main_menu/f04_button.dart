@@ -9,6 +9,8 @@ import 'package:flame/palette.dart';
 enum ButtonState { normal, selected, pressed }
 class ButtonComponent extends SpriteGroupComponent<ButtonState> with Tappable,Hoverable {
 
+  final Function event;
+  ButtonComponent(this.event);
   @override
   Future<void> onLoad() async {
     await super.onLoad();
@@ -46,6 +48,7 @@ class ButtonComponent extends SpriteGroupComponent<ButtonState> with Tappable,Ho
   @override
   bool onTapDown(_) {
     current = ButtonState.pressed;
+    event();
     return true;
   }
 

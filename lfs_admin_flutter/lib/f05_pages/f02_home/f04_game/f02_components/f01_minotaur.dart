@@ -1,82 +1,76 @@
-import 'dart:html';
 import 'dart:ui';
-
-import 'package:flame/assets.dart';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flame/sprite.dart';
-class Minotaur extends SpriteAnimationComponent {
+import '../f04_scene_01/game.dart';
 
-  final spriteSize = Vector2(96, 96);
-  late var state = MinotaurState.Idle;
-  late final spriteSheet;
-  late final animationIdle;
-  late final animationMove;
-  late final animationBackMove;
+import '../game.dart';
+import 'f05_audio.dart';
+class MinotaurGroup extends SpriteAnimationGroupComponent<MinotaurState> with HasGameRef<Scene01> {
 
-  Minotaur(Vector2 position) :super(position:position);
+  static final spriteSize = Vector2(96, 96);
+  static final _animationMap = {
+    MinotaurState.Idle: SpriteAnimationData.sequenced(
+      amount: 5,
+      stepTime: 0.1,
+      textureSize: spriteSize,
+    ),
+    MinotaurState.Move: SpriteAnimationData.sequenced(
+      amount: 8,
+      stepTime: 0.1,
+      textureSize: spriteSize,
+      texturePosition: Vector2(0,spriteSize.y*1),
+    ),
+    MinotaurState.BackIdle: SpriteAnimationData.sequenced(
+      amount: 5,
+      stepTime: 0.1,
+      textureSize: spriteSize,
+      texturePosition: Vector2(0,spriteSize.y*10),
+    ),
+    MinotaurState.BackMove: SpriteAnimationData.sequenced(
+      amount: 8,
+      stepTime: 0.1,
+      textureSize: spriteSize,
+      texturePosition: Vector2(0,spriteSize.y*11),
+    ),
+  };
+  final Map<String,String> playerData;
 
-  Future<void> onLoad() async {
-    spriteSheet = SpriteSheet(
-      image: await Flame.images.load('minotaur.png'),
-      srcSize: Vector2(96.0, 96.0),
-    );
-    animationIdle = spriteSheet.createAnimation(row: 0, stepTime: 0.1, to: 5);
-    animationMove = spriteSheet.createAnimation(row: 1, stepTime: 0.1, to: 8);
-    animationBackMove = spriteSheet.createAnimation(row: 11, stepTime: 0.1, to: 8);
-    this.animation = animationIdle;
-    this.size = spriteSize;
-  }
+  double jumpY = 0.0;
+  MinotaurGroup(Image image, this.playerData) : super.fromFrameData(image, _animationMap);
 
   @override
-  void onGameResize(Vector2 gameSize) {
-    // We don't need to set the position in the constructor, we can it directly here since it will
-    // be called once before the first time it is rendered.
-    position = gameSize / 2;
+  void onMount() {
+    super.onMount();
+    this.size = Vector2.all(96);
+    this.current = MinotaurState.Idle;
+    // this.shouldRemove = false;
+    // this.shouldRemove = true;
+    this.anchor = Anchor.center;
   }
-
-  void update(double t) {
-    super.update(t);
-    switch(state){
-      case MinotaurState.Idle:
-        this.animation =  animationIdle;
-        break;
-      case MinotaurState.Move:
-        this.animation =  animationMove;
-        break;
-      case MinotaurState.Taunt:
-        // TODO: Handle this case.
-        break;
-      case MinotaurState.Attack1:
-        // TODO: Handle this case.
-        break;
-      case MinotaurState.Attack2:
-        // TODO: Handle this case.
-        break;
-      case MinotaurState.Attack3:
-        // TODO: Handle this case.
-        break;
-      case MinotaurState.Attack4:
-        // TODO: Handle this case.
-        break;
-      case MinotaurState.Damage1:
-        // TODO: Handle this case.
-        break;
-      case MinotaurState.Damage2:
-        // TODO: Handle this case.
-        break;
-      case MinotaurState.Death:
-        // TODO: Handle this case.
-        break;
-      case MinotaurState.BackMove:
-        this.animation =  animationBackMove;
-        break;
-    }
+  void jump() {
+      this.jumpY = -300;
+      this.current = MinotaurState.Move;
+      MyAudio.instance.playSfx('jump14.wav');
+  }
+  void idle() {
+    this.current = MinotaurState.Idle;
+  }
+  void backIdle() {
+    this.current = MinotaurState.BackIdle;
+  }
+  void move() {
+    this.current = MinotaurState.Move;
+  }
+  void backMove() {
+    this.current = MinotaurState.BackMove;
   }
 }
+
 enum MinotaurState {
   Idle,
+  BackIdle,
   Move,
   Taunt,
   Attack1,

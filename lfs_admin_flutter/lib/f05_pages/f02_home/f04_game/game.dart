@@ -1,33 +1,28 @@
+import 'dart:ui';
 
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
-import 'package:flame/parallax.dart';
-import 'package:flame/src/components/parallax_component.dart';
 import 'package:flame_audio/audio_pool.dart';
-import 'package:flame_audio/flame_audio.dart';
-import 'package:flutter/cupertino.dart';
 import 'f02_components/f03_fps.dart';
 import 'f02_components/f04_background.dart';
 import 'f02_components/f05_audio.dart';
 import 'f03_main_menu/f01_main_menu.dart';
 
-
-
-class MyGame extends FlameGame with FPSCounter, HasTappableComponents,MouseMovementDetector,HasHoverableComponents  {
+class MyGame extends FlameGame with KeyboardEvents,FPSCounter, HasTappableComponents,MouseMovementDetector,HasHoverableComponents  {
   @override
   bool debugMode = true;
   final fpsTextBox = FpsTextBox();
   late final mainMenu;
+  late final background;
   late AudioPool pool;
-  final myAudio = MyAudio();
   @override
   Future<void> onLoad() async {
     await super.onLoad();
-
     //背景
-    await add(Background());
+    background = Background();
+    await add(background);
     //游戏帧数
     await add(fpsTextBox);
     //目录
@@ -35,7 +30,8 @@ class MyGame extends FlameGame with FPSCounter, HasTappableComponents,MouseMovem
     await add(mainMenu);
     //音乐
     // pool = await AudioPool.create('fire_2.mp3', minPlayers: 3, maxPlayers: 4);
-    myAudio.startBgmMusic();
+    await MyAudio.instance.init();
+    MyAudio.instance.startBgmMusic();
   }
   @override
   void render(Canvas canvas) {
@@ -43,6 +39,15 @@ class MyGame extends FlameGame with FPSCounter, HasTappableComponents,MouseMovem
     if (debugMode) {
       fpsTextBox.show(canvas, fps(120).toString());
     }
+
+  }
+  void start() async{
+      this.remove(mainMenu);
+      this.remove(fpsTextBox);
+      this.remove(background);
+  }
+  void end() {
+    //end
   }
 }
 
