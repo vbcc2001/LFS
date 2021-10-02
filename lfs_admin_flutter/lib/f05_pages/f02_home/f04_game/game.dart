@@ -5,12 +5,13 @@ import 'package:flame/effects.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 import 'package:flame_audio/audio_pool.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f04_scene_01/game.dart';
 import 'f02_components/f03_fps.dart';
 import 'f02_components/f04_background.dart';
 import 'f02_components/f05_audio.dart';
 import 'f03_main_menu/f01_main_menu.dart';
 
-class MyGame extends FlameGame with KeyboardEvents,FPSCounter, HasTappableComponents,MouseMovementDetector,HasHoverableComponents  {
+class MyGame extends FlameGame with HasKeyboardHandlerComponents,FPSCounter, HasTappableComponents,MouseMovementDetector,HasHoverableComponents  {
   @override
   bool debugMode = true;
   final fpsTextBox = FpsTextBox();
@@ -45,6 +46,7 @@ class MyGame extends FlameGame with KeyboardEvents,FPSCounter, HasTappableCompon
       this.remove(mainMenu);
       this.remove(fpsTextBox);
       this.remove(background);
+      // await this.add(Scene01());
   }
   void end() {
     //end

@@ -1,13 +1,15 @@
+
 import 'dart:ui';
+
 import 'package:flame/components.dart';
-import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
+import 'package:flame/input.dart';
 import 'package:flame/sprite.dart';
+import 'package:flutter/services.dart';
 import '../f04_scene_01/game.dart';
 
-import '../game.dart';
 import 'f05_audio.dart';
-class MinotaurGroup extends SpriteAnimationGroupComponent<MinotaurState> with HasGameRef<Scene01> {
+class MinotaurGroup extends SpriteAnimationGroupComponent<MinotaurState> with HasGameRef<Scene01>,KeyboardHandler {
 
   static final spriteSize = Vector2(96, 96);
   static final _animationMap = {
@@ -40,6 +42,8 @@ class MinotaurGroup extends SpriteAnimationGroupComponent<MinotaurState> with Ha
   double jumpY = 0.0;
   MinotaurGroup(Image image, this.playerData) : super.fromFrameData(image, _animationMap);
 
+  Vector2 velocity = Vector2(0, 0);
+
   @override
   void onMount() {
     super.onMount();
@@ -49,6 +53,39 @@ class MinotaurGroup extends SpriteAnimationGroupComponent<MinotaurState> with Ha
     // this.shouldRemove = true;
     this.anchor = Anchor.center;
   }
+  @override
+  void update(double dt) {
+    super.update(dt);
+    final ds = velocity * (100 * dt);
+    position.add(ds);
+  }
+  @override
+  bool onKeyEvent(RawKeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
+    final isKeyDown = event is RawKeyDownEvent;
+
+    if (event.logicalKey == LogicalKeyboardKey.keyA) {
+      velocity.x = isKeyDown ? -1 : 0;
+      isKeyDown ? backMove() : backIdle() ;
+      return false;
+    } else if (event.logicalKey == LogicalKeyboardKey.keyD) {
+      velocity.x = isKeyDown ? 1 : 0;
+      isKeyDown ? move() : idle() ;
+      return false;
+    } else if (event.logicalKey == LogicalKeyboardKey.keyW) {
+      velocity.y = isKeyDown ? -1 : 0;
+      isKeyDown ? up() : idle() ;
+      return false;
+    } else if (event.logicalKey == LogicalKeyboardKey.keyS) {
+      velocity.y = isKeyDown ? 1 : 0;
+      isKeyDown ? down() : idle() ;
+      return false;
+    } else if (event.logicalKey == LogicalKeyboardKey.space) {
+      isKeyDown ? jump() : idle() ;
+      return false;
+    }
+    return super.onKeyEvent(event, keysPressed);
+  }
+
   void jump() {
       this.jumpY = -300;
       this.current = MinotaurState.Move;
@@ -65,6 +102,12 @@ class MinotaurGroup extends SpriteAnimationGroupComponent<MinotaurState> with Ha
   }
   void backMove() {
     this.current = MinotaurState.BackMove;
+  }
+  void up() {
+    this.current = MinotaurState.Move;
+  }
+  void down() {
+    this.current = MinotaurState.Move;
   }
 }
 
