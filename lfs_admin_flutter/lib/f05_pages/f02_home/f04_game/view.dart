@@ -3,7 +3,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'f04_scene_01/game.dart';
-import 'game.dart';
+import 'f04_scene_01/f03_game.dart';
 import 'logic.dart';
 import 'state.dart';
 
@@ -21,3 +21,5 @@ class GamePage extends StatelessWidget {
     );
   }
 }
+
+

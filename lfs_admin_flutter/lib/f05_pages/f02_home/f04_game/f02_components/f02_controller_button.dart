@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
 
-import '../game.dart';
+import '../f04_scene_01/f03_game.dart';
 import 'f01_minotaur.dart';
 
 

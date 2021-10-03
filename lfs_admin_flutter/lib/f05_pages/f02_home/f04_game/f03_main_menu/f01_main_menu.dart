@@ -2,7 +2,7 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
-import '../game.dart';
+import '../f04_scene_01/f03_game.dart';
 import 'f02_logo.dart';
 import 'f04_button.dart';
 

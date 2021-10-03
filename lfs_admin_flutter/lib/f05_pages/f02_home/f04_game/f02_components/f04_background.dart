@@ -27,24 +27,4 @@ class Background extends ParallaxComponent {
   }
 
 
-
-  // @override
-  // Future<void> onLoad() async {
-  //   await super.onLoad();
-  //   this = await loadParallaxComponent(
-  //     _imageNames,
-  //     baseVelocity: Vector2(20, 0),
-  //     velocityMultiplierDelta: Vector2(1.8, 1.0),
-  //   );
-  //
-  //   this.baseVelocity = Vector2(20, 0);
-  //   final parallax = await loadParallaxComponent(
-  //     _imageNames,
-  //     baseVelocity: Vector2(20, 0),
-  //     velocityMultiplierDelta: Vector2(1.8, 1.0),
-  //   );
-  // }
-
-
-
 }
