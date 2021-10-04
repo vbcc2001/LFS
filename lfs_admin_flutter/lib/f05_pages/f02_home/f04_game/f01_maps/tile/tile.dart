@@ -3,14 +3,13 @@ import 'dart:ui';
 
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f05_game_ref.dart';
 
 import '../../f00_utils/f02_component.dart';
 import '../../f00_utils/f12_assets_loader.dart';
 import '../../game.dart';
 import '../controlled_update_animation.dart';
 import '../map_paint.dart';
-class Tile extends PositionComponent with MyHasGameRef<MyGame> {
+class Tile extends PositionComponent with HasGameRef<MyGame> {
   Sprite? _sprite;
   ControlledUpdateAnimation? _animation;
   final double width;

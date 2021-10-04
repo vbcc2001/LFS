@@ -142,7 +142,7 @@ class TileModel {
   double get top => (y * height);
   double get bottom => (y * height) + height;
 
-  Tile getTile(MyGame gameRef) {
+  Tile getTile() {
     if (animation == null) {
       if (collisions?.isNotEmpty == true) {
         final tile = TileWithCollision.fromSprite(
@@ -159,7 +159,7 @@ class TileModel {
           type: type,
           properties: properties,
         );
-        tile.gameRef = gameRef;
+        // tile.gameRef = gameRef;
         tile.id = id;
 
         return tile;
@@ -178,7 +178,7 @@ class TileModel {
           properties: properties,
         );
 
-        tile.gameRef = gameRef;
+        // tile.gameRef = gameRef;
         tile.id = id;
 
         return tile;
@@ -199,7 +199,7 @@ class TileModel {
           properties: properties,
         );
 
-        tile.gameRef = gameRef;
+        // tile.gameRef = gameRef;
         tile.id = id;
 
         return tile;
@@ -216,7 +216,7 @@ class TileModel {
           type: type,
           properties: properties,
         );
-        tile.gameRef = gameRef;
+        // tile.gameRef = gameRef;
         tile.id = id;
 
         return tile;

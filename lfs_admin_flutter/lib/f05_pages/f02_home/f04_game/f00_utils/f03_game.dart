@@ -19,7 +19,7 @@ import 'f04_camera.dart';
 /// Apply zoom in canvas.
 /// Reorder components per time frame.
 // abstract class CustomBaseGame extends Game with FPSCounter, PointerDetector {
-abstract class CustomBaseGame extends FlameGame with FPSCounter {
+class CustomBaseGame extends FlameGame with FPSCounter {
 
   MyCamera myCamera = MyCamera();
 

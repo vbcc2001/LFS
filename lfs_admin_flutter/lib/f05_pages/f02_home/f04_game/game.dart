@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:math';
 
+import 'package:flame/components.dart';
 import 'package:flame/input.dart';
 import 'package:flutter/material.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f03_game.dart';
@@ -33,6 +35,7 @@ import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f03_game
 // import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f14_map_component.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/f01_dungeon_map.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f06_enemy.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f07_enemy_goblin.dart';
 
@@ -41,7 +44,11 @@ import 'f00_utils/f06_player.dart';
 import 'f00_utils/f11_lighting.dart';
 import 'f00_utils/f13_game_interface.dart';
 import 'f01_layer/f01_background.dart';
+import 'f01_maps/collision/collision_area.dart';
 import 'f01_maps/collision/object_collision.dart';
+import 'f01_maps/map_world.dart';
+import 'f01_maps/tile/tile_model.dart';
+import 'f02_components/f03_fps.dart';
 import 'f02_components/f04_background.dart';
 
 /// Is a customGame where all magic of the Bonfire happen.
@@ -55,6 +62,7 @@ class MyGame extends CustomBaseGame {
   static const INTERVAL_UPDATE_ORDER = 253;
   static const INTERVAL_UPDATE_COLLISIONS = 1003;
 
+  final fpsTextBox = FpsTextBox();
   /// Context used to access all Flutter power in your game.
   late final BuildContext context;
   /// Represents the character controlled by the user in the game. Instances of this class has actions and movements ready to be used and configured.
@@ -62,8 +70,7 @@ class MyGame extends CustomBaseGame {
   /// The way you can draw things like life bars, stamina and settings. In another words, anything that you may add to the interface to the game.
   late final GameInterface? interface;
 
-  /// Represents a map (or world) where the game occurs.
-  late final MapComponent map;
+
   // /// The player-controlling component.
   // final JoystickController? joystickController;
   //
@@ -171,10 +178,14 @@ class MyGame extends CustomBaseGame {
   ];
   @override
   bool debugMode = true;
-
+  /// Represents a map (or world) where the game occurs.
+  late final MapComponent map;
   @override
   Future<void> onLoad() async {
     super.onLoad();
+    print("----------------------");
+    print(this.size);
+    print("+++++++++++++++++++++");
     await images.loadAll(_imageAssets);
     /****************************************** ColorFilter **************************************/
     // _colorFilterComponent = ColorFilterComponent(
@@ -182,15 +193,155 @@ class MyGame extends CustomBaseGame {
     // );
     // add(_colorFilterComponent);
     /****************************************** background **************************************/
-    // var color = Color(0x00FF9050);
-    // var background = BackgroundComponent(color);
-    var background = BackgroundComponent(Colors.blueGrey[900]!);
-    add(background);
+    // var background = BackgroundComponent(Colors.blueGrey[900]!);
+    // add(background);
+    /****************************************** map **************************************/
+
+    final double tileSize = 45;
+    final String wallBottom = 'tile/wall_bottom.png';
+    final String wall = 'tile/wall.png';
+    final String wallTop = 'tile/wall_top.png';
+    final String wallLeft = 'tile/wall_left.png';
+    final String wallBottomLeft = 'tile/wall_bottom_left.png';
+    final String wallRight = 'tile/wall_right.png';
+    final String floor_1 = 'tile/floor_1.png';
+    final String floor_2 = 'tile/floor_2.png';
+    final String floor_3 = 'tile/floor_3.png';
+    final String floor_4 = 'tile/floor_4.png';
+    String randomFloor() {
+      int p = Random().nextInt(6);
+      switch (p) {
+        case 0:
+          return floor_1;
+        case 1:
+          return floor_2;
+        case 2:
+          return floor_3;
+        case 3:
+          return floor_4;
+        case 4:
+          return floor_3;
+        case 5:
+          return floor_4;
+        default:
+          return floor_1;
+      }
+    }
+    List<TileModel> tileList = [];
+    // tileList.add(TileModel(
+    //   sprite: TileModelSprite(path: wallBottom),
+    //   x: 1,
+    //   y: 1,
+    //   // collisions: [ CollisionArea.rectangle(size: Size(tileSize, tileSize)) ],
+    //   width: tileSize,
+    //   height: tileSize,
+    // ));
+    List.generate(35, (indexRow) {
+      List.generate(70, (indexColumm) {
+        if (indexRow == 3 && indexColumm > 2 && indexColumm < 30) {
+          tileList.add(TileModel(
+            sprite: TileModelSprite(path: wallBottom),
+            x: indexColumm.toDouble(),
+            y: indexRow.toDouble(),
+            collisions: [
+              CollisionArea.rectangle(size: Size(tileSize, tileSize))
+            ],
+            width: tileSize,
+            height: tileSize,
+          ));
+          return;
+        }
+        if (indexRow == 4 && indexColumm > 2 && indexColumm < 30) {
+          tileList.add(TileModel(
+            sprite: TileModelSprite(path: wall),
+            x: indexColumm.toDouble(),
+            y: indexRow.toDouble(),
+            collisions: [
+              CollisionArea.rectangle(size: Size(tileSize, tileSize))
+            ],
+            width: tileSize,
+            height: tileSize,
+          ));
+          return;
+        }
+
+        if (indexRow == 9 && indexColumm > 2 && indexColumm < 30) {
+          tileList.add(TileModel(
+            sprite: TileModelSprite(path: wallTop),
+            x: indexColumm.toDouble(),
+            y: indexRow.toDouble(),
+            collisions: [
+              CollisionArea.rectangle(size: Size(tileSize, tileSize))
+            ],
+            width: tileSize,
+            height: tileSize,
+          ));
+          return;
+        }
+
+        if (indexRow > 4 &&
+            indexRow < 9 &&
+            indexColumm > 2 &&
+            indexColumm < 30) {
+          tileList.add(
+            TileModel(
+              sprite: TileModelSprite(path: randomFloor()),
+              x: indexColumm.toDouble(),
+              y: indexRow.toDouble(),
+              width: tileSize,
+              height: tileSize,
+            ),
+          );
+          return;
+        }
+
+        if (indexRow > 3 && indexRow < 9 && indexColumm == 2) {
+          tileList.add(TileModel(
+            sprite: TileModelSprite(path: wallLeft),
+            x: indexColumm.toDouble(),
+            y: indexRow.toDouble(),
+            collisions: [
+              CollisionArea.rectangle(size: Size(tileSize, tileSize))
+            ],
+            width: tileSize,
+            height: tileSize,
+          ));
+        }
+        if (indexRow == 9 && indexColumm == 2) {
+          tileList.add(TileModel(
+            sprite: TileModelSprite(path: wallBottomLeft),
+            x: indexColumm.toDouble(),
+            y: indexRow.toDouble(),
+            collisions: [
+              CollisionArea.rectangle(size: Size(tileSize, tileSize))
+            ],
+            width: tileSize,
+            height: tileSize,
+          ));
+        }
+
+        if (indexRow > 3 && indexRow < 9 && indexColumm == 30) {
+          tileList.add(TileModel(
+            sprite: TileModelSprite(path: wallRight),
+            x: indexColumm.toDouble(),
+            y: indexRow.toDouble(),
+            collisions: [
+              CollisionArea.rectangle(size: Size(tileSize, tileSize))
+            ],
+            width: tileSize,
+            height: tileSize,
+          ));
+        }
+      });
+    });
+    map = MapComponent(tileList);
+    await add(map);
+
+
     /****************************************** enemy **************************************/
     List<EnemyComponent> _initialEnemies = [];
     _initialEnemies.add(Goblin(image: images.fromCache('minotaur.png'), position: Vector2.all(100)));
     _initialEnemies.forEach((enemy) => add(enemy));
-
 
     // background?.let((bg) => add(bg));
     //
@@ -211,6 +362,7 @@ class MyGame extends CustomBaseGame {
   @override
   void render(Canvas canvas) {
     super.render(canvas);
+    fpsTextBox.show(canvas, fps(120).toString());
     // TODO: implement render
   }
 

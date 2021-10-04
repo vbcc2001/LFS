@@ -21,7 +21,6 @@ mixin Lighting on MyComponent {
 
   @override
   bool get isVisible {
-    if (!hasGameRef) return false;
     if (radius <= 0) return super.isVisible;
     Rect rectLight = Rect.fromLTWH(
       this.center.x - (radius + blurBorder / 2),

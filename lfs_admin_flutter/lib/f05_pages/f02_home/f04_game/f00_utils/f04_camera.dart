@@ -5,16 +5,17 @@ import 'dart:ui';
 // import 'package:bonfire/base/game_component.dart';
 // import 'package:bonfire/bonfire.dart';
 // import 'package:bonfire/util/bonfire_game_ref.dart';
+import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../game.dart';
 import 'f02_component.dart';
-import 'f05_game_ref.dart';
 
 
-class MyCamera with MyHasGameRef<MyGame> {
+
+class MyCamera extends Component with HasGameRef<MyGame> {
   bool _isMoving = false;
   double _spacingMap = 32.0;
   Offset position = Offset.zero;
@@ -379,9 +380,9 @@ class MyCamera with MyHasGameRef<MyGame> {
   //   }
   // }
   //
-  // void updateSpacingVisibleMap(double space) {
-  //   _spacingMap = space;
-  // }
+  void updateSpacingVisibleMap(double space) {
+    _spacingMap = space;
+  }
   //
   // void _keepInMapArea() {
   //   if (!hasGameRef) return;

@@ -11,13 +11,12 @@ import 'package:flame/components.dart';
 
 import '../game.dart';
 import 'f01_layer_priority.dart';
-import 'f05_game_ref.dart';
 // import 'package:flame/extensions.dart';
 // import 'package:flutter/cupertino.dart';
 
 /// Base of the all components in the Bonfire
 // abstract class MyComponent extends Component with BonfireHasGameRef<BonfireGame>, PointerDetectorHandler {
-class MyComponent<T> extends SpriteAnimationGroupComponent with MyHasGameRef<MyGame> {
+class MyComponent<T> extends SpriteAnimationGroupComponent with HasGameRef<MyGame> {
   /// Position used to draw on the screen
   // Vector2 position = Vector2.all(0);
   // Vector2 size = Vector2.all(0);

@@ -5,7 +5,6 @@ import 'package:flutter/widgets.dart';
 import '../game.dart';
 import 'f01_layer_priority.dart';
 import 'f02_component.dart';
-import 'f05_game_ref.dart';
 
 
 
@@ -102,7 +101,7 @@ import 'f05_game_ref.dart';
 
 
 /// The way you cand raw things like life bars, stamina and settings. In another words, anything that you may add to the interface to the game.
-class GameInterface extends Component with MyHasGameRef<MyGame> {
+class GameInterface extends Component with HasGameRef<MyGame> {
   List<MyComponent> _components = [];
 
   @override
@@ -133,7 +132,10 @@ class GameInterface extends Component with MyHasGameRef<MyGame> {
 
   @override
   void update(double t) {
-    _components.forEach((i) {i.gameRef = gameRef; i.update(t); });
+    _components.forEach((i) {
+      // i.gameRef = gameRef;
+      i.update(t);
+    });
   }
 
   @override
