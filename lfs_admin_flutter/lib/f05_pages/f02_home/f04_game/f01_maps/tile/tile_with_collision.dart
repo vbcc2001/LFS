@@ -1,11 +1,14 @@
-import 'package:bonfire/bonfire.dart';
-import 'package:bonfire/collision/collision_area.dart';
-import 'package:bonfire/collision/collision_config.dart';
-import 'package:bonfire/collision/object_collision.dart';
-import 'package:bonfire/map/tile/tile.dart';
-import 'package:bonfire/util/controlled_update_animation.dart';
 
-class TileWithCollision extends Tile with ObjectCollision {
+
+import 'package:flame/components.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/collision/collision_area.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/collision/object_collision.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/tile/tile.dart';
+
+import '../controlled_update_animation.dart';
+
+// class TileWithCollision extends Tile with ObjectCollision {
+class TileWithCollision extends Tile {
   TileWithCollision(
     String spritePath,
     Vector2 position, {
@@ -24,9 +27,9 @@ class TileWithCollision extends Tile with ObjectCollision {
           type: type,
           properties: properties,
         ) {
-    collisions?.let((c) {
-      setupCollision(CollisionConfig(collisions: c));
-    });
+    // collisions?.let((c) {
+    //   setupCollision(CollisionConfig(collisions: c));
+    // });
   }
 
   TileWithCollision.fromSprite(
@@ -47,9 +50,9 @@ class TileWithCollision extends Tile with ObjectCollision {
           type: type,
           properties: properties,
         ) {
-    collisions?.let((c) {
-      setupCollision(CollisionConfig(collisions: c));
-    });
+    // collisions?.let((c) {
+    //   setupCollision(CollisionConfig(collisions: c));
+    // });
   }
 
   TileWithCollision.fromFutureSprite(
@@ -70,9 +73,9 @@ class TileWithCollision extends Tile with ObjectCollision {
           type: type,
           properties: properties,
         ) {
-    collisions?.let((c) {
-      setupCollision(CollisionConfig(collisions: c));
-    });
+    // collisions?.let((c) {
+    //   setupCollision(CollisionConfig(collisions: c));
+    // });
   }
 
   TileWithCollision.withAnimation(
@@ -93,8 +96,8 @@ class TileWithCollision extends Tile with ObjectCollision {
           type: type,
           properties: properties,
         ) {
-    collisions?.let((c) {
-      setupCollision(CollisionConfig(collisions: c));
-    });
+    // collisions?.let((c) {
+    //   setupCollision(CollisionConfig(collisions: c));
+    // });
   }
 }

@@ -2,8 +2,10 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import '../game.dart';
 import 'f01_layer_priority.dart';
 import 'f02_component.dart';
+import 'f05_game_ref.dart';
 
 
 
@@ -100,7 +102,7 @@ import 'f02_component.dart';
 
 
 /// The way you cand raw things like life bars, stamina and settings. In another words, anything that you may add to the interface to the game.
-class GameInterface extends MyComponent {
+class GameInterface extends Component with MyHasGameRef<MyGame> {
   List<MyComponent> _components = [];
 
   @override

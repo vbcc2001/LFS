@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
+
 import '../../f00_utils/f02_component.dart';
 
 /// Mixin responsible for adding collision

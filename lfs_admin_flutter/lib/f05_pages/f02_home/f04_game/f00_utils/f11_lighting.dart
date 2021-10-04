@@ -29,6 +29,6 @@ mixin Lighting on MyComponent {
       (radius * 2) + blurBorder,
       (radius * 2) + blurBorder,
     );
-    return gameRef.camera.isRectOnCamera(rectLight);
+    return gameRef.myCamera.isRectOnCamera(rectLight);
   }
 }

@@ -3,7 +3,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'f04_scene_01/game.dart';
-import 'f04_scene_01/f03_game.dart';
+import 'game.dart';
 import 'logic.dart';
 import 'state.dart';
 
@@ -14,7 +14,7 @@ class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GameWidget(
-      game: MyGame(),
+      game: MyGame(context:context),
       // game: Scene01(),
       mouseCursor:SystemMouseCursors.help
       // game: MainMenu(),

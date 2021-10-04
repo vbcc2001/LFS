@@ -8,11 +8,9 @@ enum ReceivesAttackFromEnum { ALL, ENEMY, PLAYER }
 mixin Attackable on MyComponent {
   /// Used to define which type of component can be damaged
   ReceivesAttackFromEnum receivesAttackFrom = ReceivesAttackFromEnum.ALL;
-  /// Life of the Enemy.
   double _life = 100;
-  /// Max life of the Enemy.
   double _maxLife = 100;
-
+  double attack = 20;
   double get maxLife => _maxLife;
   double get life => _life;
   set life(double life) => _life = life;

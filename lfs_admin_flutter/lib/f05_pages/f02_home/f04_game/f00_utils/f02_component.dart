@@ -10,16 +10,20 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 
 import '../game.dart';
+import 'f01_layer_priority.dart';
 import 'f05_game_ref.dart';
 // import 'package:flame/extensions.dart';
 // import 'package:flutter/cupertino.dart';
 
 /// Base of the all components in the Bonfire
 // abstract class MyComponent extends Component with BonfireHasGameRef<BonfireGame>, PointerDetectorHandler {
-abstract class MyComponent extends Component with MyHasGameRef<MyGame> {
+class MyComponent<T> extends SpriteAnimationGroupComponent with MyHasGameRef<MyGame> {
   /// Position used to draw on the screen
-  Vector2 position = Vector2.all(0);
-  Vector2 size = Vector2.all(0);
+  // Vector2 position = Vector2.all(0);
+  // Vector2 size = Vector2.all(0);
+  // MyComponent({required Map<T, SpriteAnimation> animations}) : super(animations:animations);
+  MyComponent({required Image image,required Map<T, SpriteAnimationData> data}) : super.fromFrameData(image,data,priority:LayerPriority.COMPONENTS);
+
   Vector2 get center {
     Rect rect = Rect.fromLTWH(position.x,position.y,size.x,size.y);
     return Vector2(rect.center.dx,rect.center.dy);
@@ -29,6 +33,7 @@ abstract class MyComponent extends Component with MyHasGameRef<MyGame> {
   /// Use to set opacity in render
   /// Range [0.0..1.0]
   double opacity = 1.0;
+
   //
   // /// Height of the Component.
   // double get height => this.position.height;
@@ -181,7 +186,7 @@ abstract class MyComponent extends Component with MyHasGameRef<MyGame> {
   //   }
   //   return bottomPriority;
   // }
-  //
+
   // void renderDebugMode(Canvas canvas) {
   //   if (isVisible) {
   //     canvas.drawRect(position.rect, debugPaint);

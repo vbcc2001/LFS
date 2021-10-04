@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:flame/components.dart';
@@ -7,19 +8,17 @@ import '../f00_utils/f01_layer_priority.dart';
 
 class BackgroundComponent extends Component {
 
-  final Color color = Colors.black;
-  @override
-  void render(Canvas canvas) {
-    canvas.drawColor(
-      color,
-      BlendMode.src,
-    );
+  final Color color;
+
+  BackgroundComponent(this.color):super(priority:LayerPriority.BACKGROUND){
+    super.isHud = true;
   }
   @override
-  int get priority => LayerPriority.BACKGROUND;
-
-  @override
-  bool get isHud => true;
+  void render(Canvas canvas) {
+    canvas.drawColor(color, BlendMode.src);
+  }
+  // @override
+  // int get priority => LayerPriority.BACKGROUND;
 }
 
 

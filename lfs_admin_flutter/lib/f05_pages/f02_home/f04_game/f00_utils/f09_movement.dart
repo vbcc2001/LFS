@@ -2,19 +2,27 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flame/components.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 
 import 'f02_component.dart';
 import 'f10_direction_animation.dart';
 
 /// Mixin responsible for adding movements
 enum Direction { left, right, up, down, upLeft, upRight, downLeft, downRight }
-mixin Movement on MyComponent {
+mixin Movement<T extends DirectionAnimationEnum> on MyComponent {
   bool isIdle = true;
   double dtUpdate = 0;
   double speed = 100;
   Direction lastDirection = Direction.right;
   Direction lastDirectionHorizontal = Direction.right;
   DirectionAnimation? directionAnimation;
+  // @override
+  // set animations(Map<dynamic, SpriteAnimation> _animations) {
+  //   // TODO: implement animations
+  //   super.animations = _animations;
+  // }
+
+
   @override
   void update(double dt) {
     super.update(dt);
@@ -39,6 +47,8 @@ mixin Movement on MyComponent {
     isIdle = true;
     switch (lastDirection) {
       case Direction.left:
+        // if(T is DirectionAnimationEnum )  animations as Map<DirectionAnimationEnum, SpriteAnimation> ;
+        // animations
         directionAnimation?.play(DirectionAnimationEnum.idleLeft);
         break;
       case Direction.right:
@@ -70,6 +80,7 @@ mixin Movement on MyComponent {
     lastDirection = Direction.up;
     lastDirectionHorizontal = Direction.right;
     directionAnimation?.play(DirectionAnimationEnum.runUp);
+    this.current = DirectionAnimationEnum.runUp;
   }
 
 
@@ -79,6 +90,7 @@ mixin Movement on MyComponent {
     lastDirection = Direction.down;
     lastDirectionHorizontal = Direction.right;
     directionAnimation?.play(DirectionAnimationEnum.runDown);
+    this.current = DirectionAnimationEnum.runDown;
   }
   void moveLeft() {
     position.add(Vector2(speed * dtUpdate * -1, 0));
@@ -86,6 +98,7 @@ mixin Movement on MyComponent {
     lastDirection = Direction.left;
     lastDirectionHorizontal = Direction.left;
     directionAnimation?.play(DirectionAnimationEnum.runLeft);
+    this.current = DirectionAnimationEnum.runLeft;
   }
   void moveRight() {
     position.add(Vector2(speed * dtUpdate * 1, 0));
@@ -93,6 +106,7 @@ mixin Movement on MyComponent {
     lastDirection = Direction.right;
     lastDirectionHorizontal = Direction.right;
     directionAnimation?.play(DirectionAnimationEnum.runRight);
+    this.current = DirectionAnimationEnum.runRight;
   }
 
   void moveUpRight() {
@@ -101,6 +115,7 @@ mixin Movement on MyComponent {
     lastDirection = Direction.upRight;
     lastDirectionHorizontal = Direction.right;
     directionAnimation?.play(DirectionAnimationEnum.runUpRight);
+    this.current = DirectionAnimationEnum.runUpRight;
   }
   void moveUpLeft() {
     position.add(Vector2(speed * dtUpdate * -1, speed * dtUpdate * -1));
@@ -108,6 +123,7 @@ mixin Movement on MyComponent {
     lastDirection = Direction.upLeft;
     lastDirectionHorizontal = Direction.left;
     directionAnimation?.play(DirectionAnimationEnum.runUpLeft);
+    this.current = DirectionAnimationEnum.runUpLeft;
   }
   void moveDownRight() {
     position.add(Vector2(speed * dtUpdate * 1, speed * dtUpdate * 1));
@@ -115,6 +131,7 @@ mixin Movement on MyComponent {
     lastDirection = Direction.downRight;
     lastDirectionHorizontal = Direction.right;
     directionAnimation?.play(DirectionAnimationEnum.runDownRight);
+    this.current = DirectionAnimationEnum.runDownRight;
   }
   void moveDownLeft() {
     position.add(Vector2(speed * dtUpdate * -1, speed * dtUpdate * 1));
@@ -122,6 +139,7 @@ mixin Movement on MyComponent {
     lastDirection = Direction.downLeft;
     lastDirectionHorizontal = Direction.left;
     directionAnimation?.play(DirectionAnimationEnum.runDownLeft);
+    this.current = DirectionAnimationEnum.runDownLeft;
   }
   /// Move Player to direction by radAngle
   void moveFromAngle(double angle) {

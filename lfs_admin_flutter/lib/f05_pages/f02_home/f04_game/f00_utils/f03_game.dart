@@ -19,8 +19,9 @@ import 'f04_camera.dart';
 /// Apply zoom in canvas.
 /// Reorder components per time frame.
 // abstract class CustomBaseGame extends Game with FPSCounter, PointerDetector {
-abstract class CustomBaseGame with Loadable, Game, FPSCounter {
-  MyCamera camera = MyCamera();
+abstract class CustomBaseGame extends FlameGame with FPSCounter {
+
+  MyCamera myCamera = MyCamera();
 
   /// variable that keeps the highest rendering priority per frame. This is used to determine the order in which to render the `interface`, `lighting` and `joystick`
   int _highestPriority = 10000;

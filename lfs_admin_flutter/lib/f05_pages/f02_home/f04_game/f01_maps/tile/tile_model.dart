@@ -1,11 +1,12 @@
-import 'package:bonfire/base/bonfire_game.dart';
-import 'package:bonfire/collision/collision_area.dart';
-import 'package:bonfire/map/map_assets_manager.dart';
-import 'package:bonfire/map/tile/tile.dart';
-import 'package:bonfire/map/tile/tile_with_collision.dart';
-import 'package:bonfire/util/controlled_update_animation.dart';
+
 import 'package:flame/components.dart';
 import 'package:flutter/widgets.dart';
+import 'tile.dart';
+import 'tile_with_collision.dart';
+import '../../game.dart';
+import '../collision/collision_area.dart';
+import '../controlled_update_animation.dart';
+import '../map_assets_manager.dart';
 
 class TileModelSprite {
   final String path;
@@ -141,7 +142,7 @@ class TileModel {
   double get top => (y * height);
   double get bottom => (y * height) + height;
 
-  Tile getTile(BonfireGame gameRef) {
+  Tile getTile(MyGame gameRef) {
     if (animation == null) {
       if (collisions?.isNotEmpty == true) {
         final tile = TileWithCollision.fromSprite(
@@ -188,10 +189,7 @@ class TileModel {
             animation!.getSpriteControlledAnimation();
         final tile = TileWithCollision.withAnimation(
           animationControlled,
-          Vector2(
-            x,
-            y,
-          ),
+          Vector2(x, y,),
           offsetX: offsetX,
           offsetY: offsetY,
           collisions: collisions,
@@ -210,10 +208,7 @@ class TileModel {
             animation!.getSpriteControlledAnimation();
         final tile = Tile.fromAnimation(
           animationControlled,
-          Vector2(
-            x,
-            y,
-          ),
+          Vector2(x, y,),
           offsetX: offsetX,
           offsetY: offsetY,
           width: width,

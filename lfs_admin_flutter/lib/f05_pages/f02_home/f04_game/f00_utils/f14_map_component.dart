@@ -1,14 +1,12 @@
 import 'dart:ui';
 
-import 'package:bonfire/base/bonfire_game.dart';
-import 'package:bonfire/collision/object_collision.dart';
-import 'package:bonfire/map/tile/tile.dart';
-import 'package:bonfire/map/tile/tile_model.dart';
-import 'package:bonfire/util/bonfire_game_ref.dart';
-import 'package:bonfire/util/priority_layer.dart';
 import 'package:flame/components.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/collision/object_collision.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/tile/tile.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/tile/tile_model.dart';
 
 import '../game.dart';
+import 'f01_layer_priority.dart';
 import 'f05_game_ref.dart';
 
 abstract class MapComponent extends Component with MyHasGameRef<MyGame> {
@@ -16,7 +14,7 @@ abstract class MapComponent extends Component with MyHasGameRef<MyGame> {
   Size? mapSize;
   Vector2? mapStartPosition;
   double tileSizeToUpdate;
-  List<Tile> children = [];
+  List<Tile> childrenTile = [];
   bool loaded = false;
 
   MapComponent(this.tiles, {this.tileSizeToUpdate = 0});

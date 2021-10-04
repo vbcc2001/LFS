@@ -58,7 +58,7 @@ class DirectionAnimation {
 
   double opacity = 1.0;
 
-  SimpleDirectionAnimation({
+  DirectionAnimation({
     required Future<SpriteAnimation> idleLeft,
     required Future<SpriteAnimation> idleRight,
     required Future<SpriteAnimation> runRight,
