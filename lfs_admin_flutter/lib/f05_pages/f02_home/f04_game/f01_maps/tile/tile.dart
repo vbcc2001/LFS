@@ -148,6 +148,10 @@ class Tile extends PositionComponent with HasGameRef<MyGame> {
 
   @override
   void render(Canvas canvas) {
+    // print("---------------------");
+    // print(position);
+    // print(size);
+    // print("++++++++++++++++++++");
     _animation?.render(canvas, position,size);
     // _sprite?.paint.color = _sprite?.paint.color.withOpacity(1);
     _sprite?.render(

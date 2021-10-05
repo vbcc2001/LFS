@@ -243,9 +243,9 @@ class MyGame extends CustomBaseGame {
             sprite: TileModelSprite(path: wallBottom),
             x: indexColumm.toDouble(),
             y: indexRow.toDouble(),
-            collisions: [
-              CollisionArea.rectangle(size: Size(tileSize, tileSize))
-            ],
+            // collisions: [
+            //   CollisionArea.rectangle(size: Size(tileSize, tileSize))
+            // ],
             width: tileSize,
             height: tileSize,
           ));
@@ -256,9 +256,9 @@ class MyGame extends CustomBaseGame {
             sprite: TileModelSprite(path: wall),
             x: indexColumm.toDouble(),
             y: indexRow.toDouble(),
-            collisions: [
-              CollisionArea.rectangle(size: Size(tileSize, tileSize))
-            ],
+            // collisions: [
+            //   CollisionArea.rectangle(size: Size(tileSize, tileSize))
+            // ],
             width: tileSize,
             height: tileSize,
           ));
@@ -270,19 +270,16 @@ class MyGame extends CustomBaseGame {
             sprite: TileModelSprite(path: wallTop),
             x: indexColumm.toDouble(),
             y: indexRow.toDouble(),
-            collisions: [
-              CollisionArea.rectangle(size: Size(tileSize, tileSize))
-            ],
+            // collisions: [
+            //   CollisionArea.rectangle(size: Size(tileSize, tileSize))
+            // ],
             width: tileSize,
             height: tileSize,
           ));
           return;
         }
 
-        if (indexRow > 4 &&
-            indexRow < 9 &&
-            indexColumm > 2 &&
-            indexColumm < 30) {
+        if (indexRow > 4 && indexRow < 9 && indexColumm > 2 && indexColumm < 30) {
           tileList.add(
             TileModel(
               sprite: TileModelSprite(path: randomFloor()),
@@ -300,9 +297,9 @@ class MyGame extends CustomBaseGame {
             sprite: TileModelSprite(path: wallLeft),
             x: indexColumm.toDouble(),
             y: indexRow.toDouble(),
-            collisions: [
-              CollisionArea.rectangle(size: Size(tileSize, tileSize))
-            ],
+            // collisions: [
+            //   CollisionArea.rectangle(size: Size(tileSize, tileSize))
+            // ],
             width: tileSize,
             height: tileSize,
           ));
@@ -312,9 +309,9 @@ class MyGame extends CustomBaseGame {
             sprite: TileModelSprite(path: wallBottomLeft),
             x: indexColumm.toDouble(),
             y: indexRow.toDouble(),
-            collisions: [
-              CollisionArea.rectangle(size: Size(tileSize, tileSize))
-            ],
+            // collisions: [
+            //   CollisionArea.rectangle(size: Size(tileSize, tileSize))
+            // ],
             width: tileSize,
             height: tileSize,
           ));
@@ -325,9 +322,9 @@ class MyGame extends CustomBaseGame {
             sprite: TileModelSprite(path: wallRight),
             x: indexColumm.toDouble(),
             y: indexRow.toDouble(),
-            collisions: [
-              CollisionArea.rectangle(size: Size(tileSize, tileSize))
-            ],
+            // collisions: [
+            //   CollisionArea.rectangle(size: Size(tileSize, tileSize))
+            // ],
             width: tileSize,
             height: tileSize,
           ));

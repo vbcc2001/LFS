@@ -25,7 +25,6 @@ class MapComponent extends Component with HasGameRef<MyGame> {
   Size  mapSize = Size(0,0);
   double tileSize = 0.0;
   Vector2 mapStartPosition = Vector2.zero();
-  // double tileSizeToUpdate;
   double tileSizeToUpdate = 0;
   bool loaded = false;
 
@@ -42,7 +41,7 @@ class MapComponent extends Component with HasGameRef<MyGame> {
   bool _buildingTiles = false;
 
 
-  List<Offset> _linePath = [];
+  // List<Offset> _linePath = [];
   Paint _paintPath = Paint()
     ..color = Colors.lightBlueAccent.withOpacity(0.8)
     ..strokeWidth = 4
@@ -65,10 +64,9 @@ class MapComponent extends Component with HasGameRef<MyGame> {
     this.tiles.forEach((tile) {
       width = max(tile.right ,width);
       height = max(tile.bottom ,height);
-      // if (tile.right > width) width = tile.right;
-      // if (tile.bottom > height) height = tile.bottom;
     });
     this.mapSize = Size(width, height);
+
     /********************** Map 位置************************/
     double x = this.tiles.first.left;
     double y = this.tiles.first.top;
@@ -89,6 +87,13 @@ class MapComponent extends Component with HasGameRef<MyGame> {
     int maxItems = (minSize / 2 / tileSize).ceil() * (minSize / 2 / tileSize).ceil() ;
     this.quadTree = QuadTree( 0, 0, (mapSize.width.ceil() / tileSize).ceil(), (mapSize.height.ceil() / tileSize).ceil(), maxItems: maxItems,);
     tiles.forEach((element) => quadTree.insert(element, Point(element.x, element.y), id: element.id));
+    print("------------------------------------------------------------------------");
+    print(mapSize);
+    print(quadTree.left);
+    print(quadTree.top);
+    print(quadTree.width);
+    print(quadTree.height);
+    print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     /********************** ImageCache 集合************************/
     await Future.forEach<TileModel>(tiles, _loadTile);
     // tiles.forEach( (element) => MapAssetsManager.loadImage((element.sprite?.path ?? '')) );
@@ -101,34 +106,68 @@ class MapComponent extends Component with HasGameRef<MyGame> {
     /********************** ImageCache 集合************************/
     lastSizeScreen = gameRef.size.clone();
 
+    // if (tileSizeToUpdate == 0) {
+    //   tileSizeToUpdate = (tileSize * 4).ceilToDouble();
+    // }
+    tiles.forEach((element) {
+      // print("------------------------------------------------------------------------");
+      // print(tileSize);
+      // print(mapSize);
+      // print(mapStartPosition);
+      // print(tilesCollisions);
+      // print("$element.x,$element.y,");
+      // print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+    } );
+
     _searchTilesToRender();
   }
 
   void _searchTilesToRender() {
 
     final double spacing = 32.0;
-    final zoom = gameRef.camera.zoom >1? 1 :1/gameRef.camera.zoom ;
+    final zoom = gameRef.camera.zoom >1? 1 : 1/gameRef.camera.zoom ;
     /// 矩形尺寸 ==> 以Camera为中心，调整Camera Zoom ，四周预留spacing
     final rectCamera = Rect.fromCenter(
       center: gameRef.camera.position.toOffset(),
       width: (gameRef.size.x) *  zoom  +  (spacing * 2),
       height: (gameRef.size.y) * zoom +  (spacing * 2),
     );
+
+
     final Rectangle rectangle = Rectangle(
       rectCamera.left / tileSize,
       rectCamera.top / tileSize,
       rectCamera.width / tileSize,
       rectCamera.height / tileSize,
     );
+    // print("------------------------------------------------------------------------");
+    // print(rectCamera);
+    // print(rectangle);
+    // print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     final visibleTileModel = quadTree.query(rectangle);
 
     _tilesToAdd = visibleTileModel.where((element) => !_visibleSet.contains(element.id) ).toList();
     _visibleSet = visibleTileModel.map((e) => e.id).toSet();
-
-    tileList.removeWhere((element) => !_visibleSet.contains(element.id));
-    tileList.addAll(_tilesToAdd.map((e) => e.getTile()).toList());
+    // print("------------------------------------------------------------------------");
+    // print(rectCamera);
+    // print(rectangle);
+    // print(_tilesToAdd);
+    // print(_visibleSet);
+    // print(tileList);
+    // print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+    // tileList.removeWhere((element) => !_visibleSet.contains(element.id));
+    // tileList.addAll(_tilesToAdd.map((e) => e.getTile()).toList());
+    tileList.addAll(visibleTileModel.toList().map((e) => e.getTile()).toList());
     _tilesVisibleCollisions = tileList.whereType<ObjectCollision>().toList();
     _buildingTiles = false;
+
+
+    // tileList.forEach((element) {
+    //   print("---------------------");
+    //   print(element.id);
+    //   print("++++++++++++++++++++");
+    // });
+
   }
 
 
@@ -161,6 +200,7 @@ class MapComponent extends Component with HasGameRef<MyGame> {
 
   @override
   void update(double t) {
+    super.update(t);
     if (!_buildingTiles && _checkNeedUpdateTiles()) {
       _buildingTiles = true;
       scheduleMicrotask(_searchTilesToRender);
@@ -175,6 +215,7 @@ class MapComponent extends Component with HasGameRef<MyGame> {
 
     _verifyRemoveTileOfWord();
   }
+
   void _verifyRemoveTileOfWord() {
     if (_tilesToRemove.isNotEmpty) {
       for (Tile tile in _tilesToRemove) {
@@ -213,179 +254,4 @@ class MapComponent extends Component with HasGameRef<MyGame> {
       (gameRef.camera.position.y / tileSizeToUpdate).floorToDouble(),
     );
   }
-
-
-  // @override
-  // Iterable<Tile> getRendered() {
-  //   return childrenTile;
-  // }
-  //
-  // @override
-  // Iterable<ObjectCollision> getCollisionsRendered() {
-  //   return _tilesVisibleCollisions;
-  // }
-  //
-  // @override
-  // Iterable<ObjectCollision> getCollisions() {
-  //   return _tilesCollisions;
-  // }
-
-  // @override
-  // void onGameResize(Vector2 size) {
-  //   if (loaded) {
-  //     _verifyMaxTopAndLeft(size);
-  //   }
-  //   super.onGameResize(size);
-  // }
-
-
-
-  // @override
-  // Future<void> updateTiles(List<TileModel> map) async {
-  //   lastSizeScreen = null;
-  //   this.tiles = map;
-  //   _verifyMaxTopAndLeft(gameRef.size, isUpdate: true);
-  // }
-  //
-  // @override
-  // Size getMapSize() {
-  //   double height = 0;
-  //   double width = 0;
-  //
-  //   this.tiles.forEach((tile) {
-  //     if (tile.right > width) width = tile.right;
-  //     if (tile.bottom > height) height = tile.bottom;
-  //   });
-  //
-  //   return Size(width, height);
-  // }
-  //
-  // Vector2 getStartPosition() {
-  //   try {
-  //     double x = this.tiles.first.left;
-  //     double y = this.tiles.first.top;
-  //
-  //     this.tiles.forEach((tile) {
-  //       if (tile.left < x) x = tile.left;
-  //       if (tile.top < y) y = tile.top;
-  //     });
-  //
-  //     return Vector2(x, y);
-  //   } catch (e) {
-  //     return Vector2.zero();
-  //   }
-  // }
-  //
-  // @override
-  // void setLinePath(List<Offset> path, Color color, double strokeWidth) {
-  //   _paintPath.color = color;
-  //   _paintPath.strokeWidth = strokeWidth;
-  //   _linePath = path;
-  //   super.setLinePath(path, color, strokeWidth);
-  // }
-  //
-  // void _drawPathLine(Canvas canvas) {
-  //   if (_linePath.isNotEmpty) {
-  //     _paintPath.style = PaintingStyle.stroke;
-  //     final path = Path()..moveTo(_linePath.first.dx, _linePath.first.dy);
-  //     for (var i = 1; i < _linePath.length; i++) {
-  //       path.lineTo(_linePath[i].dx, _linePath[i].dy);
-  //     }
-  //     canvas.drawPath(path, _paintPath);
-  //   }
-  // }
-  //
-  // void _getTileCollisions() {
-  //   List<ObjectCollision> aux = [];
-  //   final list = tiles.where((element) {
-  //     return element.collisions?.isNotEmpty == true;
-  //   });
-  //
-  //   for (var element in list) {
-  //     final o = element.getTile(gameRef);
-  //     aux.add(o as ObjectCollision);
-  //   }
-  //   _tilesCollisions = aux;
-  // }
-  //
-  // List<Tile> _buildTiles(Iterable<TileModel> visibleTiles) {
-  //   return visibleTiles.map((e) {
-  //     return e.getTile(gameRef);
-  //   }).toList();
-  // }
-  //
-  //
-  //
-  // void _verifyRemoveTileOfWord() {
-  //   if (_tilesToRemove.isNotEmpty) {
-  //     for (Tile tile in _tilesToRemove) {
-  //       if (tile.shouldRemove) {
-  //         childrenTile.remove(tile);
-  //         tiles.removeWhere((element) => element.id == tile.id);
-  //         quadTree?.removeById(tile.id);
-  //         if (tile is ObjectCollision) {
-  //           _tilesCollisions.removeWhere((element) {
-  //             return (element as Tile).id == tile.id;
-  //           });
-  //           _tilesVisibleCollisions.removeWhere((element) {
-  //             return (element as Tile).id == tile.id;
-  //           });
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-  //
-  // @override
-  // Future addTile(TileModel tileModel) async {
-  //   await _loadTile(tileModel);
-  //   final tile = tileModel.getTile(gameRef);
-  //   tiles.add(tileModel);
-  //   childrenTile.add(tile);
-  //   quadTree?.insert(
-  //     tileModel,
-  //     Point(tileModel.x, tileModel.y),
-  //     id: tileModel.id,
-  //   );
-  //
-  //   if (tile is ObjectCollision) {
-  //     _tilesCollisions.add(tile as ObjectCollision);
-  //     _findVisibleCollisions();
-  //   }
-  // }
-  //
-  // @override
-  // void removeTile(String id) {
-  //   try {
-  //     childrenTile.firstWhere((element) => element.id == id).shouldRemove = true;
-  //   } catch (e) {
-  //     print('Not found visible tile with $id id');
-  //   }
-  // }
-  //
-  // void _findVisibleCollisions() {
-  //   _tilesVisibleCollisions = childrenTile.whereType<ObjectCollision>().toList();
-  // }
-  //
-  //
-  //
-  // Vector2 _getCameraTileUpdate() {
-  //   return Vector2(
-  //     (gameRef.camera.position.x / tileSizeToUpdate).floorToDouble(),
-  //     (gameRef.camera.position.y / tileSizeToUpdate).floorToDouble(),
-  //   );
-  // }
-  //
-  // bool _checkNeedUpdateTiles() {
-  //   final camera = _getCameraTileUpdate();
-  //   if (lastCamera != camera || lastMinorZoom > 1.0) {
-  //     lastCamera = camera;
-  //     if (lastMinorZoom > 1.0) {
-  //       lastMinorZoom = 1.0;
-  //     }
-  //     return true;
-  //   }
-  //   return false;
-  // }
-
 }
