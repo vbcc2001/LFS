@@ -60,6 +60,8 @@ class QuadTree<T> extends Rectangle<num> {
     if (!containsPoint(atPoint)) return false;
     if (_children.isEmpty) {
       if (_items.length + 1 <= maxItems || _depth + 1 > maxDepth) {
+        print("-----"+id);
+        print(_items.length);
         _items.add(_ItemAtPoint<T>(id, item, atPoint));
         return true;
       }
@@ -104,6 +106,8 @@ class QuadTree<T> extends Rectangle<num> {
   }
 
   bool _insertItemIntoChildren(T item, Point<num> atPoint) {
+    print("*******************************************************************************");
+    print(atPoint);
     if (atPoint.x > _center.x) {
       if (atPoint.y > _center.y) {
         return _children[_lowerRightIndex].insert(item, atPoint);

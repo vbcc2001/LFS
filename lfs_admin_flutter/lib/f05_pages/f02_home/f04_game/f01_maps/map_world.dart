@@ -73,8 +73,7 @@ class MapComponent extends Component with HasGameRef<MyGame> {
     this.tiles.forEach((tile) {
       x = min(tile.left ,x);
       y = min(tile.top ,y);
-      // if (tile.left < x) x = tile.left;
-      // if (tile.top < y) y = tile.top;
+      print(tile.id);
     });
     this.mapStartPosition = Vector2(x, y);
     /********************** 冲突Tile 集合************************/
@@ -88,7 +87,10 @@ class MapComponent extends Component with HasGameRef<MyGame> {
     this.quadTree = QuadTree( 0, 0, (mapSize.width.ceil() / tileSize).ceil(), (mapSize.height.ceil() / tileSize).ceil(), maxItems: maxItems,);
     tiles.forEach((element) => quadTree.insert(element, Point(element.x, element.y), id: element.id));
     print("------------------------------------------------------------------------");
+    print(tiles);
     print(mapSize);
+    print(maxItems);
+    print(minSize);
     print(quadTree.left);
     print(quadTree.top);
     print(quadTree.width);
