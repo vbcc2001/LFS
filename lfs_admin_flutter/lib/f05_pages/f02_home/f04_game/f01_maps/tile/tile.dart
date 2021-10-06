@@ -1,16 +1,11 @@
 import 'dart:math';
 import 'dart:ui';
-
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
-
-import '../../f00_utils/f02_component.dart';
 import '../../f00_utils/f12_assets_loader.dart';
 import '../../game.dart';
 import '../controlled_update_animation.dart';
-import '../map_paint.dart';
-class Tile extends PositionComponent with HasGameRef<MyGame> {
-  Sprite? _sprite;
+class Tile extends SpriteComponent with HasGameRef<MyGame>,Hitbox,Collidable {
   ControlledUpdateAnimation? _animation;
   final double width;
   final double height;
@@ -35,7 +30,7 @@ class Tile extends PositionComponent with HasGameRef<MyGame> {
     if (spritePath.isNotEmpty) {
       _loader = AssetsLoader();
       _loader?.add(
-        AssetToLoad(Sprite.load(spritePath), (value) => this._sprite = value),
+        AssetToLoad(Sprite.load(spritePath), (value) => this.sprite = value),
       );
     }
     this.position = generatePositionWithBleedingPixel(
@@ -66,7 +61,7 @@ class Tile extends PositionComponent with HasGameRef<MyGame> {
     double offsetY = 0,
   }) {
     id = '${position.x}/${position.y}';
-    this._sprite = sprite;
+    this.sprite = sprite;
     this.position = generatePositionWithBleedingPixel(
       position,
       width,
@@ -97,7 +92,7 @@ class Tile extends PositionComponent with HasGameRef<MyGame> {
   }) {
     id = '${position.x}/${position.y}';
     _loader = AssetsLoader();
-    _loader?.add(AssetToLoad(sprite, (value) => this._sprite = value));
+    _loader?.add(AssetToLoad(sprite, (value) => this.sprite = value));
     this.position = generatePositionWithBleedingPixel(
       position,
       width,
@@ -149,17 +144,30 @@ class Tile extends PositionComponent with HasGameRef<MyGame> {
   @override
   void render(Canvas canvas) {
     // print("---------------------");
-    // print(position);
+    // print(id);
+    // // print(_sprite?.image);
+    // print(this.position);
     // print(size);
     // print("++++++++++++++++++++");
-    _animation?.render(canvas, position,size);
+    // final rectCamera = Rect.fromCenter(
+    //   center: Offset(150,150),
+    //   width: 100,
+    //   height:100,
+    // );
+    // canvas.drawRect(rectCamera, BasicPalette.white.paint());
+    // _animation?.render(canvas, position,size);
     // _sprite?.paint.color = _sprite?.paint.color.withOpacity(1);
-    _sprite?.render(
-      canvas,
-      position: position,
-      size: size,
-      overridePaint: MapPaint.instance.paint,
-    );
+    // sprite?.render(
+    //   canvas,
+    //   position: position,
+    //   size: size,
+    //   overridePaint: MapPaint.instance.paint,
+    // );
+    // _sprite?.renderFromVector2Rect(
+    //   canvas,
+    //   position,
+    //   overridePaint: MapPaint.instance.paint,
+    // );
     super.render(canvas);
   }
 
@@ -244,6 +252,37 @@ class Tile extends PositionComponent with HasGameRef<MyGame> {
       height + (position.y % 2 != 0 ? blendingPixel : 0),
     );
   }
+
+  // @override
+  // void addHitbox(HitboxShape shape) {
+  //   // TODO: implement addHitbox
+  // }
+  //
+  // @override
+  // // TODO: implement hitboxes
+  // UnmodifiableListView<HitboxShape> get hitboxes => throw UnimplementedError();
+  //
+  // @override
+  // bool possiblyContainsPoint(Vector2 point) {
+  //   // TODO: implement possiblyContainsPoint
+  //   throw UnimplementedError();
+  // }
+  //
+  // @override
+  // bool possiblyOverlapping(Hitbox other) {
+  //   // TODO: implement possiblyOverlapping
+  //   throw UnimplementedError();
+  // }
+  //
+  // @override
+  // void removeHitbox(HitboxShape shape) {
+  //   // TODO: implement removeHitbox
+  // }
+  //
+  // @override
+  // void renderHitboxes(Canvas canvas, {Paint? paint}) {
+  //   // TODO: implement renderHitboxes
+  // }
 
 
 

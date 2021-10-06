@@ -20,7 +20,7 @@ class DungeonMap {
   static final String floor_3 = 'tile/floor_3.png';
   static final String floor_4 = 'tile/floor_4.png';
 
-  static MapComponent map() {
+  static MapWord map() {
     List<TileModel> tileList = [];
     List.generate(35, (indexRow) {
       List.generate(70, (indexColumm) {
@@ -29,9 +29,7 @@ class DungeonMap {
             sprite: TileModelSprite(path: wallBottom),
             x: indexColumm.toDouble(),
             y: indexRow.toDouble(),
-            collisions: [
-              CollisionArea.rectangle(size: Size(tileSize, tileSize))
-            ],
+            collisions: [ CollisionArea.rectangle(size: Size(tileSize, tileSize)) ],
             width: tileSize,
             height: tileSize,
           ));
@@ -42,9 +40,7 @@ class DungeonMap {
             sprite: TileModelSprite(path: wall),
             x: indexColumm.toDouble(),
             y: indexRow.toDouble(),
-            collisions: [
-              CollisionArea.rectangle(size: Size(tileSize, tileSize))
-            ],
+            // collisions: [ CollisionArea.rectangle(size: Size(tileSize, tileSize)) ],
             width: tileSize,
             height: tileSize,
           ));
@@ -56,9 +52,7 @@ class DungeonMap {
             sprite: TileModelSprite(path: wallTop),
             x: indexColumm.toDouble(),
             y: indexRow.toDouble(),
-            collisions: [
-              CollisionArea.rectangle(size: Size(tileSize, tileSize))
-            ],
+            // collisions: [ CollisionArea.rectangle(size: Size(tileSize, tileSize)) ],
             width: tileSize,
             height: tileSize,
           ));
@@ -86,9 +80,7 @@ class DungeonMap {
             sprite: TileModelSprite(path: wallLeft),
             x: indexColumm.toDouble(),
             y: indexRow.toDouble(),
-            collisions: [
-              CollisionArea.rectangle(size: Size(tileSize, tileSize))
-            ],
+            // collisions: [ CollisionArea.rectangle(size: Size(tileSize, tileSize)) ],
             width: tileSize,
             height: tileSize,
           ));
@@ -98,9 +90,7 @@ class DungeonMap {
             sprite: TileModelSprite(path: wallBottomLeft),
             x: indexColumm.toDouble(),
             y: indexRow.toDouble(),
-            collisions: [
-              CollisionArea.rectangle(size: Size(tileSize, tileSize))
-            ],
+            // collisions: [ CollisionArea.rectangle(size: Size(tileSize, tileSize)) ],
             width: tileSize,
             height: tileSize,
           ));
@@ -111,9 +101,7 @@ class DungeonMap {
             sprite: TileModelSprite(path: wallRight),
             x: indexColumm.toDouble(),
             y: indexRow.toDouble(),
-            collisions: [
-              CollisionArea.rectangle(size: Size(tileSize, tileSize))
-            ],
+            // collisions: [ CollisionArea.rectangle(size: Size(tileSize, tileSize)) ],
             width: tileSize,
             height: tileSize,
           ));
@@ -121,7 +109,7 @@ class DungeonMap {
       });
     });
 
-    return MapComponent(tileList);
+    return MapWord(tileList);
   }
 
   // static List<GameDecoration> decorations() {

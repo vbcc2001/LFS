@@ -8,7 +8,7 @@ import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/tile/tile
 import '../game.dart';
 import 'f01_layer_priority.dart';
 
-class MapComponent1 extends Component with HasGameRef<MyGame> {
+class MapComponent extends PositionComponent with HasGameRef<MyGame> {
 
 
 

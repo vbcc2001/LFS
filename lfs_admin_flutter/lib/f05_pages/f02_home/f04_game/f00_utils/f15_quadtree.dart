@@ -56,18 +56,19 @@ class QuadTree<T> extends Rectangle<num> {
         _center = Point<num>(left + width / 2.0, top + height / 2.0),
         super(left, top, width, height);
 
-  bool insert(T item, Point<num> atPoint, {dynamic id}) {
+  bool insert(T item, Point<num> atPoint, String id) {
     if (!containsPoint(atPoint)) return false;
     if (_children.isEmpty) {
       if (_items.length + 1 <= maxItems || _depth + 1 > maxDepth) {
-        print("-----"+id);
-        print(_items.length);
+        // print("--------------");
+        // print(id);
+        // print(_items.length);
         _items.add(_ItemAtPoint<T>(id, item, atPoint));
         return true;
       }
       _splitItemsBetweenChildren();
     }
-    return _insertItemIntoChildren(item, atPoint);
+    return _insertItemIntoChildren(item, atPoint,id);
   }
 
   void removeById(dynamic id) {
@@ -90,34 +91,28 @@ class QuadTree<T> extends Rectangle<num> {
 
   List<T> query(Rectangle range) {
     if (_children.isEmpty) {
-      return _items
-          .where((item) => range.containsPoint(item.point))
-          .map((item) => item.item)
-          .toList();
+      return _items.where((item) => range.containsPoint(item.point)).map((item) => item.item).toList();
     }
-    return _children
-        .where((child) => child.intersects(range))
-        .expand((child) => child.query(range))
-        .toList();
+    return _children.where((child) => child.intersects(range)).expand((child) => child.query(range)).toList();
   }
 
   String toString() {
     return '[$_depth](${_items.map((item) => item.item).toList()}:$_children)';
   }
 
-  bool _insertItemIntoChildren(T item, Point<num> atPoint) {
-    print("*******************************************************************************");
-    print(atPoint);
+  bool _insertItemIntoChildren(T item, Point<num> atPoint ,String id) {
+    // print("*******************************************************************************");
+    // print(atPoint);
     if (atPoint.x > _center.x) {
       if (atPoint.y > _center.y) {
-        return _children[_lowerRightIndex].insert(item, atPoint);
+        return _children[_lowerRightIndex].insert(item, atPoint, id);
       }
-      return _children[_upperRightIndex].insert(item, atPoint);
+      return _children[_upperRightIndex].insert(item, atPoint, id);
     } else {
       if (atPoint.y > _center.y) {
-        return _children[_lowerLeftIndex].insert(item, atPoint);
+        return _children[_lowerLeftIndex].insert(item, atPoint, id);
       } else {
-        return _children[_upperLeftIndex].insert(item, atPoint);
+        return _children[_upperLeftIndex].insert(item, atPoint, id);
       }
     }
   }
@@ -130,7 +125,7 @@ class QuadTree<T> extends Rectangle<num> {
       _newLowerRight // _lowerRightIndex = 3
     ]);
     for (final item in _items) {
-      _insertItemIntoChildren(item.item, item.point);
+      _insertItemIntoChildren(item.item, item.point, item.id);
     }
     _items.clear();
   }

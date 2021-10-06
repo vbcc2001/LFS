@@ -4,17 +4,17 @@ import 'dart:ui';
 
 
 import 'package:flame/components.dart';
+import 'package:flame/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f14_map_component.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f15_quadtree.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/tile/tile.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/tile/tile_model.dart';
 
-import '../game.dart';
 import 'collision/object_collision.dart';
 import 'map_assets_manager.dart';
 
-class MapComponent extends Component with HasGameRef<MyGame> {
+class MapWord extends MapComponent  {
 
 
   List<TileModel> tiles;
@@ -51,7 +51,7 @@ class MapComponent extends Component with HasGameRef<MyGame> {
   /// *************************************************** ----- *************************************************/
   /// *************************************************** 实例化 *************************************************/
   /// *************************************************** ----- *************************************************/
-  MapComponent(this.tiles);
+  MapWord(this.tiles);
 
   @override
   Future<void> onLoad() async {
@@ -73,29 +73,29 @@ class MapComponent extends Component with HasGameRef<MyGame> {
     this.tiles.forEach((tile) {
       x = min(tile.left ,x);
       y = min(tile.top ,y);
-      print(tile.id);
+      // print(tile.id);
     });
     this.mapStartPosition = Vector2(x, y);
     /********************** 冲突Tile 集合************************/
     List<ObjectCollision> aux = [];
     final list = tiles.where((element) => element.collisions?.isNotEmpty == true );
     list.forEach((element) => aux.add(element.getTile() as ObjectCollision) );
-    this.tilesCollisions = aux;
+    // this.tilesCollisions = aux;
     /********************** 四叉树(QuadTree) 集合************************/
     int minSize = min(gameRef.size.x, gameRef.size.y).ceil();
     int maxItems = (minSize / 2 / tileSize).ceil() * (minSize / 2 / tileSize).ceil() ;
     this.quadTree = QuadTree( 0, 0, (mapSize.width.ceil() / tileSize).ceil(), (mapSize.height.ceil() / tileSize).ceil(), maxItems: maxItems,);
-    tiles.forEach((element) => quadTree.insert(element, Point(element.x, element.y), id: element.id));
-    print("------------------------------------------------------------------------");
-    print(tiles);
-    print(mapSize);
-    print(maxItems);
-    print(minSize);
-    print(quadTree.left);
-    print(quadTree.top);
-    print(quadTree.width);
-    print(quadTree.height);
-    print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+    tiles.forEach((element) => quadTree.insert(element, Point(element.x, element.y), element.id));
+    // print("------------------------------------------------------------------------");
+    // print(tiles);
+    // print(mapSize);
+    // print(maxItems);
+    // print(minSize);
+    // print(quadTree.left);
+    // print(quadTree.top);
+    // print(quadTree.width);
+    // print(quadTree.height);
+    // print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     /********************** ImageCache 集合************************/
     await Future.forEach<TileModel>(tiles, _loadTile);
     // tiles.forEach( (element) => MapAssetsManager.loadImage((element.sprite?.path ?? '')) );
@@ -111,17 +111,9 @@ class MapComponent extends Component with HasGameRef<MyGame> {
     // if (tileSizeToUpdate == 0) {
     //   tileSizeToUpdate = (tileSize * 4).ceilToDouble();
     // }
-    tiles.forEach((element) {
-      // print("------------------------------------------------------------------------");
-      // print(tileSize);
-      // print(mapSize);
-      // print(mapStartPosition);
-      // print(tilesCollisions);
-      // print("$element.x,$element.y,");
-      // print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-    } );
 
     _searchTilesToRender();
+    tileList.forEach((element) => add(element));
   }
 
   void _searchTilesToRender() {
@@ -143,6 +135,7 @@ class MapComponent extends Component with HasGameRef<MyGame> {
       rectCamera.height / tileSize,
     );
     // print("------------------------------------------------------------------------");
+    // print(zoom);
     // print(rectCamera);
     // print(rectangle);
     // print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -157,18 +150,22 @@ class MapComponent extends Component with HasGameRef<MyGame> {
     // print(_visibleSet);
     // print(tileList);
     // print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-    // tileList.removeWhere((element) => !_visibleSet.contains(element.id));
-    // tileList.addAll(_tilesToAdd.map((e) => e.getTile()).toList());
-    tileList.addAll(visibleTileModel.toList().map((e) => e.getTile()).toList());
+    tileList.removeWhere((element) => !_visibleSet.contains(element.id));
+    tileList.addAll(_tilesToAdd.map((e) => e.getTile()).toList());
+    // tileList.addAll(tiles.map((e) => e.getTile()).toList());
+    tileList.forEach((element) {
+      // print("---------------------");
+      // print(element.id);
+      // print(element.size);
+      // print(element.position);
+      // print(element);
+      // print("++++++++++++++++++++");
+    });
     _tilesVisibleCollisions = tileList.whereType<ObjectCollision>().toList();
     _buildingTiles = false;
 
 
-    // tileList.forEach((element) {
-    //   print("---------------------");
-    //   print(element.id);
-    //   print("++++++++++++++++++++");
-    // });
+
 
   }
 
@@ -188,7 +185,7 @@ class MapComponent extends Component with HasGameRef<MyGame> {
 
   @override
   void render(Canvas canvas) {
-    tileList.forEach((element) => element.render(canvas));
+    // tileList.forEach((element) => element.render(canvas));
 
     // if (_linePath.isNotEmpty) {
     //   _paintPath.style = PaintingStyle.stroke;

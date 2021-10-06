@@ -146,11 +146,7 @@ class TileModel {
     if (animation == null) {
       if (collisions?.isNotEmpty == true) {
         final tile = TileWithCollision.fromSprite(
-          sprite!.getSprite(),
-          Vector2(
-            x,
-            y,
-          ),
+          sprite!.getSprite(), Vector2(x, y,),
           offsetX: offsetX,
           offsetY: offsetY,
           collisions: collisions,
@@ -159,9 +155,7 @@ class TileModel {
           type: type,
           properties: properties,
         );
-        // tile.gameRef = gameRef;
         tile.id = id;
-
         return tile;
       } else {
         final tile = Tile.fromSprite(

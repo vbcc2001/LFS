@@ -49,14 +49,14 @@ mixin ObjectCollision on MyComponent {
   //
   // bool _verifyComponentCollision({Vector2? position}) {
   //   final compCollisions =
-  //       ((_collisionConfig?.collisionOnlyVisibleScreen ?? true)
-  //           ? gameRef.visibleCollisions()
-  //           : gameRef.collisions());
+  //   ((_collisionConfig?.collisionOnlyVisibleScreen ?? true)
+  //       ? gameRef.visibleCollisions()
+  //       : gameRef.collisions());
   //
   //   for (final i in compCollisions) {
   //     if (i != this &&
   //         (_collisionConfig?.verifyCollision(i.collisionConfig,
-  //                 position: position) ??
+  //             position: position) ??
   //             false)) {
   //       onCollision(i, true);
   //       i.onCollision(this, false);
