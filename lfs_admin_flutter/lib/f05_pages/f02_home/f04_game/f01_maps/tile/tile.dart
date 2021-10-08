@@ -2,10 +2,27 @@ import 'dart:math';
 import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f01_layer_priority.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/collision/object_collision.dart';
 import '../../f00_utils/f12_assets_loader.dart';
 import '../../game.dart';
 import '../controlled_update_animation.dart';
-class Tile extends SpriteComponent with HasGameRef<MyGame>,Hitbox,Collidable {
+// class Tile extends SpriteComponent with HasGameRef<MyGame> ,Hitbox,Collidable {
+class Tile extends SpriteComponent with HasGameRef<MyGame> ,Hitbox,Collidable {
+
+  // CollidableType collidableType = CollidableType.active;
+  //
+  // void onCollision(Set<Vector2> intersectionPoints, Collidable other) {}
+  // void onCollisionEnd(Collidable other) {}
+
+  // @override
+  // void onRemove() {
+  //   super.onRemove();
+  //   findParent<HasCollidables>()?.collidables.remove(this);
+  // }
+
+  int get priority => LayerPriority.MAP;
+
   ControlledUpdateAnimation? _animation;
   final double width;
   final double height;
@@ -18,7 +35,7 @@ class Tile extends SpriteComponent with HasGameRef<MyGame>,Hitbox,Collidable {
   String id = '';
   /// Param checks if this component is visible on the screen
   bool isVisible = false;
-
+  bool collidable = false;
   Tile(
     String spritePath,
     Vector2 position, {
@@ -59,8 +76,10 @@ class Tile extends SpriteComponent with HasGameRef<MyGame>,Hitbox,Collidable {
     this.properties,
     double offsetX = 0,
     double offsetY = 0,
+    this.id = '',
+    this.collidable = false
   }) {
-    id = '${position.x}/${position.y}';
+    // id = '${position.x}/${position.y}';
     this.sprite = sprite;
     this.position = generatePositionWithBleedingPixel(
       position,

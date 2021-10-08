@@ -3,23 +3,27 @@
 // import 'package:bonfire/camera/camera.dart';
 // import 'package:bonfire/camera/camera_config.dart';
 // import 'package:bonfire/util/bonfire_game_ref.dart';
-// import 'package:bonfire/util/mixins/pointer_detector.dart';
 
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/collision/object_collision.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f03_mixin/f01_pointer_detector.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f03_mixin/f11_lighting.dart';
 import 'package:ordered_set/comparing.dart';
 import 'package:ordered_set/ordered_set.dart';
 
+import 'f02_component.dart';
+import 'f03_interval_tick.dart';
 import 'f04_camera.dart';
 
 /// CustomBaseGame created to use `Listener` to capture touch screen gestures.
 /// Apply zoom in canvas.
 /// Reorder components per time frame.
 // abstract class CustomBaseGame extends Game with FPSCounter, PointerDetector {
-class CustomBaseGame extends FlameGame with FPSCounter {
+class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
 
   MyCamera myCamera = MyCamera();
 
@@ -28,12 +32,87 @@ class CustomBaseGame extends FlameGame with FPSCounter {
 
   /// Get of the _highestPriority
   int get highestPriority => _highestPriority;
-  //
-  // /// The list of components to be updated and rendered by the base game.
-  // OrderedSet<Component> components = OrderedSet(Comparing.on((c) {
-  //   return c.priority;
-  // }));
-  //
+
+  /// Components added by the [addLater] method
+  final List<Component> _addLater = [];
+  /// The list of components to be updated and rendered by the base game.
+  OrderedSet<Component> components = OrderedSet( Comparing.on((c1) => c1.priority) );
+  List<ObjectCollision> collisions = List.empty();
+
+  static const int INTERVAL_UPDATE_CACHE = 200;
+  static const int INTERVAL_UPDATE_ORDER = 253;
+  static const int INTERVAL_UPDATE_COLLISIONS = 1003;
+
+  /// 需要显示的组件
+  Iterable<Component> visibleComponents = List.empty();
+  /// 需要显示的碰撞元素
+  List<ObjectCollision> visibleCollisions = List.empty();
+  /// 需要显示的灯光元素
+  Iterable<Lighting> visibleLights = List.empty();
+
+
+  late IntervalTick _interval;
+
+  CustomBaseGame():super(){
+    ///定时更新需要显示的组件
+    _interval = IntervalTick( CustomBaseGame.INTERVAL_UPDATE_CACHE,  tick: _updateVisibleComponents );
+  }
+
+  @mustCallSuper
+  Future<void> preAdd(Component c) async {
+    if (debugMode && c is PositionComponent) { c.debugMode = true;}
+    // first time resize
+    c.onGameResize(size);
+    final loadFuture = c.onLoad();
+    if (loadFuture != null) { await loadFuture; }
+    if (c is PositionComponent) { c.children.forEach(preAdd); }
+  }
+
+  @override
+  Future<void> add(Component c) async {
+    super.add(c);
+    await preAdd(c);
+    _addLater.add(c);
+  }
+
+  @override
+  void update(double t) {
+    super.update(t);
+    if (_addLater.isNotEmpty) {
+      final addNow = _addLater.toList(growable: false);
+      components.addAll(addNow);
+      _addLater.clear();
+      // for (var comp in addNow) { comp.onMount(); }
+    }
+    //
+    // _highestPriority = 0;
+    // for (var comp in components) {
+    //   comp.update(t);
+    //   if (comp.priority > _highestPriority) {
+    //     _highestPriority = comp.priority;
+    //   }
+    // }
+    // components.removeWhere((c) => c.shouldRemove);
+    //
+    // // camera.update(t);
+    // _interval.update(t);
+  }
+
+
+
+
+  @override
+  void onGameResize(Vector2 canvasSize) {
+    super.onGameResize(canvasSize);
+    _updateVisibleComponents();
+  }
+
+  void _updateVisibleComponents() {
+    // visibleComponents = components.where((element) => (element is Component) && element.isVisible).cast()..toList(growable: false);
+    visibleComponents = components.where((element) => (element is Component) ).cast()..toList(growable: false);
+    visibleLights = visibleComponents.whereType<Lighting>();
+  }
+
   // /// Components added by the [addLater] method
   // final List<Component> _addLater = [];
   //

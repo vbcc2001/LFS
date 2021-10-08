@@ -8,6 +8,7 @@ import 'dart:ui';
 // import 'package:bonfire/util/priority_layer.dart';
 // import 'package:bonfire/util/vector2rect.dart';
 import 'package:flame/components.dart';
+import 'package:flame/flame.dart';
 
 import '../game.dart';
 import 'f01_layer_priority.dart';
@@ -16,12 +17,13 @@ import 'f01_layer_priority.dart';
 
 /// Base of the all components in the Bonfire
 // abstract class MyComponent extends Component with BonfireHasGameRef<BonfireGame>, PointerDetectorHandler {
-class MyComponent<T> extends SpriteAnimationGroupComponent with HasGameRef<MyGame> {
+class MyComponent extends PositionComponent with HasGameRef<MyGame> {
   /// Position used to draw on the screen
   // Vector2 position = Vector2.all(0);
   // Vector2 size = Vector2.all(0);
+
   // MyComponent({required Map<T, SpriteAnimation> animations}) : super(animations:animations);
-  MyComponent({required Image image,required Map<T, SpriteAnimationData> data}) : super.fromFrameData(image,data,priority:LayerPriority.COMPONENTS);
+  MyComponent({ Vector2? position, Vector2? size}) : super(position:position,size: size);
 
   Vector2 get center {
     Rect rect = Rect.fromLTWH(position.x,position.y,size.x,size.y);
@@ -32,6 +34,18 @@ class MyComponent<T> extends SpriteAnimationGroupComponent with HasGameRef<MyGam
   /// Use to set opacity in render
   /// Range [0.0..1.0]
   double opacity = 1.0;
+  // String imgPath;
+
+  // T? current;
+  // Map<T, SpriteAnimationData> data;
+  // @override
+  // Future<void> onLoad() async {
+  //   super.onLoad();
+  //   Image image = await Flame.images.load(imgPath);
+  //   var s = SpriteAnimationGroupComponent.fromFrameData(image,data,priority:LayerPriority.COMPONENTS,position:position,size:size);
+  //   add(s);
+  //   current = s.current;
+  // }
 
   //
   // /// Height of the Component.

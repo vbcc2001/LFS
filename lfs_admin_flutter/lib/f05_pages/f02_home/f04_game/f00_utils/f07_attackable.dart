@@ -1,11 +1,13 @@
 
+import 'package:flame/components.dart';
+
 import 'f02_component.dart';
 
 enum ReceivesAttackFromEnum { ALL, ENEMY, PLAYER }
 // enum AttackFromEnum { ENEMY, PLAYER }
 
 /// Mixin responsible for adding damage-taking behavior to the component.
-mixin Attackable on MyComponent {
+mixin Attackable on SpriteAnimationGroupComponent {
   /// Used to define which type of component can be damaged
   ReceivesAttackFromEnum receivesAttackFrom = ReceivesAttackFromEnum.ALL;
   double _life = 100;

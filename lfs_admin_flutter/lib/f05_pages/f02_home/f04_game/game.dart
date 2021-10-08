@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'dart:math';
-
+import 'dart:ui';
 import 'package:flame/components.dart';
+import 'package:flame/flame.dart';
+import 'package:flame/game.dart';
 import 'package:flame/input.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Image;
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f03_game.dart';
 
 
@@ -33,19 +35,22 @@ import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f03_game
 // import 'package:flame/components.dart' hide JoystickController;
 // import 'package:flame/keyboard.dart';
 // import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f14_map_component.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_layer/f02_lighting.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/f01_dungeon_map.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f06_enemy.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f07_enemy_goblin.dart';
 
+import 'f00_utils/f01_layer_priority.dart';
 import 'f00_utils/f02_component.dart';
+import 'f00_utils/f03_interval_tick.dart';
 import 'f00_utils/f06_player.dart';
-import 'f00_utils/f11_lighting.dart';
-import 'f00_utils/f13_game_interface.dart';
+import 'f01_layer/f03_interface.dart';
+import 'f03_mixin/f11_lighting.dart';
 import 'f01_layer/f01_background.dart';
 import 'f01_maps/collision/collision_area.dart';
 import 'f01_maps/collision/object_collision.dart';
+import 'f01_maps/map_decoration.dart';
 import 'f01_maps/map_world.dart';
 import 'f01_maps/tile/tile_model.dart';
 import 'f02_components/f03_fps.dart';
@@ -53,22 +58,12 @@ import 'f02_components/f04_background.dart';
 
 /// Is a customGame where all magic of the Bonfire happen.
 // class MyGame extends CustomBaseGame with KeyboardEvents {
-class MyGame extends CustomBaseGame {
+class MyGame extends CustomBaseGame with HasCollidables{
 
-
-  // @override
-  // bool debugMode = true;
-  static const INTERVAL_UPDATE_CACHE = 200;
-  static const INTERVAL_UPDATE_ORDER = 253;
-  static const INTERVAL_UPDATE_COLLISIONS = 1003;
-
-  final fpsTextBox = FpsTextBox();
   /// Context used to access all Flutter power in your game.
   late final BuildContext context;
   /// Represents the character controlled by the user in the game. Instances of this class has actions and movements ready to be used and configured.
-  late final Player? player;
-  /// The way you can draw things like life bars, stamina and settings. In another words, anything that you may add to the interface to the game.
-  late final GameInterface? interface;
+  late final Player player;
 
 
   // /// The player-controlling component.
@@ -93,23 +88,22 @@ class MyGame extends CustomBaseGame {
   late final Color? lightingColorGame;
 
   /// Used to show in the interface the FPS.
-  late final bool showFPS;
+  final bool showFPS = true;
 
   late final TapInGame? onTapDown;
   late final TapInGame? onTapUp;
 
   bool _firstUpdate = true;
 
-  Iterable<Lighting> _visibleLights = List.empty();
-  Iterable<MyComponent> _visibleComponents = List.empty();
-  List<ObjectCollision> _visibleCollisions = List.empty();
-  List<ObjectCollision> _collisions = List.empty();
+
+
+
 
   // Iterable<Enemy> enemies() {
   //   return components.where((element) => (element is Enemy)).cast();
   // }
 
-  // IntervalTick? _interval;
+
   // IntervalTick? _intervalUpdateOder;
   // IntervalTick? _intervalAllCollisions;
   // ColorFilterComponent _colorFilterComponent = ColorFilterComponent(
@@ -147,6 +141,8 @@ class MyGame extends CustomBaseGame {
     // GameColorFilter? colorFilter,
     // CameraConfig? cameraConfig,
   }) {
+
+
     // _initialEnemies = enemies;
     // _initialDecorations = decorations;
     // _initialComponents = components;
@@ -160,10 +156,7 @@ class MyGame extends CustomBaseGame {
     //   camera.moveToTarget(player!);
     // }
     //
-    // _interval = IntervalTick(
-    //   INTERVAL_UPDATE_CACHE,
-    //   tick: _updateTempList,
-    // );
+
     // _intervalUpdateOder = IntervalTick(
     //   INTERVAL_UPDATE_ORDER,
     //   tick: updateOrderPriority,
@@ -176,6 +169,7 @@ class MyGame extends CustomBaseGame {
   static const List<String> _imageAssets = [
     'minotaur.png',
   ];
+
   @override
   bool debugMode = true;
   /// Represents a map (or world) where the game occurs.
@@ -183,6 +177,7 @@ class MyGame extends CustomBaseGame {
   @override
   Future<void> onLoad() async {
     super.onLoad();
+    camera.viewport = FixedResolutionViewport(Vector2(size.y, size.y));
     print("----------------------");
     print(this.size);
     print("+++++++++++++++++++++");
@@ -193,16 +188,43 @@ class MyGame extends CustomBaseGame {
     // );
     // add(_colorFilterComponent);
     /****************************************** background **************************************/
-    // var background = BackgroundComponent(Colors.blueGrey[900]!);
-    // await add(background);
+    var background = BackgroundLayer(Colors.blueGrey[900]!);
+    await add(background);
+    /****************************************** 灯光层 **************************************/
+    LightingLayer lighting = LightingLayer(color: Colors.black.withOpacity(0.75));
+    add(lighting);
+    /****************************************** 界面层 **************************************/
+    InterfaceLayer interface = InterfaceLayer();
+    add(interface);
     /****************************************** map **************************************/
     map = DungeonMap.map();
     await add(map);
-
+    /****************************************** map 装饰物 **************************************/
+    MapDecoration mapDecoration = DungeonMap.decorations();
+    await add(mapDecoration);
     /****************************************** enemy **************************************/
-    List<EnemyComponent> _initialEnemies = [];
-    _initialEnemies.add(Goblin(image: images.fromCache('minotaur.png'), position: Vector2.all(100)));
-    _initialEnemies.forEach((enemy) => add(enemy));
+    Image image = await Flame.images.load('minotaur.png');
+    List<Goblin>  enemies = [
+      Goblin(image: image, position: DungeonMap.getRelativeTilePosition(14, 6)),
+      Goblin(image: image, position: DungeonMap.getRelativeTilePosition(5, 6)),
+    ];
+    enemies.forEach((enemy) => {
+      add(enemy)
+    });
+    /****************************************** enemy **************************************/
+    player = Player(image: image ,data:Goblin.animationMap);
+    add(player);
+
+    // add(PositionComponent(
+    //   position: Vector2(120, 120),
+    //   size: Vector2(120, 40),
+    // ));
+
+
+    //
+    // Image image = await Flame.images.load('minotaur.png');
+    // var s = SpriteAnimationGroupComponent.fromFrameData(image,data,priority:LayerPriority.COMPONENTS,position:Vector2.all(100),size:size);
+
 
     // background?.let((bg) => add(bg));
     //
@@ -223,16 +245,20 @@ class MyGame extends CustomBaseGame {
   @override
   void render(Canvas canvas) {
     super.render(canvas);
-    fpsTextBox.show(canvas, fps(120).toString());
     // TODO: implement render
   }
 
   @override
   void update(double dt) {
     super.update(dt);
-    // TODO: implement update
+  }
+  @override
+  void onGameResize(Vector2 canvasSize) {
+    super.onGameResize(canvasSize);
   }
 
+  @override
+  Color backgroundColor() => const Color(0xFF38607C);
 
   //
   // @override
@@ -273,9 +299,9 @@ class MyGame extends CustomBaseGame {
   // Iterable<GameDecoration> decorations() {
   //   return components.where((element) => (element is GameDecoration)).cast();
   // }
-  //
-  // Iterable<Lighting> lightVisible() => _visibleLights;
-  //
+
+
+
   // Iterable<Attackable> attackables() {
   //   return components.where((element) => (element is Attackable)).cast();
   // }

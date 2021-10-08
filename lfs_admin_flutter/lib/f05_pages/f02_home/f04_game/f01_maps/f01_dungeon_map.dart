@@ -1,10 +1,16 @@
+import 'dart:html';
 import 'dart:math';
 
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f16_sprite_component.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/tile/tile_model.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f06_enemy.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f07_enemy_goblin.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f08_torch.dart';
 
 import 'collision/collision_area.dart';
+import 'map_decoration.dart';
 import 'map_world.dart';
 
 class DungeonMap {
@@ -112,77 +118,81 @@ class DungeonMap {
     return MapWord(tileList);
   }
 
-  // static List<GameDecoration> decorations() {
-  //   return [
-  //     Spikes(
-  //       getRelativeTilePosition(7, 7),
-  //     ),
-  //     BarrelDraggable(getRelativeTilePosition(8, 6)),
-  //     GameDecorationWithCollision.withSprite(
-  //       Sprite.load('itens/barrel.png'),
-  //       getRelativeTilePosition(10, 6),
-  //       width: tileSize,
-  //       height: tileSize,
-  //       collisions: [
-  //         CollisionArea.rectangle(size: Size(tileSize / 1.5, tileSize / 1.5))
-  //       ],
-  //     ),
-  //     Chest(getRelativeTilePosition(18, 7)),
-  //     GameDecorationWithCollision.withSprite(
-  //       Sprite.load('itens/table.png'),
-  //       getRelativeTilePosition(15, 7),
-  //       width: tileSize,
-  //       height: tileSize,
-  //       collisions: [
-  //         CollisionArea.rectangle(size: Size(tileSize, tileSize * 0.8)),
-  //       ],
-  //     ),
-  //     GameDecorationWithCollision.withSprite(
-  //       Sprite.load('itens/table.png'),
-  //       getRelativeTilePosition(27, 6),
-  //       width: tileSize,
-  //       height: tileSize,
-  //       collisions: [
-  //         CollisionArea.rectangle(size: Size(tileSize, tileSize * 0.8)),
-  //       ],
-  //     ),
-  //     Torch(getRelativeTilePosition(4, 4)),
-  //     Torch(getRelativeTilePosition(12, 4)),
-  //     Torch(getRelativeTilePosition(20, 4)),
-  //     Torch(getRelativeTilePosition(28, 4)),
-  //     GameDecoration.withSprite(
-  //       Sprite.load('itens/flag_red.png'),
-  //       position: getRelativeTilePosition(24, 4),
-  //       width: tileSize,
-  //       height: tileSize,
-  //     ),
-  //     GameDecoration.withSprite(
-  //       Sprite.load('itens/flag_red.png'),
-  //       position: getRelativeTilePosition(6, 4),
-  //       width: tileSize,
-  //       height: tileSize,
-  //     ),
-  //     GameDecoration.withSprite(
-  //       Sprite.load('itens/prisoner.png'),
-  //       position: getRelativeTilePosition(10, 4),
-  //       width: tileSize,
-  //       height: tileSize,
-  //     ),
-  //     GameDecoration.withSprite(
-  //       Sprite.load('itens/flag_red.png'),
-  //       position: getRelativeTilePosition(14, 4),
-  //       width: tileSize,
-  //       height: tileSize,
-  //     )
-  //   ];
-  // }
+  static MapDecoration decorations() {
 
-  // static List<Enemy> enemies() {
-  //   return [
-  //     Goblin(getRelativeTilePosition(14, 6)),
-  //     Goblin(getRelativeTilePosition(25, 6)),
-  //   ];
-  // }
+    List<Component> decorations = [
+      // Spikes(
+      //   getRelativeTilePosition(7, 7),
+      // ),
+      // BarrelDraggable(getRelativeTilePosition(8, 6)),
+      // GameDecorationWithCollision.withSprite(
+      //   Sprite.load('itens/barrel.png'),
+      //   getRelativeTilePosition(10, 6),
+      //   width: tileSize,
+      //   height: tileSize,
+      //   collisions: [
+      //     CollisionArea.rectangle(size: Size(tileSize / 1.5, tileSize / 1.5))
+      //   ],
+      // ),
+      // Chest(getRelativeTilePosition(18, 7)),
+      // GameDecorationWithCollision.withSprite(
+      //   Sprite.load('itens/table.png'),
+      //   getRelativeTilePosition(15, 7),
+      //   width: tileSize,
+      //   height: tileSize,
+      //   collisions: [
+      //     CollisionArea.rectangle(size: Size(tileSize, tileSize * 0.8)),
+      //   ],
+      // ),
+      // GameDecorationWithCollision.withSprite(
+      //   Sprite.load('itens/table.png'),
+      //   getRelativeTilePosition(27, 6),
+      //   width: tileSize,
+      //   height: tileSize,
+      //   collisions: [
+      //     CollisionArea.rectangle(size: Size(tileSize, tileSize * 0.8)),
+      //   ],
+      // ),
+      // Torch(getRelativeTilePosition(4, 4)),
+      // Torch(getRelativeTilePosition(12, 4)),
+      // Torch(getRelativeTilePosition(20, 4)),
+      // Torch(getRelativeTilePosition(28, 4)),
+      MySpriteComponent(
+          imgPath:'itens/flag_red.png',
+          position: getRelativeTilePosition(24, 4),
+          size: Vector2.all(tileSize)
+      ),
+      MySpriteComponent(
+          imgPath:'itens/flag_red.png',
+          position: getRelativeTilePosition(6, 4),
+          size: Vector2.all(tileSize)
+      ),
+      MySpriteComponent(
+          imgPath:'itens/prisoner.png',
+          position: getRelativeTilePosition(10, 4),
+          size: Vector2.all(tileSize)
+      ),
+      MySpriteComponent(
+        imgPath:'itens/flag_red.png',
+        position: getRelativeTilePosition(14, 4),
+        size: Vector2.all(tileSize)
+      ),
+      Torch(position:getRelativeTilePosition(4, 4)),
+      Torch(position:getRelativeTilePosition(12, 4)),
+      Torch(position:getRelativeTilePosition(20, 4)),
+      Torch(position:getRelativeTilePosition(28, 4)),
+
+    ];
+    return MapDecoration(decorations:decorations);
+  }
+
+  static List<EnemyComponent> enemies() {
+    return [
+      // // Goblin(imgPath: 'minotaur.png', position: getRelativeTilePosition(14, 6)),
+      // Goblin(imgPath: 'minotaur.png', position: Vector2.all(100)),
+      // // Goblin(imgPath: 'minotaur.png', position: getRelativeTilePosition(25, 6)),
+    ];
+  }
 
   static String randomFloor() {
     int p = Random().nextInt(6);

@@ -9,7 +9,7 @@ import 'f10_direction_animation.dart';
 
 /// Mixin responsible for adding movements
 enum Direction { left, right, up, down, upLeft, upRight, downLeft, downRight }
-mixin Movement<T extends DirectionAnimationEnum> on MyComponent {
+mixin Movement<T extends DirectionAnimationEnum> on SpriteAnimationGroupComponent {
   bool isIdle = true;
   double dtUpdate = 0;
   double speed = 100;
@@ -23,20 +23,20 @@ mixin Movement<T extends DirectionAnimationEnum> on MyComponent {
   // }
 
 
-  @override
-  void update(double dt) {
-    super.update(dt);
-    dtUpdate = dt;
-    if (isVisible) {
-      directionAnimation?.opacity = opacity;
-      directionAnimation?.update(dt, position);
-    }
-  }
-  @override
-  void render(Canvas canvas) {
-    super.render(canvas);
-    directionAnimation?.render(canvas);
-  }
+  // @override
+  // void update(double dt) {
+  //   super.update(dt);
+  //   // dtUpdate = dt;
+  //   // if (isVisible) {
+  //   //   directionAnimation?.opacity = opacity;
+  //   //   directionAnimation?.update(dt, position);
+  //   // }
+  // }
+  // @override
+  // void render(Canvas canvas) {
+  //   super.render(canvas);
+  //   directionAnimation?.render(canvas);
+  // }
   @override
   Future<void> onLoad() async {
     await directionAnimation?.onLoad();

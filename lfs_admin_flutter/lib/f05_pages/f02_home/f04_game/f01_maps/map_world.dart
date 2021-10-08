@@ -6,6 +6,7 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flame/palette.dart';
 import 'package:flutter/material.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f01_layer_priority.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f14_map_component.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f15_quadtree.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/tile/tile.dart';
@@ -19,7 +20,7 @@ class MapWord extends MapComponent  {
 
   List<TileModel> tiles;
   List<Tile> tileList = [];
-  List<ObjectCollision> tilesCollisions = List.empty();
+  List<Tile> tilesCollisions = List.empty();
   QuadTree<TileModel> quadTree = QuadTree(0,0,0,0);
 
   Size  mapSize = Size(0,0);
@@ -47,7 +48,7 @@ class MapWord extends MapComponent  {
     ..strokeWidth = 4
     ..strokeCap = StrokeCap.round;
 
-
+  int get priority => LayerPriority.MAP;
   /// *************************************************** ----- *************************************************/
   /// *************************************************** 实例化 *************************************************/
   /// *************************************************** ----- *************************************************/
@@ -56,6 +57,8 @@ class MapWord extends MapComponent  {
   @override
   Future<void> onLoad() async {
     super.onLoad();
+    /********************** ImageCache 集合************************/
+    await Future.forEach<TileModel>(tiles, _loadTile);
     /********************** Tile 尺寸************************/
     this.tileSize = tiles.first.width;
     /********************** Map 尺寸************************/
@@ -77,10 +80,10 @@ class MapWord extends MapComponent  {
     });
     this.mapStartPosition = Vector2(x, y);
     /********************** 冲突Tile 集合************************/
-    List<ObjectCollision> aux = [];
+    List<Tile> aux = [];
     final list = tiles.where((element) => element.collisions?.isNotEmpty == true );
-    list.forEach((element) => aux.add(element.getTile() as ObjectCollision) );
-    // this.tilesCollisions = aux;
+    list.forEach((element) => aux.add( element.getTile() ) );
+    this.tilesCollisions = aux;
     /********************** 四叉树(QuadTree) 集合************************/
     int minSize = min(gameRef.size.x, gameRef.size.y).ceil();
     int maxItems = (minSize / 2 / tileSize).ceil() * (minSize / 2 / tileSize).ceil() ;
@@ -96,8 +99,7 @@ class MapWord extends MapComponent  {
     // print(quadTree.width);
     // print(quadTree.height);
     // print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-    /********************** ImageCache 集合************************/
-    await Future.forEach<TileModel>(tiles, _loadTile);
+
     // tiles.forEach( (element) => MapAssetsManager.loadImage((element.sprite?.path ?? '')) );
     /// TODO  对动画的处理
     //   if (element.animation != null) {
@@ -105,7 +107,7 @@ class MapWord extends MapComponent  {
     //       await MapAssetsManager.loadImage(frame.path);
     //     }
     //   }
-    /********************** ImageCache 集合************************/
+    /********************** 屏幕尺寸 ************************/
     lastSizeScreen = gameRef.size.clone();
 
     // if (tileSizeToUpdate == 0) {
@@ -185,6 +187,7 @@ class MapWord extends MapComponent  {
 
   @override
   void render(Canvas canvas) {
+    super.render(canvas);
     // tileList.forEach((element) => element.render(canvas));
 
     // if (_linePath.isNotEmpty) {

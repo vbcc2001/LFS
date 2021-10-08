@@ -2,19 +2,21 @@
 import 'dart:ui';
 
 import 'package:flame/components.dart';
+import 'package:flame/flame.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f01_layer_priority.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f10_direction_animation.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/collision/object_collision.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f06_enemy.dart';
 
 //AutomaticRandomMovement
-class Goblin extends EnemyComponent with ObjectCollision  {
+class Goblin extends EnemyComponent   {
 
   bool _seePlayerClose = false;
   bool _seePlayerAway = false;
   bool enableBehaviors = true;
 
   static final spriteSize = Vector2(96, 96);
-  static final _animationMap = {
+  static final animationMap = {
     DirectionAnimationEnum.idleRight: SpriteAnimationData.sequenced(
       amount: 5,
       stepTime: 0.1,
@@ -62,8 +64,9 @@ class Goblin extends EnemyComponent with ObjectCollision  {
       texturePosition: Vector2(0,spriteSize.y*11),
     ),
   };
-
-  Goblin({required Image image,required Vector2 position}) : super(position:position,size:Vector2.all(32),image:image, spriteAnimationMap:_animationMap){
+  // @override
+  // bool get isHud => true;
+  Goblin({required Image image,required Vector2 position}) : super(image:image,position:position,size:Vector2.all(96), spriteAnimationMap:animationMap){
     // setupCollision(
     //   CollisionConfig(
     //     collisions: [
@@ -87,7 +90,14 @@ class Goblin extends EnemyComponent with ObjectCollision  {
   //
   // }
 
-
+  // @override
+  // Future<void> onLoad() async {
+  //   super.onLoad();
+  //   Image image = await Flame.images.load(imgPath);
+  //   var s = SpriteAnimationGroupComponent.fromFrameData(image,data,priority:LayerPriority.COMPONENTS,position:position,size:size);
+  //   add(s);
+  //   current = s.current;
+  // }
 
   // @override
   // void update(double dt) {

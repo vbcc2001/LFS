@@ -11,6 +11,7 @@ import 'f01_layer_priority.dart';
 class MapComponent extends PositionComponent with HasGameRef<MyGame> {
 
 
+  MapComponent():super( priority:LayerPriority.MAP,);
 
   // Iterable<Tile> getRendered();
   //
@@ -28,7 +29,7 @@ class MapComponent extends PositionComponent with HasGameRef<MyGame> {
 
   // @override
   // int get priority => LayerPriority.MAP;
-  //
+
   // void renderDebugMode(Canvas canvas) {
   //   for (final t in getRendered()) {
   //     t.renderDebugMode(canvas);

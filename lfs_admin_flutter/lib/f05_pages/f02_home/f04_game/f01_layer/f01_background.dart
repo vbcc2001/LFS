@@ -6,19 +6,16 @@ import 'package:flutter/material.dart';
 
 import '../f00_utils/f01_layer_priority.dart';
 
-class BackgroundComponent extends Component {
+class BackgroundLayer extends Component {
 
   final Color color;
+  BackgroundLayer(this.color):super(priority:LayerPriority.BACKGROUND);
 
-  BackgroundComponent(this.color):super(priority:LayerPriority.BACKGROUND){
-    super.isHud = true;
-  }
   @override
   void render(Canvas canvas) {
     canvas.drawColor(color, BlendMode.src);
+    super.render(canvas);
   }
-  // @override
-  // int get priority => LayerPriority.BACKGROUND;
 }
 
 

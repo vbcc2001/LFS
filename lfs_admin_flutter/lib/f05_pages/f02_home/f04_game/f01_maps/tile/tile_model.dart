@@ -143,65 +143,11 @@ class TileModel {
   double get bottom => (y * height) + height;
 
   Tile getTile() {
-    if (animation == null) {
-      if (collisions?.isNotEmpty == true) {
-        final tile = TileWithCollision.fromSprite(
-          sprite!.getSprite(), Vector2(x, y,),
-          offsetX: offsetX,
-          offsetY: offsetY,
-          collisions: collisions,
-          width: width,
-          height: height,
-          type: type,
-          properties: properties,
-        );
-        tile.id = id;
-        return tile;
-      } else {
-        final tile = Tile.fromSprite(
+    // if (animation == null) {
+    // print( "  sprite!.getSprite()");
+    // print(   sprite!.getSprite());
+      return Tile.fromSprite(
           sprite!.getSprite(),
-          Vector2(
-            x,
-            y,
-          ),
-          offsetX: offsetX,
-          offsetY: offsetY,
-          width: width,
-          height: height,
-          type: type,
-          properties: properties,
-        );
-
-        // tile.gameRef = gameRef;
-        tile.id = id;
-
-        return tile;
-      }
-    } else {
-      if (collisions?.isNotEmpty == true) {
-        ControlledUpdateAnimation animationControlled =
-            animation!.getSpriteControlledAnimation();
-        final tile = TileWithCollision.withAnimation(
-          animationControlled,
-          Vector2(x, y,),
-          offsetX: offsetX,
-          offsetY: offsetY,
-          collisions: collisions,
-          width: width,
-          height: height,
-          type: type,
-          properties: properties,
-        );
-
-        // tile.gameRef = gameRef;
-        tile.id = id;
-
-        return tile;
-      } else {
-        ControlledUpdateAnimation animationControlled =
-            animation!.getSpriteControlledAnimation();
-        final tile = Tile.fromAnimation(
-          animationControlled,
           Vector2(x, y,),
           offsetX: offsetX,
           offsetY: offsetY,
@@ -209,13 +155,49 @@ class TileModel {
           height: height,
           type: type,
           properties: properties,
+          id: id,
+          collidable : collisions?.isNotEmpty == true
         );
-        // tile.gameRef = gameRef;
-        tile.id = id;
-
-        return tile;
-      }
-    }
+      // }
+    // } else {
+    //   if (collisions?.isNotEmpty == true) {
+    //     ControlledUpdateAnimation animationControlled =
+    //         animation!.getSpriteControlledAnimation();
+    //     final tile = TileWithCollision.withAnimation(
+    //       animationControlled,
+    //       Vector2(x, y,),
+    //       offsetX: offsetX,
+    //       offsetY: offsetY,
+    //       collisions: collisions,
+    //       width: width,
+    //       height: height,
+    //       type: type,
+    //       properties: properties,
+    //     );
+    //
+    //     // tile.gameRef = gameRef;
+    //     tile.id = id;
+    //
+    //     return tile;
+    //   } else {
+    //     ControlledUpdateAnimation animationControlled =
+    //         animation!.getSpriteControlledAnimation();
+    //     final tile = Tile.fromAnimation(
+    //       animationControlled,
+    //       Vector2(x, y,),
+    //       offsetX: offsetX,
+    //       offsetY: offsetY,
+    //       width: width,
+    //       height: height,
+    //       type: type,
+    //       properties: properties,
+    //     );
+    //     // tile.gameRef = gameRef;
+    //     tile.id = id;
+    //
+    //     return tile;
+    //   }
+    // }
   }
 
   factory TileModel.fromMap(Map<String, dynamic> map) {
