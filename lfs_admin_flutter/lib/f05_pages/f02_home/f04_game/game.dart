@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
@@ -7,432 +6,92 @@ import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 import 'package:flutter/material.dart' hide Image;
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f03_game.dart';
-
-
-//
-// import 'package:bonfire/base/custom_base_game.dart';
-// import 'package:bonfire/base/game_component.dart';
-// import 'package:bonfire/bonfire.dart';
-// import 'package:bonfire/camera/camera.dart';
-// import 'package:bonfire/camera/camera_config.dart';
-// import 'package:bonfire/collision/object_collision.dart';
-// import 'package:bonfire/decoration/decoration.dart';
-// import 'package:bonfire/enemy/enemy.dart';
-// import 'package:bonfire/game_interface/game_interface.dart';
-// import 'package:bonfire/joystick/joystick_controller.dart';
-// import 'package:bonfire/lighting/lighting.dart';
-// import 'package:bonfire/lighting/lighting_component.dart';
-// import 'package:bonfire/map/map_game.dart';
-// import 'package:bonfire/player/player.dart';
-// import 'package:bonfire/util/color_filter_component.dart';
-// import 'package:bonfire/util/game_color_filter.dart';
-// import 'package:bonfire/util/game_controller.dart';
-// import 'package:bonfire/util/interval_tick.dart';
-// import 'package:bonfire/util/map_explorer.dart';
-// import 'package:bonfire/util/mixins/attackable.dart';
-// import 'package:bonfire/util/mixins/pointer_detector.dart';
-// import 'package:bonfire/util/value_generator_component.dart';
-// import 'package:flame/components.dart' hide JoystickController;
-// import 'package:flame/keyboard.dart';
-// import 'package:flutter/services.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f14_map_component.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_layer/f02_lighting.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_layer/f04_color_filter.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/f01_dungeon_map.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f06_enemy.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f07_enemy_goblin.dart';
-
-import 'f00_utils/f01_layer_priority.dart';
-import 'f00_utils/f02_component.dart';
-import 'f00_utils/f03_interval_tick.dart';
 import 'f00_utils/f06_player.dart';
 import 'f01_layer/f03_interface.dart';
-import 'f03_mixin/f11_lighting.dart';
 import 'f01_layer/f01_background.dart';
-import 'f01_maps/collision/collision_area.dart';
-import 'f01_maps/collision/object_collision.dart';
-import 'f01_maps/map_decoration.dart';
-import 'f01_maps/map_world.dart';
-import 'f01_maps/tile/tile_model.dart';
-import 'f02_components/f03_fps.dart';
-import 'f02_components/f04_background.dart';
 
-/// Is a customGame where all magic of the Bonfire happen.
-// class MyGame extends CustomBaseGame with KeyboardEvents {
-class MyGame extends CustomBaseGame with HasCollidables{
+import 'f02_components/map_decoration.dart';
+
+
+class MyGame extends CustomBaseGame with HasCollidables,KeyboardEvents {
 
   /// Context used to access all Flutter power in your game.
-  late final BuildContext context;
-  /// Represents the character controlled by the user in the game. Instances of this class has actions and movements ready to be used and configured.
+  /// 游戏上下文 Context
+  final BuildContext context;
+  /// Game Player
+  /// 游戏玩家角色
   late final Player player;
-
-
-  // /// The player-controlling component.
-  // final JoystickController? joystickController;
-  //
-
-  /// Used to show grid in the map and facilitate the construction and testing of the map
-  late final bool constructionMode;
-  /// Color grid when `constructionMode` is true
-  late final Color? constructionModeColor;
-
-  /// Used to draw area collision in objects.
-  late final bool showCollisionArea;
-
-  /// Color of the collision area when `showCollisionArea` is true
-  late final Color? collisionAreaColor;
-
-  // /// Used to extensively control game elements
-  // late final GameController? gameController;
-
-  /// Used to configure lighting in the game
-  late final Color? lightingColorGame;
-
-  /// Used to show in the interface the FPS.
-  final bool showFPS = true;
-
-  late final TapInGame? onTapDown;
-  late final TapInGame? onTapUp;
-
-  bool _firstUpdate = true;
-
-
-
-
-
-  // Iterable<Enemy> enemies() {
-  //   return components.where((element) => (element is Enemy)).cast();
-  // }
-
-
-  // IntervalTick? _intervalUpdateOder;
-  // IntervalTick? _intervalAllCollisions;
-  // ColorFilterComponent _colorFilterComponent = ColorFilterComponent(
-  //   GameColorFilter(),
-  // );
-  // LightingComponent? lighting;
-
-  // List<GameDecoration>? _initialDecorations;
-  // List<GameComponent>? _initialComponents;
-  //
-  // GameColorFilter? _colorFilter;
-  //
-  // ValueChanged<BonfireGame>? onReady;
-  //
-
-  MyGame({
-    required this.context,
-    // required this.map,
-    // this.joystickController,
-    // this.player,
-    // this.interface,
-    // List<Enemy>? enemies,
-    // List<GameDecoration>? decorations,
-    // List<GameComponent>? components,
-    // this.constructionMode = false,
-    // this.showCollisionArea = false,
-    // this.gameController,
-    // this.constructionModeColor,
-    // this.collisionAreaColor,
-    // this.lightingColorGame,
-    // this.showFPS = false,
-    // this.onReady,
-    // this.onTapDown,
-    // this.onTapUp,
-    // GameColorFilter? colorFilter,
-    // CameraConfig? cameraConfig,
-  }) {
-
-
-    // _initialEnemies = enemies;
-    // _initialDecorations = decorations;
-    // _initialComponents = components;
-    // _colorFilter = colorFilter;
-    // debugMode = constructionMode;
-    //
-    // gameController?.gameRef = this;
-    // camera = Camera(cameraConfig ?? CameraConfig());
-    // camera.gameRef = this;
-    // if (camera.config.target == null && player != null) {
-    //   camera.moveToTarget(player!);
-    // }
-    //
-
-    // _intervalUpdateOder = IntervalTick(
-    //   INTERVAL_UPDATE_ORDER,
-    //   tick: updateOrderPriority,
-    // );
-    // _intervalAllCollisions = IntervalTick(
-    //   INTERVAL_UPDATE_COLLISIONS,
-    //   tick: () => scheduleMicrotask(_updateAllCollisions),
-    // );
-  }
+  /// Represents a map (or world) where the game occurs.
+  /// 游戏地图
+  late final MapComponent map;
   static const List<String> _imageAssets = [
     'minotaur.png',
   ];
+  MyGame({ required this.context,});
 
   @override
-  bool debugMode = true;
-  /// Represents a map (or world) where the game occurs.
-  late final MapComponent map;
-  @override
   Future<void> onLoad() async {
-    super.onLoad();
-    camera.viewport = FixedResolutionViewport(Vector2(size.y, size.y));
     print("----------------------");
     print(this.size);
     print("+++++++++++++++++++++");
+    super.onLoad();
+    /****************************************** 初始化图片资源 **************************************/
     await images.loadAll(_imageAssets);
-    /****************************************** ColorFilter **************************************/
-    // _colorFilterComponent = ColorFilterComponent(
-    //   _colorFilter ?? GameColorFilter(),
-    // );
-    // add(_colorFilterComponent);
+    /****************************************** Camera 设置 **************************************/
+    camera.viewport = FixedResolutionViewport(Vector2(size.y, size.y));
     /****************************************** background **************************************/
     var background = BackgroundLayer(Colors.blueGrey[900]!);
-    await add(background);
+    add(background);
     /****************************************** 灯光层 **************************************/
-    LightingLayer lighting = LightingLayer(color: Colors.black.withOpacity(0.75));
+    var lighting = LightingLayer(color: Colors.black.withOpacity(0.25));
     add(lighting);
+    /****************************************** ColorFilter **************************************/
+    var _colorFilterLayer = ColorFilterLayer(Colors.blue,BlendMode.colorBurn);
+    // add(_colorFilterLayer);
     /****************************************** 界面层 **************************************/
-    InterfaceLayer interface = InterfaceLayer();
+    var interface = InterfaceLayer();
     add(interface);
     /****************************************** map **************************************/
     map = DungeonMap.map();
-    await add(map);
+    add(map);
     /****************************************** map 装饰物 **************************************/
     MapDecoration mapDecoration = DungeonMap.decorations();
-    await add(mapDecoration);
-    /****************************************** enemy **************************************/
+    add(mapDecoration);
+    /****************************************** enemies **************************************/
     Image image = await Flame.images.load('minotaur.png');
     List<Goblin>  enemies = [
       Goblin(image: image, position: DungeonMap.getRelativeTilePosition(14, 6)),
       Goblin(image: image, position: DungeonMap.getRelativeTilePosition(5, 6)),
     ];
-    enemies.forEach((enemy) => {
-      add(enemy)
-    });
-    /****************************************** enemy **************************************/
+    enemies.forEach((enemy) => add(enemy) );
+    /****************************************** player **************************************/
     player = Player(image: image ,data:Goblin.animationMap);
     add(player);
-
-    // add(PositionComponent(
-    //   position: Vector2(120, 120),
-    //   size: Vector2(120, 40),
-    // ));
-
-
-    //
-    // Image image = await Flame.images.load('minotaur.png');
-    // var s = SpriteAnimationGroupComponent.fromFrameData(image,data,priority:LayerPriority.COMPONENTS,position:Vector2.all(100),size:size);
-
-
-    // background?.let((bg) => add(bg));
-    //
-    // add(map);
-    // _initialDecorations?.forEach((decoration) => add(decoration));
-    // _initialEnemies?.forEach((enemy) => add(enemy));
-    // _initialComponents?.forEach((comp) => add(comp));
-    // player?.let((p) => add(p));
-    // lighting = LightingComponent(color: lightingColorGame ?? Color(0x00000000));
-    // add(lighting!);
-    // add(interface ?? GameInterface());
-    // add(joystickController ?? Joystick());
-    // joystickController?.addObserver(player ?? MapExplorer(camera));
-
   }
 
 
   @override
-  void render(Canvas canvas) {
-    super.render(canvas);
-    // TODO: implement render
-  }
-
-  @override
-  void update(double dt) {
-    super.update(dt);
-  }
-  @override
-  void onGameResize(Vector2 canvasSize) {
-    super.onGameResize(canvasSize);
-  }
-
-  @override
-  Color backgroundColor() => const Color(0xFF38607C);
-
-  //
-  // @override
-  // void update(double t) {
-  //   super.update(t);
-  //   _interval?.update(t);
-  //   _intervalUpdateOder?.update(t);
-  //   _intervalAllCollisions?.update(t);
-  //
-  //   if (_firstUpdate) {
-  //     _firstUpdate = false;
-  //     onReady?.call(this);
-  //   }
-  // }
-  //
-  // void addGameComponent(GameComponent component) {
-  //   add(component);
-  // }
-  //
-  // Iterable<GameComponent> visibleComponents() => _visibleComponents;
-  //
-  // Iterable<Enemy> visibleEnemies() {
-  //   return _visibleComponents.where((element) => (element is Enemy)).cast();
-  // }
-  //
-  // Iterable<Enemy> livingEnemies() {
-  //   return enemies().where((element) => !element.isDead).cast();
-  // }
-  //
-
-  //
-  // Iterable<GameDecoration> visibleDecorations() {
-  //   return _visibleComponents
-  //       .where((element) => (element is GameDecoration))
-  //       .cast();
-  // }
-  //
-  // Iterable<GameDecoration> decorations() {
-  //   return components.where((element) => (element is GameDecoration)).cast();
-  // }
-
-
-
-  // Iterable<Attackable> attackables() {
-  //   return components.where((element) => (element is Attackable)).cast();
-  // }
-  //
-  // Iterable<Attackable> visibleAttackables() {
-  //   return _visibleComponents
-  //       .where((element) => (element is Attackable))
-  //       .cast();
-  // }
-  //
-  // Iterable<Sensor> visibleSensors() {
-  //   return _visibleComponents.where((element) {
-  //     return (element is Sensor);
-  //   }).cast();
-  // }
-  //
-  // Iterable<ObjectCollision> collisions() {
-  //   return _collisions;
-  // }
-  //
-  // Iterable<ObjectCollision> visibleCollisions() {
-  //   return _visibleCollisions;
-  // }
-  //
-  // Iterable<T> visibleComponentsByType<T>() {
-  //   return _visibleComponents.whereType<T>();
-  // }
-  //
-  // Iterable<T> componentsByType<T>() {
-  //   return components.whereType<T>();
-  // }
-  //
-  // ValueGeneratorComponent getValueGenerator(
-  //     Duration duration, {
-  //       double begin = 0.0,
-  //       double end = 1.0,
-  //       Curve curve = Curves.decelerate,
-  //       VoidCallback? onFinish,
-  //       ValueChanged<double>? onChange,
-  //     }) {
-  //   final valueGenerator = ValueGeneratorComponent(
-  //     duration,
-  //     end: end,
-  //     begin: begin,
-  //     curve: curve,
-  //     onFinish: onFinish,
-  //     onChange: onChange,
-  //   );
-  //   add(valueGenerator);
-  //   return valueGenerator;
-  // }
-  //
-  // @override
-  // void onKeyEvent(RawKeyEvent event) {
-  //   joystickController?.onKeyboard(event);
-  // }
-  //
-  // @override
-  // void onResize(Vector2 size) {
-  //   super.onResize(size);
-  //   _updateTempList();
-  // }
-  //
-  // void _updateTempList() {
-  //   _visibleComponents = components.where((element) {
-  //     return (element is GameComponent) && (element).isVisible;
-  //   }).cast()
-  //     ..toList(growable: false);
-  //
-  //   _visibleCollisions = _visibleComponents
-  //       .where((element) {
-  //     return (element is ObjectCollision) && element.containCollision();
-  //   })
-  //       .toList()
-  //       .cast();
-  //
-  //   _visibleCollisions.addAll(map.getCollisionsRendered());
-  //
-  //   _visibleLights = _visibleComponents.whereType<Lighting>();
-  //
-  //   gameController?.notifyListeners();
-  // }
-  //
-  // void _updateAllCollisions() {
-  //   _collisions = components
-  //       .where((element) {
-  //     return (element is ObjectCollision) && (element).containCollision();
-  //   })
-  //       .toList()
-  //       .cast();
-  //
-  //   _collisions.addAll(map.getCollisions());
-  // }
-  //
-  // GameColorFilter get colorFilter => _colorFilterComponent.colorFilter;
-  //
-  // Offset worldPositionToScreen(Offset position) {
-  //   return camera.worldPositionToScreen(position);
-  // }
-  //
-  // Offset screenPositionToWorld(Offset position) {
-  //   return camera.screenPositionToWorld(position);
-  // }
-  //
-  // bool isVisibleInCamera(GameComponent c) {
-  //   if (c.shouldRemove) return false;
-  //   return camera.isComponentOnCamera(c);
-  // }
-  //
-  // @override
-  // void onPointerDown(PointerDownEvent event) {
-  //   onTapDown?.call(
-  //     this,
-  //     event.localPosition,
-  //     camera.screenPositionToWorld(event.localPosition),
-  //   );
-  //   super.onPointerDown(event);
-  // }
-  //
-  // @override
-  // void onPointerUp(PointerUpEvent event) {
-  //   onTapUp?.call(
-  //     this,
-  //     event.localPosition,
-  //     camera.screenPositionToWorld(event.localPosition),
-  //   );
-  //   super.onPointerUp(event);
-  // }
-}
-typedef TapInGame = void Function(
-    MyGame game,
-    Offset screenPosition,
-    Offset worldPosition,
+  void onPointerDown(PointerDownEvent event) {
+    onTapDown?.call(
+      this,
+      event.localPosition,
+      camera.screenPositionToWorld(event.localPosition),
     );
+    super.onPointerDown(event);
+  }
+
+  @override
+  void onPointerUp(PointerUpEvent event) {
+    onTapUp?.call(
+      this,
+      event.localPosition,
+      camera.screenPositionToWorld(event.localPosition),
+    );
+    super.onPointerUp(event);
+  }
+}

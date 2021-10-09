@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f03_mixin/f02_component.dart';
 import '../game.dart';
+import 'f01_mixin/f02_component.dart';
 
 class MySpriteAnimationComponent extends SpriteAnimationComponent with HasGameRef<MyGame>, MyComponentMixin {
 

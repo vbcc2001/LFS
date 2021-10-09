@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import '../f00_utils/f02_component.dart';
+import 'f02_component.dart';
 import 'f02_component.dart';
 
 mixin Lighting on MyComponentMixin  {

@@ -10,11 +10,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/collision/object_collision.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f03_mixin/f01_pointer_detector.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f03_mixin/f11_lighting.dart';
+import 'f01_mixin/f01_pointer_detector.dart';
+
 import 'package:ordered_set/comparing.dart';
 import 'package:ordered_set/ordered_set.dart';
 
+import 'f01_mixin/f11_lighting.dart';
 import 'f02_component.dart';
 import 'f03_interval_tick.dart';
 import 'f04_camera.dart';
@@ -25,7 +26,13 @@ import 'f04_camera.dart';
 // abstract class CustomBaseGame extends Game with FPSCounter, PointerDetector {
 class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
 
+  @override
+  bool debugMode = true;
+
   MyCamera myCamera = MyCamera();
+
+  /// Used to show in the interface the FPS.
+  final bool showFPS = true;
 
   /// variable that keeps the highest rendering priority per frame. This is used to determine the order in which to render the `interface`, `lighting` and `joystick`
   int _highestPriority = 10000;
@@ -50,6 +57,8 @@ class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
   /// 需要显示的灯光元素
   Iterable<Lighting> visibleLights = List.empty();
 
+  @override
+  Color backgroundColor() => const Color(0xFF38607C);
 
   late IntervalTick _interval;
 

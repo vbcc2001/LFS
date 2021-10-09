@@ -13,8 +13,10 @@ class BackgroundLayer extends Component {
 
   @override
   void render(Canvas canvas) {
-    canvas.drawColor(color, BlendMode.src);
     super.render(canvas);
+    canvas.save();
+    canvas.drawColor(color, BlendMode.src);
+    canvas.restore();
   }
 }
 

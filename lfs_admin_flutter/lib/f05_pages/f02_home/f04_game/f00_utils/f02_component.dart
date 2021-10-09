@@ -22,6 +22,8 @@ class MyComponent extends PositionComponent with HasGameRef<MyGame> {
   // Vector2 position = Vector2.all(0);
   // Vector2 size = Vector2.all(0);
 
+
+
   // MyComponent({required Map<T, SpriteAnimation> animations}) : super(animations:animations);
   MyComponent({ Vector2? position, Vector2? size}) : super(position:position,size: size);
 

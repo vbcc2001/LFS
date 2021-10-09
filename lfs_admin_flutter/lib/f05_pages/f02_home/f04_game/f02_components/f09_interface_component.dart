@@ -6,7 +6,7 @@ import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f02_comp
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f12_assets_loader.dart';
 
 /// Component used to add in your [GameInterface]
-class InterfaceComponent extends MyComponent {
+class InterfaceComponent extends SpriteGroupComponent<ButtonState> with Tappable,Hoverable {
   /// identifier
   /// 组件ID
   final int id;
@@ -40,7 +40,7 @@ class InterfaceComponent extends MyComponent {
       spriteSelected.paint.color = spriteSelected.paint.color.withOpacity(opacity);
       spriteSelected.render(canvas,position: position,size: size);
     }else{
-      sprite.paint.color = spriteSelected.paint.color.withOpacity(opacity);
+      sprite.paint.color = sprite.paint.color.withOpacity(opacity);
       sprite.render(canvas,position: position,size: size);
     }
   }
@@ -48,5 +48,23 @@ class InterfaceComponent extends MyComponent {
   @override
   Future<void> onLoad() async {
     await _loader.load();
+  }
+
+  @override
+  bool onTapDown(_) {
+    selected =true;
+    return true;
+  }
+
+  @override
+  bool onTapUp(_) {
+    selected = false;
+    return true;
+  }
+
+  @override
+  bool onTapCancel() {
+    selected = false;
+    return true;
   }
 }

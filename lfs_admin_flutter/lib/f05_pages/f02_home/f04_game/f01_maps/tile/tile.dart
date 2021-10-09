@@ -220,15 +220,14 @@ class Tile extends SpriteComponent with HasGameRef<MyGame> ,Hitbox,Collidable {
     }
     canvas.drawRect(
       Rect.fromLTWH(position.x, position.y, size.x, size.y,),
-      _paintText!..color = gameRef.constructionModeColor ?? Colors.cyan.withOpacity(0.5),
+      _paintText!..color =  Colors.cyan.withOpacity(0.5),
     );
     if (_positionText.x % 2 == 0) {
       if (_textPaintConfig == null) {
         _textPaintConfig = TextPaint(
           config: TextPaintConfig(
             fontSize: width / 3,
-            color:
-                gameRef.constructionModeColor ?? Colors.cyan.withOpacity(0.5),
+            color: Colors.cyan.withOpacity(0.5),
           ),
         );
       }

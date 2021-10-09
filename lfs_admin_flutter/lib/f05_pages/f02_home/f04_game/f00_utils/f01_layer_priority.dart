@@ -1,8 +1,8 @@
 class LayerPriority {
-  static const int BACKGROUND = 10;
-  static const int MAP = 20;
-  static const int COMPONENTS = 30;
-
+  static const int BACKGROUND = 10;  // 背景
+  static const int MAP = 20; // 地图
+  static const int DECORATION  = 30; //地图装饰
+  static const int COMPONENTS = 40; //组件
   static int getComponentPriority(int bottom) {
     return COMPONENTS + bottom;
   }

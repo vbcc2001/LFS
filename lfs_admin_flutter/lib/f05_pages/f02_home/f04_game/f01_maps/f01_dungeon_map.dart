@@ -10,7 +10,7 @@ import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f07
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f08_torch.dart';
 
 import 'collision/collision_area.dart';
-import 'map_decoration.dart';
+import '../f02_components/map_decoration.dart';
 import 'map_world.dart';
 
 class DungeonMap {
