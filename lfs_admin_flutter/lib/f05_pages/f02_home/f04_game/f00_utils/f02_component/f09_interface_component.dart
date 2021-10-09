@@ -6,7 +6,7 @@ import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f02_comp
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f12_assets_loader.dart';
 
 /// Component used to add in your [GameInterface]
-class InterfaceComponent extends SpriteGroupComponent<ButtonState> with Tappable,Hoverable {
+class InterfaceComponent extends MyComponent with Tappable,Hoverable {
   /// identifier
   /// 组件ID
   final int id;
@@ -16,6 +16,11 @@ class InterfaceComponent extends SpriteGroupComponent<ButtonState> with Tappable
 
   /// sprite that will be render when pressed
   late Sprite spriteSelected;
+
+  /// Tap Callback
+  /// 点击 Callback
+  final ValueChanged<bool>? onTapComponent;
+
   bool selected = false;
 
   final _loader = AssetsLoader();
@@ -30,6 +35,7 @@ class InterfaceComponent extends SpriteGroupComponent<ButtonState> with Tappable
     required Vector2 size,
     required Future<Sprite> sprite,
     required Future<Sprite> spriteSelected,
+    this.onTapComponent,
   }): super(position:position,size: size) {
     _loader.add(AssetToLoad(sprite, (value) { this.sprite = value; }));
     _loader.add(AssetToLoad(spriteSelected, (value) { this.spriteSelected = value; }));
@@ -52,18 +58,22 @@ class InterfaceComponent extends SpriteGroupComponent<ButtonState> with Tappable
 
   @override
   bool onTapDown(_) {
+    print("onTapDown1");
     selected =true;
+    onTapComponent?.call(selected);
     return true;
   }
 
   @override
   bool onTapUp(_) {
+    print("onTapUp1");
     selected = false;
     return true;
   }
 
   @override
   bool onTapCancel() {
+    print("onTapCancel1");
     selected = false;
     return true;
   }

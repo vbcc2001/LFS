@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 
-import 'f09_interface_component.dart';
+import '../f00_utils/f02_component/f09_interface_component.dart';
 
 class BarLifeComponent extends InterfaceComponent {
   // double padding = 20;
@@ -15,8 +15,8 @@ class BarLifeComponent extends InterfaceComponent {
   double maxStamina = 100;
   double stamina = 0;
 
-  BarLifeComponent() : super(
-    id: 1,
+  BarLifeComponent(int id) : super(
+    id: id,
     position: Vector2(20, 20),
     size: Vector2(120, 40),
     sprite: Sprite.load('health_ui.png'),

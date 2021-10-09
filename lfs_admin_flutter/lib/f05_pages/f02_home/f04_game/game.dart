@@ -18,7 +18,7 @@ import 'f01_layer/f01_background.dart';
 import 'f02_components/map_decoration.dart';
 
 
-class MyGame extends CustomBaseGame with HasCollidables,KeyboardEvents {
+class MyGame extends CustomBaseGame with HasCollidables,KeyboardEvents,HasTappableComponents,HasHoverableComponents,MouseMovementDetector {
 
   /// Context used to access all Flutter power in your game.
   /// 游戏上下文 Context
@@ -44,12 +44,13 @@ class MyGame extends CustomBaseGame with HasCollidables,KeyboardEvents {
     await images.loadAll(_imageAssets);
     /****************************************** Camera 设置 **************************************/
     camera.viewport = FixedResolutionViewport(Vector2(size.y, size.y));
+    // camera.zoom =2;
     /****************************************** background **************************************/
     var background = BackgroundLayer(Colors.blueGrey[900]!);
     add(background);
     /****************************************** 灯光层 **************************************/
     var lighting = LightingLayer(color: Colors.black.withOpacity(0.25));
-    add(lighting);
+    // add(lighting);
     /****************************************** ColorFilter **************************************/
     var _colorFilterLayer = ColorFilterLayer(Colors.blue,BlendMode.colorBurn);
     // add(_colorFilterLayer);
@@ -75,23 +76,21 @@ class MyGame extends CustomBaseGame with HasCollidables,KeyboardEvents {
   }
 
 
-  @override
-  void onPointerDown(PointerDownEvent event) {
-    onTapDown?.call(
-      this,
-      event.localPosition,
-      camera.screenPositionToWorld(event.localPosition),
-    );
-    super.onPointerDown(event);
-  }
-
-  @override
-  void onPointerUp(PointerUpEvent event) {
-    onTapUp?.call(
-      this,
-      event.localPosition,
-      camera.screenPositionToWorld(event.localPosition),
-    );
-    super.onPointerUp(event);
-  }
+  // @mustCallSuper
+  // void onTapCancel(int pointerId) {
+  //   super.onTapCancel(pointerId);
+  //   print("onTapCancelonTapCancel");
+  // }
+  //
+  // @mustCallSuper
+  // void onTapDown(int pointerId, TapDownInfo info) {
+  //   super.onTapDown(pointerId,info);
+  //   print("onTapDownonTapDown");
+  // }
+  //
+  // @mustCallSuper
+  // void onTapUp(int pointerId, TapUpInfo info) {
+  //   super.onTapUp(pointerId,info);
+  //   print("onTapUponTapUp");
+  // }
 }
