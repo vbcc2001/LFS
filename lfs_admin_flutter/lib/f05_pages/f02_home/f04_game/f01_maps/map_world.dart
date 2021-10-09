@@ -123,10 +123,13 @@ class MapWord extends MapComponent  {
     final double spacing = 32.0;
     final zoom = gameRef.camera.zoom >1? 1 : 1/gameRef.camera.zoom ;
     /// 矩形尺寸 ==> 以Camera为中心，调整Camera Zoom ，四周预留spacing
-    final rectCamera = Rect.fromCenter(
-      center: gameRef.camera.position.toOffset(),
-      width: (gameRef.size.x) *  zoom  +  (spacing * 2),
-      height: (gameRef.size.y) * zoom +  (spacing * 2),
+    // final rectCamera = Rect.fromCenter(
+      // center: gameRef.camera.position.toOffset(),
+    final rectCamera = Rect.fromLTWH(
+      gameRef.camera.position.x,
+      gameRef.camera.position.y,
+      (gameRef.size.x) * zoom  +  (spacing * 2),
+      (gameRef.size.y) * zoom +  (spacing * 2),
     );
 
 

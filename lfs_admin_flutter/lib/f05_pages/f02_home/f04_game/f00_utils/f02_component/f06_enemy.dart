@@ -3,10 +3,10 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f01_layer_priority.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/game.dart';
-import '../f00_utils/f10_direction_animation.dart';
-import '../f00_utils/f02_component.dart';
-import '../f00_utils/f07_attackable.dart';
-import '../f00_utils/f09_movement.dart';
+import '../f10_direction_animation.dart';
+import '../f02_component.dart';
+import '../f07_attackable.dart';
+import '../f09_movement.dart';
 
 /// It is used to represent your enemies.
 class EnemyComponent extends SpriteAnimationGroupComponent with Movement, Attackable {
@@ -23,7 +23,7 @@ class EnemyComponent extends SpriteAnimationGroupComponent with Movement, Attack
     this.speed = speed;
     this.receivesAttackFrom = ReceivesAttackFromEnum.PLAYER;
     // this.directionAnimation = animation;
-    this.current = DirectionAnimationEnum.idleRight;
+    this.current = DirectionAnimationEnum.idleLeft;
   }
   // @override
   // int get priority => LayerPriority.COMPONENTS;

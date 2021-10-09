@@ -6,7 +6,7 @@ import 'package:flame/flame.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f01_layer_priority.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f10_direction_animation.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/collision/object_collision.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f06_enemy.dart';
+import '../f00_utils/f02_component/f06_enemy.dart';
 
 //AutomaticRandomMovement
 class Goblin extends EnemyComponent   {

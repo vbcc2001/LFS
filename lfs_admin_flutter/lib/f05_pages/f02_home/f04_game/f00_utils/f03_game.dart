@@ -27,8 +27,8 @@ import 'f04_camera.dart';
 // abstract class CustomBaseGame extends Game with FPSCounter, PointerDetector {
 class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
 
-  @override
-  bool debugMode = true;
+  // @override
+  // bool debugMode = true;
 
   MyCamera myCamera = MyCamera();
 

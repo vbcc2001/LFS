@@ -43,23 +43,6 @@ mixin Lighting on MyComponentMixin  {
   }
 
   double get valuePulse => _pulseAnimation?.value ?? 0.0;
-
-  // @override
-  // bool get isVisible {
-  //   Rect rectLight = Rect.fromLTWH(
-  //     this.center.x - (radius + blurBorder / 2),
-  //     this.position.y - (radius + blurBorder / 2),
-  //     (radius * 2) + blurBorder,
-  //     (radius * 2) + blurBorder,
-  //   );
-  //   return gameRef.camera.
-  //   return gameRef.camera.isRectOnCamera(rectLight);
-  //
-  //   bool isRectOnCamera(Rect c) {
-  //   return cameraRectWithSpacing.overlaps(c);
-  //   }
-  // }
-
 }
 /// 脉冲动画效果
 class PulseAnimation {

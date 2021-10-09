@@ -23,6 +23,8 @@ class InterfaceComponent extends MyComponent with Tappable,Hoverable {
 
   bool selected = false;
 
+  /// 打开标识
+  bool open = false;
   final _loader = AssetsLoader();
 
   @override
@@ -59,22 +61,23 @@ class InterfaceComponent extends MyComponent with Tappable,Hoverable {
   @override
   bool onTapDown(_) {
     print("onTapDown1");
-    selected =true;
-    onTapComponent?.call(selected);
+    selected = !selected;
+    open = !open;
+    onTapComponent?.call(open);
     return true;
   }
 
   @override
   bool onTapUp(_) {
     print("onTapUp1");
-    selected = false;
+    // selected = false;
     return true;
   }
 
   @override
   bool onTapCancel() {
     print("onTapCancel1");
-    selected = false;
+    // selected = false;
     return true;
   }
 }

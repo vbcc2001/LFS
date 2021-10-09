@@ -9,6 +9,6 @@ class BackpackComponent extends InterfaceComponent {
     sprite: Sprite.load('f03_backpack_set.png'),
     spriteSelected: Sprite.load('f03_backpack_set.png'),
     size: Vector2(80,160),
-    position: Vector2(150, 20),
+    position: Vector2(150, 60),
   );
 }
