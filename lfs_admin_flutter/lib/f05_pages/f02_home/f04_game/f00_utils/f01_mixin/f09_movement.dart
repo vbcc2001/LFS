@@ -4,8 +4,8 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 
-import 'f02_component.dart';
-import 'f10_direction_animation.dart';
+import '../f02_component/f02_component.dart';
+import '../f10_direction_animation.dart';
 
 /// Mixin responsible for adding movements
 enum Direction { left, right, up, down, upLeft, upRight, downLeft, downRight }

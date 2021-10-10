@@ -5,8 +5,8 @@ import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/collision
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/tile/tile.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/tile/tile_model.dart';
 
-import '../game.dart';
-import 'f01_layer_priority.dart';
+import '../../game.dart';
+import '../f01_layer_priority.dart';
 
 class MapComponent extends PositionComponent with HasGameRef<MyGame> {
 

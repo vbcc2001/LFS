@@ -10,8 +10,8 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 
-import '../game.dart';
-import 'f01_layer_priority.dart';
+import '../../game.dart';
+import '../f01_layer_priority.dart';
 // import 'package:flame/extensions.dart';
 // import 'package:flutter/cupertino.dart';
 

@@ -2,7 +2,7 @@
 import 'package:flame/components.dart';
 import 'package:flame/sprite.dart';
 import 'package:flutter/widgets.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f02_component.dart';
+import 'f02_component.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f12_assets_loader.dart';
 
 /// Component used to add in your [GameInterface]

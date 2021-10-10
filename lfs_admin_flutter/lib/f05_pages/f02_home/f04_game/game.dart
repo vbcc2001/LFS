@@ -3,10 +3,13 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
+import 'package:flame/geometry.dart';
 import 'package:flame/input.dart';
+import 'package:flame/palette.dart';
 import 'package:flutter/material.dart' hide Image;
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f03_game.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f14_map_component.dart';
+import 'f00_utils/f02_component/f01_joystick.dart';
+import 'f00_utils/f02_component/f14_map_component.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_layer/f02_lighting.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_layer/f04_color_filter.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/f01_dungeon_map.dart';
@@ -19,7 +22,7 @@ import 'f02_components/f06_player_goblin.dart';
 import 'f02_components/map_decoration.dart';
 
 
-class MyGame extends CustomBaseGame with HasCollidables,KeyboardEvents,HasTappableComponents,HasHoverableComponents,MouseMovementDetector {
+class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerComponents,HasTappableComponents,HasHoverableComponents,MouseMovementDetector,HasDraggableComponents {
 
   /// Context used to access all Flutter power in your game.
   /// 游戏上下文 Context
@@ -32,6 +35,9 @@ class MyGame extends CustomBaseGame with HasCollidables,KeyboardEvents,HasTappab
   late final MapComponent map;
   /// 界面层
   final interface = InterfaceLayer();
+  /// 操作杆
+  Joystick joystick = Joystick() ;
+
   static const List<String> _imageAssets = [
     'minotaur.png',
   ];
@@ -59,6 +65,12 @@ class MyGame extends CustomBaseGame with HasCollidables,KeyboardEvents,HasTappab
     // add(_colorFilterLayer);
     /****************************************** 界面层 **************************************/
     add(interface);
+    /****************************************** 操作杆 **************************************/
+    add(joystick);
+    print("7777777777777777777777777777777777777777777");
+    print(joystick.size);
+    print(joystick.position);
+    print("7777777777777777777777777777777777777777777");
     /****************************************** map **************************************/
     map = DungeonMap.map();
     add(map);
@@ -74,26 +86,9 @@ class MyGame extends CustomBaseGame with HasCollidables,KeyboardEvents,HasTappab
     enemies.forEach((enemy) => add(enemy) );
     /****************************************** player **************************************/
     Image imagePlay = await Flame.images.load('f04_player.png');
-    player = PlayerGoblin(image: imagePlay , position: DungeonMap.getRelativeTilePosition(4, 6));
+    player = PlayerGoblin( joystick:joystick, image: imagePlay , position: DungeonMap.getRelativeTilePosition(4, 6));
     add(player);
+    camera.followComponent(player);
+
   }
-
-
-  // @mustCallSuper
-  // void onTapCancel(int pointerId) {
-  //   super.onTapCancel(pointerId);
-  //   print("onTapCancelonTapCancel");
-  // }
-  //
-  // @mustCallSuper
-  // void onTapDown(int pointerId, TapDownInfo info) {
-  //   super.onTapDown(pointerId,info);
-  //   print("onTapDownonTapDown");
-  // }
-  //
-  // @mustCallSuper
-  // void onTapUp(int pointerId, TapUpInfo info) {
-  //   super.onTapUp(pointerId,info);
-  //   print("onTapUponTapUp");
-  // }
 }

@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f16_sprite_component.dart';
+import '../f00_utils/f02_component/f16_sprite_component.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/tile/tile_model.dart';
 import '../f00_utils/f02_component/f06_enemy.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f07_enemy_goblin.dart';

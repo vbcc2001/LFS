@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../game.dart';
-import 'f02_component.dart';
+import 'f02_component/f02_component.dart';
 
 
 

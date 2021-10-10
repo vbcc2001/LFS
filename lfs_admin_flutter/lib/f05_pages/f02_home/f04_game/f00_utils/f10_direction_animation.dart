@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flame/components.dart';
-import 'f09_movement.dart';
+import 'f01_mixin/f09_movement.dart';
 import 'f12_assets_loader.dart';
 
 

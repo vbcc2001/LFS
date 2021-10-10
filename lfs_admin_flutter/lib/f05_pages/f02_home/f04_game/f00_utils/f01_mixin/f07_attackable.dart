@@ -1,7 +1,7 @@
 
 import 'package:flame/components.dart';
 
-import 'f02_component.dart';
+import '../f02_component/f02_component.dart';
 
 enum ReceivesAttackFromEnum { ALL, ENEMY, PLAYER }
 // enum AttackFromEnum { ENEMY, PLAYER }

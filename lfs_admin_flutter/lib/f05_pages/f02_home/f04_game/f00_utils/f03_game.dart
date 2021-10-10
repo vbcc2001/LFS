@@ -17,7 +17,7 @@ import 'package:ordered_set/comparing.dart';
 import 'package:ordered_set/ordered_set.dart';
 
 import 'f01_mixin/f11_lighting.dart';
-import 'f02_component.dart';
+import 'f02_component/f02_component.dart';
 import 'f03_interval_tick.dart';
 import 'f04_camera.dart';
 
@@ -27,8 +27,8 @@ import 'f04_camera.dart';
 // abstract class CustomBaseGame extends Game with FPSCounter, PointerDetector {
 class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
 
-  // @override
-  // bool debugMode = true;
+  @override
+  bool debugMode = true;
 
   MyCamera myCamera = MyCamera();
 
@@ -81,7 +81,7 @@ class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
   @override
   Future<void> add(Component c) async {
     super.add(c);
-    await preAdd(c);
+    // await preAdd(c);
     _addLater.add(c);
   }
 

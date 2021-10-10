@@ -3,7 +3,7 @@ import 'dart:ui';
 
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/tile/tile.dart';
 
-import '../../f00_utils/f02_component.dart';
+import '../../f00_utils/f02_component/f02_component.dart';
 
 /// Mixin responsible for adding collision
 mixin ObjectCollision on Tile {

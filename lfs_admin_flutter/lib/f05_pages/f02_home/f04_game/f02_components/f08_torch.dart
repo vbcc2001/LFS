@@ -1,7 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f01_mixin/f11_lighting.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f17_sprite_animation_component.dart';
+import '../f00_utils/f02_component/f17_sprite_animation_component.dart';
 
 class Torch extends MySpriteAnimationComponent with Lighting {
 
