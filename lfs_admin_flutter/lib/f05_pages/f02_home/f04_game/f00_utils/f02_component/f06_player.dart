@@ -9,6 +9,7 @@ import '../f10_direction_animation.dart';
 
 class PlayerComponent extends SpriteAnimationGroupComponent with Attackable, Movement<DirectionAnimationEnum>{
 
+  double maxStamina = 100.0;
   double stamina = 100;
   double maxSpeed = 100.0;
 

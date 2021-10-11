@@ -17,7 +17,7 @@ class Joystick extends JoystickComponent  {
   );
 
   @override
-  int get priority => LayerPriority.getJoystickPriority((gameRef as MyGame).highestPriority);
+  int get priority => LayerPriority.JoystickPriority;
 
   @override
   bool get isHud => true;

@@ -44,6 +44,9 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
   MyGame({ required this.context,});
 
   @override
+  Color backgroundColor() => const Color(0xFF38607C);
+
+  @override
   Future<void> onLoad() async {
     print("----------------------");
     print(this.size);
@@ -56,10 +59,10 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
     // camera.zoom =2;
     /****************************************** background **************************************/
     var background = BackgroundLayer(Colors.blueGrey[900]!);
-    add(background);
+    // add(background);
     /****************************************** 灯光层 **************************************/
     var lighting = LightingLayer(color: Colors.black.withOpacity(0.25));
-    add(lighting);
+    // add(lighting);
     /****************************************** ColorFilter **************************************/
     var _colorFilterLayer = ColorFilterLayer(Colors.blue,BlendMode.colorBurn);
     // add(_colorFilterLayer);
@@ -67,28 +70,24 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
     add(interface);
     /****************************************** 操作杆 **************************************/
     add(joystick);
-    print("7777777777777777777777777777777777777777777");
-    print(joystick.size);
-    print(joystick.position);
-    print("7777777777777777777777777777777777777777777");
     /****************************************** map **************************************/
     map = DungeonMap.map();
-    add(map);
+    // add(map);
     /****************************************** map 装饰物 **************************************/
     MapDecoration mapDecoration = DungeonMap.decorations();
-    add(mapDecoration);
+    // add(mapDecoration);
     /****************************************** enemies **************************************/
     Image image = await Flame.images.load('minotaur.png');
     List<Goblin>  enemies = [
       Goblin(image: image, position: DungeonMap.getRelativeTilePosition(14, 6)),
       Goblin(image: image, position: DungeonMap.getRelativeTilePosition(20, 6)),
     ];
-    enemies.forEach((enemy) => add(enemy) );
+    // enemies.forEach((enemy) => add(enemy) );
     /****************************************** player **************************************/
     Image imagePlay = await Flame.images.load('f04_player.png');
     player = PlayerGoblin( joystick:joystick, image: imagePlay , position: DungeonMap.getRelativeTilePosition(4, 6));
-    add(player);
-    camera.followComponent(player);
+    // add(player);
+    // camera.followComponent(player);
 
   }
 }

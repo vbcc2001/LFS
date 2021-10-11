@@ -20,7 +20,7 @@ class LightingLayer extends Component with HasGameRef<MyGame> {
   }
 
   @override
-  int get priority => LayerPriority.getLightingPriority(gameRef.highestPriority);
+  int get priority => LayerPriority.LightingPriority;
 
   @override
   void render(Canvas canvas) {

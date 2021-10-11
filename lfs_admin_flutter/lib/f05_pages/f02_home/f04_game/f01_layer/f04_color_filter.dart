@@ -23,5 +23,5 @@ class ColorFilterLayer extends Component with HasGameRef<MyGame> {
   }
 
   @override
-  int get priority => LayerPriority.getColorFilterPriority(gameRef.highestPriority);
+  int get priority => LayerPriority.ColorFilterPriority;
 }

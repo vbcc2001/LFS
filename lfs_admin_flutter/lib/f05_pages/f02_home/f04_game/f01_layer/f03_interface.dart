@@ -28,13 +28,13 @@ class InterfaceLayer extends MyComponent {
   bool get isHud => true;
 
   @override
-  int get priority => LayerPriority.getInterfacePriority(gameRef.highestPriority);
+  int get priority => LayerPriority.InterfacePriority;
 
   @override
   Future<void> onLoad() async {
-    add(BarLifeComponent(1));
-    add(BackpackFlagComponent(2, (selected) {this.showBackpack(selected);}));
-    add(AttributesFlagComponent(3, (selected) {this.showAttributesComponent(selected);}));
+    add(BarLifeComponent());
+    // add(BackpackFlagComponent(2, (selected) {this.showBackpack(selected);}));
+    // add(AttributesFlagComponent(3, (selected) {this.showAttributesComponent(selected);}));
     add(TextComponent(
       'player',
       position: Vector2(260, 30),

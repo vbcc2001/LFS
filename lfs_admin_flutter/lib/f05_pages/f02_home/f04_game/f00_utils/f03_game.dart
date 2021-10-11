@@ -29,17 +29,11 @@ class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
 
   @override
   bool debugMode = true;
-
-  MyCamera myCamera = MyCamera();
-
   /// Used to show in the interface the FPS.
   final bool showFPS = true;
 
-  /// variable that keeps the highest rendering priority per frame. This is used to determine the order in which to render the `interface`, `lighting` and `joystick`
-  int _highestPriority = 10000;
+  MyCamera myCamera = MyCamera();
 
-  /// Get of the _highestPriority
-  int get highestPriority => _highestPriority;
 
   /// Components added by the [addLater] method
   final List<Component> _addLater = [];
@@ -58,8 +52,7 @@ class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
   /// 需要显示的灯光元素
   Iterable<Lighting> visibleLights = List.empty();
 
-  @override
-  Color backgroundColor() => const Color(0xFF38607C);
+
 
   late IntervalTick _interval;
 

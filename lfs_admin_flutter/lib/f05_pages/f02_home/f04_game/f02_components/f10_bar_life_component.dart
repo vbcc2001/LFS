@@ -2,87 +2,64 @@ import 'dart:ui';
 
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
+import '../game.dart';
 
-import '../f00_utils/f02_component/f09_interface_component.dart';
+class BarLifeComponent extends SpriteComponent with HasGameRef<MyGame> {
 
-class BarLifeComponent extends InterfaceComponent {
-  // double padding = 20;
-  double widthBar = 90;
-  double strokeWidth = 12;
+  static const double widthBar = 90;
+  static const double strokeWidth = 12;
 
-  double maxLife = 0;
+  double maxLife = 100;
   double life = 0;
   double maxStamina = 100;
   double stamina = 0;
+  @override
+  bool get isHud => true;
+  Paint maxLifePaint = Paint()..color = Colors.blueGrey[800]!..strokeWidth = strokeWidth..style = PaintingStyle.fill;
+  Paint lifePaint = Paint()..color = Colors.green..strokeWidth = strokeWidth..style = PaintingStyle.fill;
+  Paint staminaPaint = Paint()..color = Colors.yellow..strokeWidth = strokeWidth..style = PaintingStyle.fill;
 
-  BarLifeComponent(int id) : super(
-    id: id,
+  BarLifeComponent() : super(
     position: Vector2(20, 20),
     size: Vector2(120, 40),
-    sprite: Sprite.load('health_ui.png'),
-    spriteSelected: Sprite.load('health_ui.png'),
   );
+
+
+  @override
+  Future<void> onLoad() async {
+    sprite = await Sprite.load('health_ui.png');
+    print(position);
+
+  }
 
   @override
   void update(double t) {
+    super.update(t);
     life = this.gameRef.player.life ;
     maxLife = this.gameRef.player.maxLife;
+    maxStamina = this.gameRef.player.maxStamina;
     stamina = this.gameRef.player.stamina;
-    super.update(t);
   }
 
   @override
-  void render(Canvas c) {
-    _drawLife(c);
-    _drawStamina(c);
-    super.render(c);
-  }
-
-  void _drawLife(Canvas canvas) {
-    double xBar = position.x + 26;
-    double yBar = position.y + 10;
-    canvas.drawLine(
-        Offset(xBar, yBar),
-        Offset(xBar + widthBar, yBar),
-        Paint()
-          ..color = Colors.blueGrey[800]!
-          ..strokeWidth = strokeWidth
-          ..style = PaintingStyle.fill);
-
+  void render(Canvas canvas) {
+    super.render(canvas);
+    /********************** drawLife ************************/
+    double xBar = position.x -20 + 26;
+    double yBar = position.y -20 + 10;
+    canvas.drawLine(Offset(xBar, yBar), Offset(xBar + widthBar, yBar), maxLifePaint);
     double currentBarLife = (life * widthBar) / maxLife;
-
-    canvas.drawLine(
-        Offset(xBar, yBar),
-        Offset(xBar + currentBarLife, yBar),
-        Paint()
-          ..color = _getColorLife(currentBarLife)
-          ..strokeWidth = strokeWidth
-          ..style = PaintingStyle.fill);
-  }
-
-  void _drawStamina(Canvas canvas) {
-    double xBar = position.x + 26;
-    double yBar = position.y + 28;
-
-    double currentBarStamina = (stamina * widthBar) / maxStamina;
-
-    canvas.drawLine(
-        Offset(xBar, yBar),
-        Offset(xBar + currentBarStamina, yBar),
-        Paint()
-          ..color = Colors.yellow
-          ..strokeWidth = strokeWidth
-          ..style = PaintingStyle.fill);
-  }
-
-  Color _getColorLife(double currentBarLife) {
-    if (currentBarLife > widthBar - (widthBar / 3)) {
-      return Colors.green;
-    }
-    if (currentBarLife > (widthBar / 3)) {
-      return Colors.yellow;
+    if ( currentBarLife > widthBar * 2 / 3 )  {
+      lifePaint..color = Colors.green;
+    } else if ( currentBarLife > widthBar / 3 ) {
+      lifePaint..color = Colors.yellow;
     } else {
-      return Colors.red;
+      lifePaint..color = Colors.red;
     }
+    canvas.drawLine(Offset(xBar, yBar), Offset(xBar + currentBarLife, yBar), lifePaint);
+    /********************** drawStamina ************************/
+    double y2Bar = position.y -20 + 28;
+    double currentBarStamina = (stamina * widthBar) / maxStamina;
+    canvas.drawLine(Offset(xBar, y2Bar), Offset(xBar + currentBarStamina, y2Bar),staminaPaint);
   }
 }
