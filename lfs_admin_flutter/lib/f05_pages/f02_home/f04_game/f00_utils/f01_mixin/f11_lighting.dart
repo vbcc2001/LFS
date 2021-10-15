@@ -31,18 +31,18 @@ mixin Lighting on MyComponentMixin  {
 
   /// Configure blur in lighting
   /// 模糊边界 默认 20
-  double blurBorder = 20 ;
+  double blurBorder = 20  ;
 
   /// 脉冲动画
-  PulseAnimation? _pulseAnimation ;
+  PulseAnimation _pulseAnimation  =  PulseAnimation();
 
   @override
   void update(double dt) {
     super.update(dt);
-    _pulseAnimation?.update(dt);
+    _pulseAnimation.update(dt);
   }
 
-  double get valuePulse => _pulseAnimation?.value ?? 0.0;
+  double get valuePulse => _pulseAnimation.value;
 }
 /// 脉冲动画效果
 class PulseAnimation {
@@ -71,3 +71,4 @@ class PulseAnimation {
     value = Curves.decelerate.transform(_controlAnim);
   }
 }
+

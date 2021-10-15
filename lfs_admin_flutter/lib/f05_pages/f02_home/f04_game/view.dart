@@ -2,7 +2,6 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'f04_scene_01/game.dart';
 import 'game.dart';
 import 'logic.dart';
 import 'state.dart';
@@ -16,8 +15,8 @@ class GamePage extends StatelessWidget {
     return GameWidget(
       game: MyGame(context:context),
       // game: Scene01(),
+      //   game: MyGame(),
       mouseCursor:SystemMouseCursors.help
-      // game: MainMenu(),
     );
   }
 }

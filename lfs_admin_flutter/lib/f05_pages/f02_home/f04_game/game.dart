@@ -8,6 +8,7 @@ import 'package:flame/input.dart';
 import 'package:flame/palette.dart';
 import 'package:flutter/material.dart' hide Image;
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f03_game.dart';
+import 'f00_utils/f01_mixin/f11_lighting.dart';
 import 'f00_utils/f02_component/f01_joystick.dart';
 import 'f00_utils/f02_component/f14_map_component.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_layer/f02_lighting.dart';
@@ -38,13 +39,16 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
   /// 操作杆
   Joystick joystick = Joystick() ;
 
+  /// 需要显示的灯光元素
+  LightingLayer lightingLayer = LightingLayer(color: Colors.black.withOpacity(0.25));
+
   static const List<String> _imageAssets = [
     'minotaur.png',
   ];
   MyGame({ required this.context,});
 
   @override
-  Color backgroundColor() => const Color(0xFF38607C);
+  // Color backgroundColor() => const Color(0xFF38607C);
 
   @override
   Future<void> onLoad() async {
@@ -61,8 +65,7 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
     var background = BackgroundLayer(Colors.blueGrey[900]!);
     // add(background);
     /****************************************** 灯光层 **************************************/
-    var lighting = LightingLayer(color: Colors.black.withOpacity(0.25));
-    // add(lighting);
+    // add(lightingLayer);
     /****************************************** ColorFilter **************************************/
     var _colorFilterLayer = ColorFilterLayer(Colors.blue,BlendMode.colorBurn);
     // add(_colorFilterLayer);
@@ -75,7 +78,7 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
     // add(map);
     /****************************************** map 装饰物 **************************************/
     MapDecoration mapDecoration = DungeonMap.decorations();
-    // add(mapDecoration);
+    add(mapDecoration);
     /****************************************** enemies **************************************/
     Image image = await Flame.images.load('minotaur.png');
     List<Goblin>  enemies = [

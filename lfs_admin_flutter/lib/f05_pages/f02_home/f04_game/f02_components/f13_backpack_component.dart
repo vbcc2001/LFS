@@ -1,14 +1,19 @@
 import 'package:flame/components.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f02_component/f09_interface_component.dart';
 
-class BackpackComponent extends InterfaceComponent {
+class BackpackComponent extends SpriteComponent {
 
+  @override
+  bool get isHud => true;
 
-  BackpackComponent(int id) : super(
-    id: id,
-    sprite: Sprite.load('f03_backpack_set.png'),
-    spriteSelected: Sprite.load('f03_backpack_set.png'),
+  BackpackComponent() : super(
     size: Vector2(80,160),
     position: Vector2(150, 60),
   );
+
+  @override
+  Future<void> onLoad() async {
+    sprite = await Sprite.load('f03_backpack_set.png');
+  }
+
 }

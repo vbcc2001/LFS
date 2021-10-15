@@ -13,23 +13,23 @@ class BarLifeComponent extends SpriteComponent with HasGameRef<MyGame> {
   double life = 0;
   double maxStamina = 100;
   double stamina = 0;
-  @override
-  bool get isHud => true;
+
   Paint maxLifePaint = Paint()..color = Colors.blueGrey[800]!..strokeWidth = strokeWidth..style = PaintingStyle.fill;
   Paint lifePaint = Paint()..color = Colors.green..strokeWidth = strokeWidth..style = PaintingStyle.fill;
   Paint staminaPaint = Paint()..color = Colors.yellow..strokeWidth = strokeWidth..style = PaintingStyle.fill;
+
+  @override
+  bool get isHud => true;
 
   BarLifeComponent() : super(
     position: Vector2(20, 20),
     size: Vector2(120, 40),
   );
 
-
   @override
   Future<void> onLoad() async {
     sprite = await Sprite.load('health_ui.png');
     print(position);
-
   }
 
   @override

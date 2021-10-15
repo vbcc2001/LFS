@@ -12,7 +12,7 @@ import '../game.dart';
 class LightingLayer extends Component with HasGameRef<MyGame> {
 
   Color color;
-  Iterable<Lighting> _visibleLight = [];
+  List<Lighting> lights = [];
   double _dtUpdate = 0.0;
 
   LightingLayer({required this.color}) {
@@ -27,7 +27,7 @@ class LightingLayer extends Component with HasGameRef<MyGame> {
     Vector2 size = gameRef.size;
     canvas.saveLayer(Offset.zero & Size(size.x, size.y), Paint());
     canvas.drawColor(color, BlendMode.dstATop);
-    _visibleLight.forEach((light) {
+    lights.forEach((light) {
       light.update(_dtUpdate);
       canvas.save();
       canvas.translate(size.x / 2, size.y / 2);
@@ -44,10 +44,4 @@ class LightingLayer extends Component with HasGameRef<MyGame> {
     canvas.restore();
   }
 
-  @override
-  void update(double dt) {
-    super.update(dt);
-    _dtUpdate = dt;
-    _visibleLight = gameRef.visibleLights;
-  }
 }

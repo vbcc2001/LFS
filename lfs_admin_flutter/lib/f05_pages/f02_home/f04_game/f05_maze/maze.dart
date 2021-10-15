@@ -9,7 +9,7 @@ class Maze extends FlameGame {
   Paint p = Paint();
 
   Maze() {
-    walls = RecursiveMaze().build(120, 120, orientationType: OrientationType.randomized);
+    walls = RecursiveMaze().build(60, 60, orientationType: OrientationType.randomized);
   }
 
   @override

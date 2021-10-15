@@ -18,8 +18,8 @@ class InterfaceLayer extends MyComponent {
   /// textConfig used to show FPS
   final textConfigGreen = TextPaint( config: TextPaintConfig(color: Colors.green, fontSize: 14),);
   final textConfigRed = TextPaint( config: TextPaintConfig(color: Colors.red, fontSize: 14),);
-  final backpackComponent  = BackpackComponent(4);
-  final attributesComponent  = AttributesComponent(5);
+  final backpackComponent  = BackpackComponent();
+  final attributesComponent  = AttributesComponent();
   InterfaceLayer({ Vector2? position, Vector2? size}) : super(
       position:position,size: size
   );
@@ -33,12 +33,11 @@ class InterfaceLayer extends MyComponent {
   @override
   Future<void> onLoad() async {
     add(BarLifeComponent());
-    // add(BackpackFlagComponent(2, (selected) {this.showBackpack(selected);}));
-    // add(AttributesFlagComponent(3, (selected) {this.showAttributesComponent(selected);}));
+    add(BackpackFlagComponent((isOpen) => this.showBackpack(isOpen)));
+    add(AttributesFlagComponent((isOpen) => this.showAttributesComponent(isOpen)));
     add(TextComponent(
       'player',
       position: Vector2(260, 30),
-      // size: Vector2(40,40),
       textRenderer:TextPaint( config: TextPaintConfig(color: Colors.white),)
     ));
   }

@@ -17,7 +17,13 @@ class Torch extends MySpriteAnimationComponent with Lighting {
   ){
     this.radius = width * 1.5;
     this.blurBorder =  width * 1.5;
-    this.color= Colors.deepOrangeAccent.withOpacity(0.2);
+    this.color= Colors.transparent;
+    // this.color= Colors.deepOrangeAccent.withOpacity(0.2);
+
   }
 
+  @override
+  Future<void> onLoad() async {
+    gameRef.lightingLayer.lights.add(this);
+  }
 }

@@ -63,19 +63,21 @@ class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
 
   @mustCallSuper
   Future<void> preAdd(Component c) async {
-    if (debugMode && c is PositionComponent) { c.debugMode = true;}
+    // if (debugMode && c is PositionComponent) { c.debugMode = true;}
     // first time resize
-    c.onGameResize(size);
-    final loadFuture = c.onLoad();
-    if (loadFuture != null) { await loadFuture; }
-    if (c is PositionComponent) { c.children.forEach(preAdd); }
+    // c.onGameResize(size);
+    // final loadFuture = c.onLoad();
+    // if (loadFuture != null) { await loadFuture; }
+    // if (c is PositionComponent) { c.children.forEach(preAdd); }
+    if (c.children.length>0) { c.children.forEach(preAdd); }
+    print(c);
+    print(c.children.addLater);
   }
 
   @override
   Future<void> add(Component c) async {
     super.add(c);
     // await preAdd(c);
-    _addLater.add(c);
   }
 
   @override
@@ -98,7 +100,7 @@ class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
     // components.removeWhere((c) => c.shouldRemove);
     //
     // // camera.update(t);
-    // _interval.update(t);
+    _interval.update(t);
   }
 
 
@@ -112,8 +114,11 @@ class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
 
   void _updateVisibleComponents() {
     // visibleComponents = components.where((element) => (element is Component) && element.isVisible).cast()..toList(growable: false);
+
     visibleComponents = components.where((element) => (element is Component) ).cast()..toList(growable: false);
     visibleLights = visibleComponents.whereType<Lighting>();
+    print(visibleComponents.length);
+    print(visibleLights.length);
   }
 
   // /// Components added by the [addLater] method

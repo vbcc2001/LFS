@@ -5,7 +5,6 @@ import 'package:flame/effects.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 import 'package:flame_audio/audio_pool.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f04_scene_01/game.dart';
 import '../f02_components/f03_fps.dart';
 import '../f02_components/f04_background.dart';
 import '../f02_components/f05_audio.dart';
