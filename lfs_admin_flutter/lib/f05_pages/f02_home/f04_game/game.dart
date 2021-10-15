@@ -40,7 +40,7 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
   Joystick joystick = Joystick() ;
 
   /// 需要显示的灯光元素
-  LightingLayer lightingLayer = LightingLayer(color: Colors.black.withOpacity(0.25));
+  LightingLayer lightingLayer = LightingLayer();
 
   static const List<String> _imageAssets = [
     'minotaur.png',
@@ -65,17 +65,17 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
     var background = BackgroundLayer(Colors.blueGrey[900]!);
     // add(background);
     /****************************************** 灯光层 **************************************/
-    // add(lightingLayer);
+    add(lightingLayer);
     /****************************************** ColorFilter **************************************/
     var _colorFilterLayer = ColorFilterLayer(Colors.blue,BlendMode.colorBurn);
     // add(_colorFilterLayer);
     /****************************************** 界面层 **************************************/
     add(interface);
     /****************************************** 操作杆 **************************************/
-    add(joystick);
+    // add(joystick);
     /****************************************** map **************************************/
     map = DungeonMap.map();
-    // add(map);
+    add(map);
     /****************************************** map 装饰物 **************************************/
     MapDecoration mapDecoration = DungeonMap.decorations();
     add(mapDecoration);
@@ -89,8 +89,8 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
     /****************************************** player **************************************/
     Image imagePlay = await Flame.images.load('f04_player.png');
     player = PlayerGoblin( joystick:joystick, image: imagePlay , position: DungeonMap.getRelativeTilePosition(4, 6));
-    // add(player);
-    // camera.followComponent(player);
+    add(player);
+    camera.followComponent(player);
 
   }
 }

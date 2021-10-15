@@ -69,9 +69,9 @@ class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
     // final loadFuture = c.onLoad();
     // if (loadFuture != null) { await loadFuture; }
     // if (c is PositionComponent) { c.children.forEach(preAdd); }
-    if (c.children.length>0) { c.children.forEach(preAdd); }
-    print(c);
-    print(c.children.addLater);
+    // if (c.children.length>0) { c.children.forEach(preAdd); }
+    // print(c);
+    // print(c.children.addLater);
   }
 
   @override
@@ -117,8 +117,8 @@ class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
 
     visibleComponents = components.where((element) => (element is Component) ).cast()..toList(growable: false);
     visibleLights = visibleComponents.whereType<Lighting>();
-    print(visibleComponents.length);
-    print(visibleLights.length);
+    // print(visibleComponents.length);
+    // print(visibleLights.length);
   }
 
   // /// Components added by the [addLater] method

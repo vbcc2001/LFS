@@ -2,6 +2,7 @@
 import 'dart:ui';
 
 import 'package:flame/components.dart';
+import 'package:flutter/material.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f01_layer_priority.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f01_mixin/f11_lighting.dart';
 
@@ -11,11 +12,10 @@ import '../game.dart';
 /// 灯光组件
 class LightingLayer extends Component with HasGameRef<MyGame> {
 
-  Color color;
+  Color color = Colors.black.withOpacity(0.75);
   List<Lighting> lights = [];
-  double _dtUpdate = 0.0;
 
-  LightingLayer({required this.color}) {
+  LightingLayer() {
     this.isHud = true;
   }
 
@@ -28,9 +28,8 @@ class LightingLayer extends Component with HasGameRef<MyGame> {
     canvas.saveLayer(Offset.zero & Size(size.x, size.y), Paint());
     canvas.drawColor(color, BlendMode.dstATop);
     lights.forEach((light) {
-      light.update(_dtUpdate);
+      // light.update(_dtUpdate);
       canvas.save();
-      canvas.translate(size.x / 2, size.y / 2);
       canvas.scale(gameRef.camera.zoom);
       canvas.translate( -(gameRef.camera.position.x), -(gameRef.camera.position.y));
       /// 绘制灯光效果

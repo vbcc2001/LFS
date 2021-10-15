@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/input.dart';
+import 'package:flutter/material.dart' show Colors;
 import 'package:flutter/services.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f01_layer_priority.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f01_mixin/f02_component.dart';
@@ -13,9 +14,10 @@ import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f02_comp
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f10_direction_animation.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/collision/object_collision.dart';
 import '../f00_utils/f02_component/f06_enemy.dart';
+import '../game.dart';
 
 //AutomaticRandomMovement
-class PlayerGoblin extends PlayerComponent  with MyComponentMixin,Lighting,KeyboardHandler {
+class PlayerGoblin extends PlayerComponent  with HasGameRef<MyGame>, MyComponentMixin,Lighting,KeyboardHandler {
 
   static final spriteSize = Vector2(64, 64);
   static final animationMap = {
@@ -71,6 +73,15 @@ class PlayerGoblin extends PlayerComponent  with MyComponentMixin,Lighting,Keybo
   final Vector2 velocity = Vector2(0, 0);
 
   PlayerGoblin({required Joystick joystick,required Image image,required Vector2 position}) : super(joystick:joystick,image:image,position:position,size:spriteSize, spriteAnimationMap:animationMap);
+
+  @override
+  Future<void> onLoad() async {
+    super.onLoad();
+    this.radius=width * 1.5;
+    this.blurBorder= width * 1.5;
+    this.color=Colors.transparent;
+    gameRef.lightingLayer.lights.add(this);
+  }
 
   @override
   void update(double dt) {
