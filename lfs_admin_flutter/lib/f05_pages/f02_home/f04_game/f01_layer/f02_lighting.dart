@@ -5,6 +5,7 @@ import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f01_layer_priority.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f01_mixin/f11_lighting.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f03_interval_tick.dart';
 
 import '../game.dart';
 
@@ -14,13 +15,20 @@ class LightingLayer extends Component with HasGameRef<MyGame> {
 
   Color color = Colors.black.withOpacity(0.75);
   List<Lighting> lights = [];
-
+  Iterable<Lighting> visibleLights = [];
   LightingLayer() {
     this.isHud = true;
   }
 
   @override
   int get priority => LayerPriority.LightingPriority;
+
+  @mustCallSuper
+  void update(double dt) {
+    super.update(dt);
+    //定时更新可见的Light组件
+    IntervalTick( 200,  tick: ()=> visibleLights = lights.where((element) => element.isVisible).cast()..toList(growable: false) )..update(dt);
+  }
 
   @override
   void render(Canvas canvas) {

@@ -20,7 +20,9 @@ class BackgroundLayer extends Component with HasGameRef<MyGame>  {
     ..style = PaintingStyle.stroke //线
     ..color = Color(0xffe1e9f0)
     ..strokeWidth = 0.5;
-  BackgroundLayer():super(priority:LayerPriority.BACKGROUND);
+  BackgroundLayer():super(priority:LayerPriority.BACKGROUND){
+    // this.isHud = true;
+  }
 
   @override
   Future<void> onLoad() async {
@@ -34,14 +36,14 @@ class BackgroundLayer extends Component with HasGameRef<MyGame>  {
     super.render(canvas);
     canvas.save();
     canvas.drawColor(color, BlendMode.src);
-    for (int i = 0; i <= column; ++i) {
-      double dy = gridSize * i;
-      canvas.drawLine(Offset(0, dy), Offset(size.width, dy), paint);
-    }
-    for (int i = 0; i <= row; ++i) {
-      double dx = gridSize * i;
-      canvas.drawLine(Offset(dx, 0), Offset(dx, size.height), paint);
-    }
+    // for (int i = 0; i <= column; ++i) {
+    //   double dy = gridSize * i;
+    //   canvas.drawLine(Offset(0, dy), Offset(size.width, dy), paint);
+    // }
+    // for (int i = 0; i <= row; ++i) {
+    //   double dx = gridSize * i;
+    //   canvas.drawLine(Offset(dx, 0), Offset(dx, size.height), paint);
+    // }
     canvas.restore();
   }
 }

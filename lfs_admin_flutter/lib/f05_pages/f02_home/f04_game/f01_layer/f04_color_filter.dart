@@ -20,7 +20,13 @@ class ColorFilterLayer extends Component with HasGameRef<MyGame> {
     canvas.save();
     canvas.drawColor(color, blendMode,);
     canvas.restore();
+    if(gameRef.debugMode){
+
+    }
   }
+
+  Paint get debugPaint => Paint()..color = debugColor..strokeWidth = 1..style = PaintingStyle.stroke;
+  TextPaint get debugTextPaint => TextPaint(config: TextPaintConfig(color: debugColor, fontSize: 12,),);
 
   @override
   int get priority => LayerPriority.ColorFilterPriority;

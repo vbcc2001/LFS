@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f02_component/f13_tile_component.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f02_component/f14_map_component.dart';
 import '../f00_utils/f02_component/f16_sprite_component.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/tile/tile_model.dart';
 import '../f00_utils/f02_component/f06_enemy.dart';
@@ -116,6 +118,65 @@ class DungeonMap {
     });
 
     return MapWord(tileList);
+  }
+  static MapComponent map2() {
+    List<SpriteTile> tiles = [];
+    List.generate(35, (indexRow) {
+      List.generate(70, (indexColumm) {
+        if (indexRow == 3 && indexColumm > 2 && indexColumm < 30) {
+          tiles.add(SpriteTile(
+            spritePath: wallBottom,
+            position: Vector2(indexColumm.toDouble()*32,indexRow.toDouble()*32),
+          ));
+          return;
+        }
+        if (indexRow == 4 && indexColumm > 2 && indexColumm < 30) {
+          tiles.add(SpriteTile(
+            spritePath: wall,
+            position: Vector2(indexColumm.toDouble()*32,indexRow.toDouble()*32),
+          ));
+          return;
+        }
+
+        if (indexRow == 9 && indexColumm > 2 && indexColumm < 30) {
+          tiles.add(SpriteTile(
+            spritePath: wallTop,
+            position: Vector2(indexColumm.toDouble()*32,indexRow.toDouble()*32),
+          ));
+          return;
+        }
+
+        if (indexRow > 4 && indexRow < 9 && indexColumm > 2 && indexColumm < 30) {
+          tiles.add(SpriteTile(
+            spritePath: randomFloor(),
+            position: Vector2(indexColumm.toDouble()*32,indexRow.toDouble()*32),
+          ));
+          return;
+        }
+
+        if (indexRow > 3 && indexRow < 9 && indexColumm == 2) {
+          tiles.add(SpriteTile(
+            spritePath: wallLeft,
+            position: Vector2(indexColumm.toDouble()*32,indexRow.toDouble()*32),
+          ));
+        }
+        if (indexRow == 9 && indexColumm == 2) {
+          tiles.add(SpriteTile(
+            spritePath: wallBottomLeft,
+            position: Vector2(indexColumm.toDouble()*32,indexRow.toDouble()*32),
+          ));
+        }
+
+        if (indexRow > 3 && indexRow < 9 && indexColumm == 30) {
+          tiles.add(SpriteTile(
+            spritePath: wallRight,
+            position: Vector2(indexColumm.toDouble()*32,indexRow.toDouble()*32),
+          ));
+        }
+      });
+    });
+
+    return MapComponent(tiles);
   }
 
   static MapDecoration decorations() {

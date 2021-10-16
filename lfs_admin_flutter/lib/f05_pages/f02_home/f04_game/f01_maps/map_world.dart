@@ -12,10 +12,11 @@ import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f15_quad
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/tile/tile.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/tile/tile_model.dart';
 
+import '../game.dart';
 import 'collision/object_collision.dart';
 import 'map_assets_manager.dart';
 
-class MapWord extends MapComponent  {
+class MapWord extends PositionComponent   with HasGameRef<MyGame> {
 
 
   List<TileModel> tiles;
@@ -52,7 +53,7 @@ class MapWord extends MapComponent  {
   /// *************************************************** ----- *************************************************/
   /// *************************************************** 实例化 *************************************************/
   /// *************************************************** ----- *************************************************/
-  MapWord(this.tiles);
+  MapWord(this.tiles):super();
 
   @override
   Future<void> onLoad() async {

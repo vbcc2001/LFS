@@ -7,8 +7,9 @@ class LayerPriority {
   static const  int  AbovePriority = 10005;
   static const  int  LightingPriority = 10010;
   static const  int  ColorFilterPriority = 10020;
-  static const  int  InterfacePriority = 10030;
-  static const  int  JoystickPriority = 10040;
+  static const  int  SelectorPriority = 10030;
+  static const  int  InterfacePriority = 10040;
+  static const  int  JoystickPriority = 10050;
 
   static int getComponentPriority(int bottom) {
     return COMPONENTS + bottom;
