@@ -5,8 +5,8 @@ import 'package:flame/palette.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f01_layer_priority.dart';
 
 class SelectorComponent extends PositionComponent {
-  @override
-  bool get isHud => true;
+  // @override
+  // bool get isHud => true;
   @override
   int get priority => LayerPriority.SelectorPriority;
   bool show = false;

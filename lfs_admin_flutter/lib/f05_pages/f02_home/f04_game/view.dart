@@ -2,6 +2,7 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rive/rive.dart';
 import 'game.dart';
 import 'logic.dart';
 import 'state.dart';
@@ -18,6 +19,11 @@ class GamePage extends StatelessWidget {
       //   game: MyGame(),
       mouseCursor:SystemMouseCursors.help
     );
+  //   return Center(
+  //     child: RiveAnimation.network(
+  //       'https://cdn.rive.app/animations/vehicles.riv',
+  //     ),
+  //   );
   }
 }
 

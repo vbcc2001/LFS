@@ -21,7 +21,7 @@ packages:
       name: async
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.8.1"
+    version: "2.8.2"
   audioplayers:
     dependency: transitive
     description:
@@ -42,7 +42,7 @@ packages:
       name: characters
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.1.0"
+    version: "1.2.0"
   charcode:
     dependency: transitive
     description:
@@ -238,7 +238,7 @@ packages:
       name: flame
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.0-releasecandidate.14"
+    version: "1.0.0-releasecandidate.15"
   flame_audio:
     dependency: "direct main"
     description:
@@ -305,6 +305,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.0"
+  graphs:
+    dependency: transitive
+    description:
+      name: graphs
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.1.0"
   http:
     dependency: transitive
     description:
@@ -339,7 +346,7 @@ packages:
       name: matcher
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.12.10"
+    version: "0.12.11"
   meta:
     dependency: transitive
     description:
@@ -360,7 +367,7 @@ packages:
       name: ordered_set
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "3.2.0"
+    version: "4.0.0"
   path:
     dependency: transitive
     description:
@@ -459,6 +466,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "5.0.0"
+  rive:
+    dependency: "direct main"
+    description:
+      name: rive
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.7.32"
   sized_context:
     dependency: "direct main"
     description:
@@ -528,7 +542,7 @@ packages:
       name: test_api
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.4.2"
+    version: "0.4.3"
   tiled:
     dependency: transitive
     description:
@@ -607,7 +621,7 @@ packages:
       name: vector_math
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   win32:
     dependency: transitive
     description:
@@ -630,5 +644,5 @@ packages:
     source: hosted
     version: "5.2.0"
 sdks:
-  dart: ">=2.13.0 <3.0.0"
-  flutter: ">=2.0.0"
+  dart: ">=2.14.0 <3.0.0"
+  flutter: ">=2.5.0"

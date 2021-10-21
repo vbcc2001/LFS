@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
@@ -6,8 +7,12 @@ import 'package:flame/game.dart';
 import 'package:flame/geometry.dart';
 import 'package:flame/input.dart';
 import 'package:flame/palette.dart';
+import 'package:flame/particles.dart';
 import 'package:flutter/material.dart' hide Image;
+import 'package:flutter/services.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f03_game.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/f02_map_02.dart';
+import 'package:rive/rive.dart';
 import 'f00_utils/f01_layer_priority.dart';
 import 'f00_utils/f01_mixin/f11_lighting.dart';
 import 'f00_utils/f02_component/f01_joystick.dart';
@@ -17,6 +22,7 @@ import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_layer/f04_colo
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/f01_dungeon_map.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f07_enemy_goblin.dart';
 import 'f00_utils/f02_component/f06_player.dart';
+import 'f00_utils/f02_rive_canvas.dart';
 import 'f01_layer/f03_interface.dart';
 import 'f01_layer/f01_background.dart';
 
@@ -49,6 +55,11 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
   ];
    ///选择器
   SelectorComponent selectorComponent = SelectorComponent();
+
+  int gridX = 0;
+  int gridY = 0;
+
+
   MyGame({ required this.context,});
 
   @override
@@ -56,10 +67,14 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
 
   @override
   Future<void> onLoad() async {
+    super.onLoad();
+    gridX = (this.size.x / 64).ceil() ;
+    gridY = (this.size.y / 64).ceil() ;
     print("----------------------");
     print(this.size);
+    print(this.gridX);
+    print(this.gridY);
     print("+++++++++++++++++++++");
-    super.onLoad();
     /****************************************** 初始化图片资源 **************************************/
     await images.loadAll(_imageAssets);
     /****************************************** Camera 设置 **************************************/
@@ -67,7 +82,7 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
     // camera.zoom =2;
     /****************************************** background **************************************/
     var background = BackgroundLayer();
-    // add(background);
+    add(background);
     /****************************************** 灯光层 **************************************/
     add(lightingLayer);
     /****************************************** ColorFilter **************************************/
@@ -84,6 +99,8 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
     // add(map);
     var map2 =  DungeonMap.map2();
     // add(map2);
+    var map02 = Map02();
+    add(map02);
     /****************************************** map 装饰物 **************************************/
     MapDecoration mapDecoration = DungeonMap.decorations();
     add(mapDecoration);
@@ -96,26 +113,49 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
     enemies.forEach((enemy) => add(enemy) );
     /****************************************** player **************************************/
     Image imagePlay = await Flame.images.load('f04_player.png');
-    player = PlayerGoblin( joystick:joystick, image: imagePlay , position: DungeonMap.getRelativeTilePosition(4, 6));
-    // add(player);
-    // camera.followComponent(player);
+    // player = PlayerGoblin( joystick:joystick, image: imagePlay , position: DungeonMap.getRelativeTilePosition(4, 6));
+    player = PlayerGoblin( joystick:joystick, image: imagePlay , position:this.size/2);
+    add(player);
+    camera.followComponent(player);
 
 
+    // RiveFile riveFile = await RiveFile.network('https://cdn.rive.app/animations/vehicles.riv');
+    // RiveFile riveFile = await RiveFile.asset('images/790-1542-connections.riv');
+    RiveFile riveFile = await RiveFile.asset('images/grass4.riv');
+    print(riveFile.artboards.length);
+    print("riveFile.artboards.length");
+    artboard = riveFile.artboards.first;
+    artboard.advance(0);
+    // _riveCanvas = RiveCanvas(artboard: artboard, animationController: SimpleAnimation('idle')..isActive = true, context: context);
+    SimpleAnimation animationController =  SimpleAnimation('wind');
+    _riveCanvas = RiveCanvas(artboard: artboard, animationController:animationController, context: context);
+    animationController.isActive = true;
+  }
+  late Artboard artboard;
+  late RiveCanvas _riveCanvas;
+
+  @override
+  void render(Canvas canvas) {
+    super.render(canvas);
+    _riveCanvas.draw(canvas, Size(400,400));
+  }
+
+  @override
+  void update(double dt) {
+    super.update(dt);
+    artboard.advance(dt);
   }
 
   @override
   void onMouseMove(PointerHoverInfo info) {
     super.onMouseMove(info);
     final screenPosition = info.eventPosition.game;
-    // final block = base.getBlock(screenPosition);
     selectorComponent.show = true;
     double offsetX = screenPosition.x % 32;
     double offsetY = screenPosition.y % 32;
+    //偏移x,y
     Vector2 v = Vector2(-offsetX,-offsetY)..add(screenPosition);
     selectorComponent.position.setFrom(v);
-    // print("=================");
-    print(screenPosition);
-    // print(selector.position);
   }
 }
 
