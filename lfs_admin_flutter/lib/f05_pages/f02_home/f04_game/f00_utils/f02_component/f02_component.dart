@@ -25,7 +25,7 @@ class MyComponent extends PositionComponent with HasGameRef<MyGame> {
 
 
   // MyComponent({required Map<T, SpriteAnimation> animations}) : super(animations:animations);
-  MyComponent({ Vector2? position, Vector2? size}) : super(position:position,size: size);
+  MyComponent({ Vector2? position, Vector2? size, int? priority}) : super(position:position,size: size,priority:LayerPriority.COMPONENTS,);
 
   Vector2 get center {
     Rect rect = Rect.fromLTWH(position.x,position.y,size.x,size.y);

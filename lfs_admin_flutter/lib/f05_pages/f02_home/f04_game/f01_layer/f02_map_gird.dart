@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import '../f00_utils/f01_layer_priority.dart';
 import '../game.dart';
 
-class BackgroundLayer extends Component with HasGameRef<MyGame>  {
+class MapGirdLayer extends Component with HasGameRef<MyGame>  {
 
   Color color = Color(0xFF263238) ;
   Size size = Size(0,0);
@@ -20,9 +20,8 @@ class BackgroundLayer extends Component with HasGameRef<MyGame>  {
     ..style = PaintingStyle.stroke //线
     ..color = Color(0xffe1e9f0)
     ..strokeWidth = 0.5;
-  BackgroundLayer():super(priority:LayerPriority.BACKGROUND){
-    // this.isHud = true;
-  }
+
+  MapGirdLayer():super(priority:LayerPriority.MAPGIRD);
 
   @override
   Future<void> onLoad() async {
@@ -31,19 +30,22 @@ class BackgroundLayer extends Component with HasGameRef<MyGame>  {
     column = ( gameRef.size.y / gridSize ).ceil() + 1;
   }
 
+
   @override
   void render(Canvas canvas) {
     super.render(canvas);
+
     canvas.save();
-    canvas.drawColor(color, BlendMode.src);
-    // for (int i = 0; i <= column; ++i) {
-    //   double dy = gridSize * i;
-    //   canvas.drawLine(Offset(0, dy), Offset(size.width, dy), paint);
-    // }
-    // for (int i = 0; i <= row; ++i) {
-    //   double dx = gridSize * i;
-    //   canvas.drawLine(Offset(dx, 0), Offset(dx, size.height), paint);
-    // }
+    for (int i = 0; i < column-1; i++) {
+      double dx = gameRef.camera.position.x;
+      double dy = gridSize * ( i + (gameRef.camera.position.y/gridSize).ceil());
+      canvas.drawLine(Offset(dx, dy), Offset(size.width+dx, dy), paint);
+    }
+    for (int i = 0; i < row-1; i++) {
+      double dx = gridSize * (i + (gameRef.camera.position.x/gridSize).ceil());
+      double dy = gameRef.camera.position.y;
+      canvas.drawLine(Offset(dx, dy), Offset(dx, size.height+dy), paint);
+    }
     canvas.restore();
   }
 }

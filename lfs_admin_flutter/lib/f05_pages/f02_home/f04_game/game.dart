@@ -10,14 +10,16 @@ import 'package:flame/palette.dart';
 import 'package:flame/particles.dart';
 import 'package:flutter/material.dart' hide Image;
 import 'package:flutter/services.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f02_component/f03_rive_component.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f03_game.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_layer/f02_map_gird.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/f02_map_02.dart';
 import 'package:rive/rive.dart';
 import 'f00_utils/f01_layer_priority.dart';
 import 'f00_utils/f01_mixin/f11_lighting.dart';
 import 'f00_utils/f02_component/f01_joystick.dart';
 import 'f00_utils/f02_component/f14_map_component.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_layer/f02_lighting.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_layer/f05_lighting.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_layer/f04_color_filter.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/f01_dungeon_map.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f07_enemy_goblin.dart';
@@ -26,6 +28,7 @@ import 'f00_utils/f02_rive_canvas.dart';
 import 'f01_layer/f03_interface.dart';
 import 'f01_layer/f01_background.dart';
 
+import 'f01_layer/f06_map_background.dart';
 import 'f01_maps/map_world.dart';
 import 'f02_components/f06_player_goblin.dart';
 import 'f02_components/f15_selector_component.dart';
@@ -83,6 +86,12 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
     /****************************************** background **************************************/
     var background = BackgroundLayer();
     add(background);
+    /****************************************** Map Background **************************************/
+    var mapBackgroundLayer = MapBackgroundLayer();
+    add(mapBackgroundLayer);
+    /****************************************** 地图网格 **************************************/
+    var mapGird = MapGirdLayer();
+    add(mapGird);
     /****************************************** 灯光层 **************************************/
     add(lightingLayer);
     /****************************************** ColorFilter **************************************/
@@ -94,23 +103,41 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
     add(selectorComponent);
     /****************************************** 操作杆 **************************************/
     add(joystick);
-    /****************************************** map **************************************/
+    /**************** ************************** map **************************************/
     map = DungeonMap.map();
     // add(map);
     var map2 =  DungeonMap.map2();
     // add(map2);
     var map02 = Map02();
-    add(map02);
+    // add(map02);
     /****************************************** map 装饰物 **************************************/
     MapDecoration mapDecoration = DungeonMap.decorations();
-    add(mapDecoration);
+    // add(mapDecoration);
     /****************************************** enemies **************************************/
     Image image = await Flame.images.load('minotaur.png');
     List<Goblin>  enemies = [
       Goblin(image: image, position: DungeonMap.getRelativeTilePosition(14, 6)),
       Goblin(image: image, position: DungeonMap.getRelativeTilePosition(20, 6)),
     ];
-    enemies.forEach((enemy) => add(enemy) );
+    // enemies.forEach((enemy) => add(enemy) );
+
+
+
+
+
+
+
+    RiveFile riveFile1 = await RiveFile.asset('images/grassland.riv');
+    RiveComponent a = RiveComponent(riveFile1, context, size:Vector2(300,300),position: Vector2(300,300));
+    add(a);
+    RiveFile riveFile = await RiveFile.asset('images/grass4.riv');
+    RiveComponent b = RiveComponent(riveFile, context, size:Vector2(300,300),position: Vector2(100,100));
+    add(b);
+    RiveFile riveFile2 = await RiveFile.asset('images/n.riv');
+    RiveComponent c = RiveComponent(riveFile2, context, size:Vector2(200,200),position: Vector2(100,600));
+    add(c);
+
+
     /****************************************** player **************************************/
     Image imagePlay = await Flame.images.load('f04_player.png');
     // player = PlayerGoblin( joystick:joystick, image: imagePlay , position: DungeonMap.getRelativeTilePosition(4, 6));
@@ -118,32 +145,25 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
     add(player);
     camera.followComponent(player);
 
+    RiveFile riveFile3 = await RiveFile.asset('images/790-1542-connections.riv');
+    RiveComponent d = RiveComponent(riveFile3, context, size:Vector2(200,200),position: Vector2(100,400));
+    add(d);
 
-    // RiveFile riveFile = await RiveFile.network('https://cdn.rive.app/animations/vehicles.riv');
-    // RiveFile riveFile = await RiveFile.asset('images/790-1542-connections.riv');
-    RiveFile riveFile = await RiveFile.asset('images/grass4.riv');
-    print(riveFile.artboards.length);
-    print("riveFile.artboards.length");
-    artboard = riveFile.artboards.first;
-    artboard.advance(0);
-    // _riveCanvas = RiveCanvas(artboard: artboard, animationController: SimpleAnimation('idle')..isActive = true, context: context);
-    SimpleAnimation animationController =  SimpleAnimation('wind');
-    _riveCanvas = RiveCanvas(artboard: artboard, animationController:animationController, context: context);
-    animationController.isActive = true;
+
   }
-  late Artboard artboard;
-  late RiveCanvas _riveCanvas;
+  // late Artboard artboard;
+  // late RiveCanvas _riveCanvas;
 
   @override
   void render(Canvas canvas) {
     super.render(canvas);
-    _riveCanvas.draw(canvas, Size(400,400));
+    // _riveCanvas.draw(canvas, Size(400,400));
   }
 
   @override
   void update(double dt) {
     super.update(dt);
-    artboard.advance(dt);
+    // artboard.advance(dt);
   }
 
   @override
