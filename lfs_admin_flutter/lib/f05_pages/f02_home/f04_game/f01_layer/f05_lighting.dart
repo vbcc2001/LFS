@@ -16,10 +16,8 @@ class LightingLayer extends Component with HasGameRef<MyGame> {
   Color color = Colors.black.withOpacity(0.75);
   List<Lighting> lights = [];
   Iterable<Lighting> visibleLights = [];
-  LightingLayer() {
-    this.isHud = true;
-  }
-
+  @override
+  bool get isHud => true;
   @override
   int get priority => LayerPriority.LightingPriority;
 

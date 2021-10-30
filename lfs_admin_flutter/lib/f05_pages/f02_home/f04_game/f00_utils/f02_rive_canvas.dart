@@ -31,7 +31,10 @@ class RiveCanvas {
       this.offset = Offset.zero}) {
 
     _renderObject = Rive(artboard: artboard, alignment: alignment, fit: fit).createRenderObject(context);
-    artboard.addController(animationController!);
+    if(animationController!=null){
+      artboard.addController(animationController!);
+    }
+
     _renderObject.attach(PipelineOwner());
   }
 

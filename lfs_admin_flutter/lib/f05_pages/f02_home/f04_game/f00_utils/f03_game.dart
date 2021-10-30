@@ -15,8 +15,8 @@ import 'f01_mixin/f11_lighting.dart';
 /// Reorder components per time frame.
 class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
 
-  @override
-  bool debugMode = true;
+  // @override
+  // bool debugMode = true;
   /// Used to show in the interface the FPS.
   final bool showFPS = true;
   /// Components added by the [addLater] method

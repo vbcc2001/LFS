@@ -1,38 +1,45 @@
 import 'dart:ui';
 
 import 'package:flame/components.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flame/flame.dart';
+import 'package:flutter/material.dart' hide Image;
+import 'package:flutter/widgets.dart' hide Image;
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f01_layer_priority.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f02_component/f02_component.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f02_component/f03_rive_component.dart';
 import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f02_rive_canvas.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f01_maps/f01_dungeon_map.dart';
+import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f07_enemy_goblin.dart';
 import 'package:rive/rive.dart';
-import '../f00_utils/f02_component/f02_component.dart';
 import '../game.dart';
 
 
-class MapBackgroundLayer extends Component with HasGameRef<MyGame>  {
+class MapBackgroundLayer extends MyComponent  {
 
-  Size gameSize = Size(0,0);
   @override
   int get priority => LayerPriority.MAPBACKGROUND;
-
-  late RiveCanvas riveCanvas;
-
+  late RiveComponent riveComponent;
+  late RiveComponent riveComponent2;
   @override
   Future<void> onLoad() async {
-    gameSize = Size(gameRef.size.x,gameRef.size.y);
-    RiveFile riveFile = await RiveFile.asset('images/star-sky.riv');
-    Artboard artboard = riveFile.mainArtboard;
-    artboard.advance(0);
-    SimpleAnimation animationController =  SimpleAnimation('tower-round');
-    riveCanvas = RiveCanvas(artboard: artboard, animationController:animationController, context: gameRef.context);
-    animationController.isActive = true;
+    super.onLoad();
+    RiveFile riveFile = await RiveFile.asset('riv/sky.riv');
+    SimpleAnimation animationController =  SimpleAnimation('wind');
+    position = gameRef.camera.position;
+    riveComponent = RiveComponent(riveFile, gameRef.context,artboardName:"02", animationController: animationController,size:Vector2(gameRef.size.x,gameRef.size.y),position: position);
+    riveComponent.riveCanvas.fit = BoxFit.fill;
+    add(riveComponent);
+    RiveFile riveFile4 = await RiveFile.asset('riv/sun.riv');
+    RiveComponent f = RiveComponent(riveFile4, gameRef.context,artboardName:"01", size:Vector2(100,100),position: position);
+    f.riveCanvas.offset = Offset(300,300);
+    add(f);
   }
 
-  @override
-  void render(Canvas canvas) {
-    super.render(canvas);
-    riveCanvas.draw(canvas,gameSize);
+
+  @mustCallSuper
+  void update(double dt) {
+    super.update(dt);
+    position = gameRef.camera.position;
   }
+
 }

@@ -6,9 +6,9 @@ import '../game.dart';
 class BackgroundLayer extends Component with HasGameRef<MyGame>  {
 
   final Color color = Color(0xFF263238) ;
-
-  BackgroundLayer():super(priority:LayerPriority.BACKGROUND);
-
+  @override
+  int get priority => LayerPriority.BACKGROUND;
+  
   @override
   void render(Canvas canvas) {
     super.render(canvas);

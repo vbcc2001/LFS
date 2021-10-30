@@ -35,15 +35,14 @@ class RiveComponent extends MyComponent {
   /// *************************************************** 实例化 *************************************************/
   /// *************************************************** ----- *************************************************/
   RiveComponent(this.riveFile, this.context,{this.artboardName, this.animationController,Vector2? position, Vector2? size, int? priority,}) :
-    canvasSize = size ?? Vector2.zero(),
-    artboard = riveFile.mainArtboard,
+    // canvasSize = size ?? Vector2.zero(),
+    // artboard = riveFile.mainArtboard,
     super(position:position,size:size, priority:priority) {
     _init();
     _loaded = true;//加载完成
   }
 
-  RiveComponent.fromPath(String filePath,this.context, {this.artboardName, this.animationController,Vector2? position,  Vector2?  size,int? priority,}) :
-    canvasSize = size ?? Vector2.zero(),
+  RiveComponent.fromPath(String filePath,this.context, {this.artboardName, this.animationController,Vector2? position,  Vector2? size,int? priority,}) :
     super(position:position,size: size, priority:priority){
     RiveFile.asset(filePath).then((data) {
       riveFile = data;
@@ -53,22 +52,19 @@ class RiveComponent extends MyComponent {
   }
 
   void _init() {
-    print(" *********************************************** RiveFile Info ******************************************************");
-    print(riveFile.artboards.length);
-    print(riveFile.artboards);
-    print(artboard);
-    print(" *********************************************** RiveFile Info ******************************************************");
-    // artboard =  riveFile.artboardByName(artboardName!)!;
+    // print(" *********************************************** RiveFile Info ******************************************************");
+    // print(riveFile.artboards.length);
+    // print(riveFile.artboards);
+    // print(artboard);
+    // print(" *********************************************** RiveFile Info ******************************************************");
+    canvasSize = size ;  //Vector2.zero();
+    if(artboardName!=null){
+      artboard =  riveFile.artboardByName(artboardName!)!;
+    }else{
+      artboard = riveFile.mainArtboard;
+    }
     artboard.advance(0);
     // renderObject = Rive(artboard: artboard, alignment: alignment, fit: fit).createRenderObject(context);
-    // if(animationController!= null){
-    //   riveCanvas = RiveCanvas(artboard: artboard, animationController: animationController , context: context);
-    // }else{
-    //   riveCanvas = RiveCanvas(artboard: artboard, context: context);
-    // }
-
-
-    SimpleAnimation animationController =  SimpleAnimation('wind');
     riveCanvas = RiveCanvas(artboard: artboard, animationController:animationController, context: context);
   }
 

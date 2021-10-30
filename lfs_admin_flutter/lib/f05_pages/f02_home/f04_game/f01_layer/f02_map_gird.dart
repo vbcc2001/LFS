@@ -18,10 +18,10 @@ class MapGirdLayer extends Component with HasGameRef<MyGame>  {
   final paint = Paint()
     ..isAntiAlias = true
     ..style = PaintingStyle.stroke //线
-    ..color = Color(0xffe1e9f0)
+    ..color = Color(0x22e1e9f0)
     ..strokeWidth = 0.5;
-
-  MapGirdLayer():super(priority:LayerPriority.MAPGIRD);
+  @override
+  int get priority => LayerPriority.MAPGIRD;
 
   @override
   Future<void> onLoad() async {

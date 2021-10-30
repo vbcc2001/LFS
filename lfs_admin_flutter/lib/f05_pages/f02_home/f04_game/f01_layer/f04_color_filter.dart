@@ -11,6 +11,8 @@ class ColorFilterLayer extends Component with HasGameRef<MyGame> {
 
   final Color color;
   final BlendMode blendMode;
+  @override
+  int get priority => LayerPriority.ColorFilterPriority;
 
   ColorFilterLayer(this.color,this.blendMode);
 
@@ -28,6 +30,5 @@ class ColorFilterLayer extends Component with HasGameRef<MyGame> {
   Paint get debugPaint => Paint()..color = debugColor..strokeWidth = 1..style = PaintingStyle.stroke;
   TextPaint get debugTextPaint => TextPaint(config: TextPaintConfig(color: debugColor, fontSize: 12,),);
 
-  @override
-  int get priority => LayerPriority.ColorFilterPriority;
+
 }
