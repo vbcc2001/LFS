@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.lfs_admin_flutter">
    <application
+        android:usesCleartextTraffic="true"
         android:label="lfs_admin_flutter"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -23,13 +23,13 @@ class MapBackgroundLayer extends MyComponent  {
   @override
   Future<void> onLoad() async {
     super.onLoad();
-    RiveFile riveFile = await RiveFile.asset('riv/sky.riv');
+    RiveFile riveFile = await RiveFile.asset('assets/riv/sky.riv');
     SimpleAnimation animationController =  SimpleAnimation('wind');
     position = gameRef.camera.position;
     riveComponent = RiveComponent(riveFile, gameRef.context,artboardName:"02", animationController: animationController,size:Vector2(gameRef.size.x,gameRef.size.y),position: position);
     riveComponent.riveCanvas.fit = BoxFit.fill;
     add(riveComponent);
-    RiveFile riveFile4 = await RiveFile.asset('riv/sun.riv');
+    RiveFile riveFile4 = await RiveFile.asset('assets/riv/sun.riv');
     RiveComponent f = RiveComponent(riveFile4, gameRef.context,artboardName:"01", size:Vector2(100,100),position: position);
     f.riveCanvas.offset = Offset(300,300);
     add(f);

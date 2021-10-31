@@ -91,7 +91,7 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
     add(mapBackgroundLayer);
     /****************************************** 地图网格 **************************************/
     var mapGird = MapGirdLayer();
-    // add(mapGird);
+    add(mapGird);
     /****************************************** 灯光层 **************************************/
     // add(lightingLayer);
     /****************************************** ColorFilter **************************************/
@@ -114,11 +114,11 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
     MapDecoration mapDecoration = DungeonMap.decorations();
     // add(mapDecoration);
     /****************************************** enemies **************************************/
-    Image image = await Flame.images.load('minotaur.png');
-    List<Goblin>  enemies = [
-      Goblin(image: image, position: DungeonMap.getRelativeTilePosition(14, 6)),
-      Goblin(image: image, position: DungeonMap.getRelativeTilePosition(20, 6)),
-    ];
+    // Image image = await Flame.images.load('minotaur.png');
+    // List<Goblin>  enemies = [
+    //   Goblin(image: image, position: DungeonMap.getRelativeTilePosition(14, 6)),
+    //   Goblin(image: image, position: DungeonMap.getRelativeTilePosition(20, 6)),
+    // ];
     // enemies.forEach((enemy) => add(enemy) );
 
 
@@ -127,15 +127,15 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
 
 
 
-    RiveFile riveFile1 = await RiveFile.asset('images/grass4.riv');
+    RiveFile riveFile1 = await RiveFile.asset('assets/images/grass4.riv');
     SimpleAnimation animationController =  SimpleAnimation('wind');
     RiveComponent a = RiveComponent(riveFile1, context, animationController: animationController,size:Vector2(200,300),position: Vector2(300,300));
-    // add(a);
-    RiveFile riveFile = await RiveFile.asset('images/grassland.riv');
-    RiveComponent b = RiveComponent(riveFile, context, size:Vector2(300,300),position: Vector2(100,100));
+    add(a);
+    // RiveFile riveFile = await RiveFile.asset('images/grassland.riv');
+    // RiveComponent b = RiveComponent(riveFile, context, size:Vector2(300,300),position: Vector2(100,100));
     // add(b);
-    RiveFile riveFile2 = await RiveFile.asset('images/n.riv');
-    RiveComponent c = RiveComponent(riveFile2, context, size:Vector2(200,200),position: Vector2(100,600));
+    // RiveFile riveFile2 = await RiveFile.asset('images/n.riv');
+    // RiveComponent c = RiveComponent(riveFile2, context, size:Vector2(200,200),position: Vector2(100,600));
     // add(c);
 
 
@@ -146,7 +146,7 @@ class MyGame extends CustomBaseGame with HasCollidables,HasKeyboardHandlerCompon
     add(player);
     camera.followComponent(player);
 
-    RiveFile riveFile3 = await RiveFile.asset('riv/tree.riv');
+    RiveFile riveFile3 = await RiveFile.asset('assets/riv/tree.riv');
     RiveComponent d = RiveComponent(riveFile3, context,artboardName:"02", size:Vector2(200,200),position: Vector2(100,400));
     add(d);
     SimpleAnimation animationController1 =  SimpleAnimation('wind');

@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flame/flame.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:lfs_admin_flutter/f01_config/f03_core_package.dart';
@@ -12,11 +13,14 @@ import 'f06_middleware/f04_theme_controller.dart';
 import 'logic.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Flame.device.fullScreen();
+  await Flame.device.setLandscapeLeftOnly();
   await Firebase.initializeApp();
   await GetStorage.init();
   Get.put<AppLogic>(AppLogic());
   Get.put<ThemeController>(ThemeController());
   Get.put<LanguageController>(LanguageController());
+
   runApp(MyApp());
 }
 
