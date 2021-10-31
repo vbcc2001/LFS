@@ -17,14 +17,14 @@ class MapBackgroundLayer extends PositionComponent with HasGameRef<MyGame> {
   @override
   Future<void> onLoad() async {
     super.onLoad();
-    RiveFile riveFile = await RiveFile.asset('rives/sky.riv');
+    RiveFile riveFile = await RiveFile.asset('assets/rives/sky.riv');
     SimpleAnimation animationController =  SimpleAnimation('wind');
     position = gameRef.camera.position;
     riveComponent = RiveComponent(riveFile, gameRef.context,artboardName:"02", animationController: animationController,size:Vector2(gameRef.size.x+20,gameRef.size.y+20),position: position);
     riveComponent.riveCanvas.offset = const Offset(-10,-10);
     riveComponent.riveCanvas.fit = BoxFit.fill;
     add(riveComponent);
-    RiveFile riveFile4 = await RiveFile.asset('rives/sun.riv');
+    RiveFile riveFile4 = await RiveFile.asset('assets/rives/sun.riv');
     RiveComponent f = RiveComponent(riveFile4, gameRef.context,artboardName:"01", size:Vector2(100,100),position: position);
     f.riveCanvas.offset = const Offset(300,300);
     add(f);

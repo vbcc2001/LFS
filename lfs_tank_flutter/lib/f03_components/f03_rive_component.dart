@@ -1,5 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
+import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
 import 'package:lfs_tank_flutter/f01_utils/f02_rive_canvas.dart';
 import 'package:rive/rive.dart';
 
@@ -24,6 +25,9 @@ class RiveComponent extends PositionComponent {
   late Artboard artboard;
   late Vector2 canvasSize;
   bool _loaded = false;
+
+  @override
+  int get priority => LayerPriority.components;
   /// *************************************************** ----- *************************************************/
   /// *************************************************** 实例化 *************************************************/
   /// *************************************************** ----- *************************************************/

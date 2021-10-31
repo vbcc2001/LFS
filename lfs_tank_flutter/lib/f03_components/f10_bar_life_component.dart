@@ -32,7 +32,7 @@ class BarLifeComponent extends PositionComponent with HasGameRef<MyGame> {
   @override
   Future<void> onLoad() async {
     super.onLoad();
-    RiveFile riveFile = await RiveFile.asset('rives/health_ui.riv');
+    RiveFile riveFile = await RiveFile.asset('assets/rives/health_ui.riv');
     RiveComponent riveComponent = RiveComponent(riveFile, gameRef.context,artboardName:"01", size:size, position: Vector2(0, 0));
     add(riveComponent);
   }

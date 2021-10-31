@@ -15,6 +15,6 @@ class Joystick extends JoystickComponent  {
   Joystick() : super(
     knob: Circle(radius: 30).toComponent(paint: BasicPalette.blue.withAlpha(200).paint()),
     background: Circle(radius: 60).toComponent(paint: BasicPalette.blue.withAlpha(100).paint()),
-    margin: const EdgeInsets.only(left: 60, bottom: 60),
+    margin: const EdgeInsets.only(left: 20, bottom: 20),
   );
 }

@@ -25,11 +25,10 @@ class PlayerComponent extends SpriteAnimationGroupComponent with Attackable, Mov
     double life = 100,
     double speed = 100,
   }): super.fromFrameData(image,spriteAnimationMap,position:position,size:size,){
-    this.initLife(life);
+    initLife(life);
     this.speed = speed;
-    this.receivesAttackFrom = ReceivesAttackFromEnum.player;
-// this.directionAnimation = animation;
-    this.current = DirectionAnimationEnum.idleLeft;
+    receivesAttackFrom = ReceivesAttackFromEnum.player;
+    current = DirectionAnimationEnum.idleLeft;
   }
 
   @override

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'game.dart';
 
 void main() async {
-
+  WidgetsFlutterBinding.ensureInitialized();
   await Flame.device.fullScreen();
   await Flame.device.setLandscapeLeftOnly();
   runApp(const MyApp());

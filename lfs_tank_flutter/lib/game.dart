@@ -5,6 +5,7 @@ import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Image;
+import 'package:rive/rive.dart';
 import 'f01_utils/f03_game.dart';
 import 'f02_layers/f01_background.dart';
 import 'f02_layers/f02_map_gird.dart';
@@ -13,7 +14,9 @@ import 'f02_layers/f04_color_filter.dart';
 import 'f02_layers/f05_lighting.dart';
 import 'f02_layers/f06_map_background.dart';
 import 'f03_components/f01_joystick_component.dart';
+import 'f03_components/f03_rive_component.dart';
 import 'f03_components/f06_player_goblin.dart';
+import 'f03_components/f06_player_tank.dart';
 import 'f03_components/f15_selector_component.dart';
 
 class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerComponents,HasTappableComponents,HasHoverableComponents,MouseMovementDetector,HasDraggableComponents {
@@ -98,8 +101,25 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
     /****************************************** player **************************************/
     Image imagePlay =  await images.load('f04_player.png');
     player = PlayerGoblin( joystick:joystick, image: imagePlay , position:size/2);
-    add(player);
-    camera.followComponent(player);
+    // add(player);
+    // camera.followComponent(player);
+
+    PlayerTank tank = PlayerTank(position: size/2);
+    add(tank);
+    camera.followComponent(tank);
+
+    RiveFile riveFile1 = await RiveFile.asset('assets/rives/grass.riv');
+    SimpleAnimation animationController =  SimpleAnimation('wind');
+    RiveComponent a = RiveComponent(riveFile1, context, animationController: animationController,artboardName:"01",size:Vector2(200,300),position: Vector2(300,300));
+    add(a);
+    RiveComponent b = RiveComponent(riveFile1, context,size:Vector2(200,300),position: Vector2(200,150));
+    add(b);
+    RiveFile riveFile3 = await RiveFile.asset('assets/rives/tree.riv');
+    RiveComponent d = RiveComponent(riveFile3, context,artboardName:"02", size:Vector2(200,200),position: Vector2(100,400));
+    add(d);
+    SimpleAnimation animationController1 =  SimpleAnimation('wind');
+    RiveComponent e = RiveComponent(riveFile3, context,artboardName:"01", animationController: animationController1,size:Vector2(200,200),position: Vector2(600,400));
+    add(e);
 
   }
 
