@@ -2,15 +2,19 @@
 import 'dart:ui';
 
 import 'package:flame/components.dart';
-import 'package:flame/flame.dart';
 import 'package:flame/input.dart';
 import 'package:flutter/material.dart' show Colors;
 import 'package:flutter/services.dart';
+import 'package:lfs_tank_flutter/f01_utils/f10_direction_animation.dart';
+import 'package:lfs_tank_flutter/f04_mixin/f02_component.dart';
+import 'package:lfs_tank_flutter/f04_mixin/f11_lighting.dart';
 
 import '../game.dart';
+import 'f01_joystick_component.dart';
+import 'f06_player_component.dart';
 
 //AutomaticRandomMovement
-class PlayerGoblin extends PlayerComponent  with HasGameRef<MyGame>, MyComponentMixin,Lighting,KeyboardHandler {
+class PlayerGoblin extends PlayerComponent with HasGameRef<MyGame>,MyComponent,Lighting,KeyboardHandler {
 
   static final spriteSize = Vector2(64, 64);
   static final animationMap = {

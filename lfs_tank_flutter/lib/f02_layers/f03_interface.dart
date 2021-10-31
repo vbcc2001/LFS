@@ -1,25 +1,21 @@
-import 'dart:ui';
-
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f00_utils/f01_layer_priority.dart';
 import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
-import 'package:lfs_tank_flutter/f01_utils/f02_component.dart';
-import '../f00_utils/f02_component/f02_component.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f11_backpack_flag_component.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f12_attributes_flag_component.dart';
+import 'package:lfs_tank_flutter/f03_components/f10_bar_life_component.dart';
+import 'package:lfs_tank_flutter/f03_components/f11_backpack_flag_component.dart';
+import 'package:lfs_tank_flutter/f03_components/f12_attributes_flag_component.dart';
+import 'package:lfs_tank_flutter/f03_components/f13_backpack_component.dart';
+import 'package:lfs_tank_flutter/f03_components/f14_attributes_component.dart';
 
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f10_bar_life_component.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f13_backpack_component.dart';
-import 'package:lfs_admin_flutter/f05_pages/f02_home/f04_game/f02_components/f14_attributes_component.dart';
+import '../game.dart';
+
 
 /// The way you cand raw things like life bars, stamina and settings. In another words, anything that you may add to the interface to the game.
-class InterfaceLayer extends MyComponent {
+class InterfaceLayer extends PositionComponent with  HasGameRef<MyGame> {
 
   /// textConfig used to show FPS
-  final textConfigGreen = TextPaint( config: TextPaintConfig(color: Colors.green, fontSize: 14),);
-  final textConfigRed = TextPaint( config: TextPaintConfig(color: Colors.red, fontSize: 14),);
+  final textConfigGreen = TextPaint( config: const TextPaintConfig(color: Colors.green, fontSize: 14),);
+  final textConfigRed = TextPaint( config: const TextPaintConfig(color: Colors.red, fontSize: 14),);
   final backpackComponent  = BackpackComponent();
   final attributesComponent  = AttributesComponent();
   @override
@@ -33,25 +29,26 @@ class InterfaceLayer extends MyComponent {
 
   @override
   Future<void> onLoad() async {
+    super.onLoad();
     add(BarLifeComponent());
-    add(BackpackFlagComponent((isOpen) => this.showBackpack(isOpen)));
-    add(AttributesFlagComponent((isOpen) => this.showAttributesComponent(isOpen)));
+    add(BackpackFlagComponent((isOpen) => showBackpack(isOpen)));
+    add(AttributesFlagComponent((isOpen) => showAttributesComponent(isOpen)));
     add(TextComponent(
       'player',
       position: Vector2(260, 30),
-      textRenderer:TextPaint( config: TextPaintConfig(color: Colors.white),)
+      textRenderer:TextPaint( config: const TextPaintConfig(color: Colors.white),)
     ));
   }
   void showBackpack(bool show)  => show ? add(backpackComponent): remove(backpackComponent);
   void showAttributesComponent(bool show)  => show ? add(attributesComponent): remove(attributesComponent);
 
   @override
-  void render(Canvas c) {
-    super.render(c);
+  void render(Canvas canvas) {
+    super.render(canvas);
     if (gameRef.showFPS) {
       double? fps = gameRef.fps(100);
-      if (fps >= 58) { textConfigGreen.render(c, 'FPS: ${fps.toStringAsFixed(2)}', Vector2((gameRef.size.x) - 100, 20),);}
-      else { textConfigRed.render(c, 'FPS: ${fps.toStringAsFixed(2)}', Vector2((gameRef.size.x) - 100, 20),);}
+      if (fps >= 58) { textConfigGreen.render(canvas, 'FPS: ${fps.toStringAsFixed(2)}', Vector2((gameRef.size.x) - 100, 20),);}
+      else { textConfigRed.render(canvas, 'FPS: ${fps.toStringAsFixed(2)}', Vector2((gameRef.size.x) - 100, 20),);}
     }
   }
 }

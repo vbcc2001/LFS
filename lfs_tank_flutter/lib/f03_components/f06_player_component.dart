@@ -2,6 +2,9 @@
 import 'dart:ui';
 
 import 'package:flame/components.dart';
+import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
+import 'package:lfs_tank_flutter/f01_utils/f10_direction_animation.dart';
+import 'package:lfs_tank_flutter/f04_mixin/f07_attackable.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f09_movement.dart';
 
 class PlayerComponent extends SpriteAnimationGroupComponent with Attackable, Movement<DirectionAnimationEnum>{
@@ -11,7 +14,8 @@ class PlayerComponent extends SpriteAnimationGroupComponent with Attackable, Mov
   double maxSpeed = 100.0;
 
   final JoystickComponent joystick;
-
+  @override
+  int get priority => LayerPriority.components;
   PlayerComponent({
     required this.joystick,
     required Vector2 position,
@@ -20,10 +24,10 @@ class PlayerComponent extends SpriteAnimationGroupComponent with Attackable, Mov
     required Map<DirectionAnimationEnum, SpriteAnimationData> spriteAnimationMap,
     double life = 100,
     double speed = 100,
-  }): super.fromFrameData(image,spriteAnimationMap,priority:LayerPriority.COMPONENTS,position:position,size:size,){
+  }): super.fromFrameData(image,spriteAnimationMap,position:position,size:size,){
     this.initLife(life);
     this.speed = speed;
-    this.receivesAttackFrom = ReceivesAttackFromEnum.PLAYER;
+    this.receivesAttackFrom = ReceivesAttackFromEnum.player;
 // this.directionAnimation = animation;
     this.current = DirectionAnimationEnum.idleLeft;
   }

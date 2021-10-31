@@ -1,10 +1,13 @@
 import 'dart:ui';
 
 import 'package:flame/components.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
 import '../game.dart';
+import 'f03_rive_component.dart';
 
-class BarLifeComponent extends SpriteComponent with HasGameRef<MyGame> {
+class BarLifeComponent extends PositionComponent with HasGameRef<MyGame> {
 
   static const double widthBar = 90;
   static const double strokeWidth = 12;
@@ -28,33 +31,35 @@ class BarLifeComponent extends SpriteComponent with HasGameRef<MyGame> {
 
   @override
   Future<void> onLoad() async {
-    sprite = await Sprite.load('health_ui.png');
-    print(position);
+    super.onLoad();
+    RiveFile riveFile = await RiveFile.asset('rives/health_ui.riv');
+    RiveComponent riveComponent = RiveComponent(riveFile, gameRef.context,artboardName:"01", size:size, position: Vector2(0, 0));
+    add(riveComponent);
   }
 
   @override
   void update(double t) {
     super.update(t);
-    life = this.gameRef.player.life ;
-    maxLife = this.gameRef.player.maxLife;
-    maxStamina = this.gameRef.player.maxStamina;
-    stamina = this.gameRef.player.stamina;
+    life = gameRef.player.life ;
+    maxLife = gameRef.player.maxLife;
+    maxStamina = gameRef.player.maxStamina;
+    stamina = gameRef.player.stamina;
   }
 
   @override
   void render(Canvas canvas) {
     super.render(canvas);
     /********************** drawLife ************************/
-    double xBar = position.x -20 + 26;
+    double xBar = position.x -20 + 25;
     double yBar = position.y -20 + 10;
     canvas.drawLine(Offset(xBar, yBar), Offset(xBar + widthBar, yBar), maxLifePaint);
     double currentBarLife = (life * widthBar) / maxLife;
     if ( currentBarLife > widthBar * 2 / 3 )  {
-      lifePaint..color = Colors.green;
+      lifePaint.color = Colors.green;
     } else if ( currentBarLife > widthBar / 3 ) {
-      lifePaint..color = Colors.yellow;
+      lifePaint.color = Colors.yellow;
     } else {
-      lifePaint..color = Colors.red;
+      lifePaint.color = Colors.red;
     }
     canvas.drawLine(Offset(xBar, yBar), Offset(xBar + currentBarLife, yBar), lifePaint);
     /********************** drawStamina ************************/
