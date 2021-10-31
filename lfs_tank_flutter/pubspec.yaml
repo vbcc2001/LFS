@@ -1,0 +1,33 @@
+name: lfs_tank_flutter
+description: 坦克对战游戏
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.15.0-226.0.dev <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+  #flame
+  flame: ^1.0.0-releasecandidate.15
+  flame_audio: ^1.0.0-rc.1
+  flame_tiled:
+    git:
+      url: https://github.com/flame-engine/flame_tiled.git
+
+  #rive
+  rive: ^0.7.33
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/rives/
