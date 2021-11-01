@@ -16,11 +16,7 @@ import 'package:lfs_tank_flutter/f04_mixin/f11_lighting.dart';
 import 'package:rive/rive.dart';
 import 'package:flutter/material.dart';
 import '../game.dart';
-import 'f01_joystick_component.dart';
-import 'f03_rive_component.dart';
-import 'f06_player_component.dart';
 
-//AutomaticRandomMovement
 class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,KeyboardHandler, Attackable {
 
   /// The file to draw on the canvas
@@ -47,7 +43,7 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,L
   @override
   int get priority => LayerPriority.components;
 
-  PlayerTank( {required Vector2 position}) : super( position:position,size:spriteSize,anchor: Anchor.center,);
+  PlayerTank() : super(size:spriteSize,anchor: Anchor.center);
 
   @override
   Future<void> onLoad() async {
@@ -78,20 +74,20 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,L
   void update(double dt) {
     super.update(dt);
     artboard.advance(dt);
-    if (!gameRef.joystick.delta.isZero()) {
-      position.add(gameRef.joystick.relativeDelta * speed * dt);
+    if (!gameRef.joystickLayer.joystick.delta.isZero()) {
+      position.add(gameRef.joystickLayer.joystick.relativeDelta * speed * dt);
       // angle = gameRef.joystick.delta.screenAngle();
-      if(gameRef.joystick.relativeDelta.x>=0 ){
-        if(gameRef.joystick.relativeDelta.x.abs()>gameRef.joystick.relativeDelta.y.abs()){
+      if(gameRef.joystickLayer.joystick.relativeDelta.x>=0 ){
+        if(gameRef.joystickLayer.joystick.relativeDelta.x.abs()>gameRef.joystickLayer.joystick.relativeDelta.y.abs()){
           move();
         }else{
-          gameRef.joystick.relativeDelta.y>0?  down() : up();
+          gameRef.joystickLayer.joystick.relativeDelta.y>0?  down() : up();
         }
-      }else if(gameRef.joystick.relativeDelta.x<0 ){
-        if(gameRef.joystick.relativeDelta.x.abs()>gameRef.joystick.relativeDelta.y.abs()){
+      }else if(gameRef.joystickLayer.joystick.relativeDelta.x<0 ){
+        if(gameRef.joystickLayer.joystick.relativeDelta.x.abs()>gameRef.joystickLayer.joystick.relativeDelta.y.abs()){
           backMove();
         }else{
-          gameRef.joystick.relativeDelta.y>0?  down() : up();
+          gameRef.joystickLayer.joystick.relativeDelta.y>0?  down() : up();
         }
       }
     }else{

@@ -13,9 +13,8 @@ import 'f02_layers/f03_interface.dart';
 import 'f02_layers/f04_color_filter.dart';
 import 'f02_layers/f05_lighting.dart';
 import 'f02_layers/f06_map_background.dart';
-import 'f03_components/f01_joystick_component.dart';
+import 'f02_layers/f07_joystick.dart';
 import 'f03_components/f03_rive_component.dart';
-import 'f03_components/f06_player_goblin.dart';
 import 'f03_components/f06_player_tank.dart';
 import 'f03_components/f15_selector_component.dart';
 
@@ -26,9 +25,9 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
   final interface = InterfaceLayer();
   /// Game Player
   /// 游戏玩家角色
-  late final PlayerGoblin player;
+  final  player =  PlayerTank();
   /// 操作杆
-  Joystick joystick = Joystick() ;
+  JoystickLayer joystickLayer = JoystickLayer();
   /// 需要显示的灯光元素
   LightingLayer lightingLayer = LightingLayer();
   ///选择器
@@ -78,7 +77,7 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
     /****************************************** 鼠标选择层 **************************************/
     add(selectorComponent);
     /****************************************** 操作杆 **************************************/
-    add(joystick);
+    add(joystickLayer);
     /**************** ************************** map **************************************/
     // map = DungeonMap.map();
     // add(map);
@@ -99,14 +98,8 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
 
 
     /****************************************** player **************************************/
-    Image imagePlay =  await images.load('f04_player.png');
-    player = PlayerGoblin( joystick:joystick, image: imagePlay , position:size/2);
-    // add(player);
-    // camera.followComponent(player);
-
-    PlayerTank tank = PlayerTank(position: size/2);
-    add(tank);
-    camera.followComponent(tank);
+    add(player..position = size/2);
+    camera.followComponent(player);
 
     RiveFile riveFile1 = await RiveFile.asset('assets/rives/grass.riv');
     SimpleAnimation animationController =  SimpleAnimation('wind');
