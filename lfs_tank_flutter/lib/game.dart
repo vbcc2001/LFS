@@ -2,10 +2,12 @@ import 'dart:ui';
 
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
+import 'package:flame/geometry.dart';
 import 'package:flame/input.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Image;
 import 'package:rive/rive.dart';
+import 'f01_utils/f01_layer_priority.dart';
 import 'f01_utils/f03_game.dart';
 import 'f02_layers/f01_background.dart';
 import 'f02_layers/f02_map_gird.dart';
@@ -14,9 +16,11 @@ import 'f02_layers/f04_color_filter.dart';
 import 'f02_layers/f05_lighting.dart';
 import 'f02_layers/f06_map_background.dart';
 import 'f02_layers/f07_joystick.dart';
+import 'f03_components/f01_flying_attack_component.dart';
 import 'f03_components/f03_rive_component.dart';
 import 'f03_components/f06_player_tank.dart';
 import 'f03_components/f15_selector_component.dart';
+import 'f04_mixin/f09_movement.dart';
 
 class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerComponents,HasTappableComponents,HasHoverableComponents,MouseMovementDetector,HasDraggableComponents {
   /// 游戏上下文 Context
@@ -114,6 +118,56 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
     RiveComponent e = RiveComponent(riveFile3, context,artboardName:"01", animationController: animationController1,size:Vector2(200,200),position: Vector2(600,400));
     add(e);
 
+    add(MyCollidable(Vector2(600,300)));
   }
 
+}
+
+
+class MyCollidable extends PositionComponent with HasGameRef<MyGame>, Hitbox, Collidable {
+  final _collisionColor = Colors.amber;
+  final _defaultColor = Colors.cyan;
+  bool _isWallHit = false;
+  bool _isCollision = false;
+  @override
+  int get priority => LayerPriority.components;
+
+  MyCollidable(Vector2 position) : super(
+    position: position,
+    size: Vector2.all(100),
+    anchor: Anchor.center,
+  ) {
+    addHitbox(HitboxCircle());
+  }
+
+  @override
+  Future<void> onLoad() async {
+    await super.onLoad();
+  }
+
+  @override
+  void update(double dt) {
+    super.update(dt);
+    if (_isWallHit) {
+      removeFromParent();
+      return;
+    }
+    debugColor = _isCollision ? _collisionColor : _defaultColor;
+    _isCollision = false;
+  }
+
+  @override
+  void render(Canvas canvas) {
+    super.render(canvas);
+    renderHitboxes(canvas);
+  }
+
+  @override
+  void onCollision(Set<Vector2> intersectionPoints, Collidable other) {
+    if (other is ScreenCollidable) {
+      _isWallHit = true;
+      return;
+    }
+    _isCollision = true;
+  }
 }

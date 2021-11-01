@@ -3,6 +3,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flame/components.dart';
+import 'package:flame/geometry.dart';
 import 'package:flame/input.dart';
 import 'package:flutter/material.dart' show Alignment, BuildContext, Colors;
 import 'package:flutter/services.dart';
@@ -16,8 +17,9 @@ import 'package:lfs_tank_flutter/f04_mixin/f11_lighting.dart';
 import 'package:rive/rive.dart';
 import 'package:flutter/material.dart';
 import '../game.dart';
+import 'f01_flying_attack_component.dart';
 
-class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,KeyboardHandler, Attackable {
+class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,KeyboardHandler,Hitbox,Collidable, Attackable {
 
   /// The file to draw on the canvas
   late RiveFile riveFile;
@@ -40,14 +42,17 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,L
   double stamina = 100;
   double maxSpeed = 100.0;
   double speed = 100.0;
+  Direction direction = Direction.right;
   @override
   int get priority => LayerPriority.components;
 
-  PlayerTank() : super(size:spriteSize,anchor: Anchor.center);
-
+  PlayerTank() : super(size:spriteSize,anchor: Anchor.center){
+    addHitbox(HitboxCircle());
+  }
   @override
   Future<void> onLoad() async {
     super.onLoad();
+
     // 添加 Tank 动画
     RiveFile riveFile = await RiveFile.asset('assets/rives/tank.riv');
     artboard =  riveFile.artboardByName("01")!;
@@ -62,9 +67,20 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,L
     blurBorder= width * 1.5;
     color=Colors.transparent;
     gameRef.lightingLayer.lights.add(this);
+
   }
 
-  void startFireAnimation() => fireAnimation.isActive = true;
+  void startFireAnimation(){
+    fireAnimation.isActive = true;
+
+    // 动画
+    Future<SpriteAnimation> attackRangeAnimation;
+    // 攻击方向
+    // Direction attackDirection = direction;
+    gameRef.add(FlyingAttackComponent("1", direction,position:Vector2(position.x+64,position.y+64)));
+
+  }
+
   void stopFireAnimation() => fireAnimation.isActive = false;
 
   void startRunAnimation() => runAnimation.isActive = true;
@@ -137,41 +153,49 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,L
   void idle() {
     angle = 0;
     scale = Vector2(1,1);
+    direction = Direction.right;
     stopRunAnimation();
   }
   void backIdle() {
     angle = 0;
     scale = Vector2(-1,1);
+    direction = Direction.left;
     stopRunAnimation();
   }
   void upIdle() {
     angle = -0.5 * pi;
     scale = Vector2(1,1);
+    direction = Direction.up;
     stopRunAnimation();
   }
   void downIdle() {
     angle = 0.5 * pi;
     scale = Vector2(1,1);
+    direction = Direction.down;
     stopRunAnimation();
   }
   void move() {
     angle = 0;
     scale = Vector2(1,1);
+    direction = Direction.right;
     startRunAnimation();
   }
   void backMove() {
     angle = 0;
     scale = Vector2(-1,1);
+    direction = Direction.left;
     startRunAnimation();
   }
   void up() {
     angle = -0.5 * pi;
     scale = Vector2(1,1);
+    direction = Direction.up;
     startRunAnimation();
   }
   void down() {
     angle = 0.5 * pi;
     scale = Vector2(1,1);
+    direction = Direction.down;
     startRunAnimation();
   }
 }
