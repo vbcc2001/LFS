@@ -13,6 +13,7 @@ import 'package:rive/rive.dart';
 
 import '../game.dart';
 import 'f03_rive_component.dart';
+import 'f06_player_tank.dart';
 
 class FlyingAttackComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,Hitbox,Collidable {
 
@@ -38,9 +39,11 @@ class FlyingAttackComponent extends PositionComponent with HasGameRef<MyGame>,My
   @override
   int get priority => LayerPriority.components;
 
-  FlyingAttackComponent(this.id, this.direction, {required Vector2 position}): startPosition =  Vector2.copy(position), super(size:Vector2(54,14),position:position){
-    addHitbox(HitboxRectangle());
-  }
+  FlyingAttackComponent(this.id, this.direction, {required Vector2 position}):
+    startPosition =  Vector2.copy(position),
+    super(size:Vector2(54,14),position:position,anchor: Anchor.center){
+      addHitbox(HitboxRectangle());
+    }
   @override
   Future<void> onLoad() async {
     super.onLoad();
@@ -50,22 +53,21 @@ class FlyingAttackComponent extends PositionComponent with HasGameRef<MyGame>,My
     add(a);
     switch (direction) {
       case Direction.right:
-        a.angle = 1 * pi;
+        angle = 1 * pi;
         break;
       case Direction.up:
-        a.angle = 0.5 * pi;
+        angle = 0.5 * pi;
         break;
       case Direction.down:
-        a.angle = -0.5 * pi;
+        angle = -0.5 * pi;
         break;
     }
-
   }
-
   @override
   void render(Canvas canvas) {
     super.render(canvas);
-    renderHitboxes(canvas);
+
+    // renderHitboxes(canvas);
   }
 
   @override
@@ -105,6 +107,10 @@ class FlyingAttackComponent extends PositionComponent with HasGameRef<MyGame>,My
       _isWallHit = true;
       return;
     }
-    _isCollision = true;
+    if(other is PlayerTank || other is FlyingAttackComponent){
+
+    }else{
+      _isCollision = true;
+    }
   }
 }

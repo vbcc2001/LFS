@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flame/components.dart';
+import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flame/geometry.dart';
 import 'package:flame/input.dart';
@@ -18,6 +19,7 @@ import 'f02_layers/f06_map_background.dart';
 import 'f02_layers/f07_joystick.dart';
 import 'f03_components/f01_flying_attack_component.dart';
 import 'f03_components/f03_rive_component.dart';
+import 'f03_components/f05_enemy_slime.dart';
 import 'f03_components/f06_player_tank.dart';
 import 'f03_components/f15_selector_component.dart';
 import 'f04_mixin/f09_movement.dart';
@@ -93,13 +95,7 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
     // MapDecoration mapDecoration = DungeonMap.decorations();
     // add(mapDecoration);
     /****************************************** enemies **************************************/
-    // Image image = await Flame.images.load('minotaur.png');
-    // List<Goblin>  enemies = [
-    //   Goblin(image: image, position: DungeonMap.getRelativeTilePosition(14, 6)),
-    //   Goblin(image: image, position: DungeonMap.getRelativeTilePosition(20, 6)),
-    // ];
-    // enemies.forEach((enemy) => add(enemy) );
-
+    add(EnemySlimeComponent(position:Vector2(400,350)));
 
     /****************************************** player **************************************/
     add(player..position = size/2);
@@ -118,7 +114,7 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
     RiveComponent e = RiveComponent(riveFile3, context,artboardName:"01", animationController: animationController1,size:Vector2(200,200),position: Vector2(600,400));
     add(e);
 
-    add(MyCollidable(Vector2(600,300)));
+    // add(MyCollidable(Vector2(600,300)));
   }
 
 }

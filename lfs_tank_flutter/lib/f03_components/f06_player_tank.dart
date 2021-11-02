@@ -46,13 +46,12 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,L
   @override
   int get priority => LayerPriority.components;
 
-  PlayerTank() : super(size:spriteSize,anchor: Anchor.center){
+  PlayerTank() : super(size:spriteSize,anchor:Anchor.center){
     addHitbox(HitboxCircle());
   }
   @override
   Future<void> onLoad() async {
     super.onLoad();
-
     // 添加 Tank 动画
     RiveFile riveFile = await RiveFile.asset('assets/rives/tank.riv');
     artboard =  riveFile.artboardByName("01")!;
@@ -72,12 +71,19 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,L
 
   void startFireAnimation(){
     fireAnimation.isActive = true;
-
     // 动画
     Future<SpriteAnimation> attackRangeAnimation;
     // 攻击方向
     // Direction attackDirection = direction;
-    gameRef.add(FlyingAttackComponent("1", direction,position:Vector2(position.x+64,position.y+64)));
+    if(direction == Direction.right){
+      gameRef.add(FlyingAttackComponent("1", direction,position:Vector2(position.x+64,position.y-12)));
+    }else if(direction == Direction.left) {
+      gameRef.add(FlyingAttackComponent("1", direction, position: Vector2(position.x - 64, position.y-12)));
+    }else if(direction == Direction.up) {
+      gameRef.add(FlyingAttackComponent("1", direction, position: Vector2(position.x-12 , position.y -64)));
+    }else if(direction == Direction.down) {
+      gameRef.add(FlyingAttackComponent("1", direction, position: Vector2(position.x+12 , position.y +64)));
+    }
 
   }
 
