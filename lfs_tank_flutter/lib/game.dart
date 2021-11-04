@@ -23,6 +23,8 @@ import 'f03_components/f05_enemy_slime.dart';
 import 'f03_components/f06_player_tank.dart';
 import 'f03_components/f15_selector_component.dart';
 import 'f04_mixin/f09_movement.dart';
+import 'f05_map/f01_tiles.dart';
+import 'f05_map/f02_map_01.dart';
 
 class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerComponents,HasTappableComponents,HasHoverableComponents,MouseMovementDetector,HasDraggableComponents {
   /// 游戏上下文 Context
@@ -85,6 +87,8 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
     /****************************************** 操作杆 **************************************/
     add(joystickLayer);
     /**************** ************************** map **************************************/
+    var map = Map01();
+    add(map);
     // map = DungeonMap.map();
     // add(map);
     // var map2 =  DungeonMap.map2();
@@ -115,6 +119,15 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
     add(e);
 
     // add(MyCollidable(Vector2(600,300)));
+    // RiveFile riveFile5 = await RiveFile.asset('assets/rives/wall.riv');
+    // RiveComponent wall = RiveComponent(riveFile5, context,artboardName:"01", size:Vector2(64,64),position: Vector2(0,0));
+    // add(wall);
+    // RiveComponent wall2 = RiveComponent(riveFile5, context,artboardName:"02", size:Vector2(64,64),position: Vector2(64,0));
+    // add(wall2);
+    // RiveComponent wall3 = RiveComponent(riveFile5, context,artboardName:"02", size:Vector2(64,64),position: Vector2(64,64));
+    // add(wall3);
+
+
   }
 
 }
