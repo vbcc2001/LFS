@@ -24,10 +24,10 @@ class MapBackgroundLayer extends PositionComponent with HasGameRef<MyGame> {
     riveComponent.riveCanvas.offset = const Offset(-10,-10);
     riveComponent.riveCanvas.fit = BoxFit.fill;
     add(riveComponent);
-    RiveFile riveFile4 = await RiveFile.asset('assets/rives/sun.riv');
-    RiveComponent f = RiveComponent(riveFile4, gameRef.context,artboardName:"01", size:Vector2(100,100),position: position);
-    f.riveCanvas.offset =  const Offset(400,400);
-    add(f);
+    // RiveFile riveFile4 = await RiveFile.asset('assets/rives/sun.riv');
+    // RiveComponent f = RiveComponent(riveFile4, gameRef.context,artboardName:"01", size:Vector2(100,100),position: position);
+    // f.riveCanvas.offset =  const Offset(400,400);
+    // add(f);
   }
 
 

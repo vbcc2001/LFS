@@ -19,7 +19,7 @@ class TilesComponent extends PositionComponent with HasGameRef<MyGame>,MyCompone
   final size = Vector2(64,64);
   late RiveCanvas riveCanvas;
 
-  TilesComponent(this.tileName, Vector2 position):super(position:position,anchor: Anchor.center){
+  TilesComponent(this.tileName, Vector2 position):super(size:Vector2(64,64),position:position){
     addHitbox(HitboxRectangle());
   }
   @override

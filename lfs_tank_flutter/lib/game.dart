@@ -64,7 +64,9 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
     /****************************************** 初始化图片资源 **************************************/
     await images.loadAll(_imageAssets);
     /****************************************** Camera 设置 **************************************/
+    // camera.viewport = FixedResolutionViewport(Vector2(64*16, 64*16));
     camera.viewport = FixedResolutionViewport(size);
+    // camera.viewport = FixedResolutionViewport(Vector2(32*16, 32*16));
     // camera.zoom =2;
     /****************************************** background **************************************/
     var background = BackgroundLayer();
@@ -74,7 +76,7 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
     add(mapBackgroundLayer);
     /****************************************** 地图网格 **************************************/
     var mapGird = MapGirdLayer();
-    add(mapGird);
+    // add(mapGird);
     /****************************************** 灯光层 **************************************/
     // add(lightingLayer);
     /****************************************** ColorFilter **************************************/
@@ -89,12 +91,6 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
     /**************** ************************** map **************************************/
     var map = Map01();
     add(map);
-    // map = DungeonMap.map();
-    // add(map);
-    // var map2 =  DungeonMap.map2();
-    // add(map2);
-    // var map02 = Map02();
-    // add(map02);
     /****************************************** map 装饰物 **************************************/
     // MapDecoration mapDecoration = DungeonMap.decorations();
     // add(mapDecoration);
@@ -103,19 +99,19 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
 
     /****************************************** player **************************************/
     add(player..position = size/2);
-    camera.followComponent(player);
+    // camera.followComponent(player);;
 
     RiveFile riveFile1 = await RiveFile.asset('assets/rives/grass.riv');
     SimpleAnimation animationController =  SimpleAnimation('wind');
-    RiveComponent a = RiveComponent(riveFile1, context, animationController: animationController,artboardName:"01",size:Vector2(200,300),position: Vector2(300,300));
+    RiveComponent a = RiveComponent(riveFile1, context, animationController: animationController,artboardName:"01",size:Vector2(20,30),position: Vector2(300,300));
     add(a);
-    RiveComponent b = RiveComponent(riveFile1, context,size:Vector2(200,300),position: Vector2(200,150));
+    RiveComponent b = RiveComponent(riveFile1, context,size:Vector2(20,30),position: Vector2(200,150));
     add(b);
     RiveFile riveFile3 = await RiveFile.asset('assets/rives/tree.riv');
-    RiveComponent d = RiveComponent(riveFile3, context,artboardName:"02", size:Vector2(200,200),position: Vector2(100,400));
+    RiveComponent d = RiveComponent(riveFile3, context,artboardName:"02", size:Vector2(20,20),position: Vector2(100,400));
     add(d);
     SimpleAnimation animationController1 =  SimpleAnimation('wind');
-    RiveComponent e = RiveComponent(riveFile3, context,artboardName:"01", animationController: animationController1,size:Vector2(200,200),position: Vector2(600,400));
+    RiveComponent e = RiveComponent(riveFile3, context,artboardName:"01", animationController: animationController1,size:Vector2(20,20),position: Vector2(600,400));
     add(e);
 
     // add(MyCollidable(Vector2(600,300)));
@@ -126,6 +122,8 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
     // add(wall2);
     // RiveComponent wall3 = RiveComponent(riveFile5, context,artboardName:"02", size:Vector2(64,64),position: Vector2(64,64));
     // add(wall3);
+
+    // add(TilesComponent("01",Vector2.all(64)));
 
 
   }

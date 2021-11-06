@@ -15,7 +15,7 @@ import '../game.dart';
 import 'f03_rive_component.dart';
 import 'f06_player_tank.dart';
 
-class FlyingAttackComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,Hitbox,Collidable {
+class BulletComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,Hitbox,Collidable {
 
   final dynamic id;
   final Direction direction;
@@ -39,17 +39,17 @@ class FlyingAttackComponent extends PositionComponent with HasGameRef<MyGame>,My
   @override
   int get priority => LayerPriority.components;
 
-  FlyingAttackComponent(this.id, this.direction, {required Vector2 position}):
+  BulletComponent(this.id, this.direction, {required Vector2 position}):
     startPosition =  Vector2.copy(position),
     super(size:Vector2(54,14),position:position,anchor: Anchor.center){
-      addHitbox(HitboxRectangle());
+      addHitbox(HitboxCircle());
     }
   @override
   Future<void> onLoad() async {
     super.onLoad();
     RiveFile riveFile1 = await RiveFile.asset('assets/rives/bullet.riv');
     SimpleAnimation animationController =  SimpleAnimation('flying');
-    RiveComponent a = RiveComponent(riveFile1, gameRef.context, animationController: animationController,artboardName:"01",size:Vector2(54,14));
+    RiveComponent a = RiveComponent(riveFile1, gameRef.context, animationController: animationController,artboardName:"02",size:Vector2(8,8));
     add(a);
     switch (direction) {
       case Direction.right:
@@ -107,7 +107,7 @@ class FlyingAttackComponent extends PositionComponent with HasGameRef<MyGame>,My
       _isWallHit = true;
       return;
     }
-    if(other is PlayerTank || other is FlyingAttackComponent){
+    if(other is PlayerTank || other is BulletComponent){
 
     }else{
       _isCollision = true;

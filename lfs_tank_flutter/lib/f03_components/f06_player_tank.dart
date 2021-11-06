@@ -14,6 +14,7 @@ import 'package:lfs_tank_flutter/f04_mixin/f02_component.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f07_attackable.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f09_movement.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f11_lighting.dart';
+import 'package:lfs_tank_flutter/f05_map/f01_tiles.dart';
 import 'package:rive/rive.dart';
 import 'package:flutter/material.dart';
 import '../game.dart';
@@ -43,6 +44,8 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,L
   double maxSpeed = 100.0;
   double speed = 100.0;
   Direction direction = Direction.right;
+  Vector2 displacement = Vector2(0, 0);
+
   @override
   int get priority => LayerPriority.components;
 
@@ -97,6 +100,7 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,L
     super.update(dt);
     artboard.advance(dt);
     if (!gameRef.joystickLayer.joystick.delta.isZero()) {
+      displacement = gameRef.joystickLayer.joystick.relativeDelta * speed * dt;
       position.add(gameRef.joystickLayer.joystick.relativeDelta * speed * dt);
       // angle = gameRef.joystick.delta.screenAngle();
       if(gameRef.joystickLayer.joystick.relativeDelta.x>=0 ){
@@ -114,7 +118,9 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,L
       }
     }else{
       //键盘
+      displacement = velocity * speed * dt;
       position.add(velocity * (speed * dt));
+
     }
   }
 
@@ -203,6 +209,12 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,L
     scale = Vector2(1,1);
     direction = Direction.down;
     startRunAnimation();
+  }
+  @override
+  void onCollision(Set<Vector2> intersectionPoints, Collidable other) {
+    if (other is Collidable) {
+      position.add(-displacement);
+    }
   }
 }
 

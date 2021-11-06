@@ -17,39 +17,31 @@ class Map01 extends PositionComponent  with HasGameRef<MyGame>  {
   final tileSize = Vector2.all(destTileSize);
   @override
   int get priority => LayerPriority.map;
-
+  // @override
+  // bool get isHud => true;
   @override
   Future<void> onLoad() async {
     await super.onLoad();
     // debugMode =true;
     tileset[0] = TilesComponent("01",Vector2.all(0));
     tileset[1] = TilesComponent("02",Vector2.all(0));
+    tileset[2] = TilesComponent("03",Vector2.all(0));
     // await tileset[0]?.onLoad();
     // await tileset[1]?.onLoad();
-    matrix = await readCsvTile('maps/map01.csv');
+    matrix = await readCsvTile('assets/maps/map01.csv');
 
 
-    //计算显示范围
-    final int starX = (gameRef.camera.position.x / 64).ceil() ;
-    final int starY = (gameRef.camera.position.y / 64).ceil() ;
-    final int endX = starX + gameRef.gridX ;
-    final int endY =  starY +gameRef.gridY ;
-    //四周增加显示内容
-    final offsetStarX = starX-4>0?starX-4:0;
-    final offsetStarY = starY-4>0?starY-4:0;
-    final offsetEndX = endX + 4;
-    final offsetEndY = endY + 4;
-    for (var i = offsetStarX; i < offsetEndX ; i++) {
-      for (var j = offsetStarY; j < offsetEndY; j++) {
-        final element = matrix[j][i];
+    for (var i = 0; i < matrix.length ; i++) {
+      for (var j = 0; j < matrix[i].length; j++) {
+        final element = matrix[i][j];
         if (element != -1) {
-          var position = Vector2(i.toDouble(), j.toDouble())..multiply(Vector2.all(destTileSize));
-          if(element==0)  add(TilesComponent("01",position));
+          var position = Vector2(j.toDouble(), i.toDouble())..multiply(Vector2.all(destTileSize));
+          if(element==3)  add(TilesComponent("03",position));
+          if(element==2)  add(TilesComponent("02",position));
+          if(element==1)  add(TilesComponent("01",position));
         }
       }
     }
-
-
   }
 
   @override
