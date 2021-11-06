@@ -15,12 +15,10 @@ class ButtonComponent extends SpriteGroupComponent<ButtonState> with Tappable,Ho
     await super.onLoad();
     size = Vector2(200, 50);
     var images = Images(prefix:'');
-    Image buttonHighLight = await images.load('assets/images/f01_button/buttonHighLight.png');
-    Image buttonNormal = await images.load('assets/images/f01_button/buttonNormal.png');
-    Image buttonPressed = await images.load('assets/images/f01_button/buttonPressed.png');
-    // Image buttonHighLight = await Flame.images.load('f01_button/buttonHighLight.png');
-    // Image buttonNormal = await Flame.images.load('f01_button/buttonNormal.png');
-    // Image buttonPressed = await Flame.images.load('f01_button/buttonPressed.png');
+    // Image image = await images.load('assets/images/f07_logo.png');
+    Image buttonHighLight = await images.load('assets/images/f08_button_high_light.png');
+    Image buttonNormal = await images.load('assets/images/f09_button_normal.png');
+    Image buttonPressed = await images.load('assets/images/f10_button_pressed.png');
     final selectedSprite =  Sprite(buttonHighLight);
     final normalSprite =  Sprite(buttonNormal);
     final pressedSprite =  Sprite(buttonPressed);

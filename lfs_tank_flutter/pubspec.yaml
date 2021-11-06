@@ -32,7 +32,6 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/images/f01_button/
     - assets/rives/
     - assets/maps/
     - assets/audios/
