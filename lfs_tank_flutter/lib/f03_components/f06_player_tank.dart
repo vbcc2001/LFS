@@ -19,6 +19,7 @@ import 'package:rive/rive.dart';
 import 'package:flutter/material.dart';
 import '../game.dart';
 import 'f01_flying_attack_component.dart';
+import 'f04_bullet_component.dart';
 
 class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,KeyboardHandler,Hitbox,Collidable, Attackable {
 
@@ -74,6 +75,18 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,L
 
   void startFireAnimation(){
     fireAnimation.isActive = true;
+    if(direction == Direction.right){
+      gameRef.add(BulletComponent("1", direction,position:Vector2(position.x+64,position.y-12)));
+    }else if(direction == Direction.left) {
+      gameRef.add(BulletComponent("1", direction, position: Vector2(position.x - 64, position.y-12)));
+    }else if(direction == Direction.up) {
+      gameRef.add(BulletComponent("1", direction, position: Vector2(position.x-12 , position.y -64)));
+    }else if(direction == Direction.down) {
+      gameRef.add(BulletComponent("1", direction, position: Vector2(position.x+12 , position.y +64)));
+    }
+  }
+  void startFire2Animation(){
+    fireAnimation.isActive = true;
     // 动画
     Future<SpriteAnimation> attackRangeAnimation;
     // 攻击方向
@@ -87,9 +100,7 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,L
     }else if(direction == Direction.down) {
       gameRef.add(FlyingAttackComponent("1", direction, position: Vector2(position.x+12 , position.y +64)));
     }
-
   }
-
   void stopFireAnimation() => fireAnimation.isActive = false;
 
   void startRunAnimation() => runAnimation.isActive = true;

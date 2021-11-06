@@ -64,10 +64,9 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
     /****************************************** 初始化图片资源 **************************************/
     await images.loadAll(_imageAssets);
     /****************************************** Camera 设置 **************************************/
-    // camera.viewport = FixedResolutionViewport(Vector2(64*16, 64*16));
-    camera.viewport = FixedResolutionViewport(size);
-    // camera.viewport = FixedResolutionViewport(Vector2(32*16, 32*16));
-    // camera.zoom =2;
+    camera.viewport = FixedResolutionViewport(Vector2(64*16, 64*16));
+    // camera.viewport = FixedResolutionViewport(size);
+    // camera.zoom =0.5;
     /****************************************** background **************************************/
     var background = BackgroundLayer();
     add(background);
