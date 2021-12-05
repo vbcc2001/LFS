@@ -4,7 +4,7 @@ import 'package:flame/components.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
-import '../game.dart';
+import '../f06_pages/f04_scene_01/game.dart';
 import 'f03_rive_component.dart';
 
 class BarLifeComponent extends PositionComponent with HasGameRef<MyGame> {

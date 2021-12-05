@@ -14,7 +14,8 @@ dependencies:
 
   #flame
   flame: ^1.0.0-releasecandidate.15
-  flame_audio: ^1.0.0-rc.1
+  flame_audio: ^1.0.0-rc.15
+  audioplayers: ^0.20.1
   flame_tiled:
     git:
       url: https://github.com/flame-engine/flame_tiled.git
@@ -34,4 +35,4 @@ flutter:
     - assets/images/
     - assets/rives/
     - assets/maps/
-    - assets/audios/
+    - assets/audio/

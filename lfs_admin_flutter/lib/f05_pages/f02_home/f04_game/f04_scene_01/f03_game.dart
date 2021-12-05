@@ -11,7 +11,7 @@ import '../f02_components/f05_audio.dart';
 import '../f03_main_menu/f01_main_menu.dart';
 import '../f05_maze/maze.dart';
 
-class MyGame extends FlameGame with HasKeyboardHandlerComponents,FPSCounter, HasTappableComponents,MouseMovementDetector,HasHoverableComponents  {
+class MenuGame extends FlameGame with HasKeyboardHandlerComponents,FPSCounter, HasTappableComponents,MouseMovementDetector,HasHoverableComponents  {
   @override
   bool debugMode = true;
   final fpsTextBox = FpsTextBox();

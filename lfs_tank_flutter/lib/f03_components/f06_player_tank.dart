@@ -17,7 +17,7 @@ import 'package:lfs_tank_flutter/f04_mixin/f11_lighting.dart';
 import 'package:lfs_tank_flutter/f05_map/f01_tiles.dart';
 import 'package:rive/rive.dart';
 import 'package:flutter/material.dart';
-import '../game.dart';
+import '../f06_pages/f04_scene_01/game.dart';
 import 'f01_flying_attack_component.dart';
 import 'f04_bullet_component.dart';
 

@@ -7,7 +7,7 @@ import 'package:lfs_tank_flutter/f03_components/f12_attributes_flag_component.da
 import 'package:lfs_tank_flutter/f03_components/f13_backpack_component.dart';
 import 'package:lfs_tank_flutter/f03_components/f14_attributes_component.dart';
 
-import '../game.dart';
+import '../f06_pages/f04_scene_01/game.dart';
 
 
 /// The way you cand raw things like life bars, stamina and settings. In another words, anything that you may add to the interface to the game.

@@ -8,7 +8,7 @@ import 'package:lfs_tank_flutter/f03_components/f03_rive_component.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f02_component.dart';
 import 'package:rive/rive.dart';
 
-import '../game.dart';
+import '../f06_pages/f04_scene_01/game.dart';
 
 class TilesComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,Hitbox,Collidable {
 

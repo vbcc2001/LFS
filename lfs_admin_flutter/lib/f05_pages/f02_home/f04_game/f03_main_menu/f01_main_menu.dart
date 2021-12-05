@@ -7,7 +7,7 @@ import 'f02_logo.dart';
 import 'f04_button.dart';
 
 
-class MainMenu extends PositionComponent with HasGameRef<MyGame> {
+class MainMenu extends PositionComponent with HasGameRef<MenuGame> {
 
   MainMenu() : super(
     size: Vector2(400, 400),

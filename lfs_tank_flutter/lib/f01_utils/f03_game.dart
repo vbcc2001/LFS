@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
+import 'package:flutter/material.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f01_pointer_detector.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f11_lighting.dart';
 
@@ -11,10 +14,11 @@ import 'package:ordered_set/ordered_set.dart';
 /// Reorder components per time frame.
 class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
 
-  // @override
-  // bool debugMode = true;
+  final textConfigGreen = TextPaint( config: const TextPaintConfig(color: Colors.green, fontSize: 14),);
+  final textConfigRed = TextPaint( config: const TextPaintConfig(color: Colors.red, fontSize: 14),);
   /// Used to show in the interface the FPS.
-  final bool showFPS = true;
+  bool get showFPS => false;
+  // final bool showFPS = false;
   /// Components added by the [addLater] method
   final List<Component> _addLater = [];
   /// The list of components to be updated and rendered by the base game.
@@ -32,7 +36,15 @@ class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
   /// 需要显示的灯光元素
   Iterable<Lighting> visibleLights = List.empty();
 
-
+  @override
+  void render(Canvas canvas) {
+    super.render(canvas);
+    if (showFPS) {
+      double fpsCount = fps(100);
+      if (fpsCount >= 58) { textConfigGreen.render(canvas, 'FPS: ${fpsCount.toStringAsFixed(2)}', Vector2((size.x) - 100, 20),);}
+      else { textConfigRed.render(canvas, 'FPS: ${fpsCount.toStringAsFixed(2)}', Vector2((size.x) - 100, 20),);}
+    }
+  }
 
   @override
   void onGameResize(Vector2 canvasSize) {

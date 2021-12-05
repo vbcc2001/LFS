@@ -6,7 +6,7 @@ import 'package:flame/sprite.dart';
 import 'package:flutter/services.dart';
 import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
 
-import '../game.dart';
+import '../f06_pages/f04_scene_01/game.dart';
 import 'f01_tiles.dart';
 
 class Map01 extends PositionComponent  with HasGameRef<MyGame>  {

@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
 
-import '../game.dart';
+import '../f06_pages/f04_scene_01/game.dart';
 
 class ColorFilterLayer extends Component with HasGameRef<MyGame> {
 

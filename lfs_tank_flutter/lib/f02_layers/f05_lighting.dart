@@ -7,7 +7,7 @@ import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
 import 'package:lfs_tank_flutter/f01_utils/f03_interval_tick.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f11_lighting.dart';
 
-import '../game.dart';
+import '../f06_pages/f04_scene_01/game.dart';
 
 /// Layer component responsible for adding lighting to the game.
 /// 灯光组件

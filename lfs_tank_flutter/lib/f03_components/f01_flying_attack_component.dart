@@ -11,7 +11,7 @@ import 'package:lfs_tank_flutter/f04_mixin/f09_movement.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f11_lighting.dart';
 import 'package:rive/rive.dart';
 
-import '../game.dart';
+import '../f06_pages/f04_scene_01/game.dart';
 import 'f03_rive_component.dart';
 import 'f06_player_tank.dart';
 

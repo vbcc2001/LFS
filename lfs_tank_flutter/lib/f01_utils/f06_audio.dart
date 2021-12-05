@@ -1,6 +1,4 @@
-
-
-
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flame_audio/flame_audio.dart';
 
 class MyAudio {
@@ -13,6 +11,11 @@ class MyAudio {
   /// A getter to access the single instance of [AudioManager].
   static MyAudio get instance => _instance;
 
+  List<String> files =[
+    'audio/music/when_snow_become_ashes.ogg'
+  ];
+  final AudioCache audioCache = AudioCache(prefix: '');
+
   /// This method is responsible for initializing caching given list of [files],
   /// and initilizing settings.
   // Future<void> init(List<String> files, Settings settings) async {
@@ -21,11 +24,17 @@ class MyAudio {
   //   await FlameAudio.audioCache.loadAll(files);
   // }
   Future<void> init() async {
+    await audioCache.loadAll(files);
+    FlameAudio.audioCache = audioCache;
     FlameAudio.bgm.initialize();
+    // await FlameAudio.audioCache.loadAll(files);
   }
 
   void startBgmMusic() {
-    FlameAudio.bgm.play('assets/audios/when_snow_become_ashes.ogg');
+    FlameAudio.bgm.play('audio/music/when_snow_become_ashes.ogg');
+  }
+  void stopBgmMusic() {
+    FlameAudio.bgm.stop();
   }
   // Plays the given audio file once.
   void playSfx(String fileName) {

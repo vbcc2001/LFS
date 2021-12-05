@@ -1,7 +1,7 @@
 import 'package:flame_splash_screen/flame_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lfs_tank_flutter/f06_pages/f01_game/view.dart';
+import '../f03_main_menu/view.dart';
 
 import 'logic.dart';
 import 'state.dart';
