@@ -14,22 +14,26 @@ class MainMenu extends PositionComponent with HasGameRef<MyGame> {
 
   MainMenu() : super( size: Vector2(400, 400), );
 
+  late ButtonComponent musicButton;
   @override
   Future<void> onLoad() async {
     await super.onLoad();
     add(LogoSprite()..anchor=Anchor.center..position =Vector2(size.x/2, size.y/2-100));
     add(ButtonComponent("开始游戏",startGame)..anchor=Anchor.center..position=Vector2(size.x/2, size.y/2));
     add(ButtonComponent("制作鸣谢",thanks)..anchor=Anchor.center..position=Vector2(size.x/2, size.y/2+100));
-    add(ButtonComponent("关闭音乐",stopBgmMusic)..anchor=Anchor.center..position=Vector2(size.x/2, size.y/2+200));
+    musicButton = ButtonComponent("开启音乐",playBgmMusic)..anchor=Anchor.center..position=Vector2(size.x/2, size.y/2+200);
+    add(musicButton);
   }
 
   void startGame() {
-    Get.offAll( ()  {MyAudio.instance.stopBgmMusic();GameScene01();});
+    Get.offAll(() => GameScene01());
+    MyAudio.instance.stopBgmMusic();
   }
   void thanks() {
     Get.offAll(() => SplashPage());
   }
-  void stopBgmMusic() {
-    MyAudio.instance.stopBgmMusic();
+  void playBgmMusic() {
+    MyAudio.instance.bgmIsPlaying ?  MyAudio.instance.stopBgmMusic(): MyAudio.instance.startBgmMusic();
+    musicButton.text == "开启音乐" ? musicButton.text = "关闭音乐" : musicButton.text = "开启音乐" ;
   }
 }

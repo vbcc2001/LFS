@@ -1,7 +1,13 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:flame_audio/flame_audio.dart';
+import 'package:flutter/widgets.dart';
+// import 'package:flame_audio/flame_audio.dart';
 
 class MyAudio {
+
+  static AudioCache audioCache = AudioCache(prefix: 'assets/audio/');
+  bool bgmIsPlaying = false;
+  AudioPlayer? audioPlayer;
+
   // late Settings settings;
   MyAudio._internal();
 
@@ -12,66 +18,44 @@ class MyAudio {
   static MyAudio get instance => _instance;
 
   List<String> files =[
-    'audio/music/when_snow_become_ashes.ogg'
+    'sfx/jump14.wav'
   ];
-  final AudioCache audioCache = AudioCache(prefix: '');
+  static const List<String> bgmFiles =[
+    'music/when_snow_become_ashes.ogg'
+  ];
 
-  /// This method is responsible for initializing caching given list of [files],
-  /// and initilizing settings.
-  // Future<void> init(List<String> files, Settings settings) async {
-  //   this.settings = settings;
-  //   FlameAudio.bgm.initialize();
-  //   await FlameAudio.audioCache.loadAll(files);
-  // }
   Future<void> init() async {
+    await audioCache.loadAll(bgmFiles);
     await audioCache.loadAll(files);
-    FlameAudio.audioCache = audioCache;
-    FlameAudio.bgm.initialize();
-    // await FlameAudio.audioCache.loadAll(files);
   }
 
-  void startBgmMusic() {
-    FlameAudio.bgm.play('audio/music/when_snow_become_ashes.ogg');
+  Future<void> startBgmMusic  ({ String? fileName, double volume = 1.0}) async {
+    if (audioPlayer != null && audioPlayer!.state != PlayerState.STOPPED) {
+      audioPlayer!.stop();
+    }
+    bgmIsPlaying = true;
+    audioPlayer = await audioCache.loop(fileName??bgmFiles[0], volume: volume);
   }
-  void stopBgmMusic() {
-    FlameAudio.bgm.stop();
+  Future<void> stopBgmMusic() async {
+    if(audioPlayer!=null){
+      await audioPlayer!.stop();
+    }
+    bgmIsPlaying = false;
   }
-  // Plays the given audio file once.
-  void playSfx(String fileName) {
-      FlameAudio.audioCache.play(fileName);
+  Future<void> resumeBgmMusic() async {
+    if(audioPlayer!=null){
+      await audioPlayer!.resume();
+    }
+    bgmIsPlaying = true;
   }
-
-  // // Starts the given audio file as BGM on loop.
-  // void startBgm(String fileName) {
-  //   if (settings.bgm) {
-  //     FlameAudio.bgm.play(fileName, volume: 0.4);
-  //   }
-  // }
-  //
-  // // Pauses currently playing BGM if any.
-  // void pauseBgm() {
-  //   if (settings.bgm) {
-  //     FlameAudio.bgm.pause();
-  //   }
-  // }
-  //
-  // // Resumes currently paused BGM if any.
-  // void resumeBgm() {
-  //   if (settings.bgm) {
-  //     FlameAudio.bgm.resume();
-  //   }
-  // }
-  //
-  // // Stops currently playing BGM if any.
-  // void stopBgm() {
-  //   FlameAudio.bgm.stop();
-  // }
-  //
-  // // Plays the given audio file once.
-  // void playSfx(String fileName) {
-  //   if (settings.sfx) {
-  //     FlameAudio.audioCache.play(fileName);
-  //   }
-  // }
-
+  Future<void> pauseBgmMusic() async {
+    if(audioPlayer!=null){
+      await audioPlayer!.pause();
+    }
+    bgmIsPlaying = false;
+  }
+  Future<AudioPlayer> playSfx(String fileName, {double volume = 1.0}) {
+    return audioCache.play(fileName, volume: volume, mode: PlayerMode.LOW_LATENCY);
+  }
 }
+

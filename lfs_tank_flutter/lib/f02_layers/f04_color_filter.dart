@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:flame/components.dart';
+import 'package:flutter/painting.dart';
 import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
 
 import '../f06_pages/f04_scene_01/game.dart';
@@ -28,6 +27,6 @@ class ColorFilterLayer extends Component with HasGameRef<MyGame> {
   @override
   Paint get debugPaint => Paint()..color = debugColor..strokeWidth = 1..style = PaintingStyle.stroke;
   @override
-  TextPaint get debugTextPaint => TextPaint(config: TextPaintConfig(color: debugColor, fontSize: 12,),);
+  TextPaint get debugTextPaint => TextPaint(style: TextStyle(color: debugColor, fontSize: 12,),);
 
 }

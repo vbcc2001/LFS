@@ -1,15 +1,16 @@
-import 'dart:ui';
+import 'dart:ui' show Image;
 
 import 'package:flame/assets.dart';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/palette.dart';
+import 'package:flutter/painting.dart';
 
 enum ButtonState { normal, selected, pressed }
 class ButtonComponent extends SpriteGroupComponent<ButtonState> with Tappable,Hoverable {
 
-  final Function event;
-  final String  text;
+  late final Function event;
+  late final String  text;
   ButtonComponent(this.text, this.event);
   @override
   Future<void> onLoad() async {
@@ -29,8 +30,7 @@ class ButtonComponent extends SpriteGroupComponent<ButtonState> with Tappable,Ho
       ButtonState.normal: normalSprite,
     };
     current = ButtonState.normal;
-    final textComponent = TextComponent(text,
-        textRenderer: TextPaint(config: TextPaintConfig(color: BasicPalette.white.color).withFontSize(22.0)),
+    final textComponent = TextComponent(text: text, textRenderer: TextPaint(style: TextStyle(color: BasicPalette.white.color,fontSize: 22)),
     );
     add(textComponent..anchor = Anchor.center..position.setFrom(size/2));
   }

@@ -18,7 +18,7 @@ import 'f01_flying_attack_component.dart';
 import 'f02_text_damage_component.dart';
 import 'f03_rive_component.dart';
 
-class EnemySlimeComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,Hitbox,Collidable,Attackable {
+class EnemySlimeComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,HasHitboxes,Collidable,Attackable {
 
   bool _isCollision = false;
 
@@ -52,8 +52,8 @@ class EnemySlimeComponent extends PositionComponent with HasGameRef<MyGame>,MyCo
   @override
   void damage(double damage){
     super.damage(damage);
-    var config = const TextPaintConfig(fontSize: 14, color: Colors.white,);
-    var textDamageComponent = TextDamageComponent(damage.toInt().toString(),Vector2(position.x+size.x/2,position.y) ,config: config);
+    var style = const TextStyle(fontSize: 14, color: Colors.white,);
+    var textDamageComponent = TextDamageComponent(damage.toInt().toString(),Vector2(position.x+size.x/2,position.y) ,style: style);
     gameRef.add(textDamageComponent);
     if(life == 0) die();
   }

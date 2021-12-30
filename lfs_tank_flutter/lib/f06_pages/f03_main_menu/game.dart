@@ -6,7 +6,7 @@ import 'package:lfs_tank_flutter/f01_utils/f06_audio.dart';
 import 'components/f01_main_menu.dart';
 
 
-class MainGame extends CustomBaseGame with HasTappableComponents,MouseMovementDetector,HasHoverableComponents  {
+class MainGame extends CustomBaseGame with HasTappables,MouseMovementDetector,HasHoverables  {
 
   @override
   bool showFPS = true;
@@ -24,16 +24,14 @@ class MainGame extends CustomBaseGame with HasTappableComponents,MouseMovementDe
       baseVelocity: Vector2(20, 0),
       velocityMultiplierDelta: Vector2(1.8, 1.0),
     );
-    ParallaxComponent background = ParallaxComponent.fromParallax(parallax);
+    ParallaxComponent background = ParallaxComponent(parallax:parallax);
     add(background);
 
     //目录
     MainMenu mainMenu = MainMenu()..anchor=Anchor.center..position =Vector2(size.x/2, size.y/2);
     await add(mainMenu);
     //音乐
-    //AudioPool pool = await AudioPool.create('fire_2.mp3', minPlayers: 3, maxPlayers: 4);
     await MyAudio.instance.init();
-    MyAudio.instance.startBgmMusic();
   }
 }
 

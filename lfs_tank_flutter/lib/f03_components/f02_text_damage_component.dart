@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flame/components.dart';
 import 'package:flame/extensions.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
 
 import '../f06_pages/f04_scene_01/game.dart';
@@ -23,16 +24,14 @@ class TextDamageComponent extends TextComponent with HasGameRef<MyGame> {
   TextDamageComponent( String text,
     Vector2 position, {
     this.onlyUp = false,
-    TextPaintConfig? config,
+    TextStyle? style,
     double initVelocityTop = -4,
     this.maxDownSize = 20,
     this.gravity = 0.5,
     this.direction = DirectionTextDamage.random,
   }) : super(
-          text,
-          textRenderer: TextPaint(
-            config: config ?? const TextPaintConfig(),
-          ),
+          text:text,
+          textRenderer: TextPaint(style: style ?? const TextStyle(), ),
           position: position,
         ) {
     _initialY = position.y;

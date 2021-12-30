@@ -11,7 +11,7 @@ import '../f06_pages/f04_scene_01/game.dart';
 class JoystickLayer extends PositionComponent with  HasGameRef<MyGame> {
 
   @override
-  bool get isHud => true;
+  PositionType positionType = PositionType.widget;
   @override
   int get priority => LayerPriority.joystickPriority;
 
@@ -25,16 +25,18 @@ class JoystickLayer extends PositionComponent with  HasGameRef<MyGame> {
   @override
   Future<void> onLoad() async {
     super.onLoad();
-    joystick =JoystickComponent(
-      knob: Circle(radius: 30).toComponent(paint: BasicPalette.blue.withAlpha(200).paint()),
-      background: Circle(radius: 60).toComponent(paint: BasicPalette.blue.withAlpha(100).paint()),
+    final knobPaint = BasicPalette.blue.withAlpha(200).paint();
+    final backgroundPaint = BasicPalette.blue.withAlpha(100).paint();
+    joystick = JoystickComponent(
+      knob: CircleComponent(radius: 30, paint: knobPaint),
+      background: CircleComponent(radius: 60, paint: backgroundPaint),
       margin: const EdgeInsets.only(left: 20, bottom: 20),
     );
     add(joystick);
 
     fireButton = HudButtonComponent(
-      button: Circle(radius: 35).toComponent(paint: BasicPalette.white.paint()),
-      buttonDown: Circle(radius: 35).toComponent(paint: BasicPalette.green.paint()),
+      button: CircleComponent(radius: 35 ,paint: BasicPalette.white.paint()),
+      buttonDown: CircleComponent(radius: 35,paint: BasicPalette.green.paint()),
       margin: const EdgeInsets.only(right: 20, bottom: 20,),
       onPressed: gameRef.player.startFireAnimation
     );

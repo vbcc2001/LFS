@@ -17,7 +17,7 @@ class LightingLayer extends Component with HasGameRef<MyGame> {
   List<Lighting> lights = [];
   Iterable<Lighting> visibleLights = [];
   @override
-  bool get isHud => true;
+  PositionType positionType = PositionType.widget;
   @override
   int get priority => LayerPriority.lightingPriority;
 

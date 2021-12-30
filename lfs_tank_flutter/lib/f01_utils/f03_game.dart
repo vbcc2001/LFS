@@ -14,8 +14,8 @@ import 'package:ordered_set/ordered_set.dart';
 /// Reorder components per time frame.
 class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
 
-  final textConfigGreen = TextPaint( config: const TextPaintConfig(color: Colors.green, fontSize: 14),);
-  final textConfigRed = TextPaint( config: const TextPaintConfig(color: Colors.red, fontSize: 14),);
+  final textConfigGreen = TextPaint(style: TextStyle(color: Colors.green, fontSize: 14));
+  final textConfigRed = TextPaint( style: TextStyle(color: Colors.red, fontSize: 14));
   /// Used to show in the interface the FPS.
   bool get showFPS => false;
   // final bool showFPS = false;

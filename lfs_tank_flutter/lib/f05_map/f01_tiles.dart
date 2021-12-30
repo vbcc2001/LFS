@@ -10,13 +10,11 @@ import 'package:rive/rive.dart';
 
 import '../f06_pages/f04_scene_01/game.dart';
 
-class TilesComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,Hitbox,Collidable {
+class TilesComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,HasHitboxes,Collidable {
 
   @override
   int get priority => LayerPriority.map;
   final String tileName;
-  @override
-  final size = Vector2(64,64);
   late RiveCanvas riveCanvas;
 
   TilesComponent(this.tileName, Vector2 position):super(size:Vector2(64,64),position:position){

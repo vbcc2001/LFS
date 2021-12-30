@@ -9,6 +9,7 @@ import 'package:flutter/material.dart' show Alignment, BuildContext, Colors;
 import 'package:flutter/services.dart';
 import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
 import 'package:lfs_tank_flutter/f01_utils/f02_rive_canvas.dart';
+import 'package:lfs_tank_flutter/f01_utils/f06_audio.dart';
 import 'package:lfs_tank_flutter/f01_utils/f10_direction_animation.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f02_component.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f07_attackable.dart';
@@ -21,7 +22,7 @@ import '../f06_pages/f04_scene_01/game.dart';
 import 'f01_flying_attack_component.dart';
 import 'f04_bullet_component.dart';
 
-class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,KeyboardHandler,Hitbox,Collidable, Attackable {
+class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,KeyboardHandler,HasHitboxes,Collidable, Attackable {
 
   /// The file to draw on the canvas
   late RiveFile riveFile;
@@ -75,6 +76,7 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame>,MyComponent,L
 
   void startFireAnimation(){
     fireAnimation.isActive = true;
+    MyAudio.instance.playSfx('sfx/jump14.wav');
     if(direction == Direction.right){
       gameRef.add(BulletComponent("1", direction,position:Vector2(position.x+64,position.y-12)));
     }else if(direction == Direction.left) {

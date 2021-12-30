@@ -15,7 +15,7 @@ import '../f06_pages/f04_scene_01/game.dart';
 import 'f03_rive_component.dart';
 import 'f06_player_tank.dart';
 
-class FlyingAttackComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,Hitbox,Collidable {
+class FlyingAttackComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,HasHitboxes,Collidable {
 
   final dynamic id;
   final Direction direction;

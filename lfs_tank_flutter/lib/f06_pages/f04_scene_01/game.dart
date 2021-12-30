@@ -27,7 +27,10 @@ import '../../f04_mixin/f09_movement.dart';
 import '../../f05_map/f01_tiles.dart';
 import '../../f05_map/f02_map_01.dart';
 
-class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerComponents,HasTappableComponents,HasHoverableComponents,MouseMovementDetector,HasDraggableComponents {
+class MyGame extends CustomBaseGame  with HasCollidables,KeyboardHandler,HasTappables,HasHoverables,MouseMovementDetector,HasDraggables {
+
+  @override
+  bool showFPS = true;
   /// 游戏上下文 Context
   final BuildContext context;
   /// 界面层
@@ -65,8 +68,8 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
     /****************************************** 初始化图片资源 **************************************/
     await images.loadAll(_imageAssets);
     /****************************************** Camera 设置 **************************************/
-    camera.viewport = FixedResolutionViewport(Vector2(64*16, 64*16));
-    // camera.viewport = FixedResolutionViewport(size);
+    // camera.viewport = FixedResolutionViewport(Vector2(64*16, 64*16));
+    camera.viewport = FixedResolutionViewport(size);
     // camera.zoom =0.5;
     /****************************************** background **************************************/
     var background = BackgroundLayer();
@@ -99,7 +102,7 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
 
     /****************************************** player **************************************/
     add(player..position = size/2);
-    // camera.followComponent(player);;
+    camera.followComponent(player);;
 
     RiveFile riveFile1 = await RiveFile.asset('assets/rives/grass.riv');
     SimpleAnimation animationController =  SimpleAnimation('wind');
@@ -124,56 +127,55 @@ class MyGame extends CustomBaseGame  with HasCollidables,HasKeyboardHandlerCompo
     // add(wall3);
 
     // add(TilesComponent("01",Vector2.all(64)));
-
   }
 
 }
 
 
-class MyCollidable extends PositionComponent with HasGameRef<MyGame>, Hitbox, Collidable {
-  final _collisionColor = Colors.amber;
-  final _defaultColor = Colors.cyan;
-  bool _isWallHit = false;
-  bool _isCollision = false;
-  @override
-  int get priority => LayerPriority.components;
-
-  MyCollidable(Vector2 position) : super(
-    position: position,
-    size: Vector2.all(100),
-    anchor: Anchor.center,
-  ) {
-    addHitbox(HitboxCircle());
-  }
-
-  @override
-  Future<void> onLoad() async {
-    await super.onLoad();
-  }
-
-  @override
-  void update(double dt) {
-    super.update(dt);
-    if (_isWallHit) {
-      removeFromParent();
-      return;
-    }
-    debugColor = _isCollision ? _collisionColor : _defaultColor;
-    _isCollision = false;
-  }
-
-  @override
-  void render(Canvas canvas) {
-    super.render(canvas);
-    renderHitboxes(canvas);
-  }
-
-  @override
-  void onCollision(Set<Vector2> intersectionPoints, Collidable other) {
-    if (other is ScreenCollidable) {
-      _isWallHit = true;
-      return;
-    }
-    _isCollision = true;
-  }
-}
+// class MyCollidable extends PositionComponent with HasGameRef<MyGame>, HasHitboxes, Collidable {
+//   final _collisionColor = Colors.amber;
+//   final _defaultColor = Colors.cyan;
+//   bool _isWallHit = false;
+//   bool _isCollision = false;
+//   @override
+//   int get priority => LayerPriority.components;
+//
+//   MyCollidable(Vector2 position) : super(
+//     position: position,
+//     size: Vector2.all(100),
+//     anchor: Anchor.center,
+//   ) {
+//     addHitbox(HitboxCircle());
+//   }
+//
+//   @override
+//   Future<void> onLoad() async {
+//     await super.onLoad();
+//   }
+//
+//   @override
+//   void update(double dt) {
+//     super.update(dt);
+//     if (_isWallHit) {
+//       removeFromParent();
+//       return;
+//     }
+//     debugColor = _isCollision ? _collisionColor : _defaultColor;
+//     _isCollision = false;
+//   }
+//
+//   @override
+//   void render(Canvas canvas) {
+//     super.render(canvas);
+//     renderHitboxes(canvas);
+//   }
+//
+//   @override
+//   void onCollision(Set<Vector2> intersectionPoints, Collidable other) {
+//     if (other is ScreenCollidable) {
+//       _isWallHit = true;
+//       return;
+//     }
+//     _isCollision = true;
+//   }
+// }

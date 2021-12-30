@@ -14,12 +14,12 @@ import '../f06_pages/f04_scene_01/game.dart';
 class InterfaceLayer extends PositionComponent with  HasGameRef<MyGame> {
 
   /// textConfig used to show FPS
-  final textConfigGreen = TextPaint( config: const TextPaintConfig(color: Colors.green, fontSize: 14),);
-  final textConfigRed = TextPaint( config: const TextPaintConfig(color: Colors.red, fontSize: 14),);
+  final textConfigGreen = TextPaint(style: TextStyle(color: Colors.green, fontSize: 14));
+  final textConfigRed = TextPaint( style: TextStyle(color: Colors.red, fontSize: 14));
   final backpackComponent  = BackpackComponent();
   final attributesComponent  = AttributesComponent();
   @override
-  bool get isHud => true;
+  PositionType positionType = PositionType.widget;
   @override
   int get priority => LayerPriority.interfacePriority;
 
@@ -34,9 +34,9 @@ class InterfaceLayer extends PositionComponent with  HasGameRef<MyGame> {
     add(BackpackFlagComponent((isOpen) => showBackpack(isOpen)));
     add(AttributesFlagComponent((isOpen) => showAttributesComponent(isOpen)));
     add(TextComponent(
-      'player',
+      text: 'player',
       position: Vector2(260, 30),
-      textRenderer:TextPaint( config: const TextPaintConfig(color: Colors.white),)
+      textRenderer:TextPaint( style: TextStyle(color: Colors.white),)
     ));
   }
   void showBackpack(bool show)  => show ? add(backpackComponent): remove(backpackComponent);
