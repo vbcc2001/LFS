@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flame/input.dart';
 import 'package:flutter/material.dart' hide Animation;
+import 'package:flutter/services.dart';
 import 'package:lfs_tank_flutter/f01_utils/f02_rive_canvas.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f02_component.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f07_attackable.dart';
@@ -13,12 +14,14 @@ import '../../game.dart' ;
 import 'animation.dart';
 import 'model.dart';
 
-class Player extends PositionComponent with HasGameRef<MyGame2>,MyComponent,Lighting {
+class Player extends PositionComponent with HasGameRef<MyGame2>,MyComponent,Lighting,KeyboardHandler {
 
   /// 玩家数据
   final Model playerModel;
   /// 玩家动画
   late Animation playerAnimation;
+  /// 移动偏移量
+  final Vector2 velocity = Vector2(0, 0);
 
   late RiveCanvas riveCanvas;
 
@@ -40,11 +43,35 @@ class Player extends PositionComponent with HasGameRef<MyGame2>,MyComponent,Ligh
   void update(double dt) {
     super.update(dt);
     playerAnimation.artboard.advance(dt);
+    if (!gameRef.joystickLayer.joystick.delta.isZero()) {
+      position.add(gameRef.joystickLayer.joystick.relativeDelta * playerModel.speed * dt);
+    }else{
+      position.add(velocity *playerModel.speed*dt);
+    }
+
+
   }
   @override
   void render(Canvas canvas) {
     super.render(canvas);
     riveCanvas.draw(canvas, size.toSize());
   }
-
+  @override
+  bool onKeyEvent(RawKeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
+    final isKeyDown = event is RawKeyDownEvent;
+    if (event.logicalKey == LogicalKeyboardKey.keyA) {
+      velocity.x = isKeyDown ? -1 : 0;
+      return false;
+    } else if (event.logicalKey == LogicalKeyboardKey.keyD) {
+      velocity.x = isKeyDown ? 1 : 0;
+      return false;
+    } else if (event.logicalKey == LogicalKeyboardKey.keyW) {
+      velocity.y = isKeyDown ? -1 : 0;
+      return false;
+    } else if (event.logicalKey == LogicalKeyboardKey.keyS) {
+      velocity.y = isKeyDown ? 1 : 0;
+      return false;
+    }
+    return super.onKeyEvent(event, keysPressed);
+  }
 }

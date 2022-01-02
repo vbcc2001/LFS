@@ -18,7 +18,7 @@ class LightingLayer extends Component with HasGameRef<MyGame> {
   List<Lighting> lights = [];
   Iterable<Lighting> visibleLights = [];
   @override
-  PositionType positionType = PositionType.widget;
+  PositionType positionType = PositionType.viewport;
   @override
   int get priority => LayerPriority.lightingPriority;
 

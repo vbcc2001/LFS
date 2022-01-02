@@ -65,8 +65,8 @@ class MyGame extends FlameGame with FPSCounter,PointerDetector {
     super.render(canvas);
     if (showFPS) {
       double fpsCount = fps(100);
-      if (fpsCount >= 58) { textConfigGreen.render(canvas, 'FPS: ${fpsCount.toStringAsFixed(2)}', Vector2((size.x) - 100, 20),);}
-      else { textConfigRed.render(canvas, 'FPS: ${fpsCount.toStringAsFixed(2)}', Vector2((size.x) - 100, 20),);}
+      if (fpsCount >= 58) { textConfigGreen.render(canvas, 'FPS: ${fpsCount.toStringAsFixed(2)}', Vector2((canvasSize.x) - 100, 20),);}
+      else { textConfigRed.render(canvas, 'FPS: ${fpsCount.toStringAsFixed(2)}', Vector2((canvasSize.x) - 100, 20),);}
     }
   }
 

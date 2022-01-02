@@ -8,6 +8,7 @@ class Model{
   int level;
   int exp;
   String rivePath;
+  double speed = 100.0;
 
   Model({
     this.name = "player",
