@@ -7,7 +7,7 @@ import 'package:lfs_tank_flutter/f01_utils/f10_direction_animation.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f07_attackable.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f09_movement.dart';
 
-class PlayerComponent extends SpriteAnimationGroupComponent with Attackable, Movement<DirectionAnimationEnum>{
+class PlayerComponent extends PositionComponent with Attackable, Movement<DirectionAnimationEnum>{
 
   double maxStamina = 100.0;
   double stamina = 100;
@@ -20,15 +20,12 @@ class PlayerComponent extends SpriteAnimationGroupComponent with Attackable, Mov
     required this.joystick,
     required Vector2 position,
     required Vector2 size,
-    required Image image,
-    required Map<DirectionAnimationEnum, SpriteAnimationData> spriteAnimationMap,
     double life = 100,
     double speed = 100,
-  }): super.fromFrameData(image,spriteAnimationMap,position:position,size:size,){
+  }): super(position:position,size:size,){
     initLife(life);
     this.speed = speed;
     receivesAttackFrom = ReceivesAttackFromEnum.player;
-    current = DirectionAnimationEnum.idleLeft;
   }
 
   @override

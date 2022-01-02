@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:lfs_tank_flutter/f01_utils/f03_game.dart';
 import 'package:rive/rive.dart';
 import '../f06_pages/f04_scene_01/game.dart';
 import 'f03_rive_component.dart';
@@ -40,10 +41,10 @@ class BarLifeComponent extends PositionComponent with HasGameRef<MyGame> {
   @override
   void update(double t) {
     super.update(t);
-    life = gameRef.player.life ;
-    maxLife = gameRef.player.maxLife;
-    maxStamina = gameRef.player.maxStamina;
-    stamina = gameRef.player.stamina;
+    // life = gameRef.player.life ;
+    // maxLife = gameRef.player.maxLife;
+    // maxStamina = gameRef.player.maxStamina;
+    // stamina = gameRef.player.stamina;
   }
 
   @override

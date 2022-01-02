@@ -12,7 +12,7 @@ class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  GameWidget(
-      game: MainGame(),
+      game: MainGame(context),
       mouseCursor:SystemMouseCursors.click
     );
   }

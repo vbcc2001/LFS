@@ -1,6 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
+import 'package:lfs_tank_flutter/f01_utils/f03_game.dart';
 import 'package:lfs_tank_flutter/f03_components/f10_bar_life_component.dart';
 import 'package:lfs_tank_flutter/f03_components/f11_backpack_flag_component.dart';
 import 'package:lfs_tank_flutter/f03_components/f12_attributes_flag_component.dart';

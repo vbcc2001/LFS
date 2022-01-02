@@ -1,12 +1,13 @@
 import 'package:flame/components.dart';
 import 'package:flame/input.dart';
 import 'package:flame/parallax.dart';
+import 'package:flutter/material.dart';
 import 'package:lfs_tank_flutter/f01_utils/f03_game.dart';
 import 'package:lfs_tank_flutter/f01_utils/f06_audio.dart';
 import 'components/f01_main_menu.dart';
 
 
-class MainGame extends CustomBaseGame with HasTappables,MouseMovementDetector,HasHoverables  {
+class MainGame extends MyGame with HasTappables,MouseMovementDetector,HasHoverables  {
 
   @override
   bool showFPS = true;
@@ -14,6 +15,7 @@ class MainGame extends CustomBaseGame with HasTappables,MouseMovementDetector,Ha
     // ParallaxImageData('assets/images/f06_fire_temple.png'),
     ParallaxImageData('f06_fire_temple.png'),
   ];
+  MainGame(BuildContext context):super(context);
   @override
   Future<void> onLoad() async {
     await super.onLoad();

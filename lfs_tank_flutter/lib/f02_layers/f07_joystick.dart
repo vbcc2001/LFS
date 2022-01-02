@@ -4,6 +4,7 @@ import 'package:flame/input.dart';
 import 'package:flame/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
+import 'package:lfs_tank_flutter/f01_utils/f03_game.dart';
 
 import '../f06_pages/f04_scene_01/game.dart';
 
@@ -38,7 +39,7 @@ class JoystickLayer extends PositionComponent with  HasGameRef<MyGame> {
       button: CircleComponent(radius: 35 ,paint: BasicPalette.white.paint()),
       buttonDown: CircleComponent(radius: 35,paint: BasicPalette.green.paint()),
       margin: const EdgeInsets.only(right: 20, bottom: 20,),
-      onPressed: gameRef.player.startFireAnimation
+      // onPressed: gameRef.player.startFireAnimation
     );
     add(fireButton);
   }

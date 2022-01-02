@@ -5,6 +5,7 @@ import 'package:flame/extensions.dart';
 import 'package:flame/geometry.dart';
 import 'package:flutter/material.dart';
 import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
+import 'package:lfs_tank_flutter/f01_utils/f03_game.dart';
 import 'package:lfs_tank_flutter/f01_utils/f03_interval_tick.dart';
 import 'package:lfs_tank_flutter/f03_components/f06_player_tank.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f02_component.dart';

@@ -27,12 +27,11 @@ import '../../f04_mixin/f09_movement.dart';
 import '../../f05_map/f01_tiles.dart';
 import '../../f05_map/f02_map_01.dart';
 
-class MyGame extends CustomBaseGame  with HasCollidables,KeyboardHandler,HasTappables,HasHoverables,MouseMovementDetector,HasDraggables {
+class MyGame1 extends MyGame  with HasCollidables,KeyboardHandler,HasTappables,HasHoverables,MouseMovementDetector,HasDraggables {
 
   @override
   bool showFPS = true;
-  /// 游戏上下文 Context
-  final BuildContext context;
+
   /// 界面层
   final interface = InterfaceLayer();
   /// Game Player
@@ -48,23 +47,13 @@ class MyGame extends CustomBaseGame  with HasCollidables,KeyboardHandler,HasTapp
   static const List<String> _imageAssets = [
     'f04_player.png',
   ];
-  int gridX = 0;
-  int gridY = 0;
 
-  MyGame(this.context);
+
+  MyGame1(BuildContext context):super(context);
 
   @override
   Future<void> onLoad() async {
     super.onLoad();
-    gridX = (size.x / 64).ceil() ;
-    gridY = (size.y / 64).ceil() ;
-    if (kDebugMode) {
-      print("----------------------");
-      print(size);
-      print(gridX);
-      print(gridY);
-      print("+++++++++++++++++++++");
-    }
     /****************************************** 初始化图片资源 **************************************/
     await images.loadAll(_imageAssets);
     /****************************************** Camera 设置 **************************************/
@@ -73,7 +62,7 @@ class MyGame extends CustomBaseGame  with HasCollidables,KeyboardHandler,HasTapp
     // camera.zoom =0.5;
     /****************************************** background **************************************/
     var background = BackgroundLayer();
-    add(background);
+    // add(background);
     /****************************************** Map Background **************************************/
     var mapBackgroundLayer = MapBackgroundLayer();
     add(mapBackgroundLayer);

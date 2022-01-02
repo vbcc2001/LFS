@@ -2,7 +2,9 @@ import 'dart:ui';
 
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:lfs_tank_flutter/f03_components/f06_player_tank.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f01_pointer_detector.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f11_lighting.dart';
 
@@ -12,8 +14,11 @@ import 'package:ordered_set/ordered_set.dart';
 /// CustomBaseGame created to use `Listener` to capture touch screen gestures.
 /// Apply zoom in canvas.
 /// Reorder components per time frame.
-class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
-
+class MyGame extends FlameGame with FPSCounter,PointerDetector {
+  /// 游戏上下文 Context
+  final BuildContext context;
+  /// 游戏玩家角色
+  // final  player =  PlayerTank();
   final textConfigGreen = TextPaint(style: TextStyle(color: Colors.green, fontSize: 14));
   final textConfigRed = TextPaint( style: TextStyle(color: Colors.red, fontSize: 14));
   /// Used to show in the interface the FPS.
@@ -35,6 +40,25 @@ class CustomBaseGame extends FlameGame with FPSCounter,PointerDetector {
   // List<ObjectCollision> visibleCollisions = List.empty();
   /// 需要显示的灯光元素
   Iterable<Lighting> visibleLights = List.empty();
+  /// 网格数量
+  int gridX = 0;
+  int gridY = 0;
+
+  MyGame(this.context):super();
+
+  @override
+  Future<void> onLoad() async {
+    super.onLoad();
+    gridX = (size.x / 32).ceil();
+    gridY = (size.y / 32).ceil();
+    if (kDebugMode) {
+      print("----------------------");
+      print(size);
+      print(gridX);
+      print(gridY);
+      print("+++++++++++++++++++++");
+    }
+  }
 
   @override
   void render(Canvas canvas) {

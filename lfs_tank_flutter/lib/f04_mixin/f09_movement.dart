@@ -6,7 +6,7 @@ import 'package:lfs_tank_flutter/f01_utils/f10_direction_animation.dart';
 
 /// Mixin responsible for adding movements
 enum Direction { left, right, up, down, upLeft, upRight, downLeft, downRight }
-mixin Movement<T extends DirectionAnimationEnum> on SpriteAnimationGroupComponent {
+mixin Movement<T extends DirectionAnimationEnum> on PositionComponent {
   bool isIdle = true;
   double dtUpdate = 0;
   double speed = 100;
@@ -77,7 +77,7 @@ mixin Movement<T extends DirectionAnimationEnum> on SpriteAnimationGroupComponen
     lastDirection = Direction.up;
     lastDirectionHorizontal = Direction.right;
     directionAnimation?.play(DirectionAnimationEnum.runUp);
-    this.current = DirectionAnimationEnum.runUp;
+    // this.current = DirectionAnimationEnum.runUp;
   }
 
 
@@ -87,7 +87,7 @@ mixin Movement<T extends DirectionAnimationEnum> on SpriteAnimationGroupComponen
     lastDirection = Direction.down;
     lastDirectionHorizontal = Direction.right;
     directionAnimation?.play(DirectionAnimationEnum.runDown);
-    this.current = DirectionAnimationEnum.runDown;
+    // this.current = DirectionAnimationEnum.runDown;
   }
   void moveLeft() {
     position.add(Vector2(speed * dtUpdate * -1, 0));
@@ -95,7 +95,7 @@ mixin Movement<T extends DirectionAnimationEnum> on SpriteAnimationGroupComponen
     lastDirection = Direction.left;
     lastDirectionHorizontal = Direction.left;
     directionAnimation?.play(DirectionAnimationEnum.runLeft);
-    this.current = DirectionAnimationEnum.runLeft;
+    // this.current = DirectionAnimationEnum.runLeft;
   }
   void moveRight() {
     position.add(Vector2(speed * dtUpdate * 1, 0));
@@ -103,7 +103,7 @@ mixin Movement<T extends DirectionAnimationEnum> on SpriteAnimationGroupComponen
     lastDirection = Direction.right;
     lastDirectionHorizontal = Direction.right;
     directionAnimation?.play(DirectionAnimationEnum.runRight);
-    this.current = DirectionAnimationEnum.runRight;
+    // this.current = DirectionAnimationEnum.runRight;
   }
 
   void moveUpRight() {
@@ -112,7 +112,7 @@ mixin Movement<T extends DirectionAnimationEnum> on SpriteAnimationGroupComponen
     lastDirection = Direction.upRight;
     lastDirectionHorizontal = Direction.right;
     directionAnimation?.play(DirectionAnimationEnum.runUpRight);
-    this.current = DirectionAnimationEnum.runUpRight;
+    // this.current = DirectionAnimationEnum.runUpRight;
   }
   void moveUpLeft() {
     position.add(Vector2(speed * dtUpdate * -1, speed * dtUpdate * -1));
@@ -120,7 +120,7 @@ mixin Movement<T extends DirectionAnimationEnum> on SpriteAnimationGroupComponen
     lastDirection = Direction.upLeft;
     lastDirectionHorizontal = Direction.left;
     directionAnimation?.play(DirectionAnimationEnum.runUpLeft);
-    this.current = DirectionAnimationEnum.runUpLeft;
+    // this.current = DirectionAnimationEnum.runUpLeft;
   }
   void moveDownRight() {
     position.add(Vector2(speed * dtUpdate * 1, speed * dtUpdate * 1));
@@ -128,7 +128,7 @@ mixin Movement<T extends DirectionAnimationEnum> on SpriteAnimationGroupComponen
     lastDirection = Direction.downRight;
     lastDirectionHorizontal = Direction.right;
     directionAnimation?.play(DirectionAnimationEnum.runDownRight);
-    this.current = DirectionAnimationEnum.runDownRight;
+    // this.current = DirectionAnimationEnum.runDownRight;
   }
   void moveDownLeft() {
     position.add(Vector2(speed * dtUpdate * -1, speed * dtUpdate * 1));
@@ -136,7 +136,7 @@ mixin Movement<T extends DirectionAnimationEnum> on SpriteAnimationGroupComponen
     lastDirection = Direction.downLeft;
     lastDirectionHorizontal = Direction.left;
     directionAnimation?.play(DirectionAnimationEnum.runDownLeft);
-    this.current = DirectionAnimationEnum.runDownLeft;
+    // this.current = DirectionAnimationEnum.runDownLeft;
   }
   /// Move Player to direction by radAngle
   void moveFromAngle(double angle) {

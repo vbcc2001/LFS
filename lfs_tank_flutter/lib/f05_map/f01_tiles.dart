@@ -4,6 +4,7 @@ import 'package:flame/components.dart';
 import 'package:flame/geometry.dart';
 import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
 import 'package:lfs_tank_flutter/f01_utils/f02_rive_canvas.dart';
+import 'package:lfs_tank_flutter/f01_utils/f03_game.dart';
 import 'package:lfs_tank_flutter/f03_components/f03_rive_component.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f02_component.dart';
 import 'package:rive/rive.dart';

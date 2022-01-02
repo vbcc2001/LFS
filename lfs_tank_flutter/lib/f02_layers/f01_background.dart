@@ -1,17 +1,20 @@
 import 'package:flame/components.dart';
+import 'package:flame/layers.dart';
 import 'package:flutter/material.dart';
 import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
-import '../f06_pages/f04_scene_01/game.dart';
+import 'package:lfs_tank_flutter/f01_utils/f03_game.dart';
 
-class BackgroundLayer extends Component with HasGameRef<MyGame>  {
+class BackgroundLayer extends PreRenderedLayer  {
 
   final Color color = const Color(0xFF263238) ;
-  @override
+  // @override
   int get priority => LayerPriority.background;
-  
+
+  BackgroundLayer() {
+    preProcessors.add(ShadowProcessor());
+  }
   @override
-  void render(Canvas canvas) {
-    super.render(canvas);
+  void drawLayer() {
     canvas.save();
     canvas.drawColor(color, BlendMode.src);
     canvas.restore();

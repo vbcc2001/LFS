@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
+import 'package:lfs_tank_flutter/f01_utils/f03_game.dart';
 import 'package:lfs_tank_flutter/f01_utils/f03_interval_tick.dart';
 import 'package:lfs_tank_flutter/f04_mixin/f11_lighting.dart';
 

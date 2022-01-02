@@ -3,8 +3,7 @@ import 'dart:async';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
-
-import '../f06_pages/f04_scene_01/game.dart';
+import 'package:lfs_tank_flutter/f01_utils/f03_game.dart';
 
 class MapGirdLayer extends Component with HasGameRef<MyGame>  {
 

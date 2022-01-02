@@ -15,7 +15,6 @@ class SelectorComponent extends PositionComponent {
     super.render(canvas);
     if (show) {
       var rect = Rect.fromLTWH(position.x,position.y, 32.0, 32.0,);
-      // print(rect);
       canvas.drawRect(rect, paint);
     }
   }

@@ -2,6 +2,7 @@ import 'package:flame/components.dart';
 import 'package:flutter/material.dart' hide Image;
 import 'package:flutter/widgets.dart' hide Image;
 import 'package:lfs_tank_flutter/f01_utils/f01_layer_priority.dart';
+import 'package:lfs_tank_flutter/f01_utils/f03_game.dart';
 import 'package:lfs_tank_flutter/f03_components/f03_rive_component.dart';
 
 import 'package:rive/rive.dart';
