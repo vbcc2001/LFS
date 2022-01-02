@@ -28,14 +28,16 @@ class JoystickLayer extends PositionComponent with  HasGameRef<MyGame> {
     joystick = JoystickComponent(
       knob: CircleComponent(radius: 30, paint: BasicPalette.blue.withAlpha(200).paint()),
       background: CircleComponent(radius: 60, paint: BasicPalette.blue.withAlpha(100).paint()),
-      margin: const EdgeInsets.only(left: 20, bottom: 20),
+      position: Vector2( 80, gameRef.size.y*gameRef.camera.zoom-80)
+      // margin: const EdgeInsets.only(left: 20, bottom: 20),
     );
     add(joystick);
 
     fireButton = HudButtonComponent(
-      button: CircleComponent(radius: 35 ,paint: BasicPalette.white.withAlpha(200).paint()),
-      buttonDown: CircleComponent(radius: 35,paint: BasicPalette.green.withAlpha(200).paint()),
-      margin: const EdgeInsets.only(right: 20, bottom: 20,),
+      button: CircleComponent(radius: 30 ,paint: BasicPalette.white.withAlpha(200).paint()),
+      buttonDown: CircleComponent(radius: 30,paint: BasicPalette.green.withAlpha(200).paint()),
+        position: Vector2( gameRef.size.x*gameRef.camera.zoom -100, gameRef.size.y*gameRef.camera.zoom-100)
+      // margin: const EdgeInsets.only(right: 20, bottom: 20,),
       // onPressed: gameRef.player.startFireAnimation
     );
     add(fireButton);

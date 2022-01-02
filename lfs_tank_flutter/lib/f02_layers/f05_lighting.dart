@@ -32,7 +32,7 @@ class LightingLayer extends Component with HasGameRef<MyGame> {
   @override
   void render(Canvas canvas) {
     Vector2 size = gameRef.size;
-    canvas.saveLayer(Offset.zero & Size(size.x, size.y), Paint());
+    canvas.saveLayer(Offset.zero & Size(size.x, size.y*2)*gameRef.camera.zoom, Paint());
     canvas.drawColor(color, BlendMode.dstATop);
     lights.forEach((light) {
       // light.update(_dtUpdate);
